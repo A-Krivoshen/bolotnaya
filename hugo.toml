@@ -1,0 +1,41 @@
+baseURL = "https://bolotnaya.online/"
+defaultContentLanguage = "ru"
+title = "Болотная: Якиманка"
+theme = "PaperMod"
+
+[languages]
+  [languages.ru]
+    languageName = "Русский"
+    languageCode = "ru-RU"
+    contentDir = "content/ru"
+    weight = 1
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-US"
+    contentDir = "content/en"
+    weight = 2
+
+[params]
+  homeInfoTitle = "Якиманка: Камеры и история"
+  homeInfoDescription = "Онлайн-камеры, фото и рассказы о районе Якиманка"
+
+[[menu.main]]
+  name = "Камеры"
+  url = "/cameras/"
+  weight = 1
+[[menu.main]]
+  name = "История"
+  url = "/history/"
+  weight = 2
+[[menu.main]]
+  name = "Фото"
+  url = "/photos/"
+  weight = 3
+[[menu.main]]
+  name = "Блог"
+  url = "/posts/"
+  weight = 4
+
+[sitemap]
+  filename = "sitemap.xml"
+
