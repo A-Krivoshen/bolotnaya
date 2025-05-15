@@ -18,6 +18,14 @@ theme = "PaperMod"
 [params]
   homeInfoTitle = "Якиманка: Камеры и история"
   homeInfoDescription = "Онлайн-камеры, фото и рассказы о районе Якиманка"
+  ShowReadingTime = false
+  ShowBreadCrumbs = false
+  ShowToc = false
+  ShowPostNavLinks = false
+  ShowFullTextinRSS = true
+  ShowCodeCopyButtons = false
+  hideSummary = false
+  hideMeta = false
 
 [[menu.main]]
   name = "Камеры"
@@ -38,4 +46,3 @@ theme = "PaperMod"
 
 [sitemap]
   filename = "sitemap.xml"
-

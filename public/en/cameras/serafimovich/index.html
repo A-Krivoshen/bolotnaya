@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Bolotnaya Square | Болотная: Якиманка</title>
+<title>Serafimovicha street | Болотная: Якиманка</title>
 <meta name="keywords" content="">
-<meta name="description" content="Bolotnaya Square View Bolotnaya Square in real-time">
+<meta name="description" content="Live stream of Serafimovicha street">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/en/cameras/">
+<link rel="canonical" href="http://localhost:1313/en/cameras/serafimovich/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,9 +18,8 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/en/cameras/index.xml">
-<link rel="alternate" hreflang="ru" href="http://localhost:1313/cameras/">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/en/cameras/">
+<link rel="alternate" hreflang="ru" href="http://localhost:1313/cameras/serafimovich/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/en/cameras/serafimovich/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +59,7 @@
 </noscript>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -108,7 +107,7 @@
         <ul id="menu">
             <li>
                 <a href="http://localhost:1313/en/cameras/" title="Камеры">
-                    <span class="active">Камеры</span>
+                    <span>Камеры</span>
                 </a>
             </li>
             <li>
@@ -130,220 +129,60 @@
     </nav>
 </header>
 <main class="main">
-<div class="cameras-list">
-  <h1></h1>
-  <div class="tabs">
-    
-      <button class="tab-link" onclick="openTab('bolotnaya')">Bolotnaya Square</button>
-    
-      <button class="tab-link" onclick="openTab('camera2')">Serafimovicha street</button>
-    
-  </div>
+<div class="custom-page">
   
-    <div id="bolotnaya" class="tab-content">
-      <h2>Bolotnaya Square</h2>
-      <p>Live stream of Bolotnaya Square</p>
-      
-        <div class="video-container">
-          <video id="video-bolotnaya" controls autoplay muted>
-            <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
-          </video>
-          <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-          <script>
-            var video = document.getElementById('video-bolotnaya');
-            var hlsUrl = 'https:\/\/test-streams.mux.dev\/x36xhzz\/x36xhzz.m3u8';
-            if (hlsUrl) {
-              if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(hlsUrl);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.ERROR, function(event, data) {
-                  console.log('HLS Error:', data);
-                });
-              } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = hlsUrl;
-              }
-            }
-          </script>
-        </div>
-      
-    </div>
+  <div class="video-container">
   
-    <div id="camera2" class="tab-content">
-      <h2>Serafimovicha street</h2>
-      <p>Live stream of Serafimovicha street</p>
-      
-        <div class="video-container">
-          <video id="video-camera2" controls autoplay muted>
-            <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
-          </video>
-          <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-          <script>
-            var video = document.getElementById('video-camera2');
-            var hlsUrl = 'https:\/\/test-streams.mux.dev\/x36xhzz\/x36xhzz.m3u8';
-            if (hlsUrl) {
-              if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(hlsUrl);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.ERROR, function(event, data) {
-                  console.log('HLS Error:', data);
-                });
-              } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = hlsUrl;
-              }
-            }
-          </script>
-        </div>
-      
-    </div>
+    <video id="video-camera2" controls autoplay muted>
+      <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+    </video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+      var video = document.getElementById('video-camera2');
+      var hlsUrl = 'https:\/\/test-streams.mux.dev\/x36xhzz\/x36xhzz.m3u8';
+      if (hlsUrl) {
+        if (Hls.isSupported()) {
+          var hls = new Hls();
+          hls.loadSource(hlsUrl);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.ERROR, function(event, data) {
+            console.log('HLS Error:', data);
+          });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = hlsUrl;
+        }
+      } else {
+        console.log('HLS URL не указан');
+      }
+    </script>
   
 </div>
 <style>
-.cameras-list {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
-  background: linear-gradient(90deg, #f1f1f1, #e0e0e0);
-  border-radius: 12px;
-  padding: 8px;
-  overflow: hidden;
-}
-
-.tab-link {
-  flex: 1;
-  background: #fff;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 25px;
-  font-size: 16px;
-  color: #333;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.tab-link:hover {
-  background: linear-gradient(90deg, #e0e0e0, #d0d0d0);
-  color: #000;
-  transform: translateY(-2px);
-}
-
-.tab-link.active {
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.tab-content {
-  display: none;
-  padding: 25px;
-  border-radius: 12px;
-  background: #f9f9f9;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.tab-content.active {
-  display: block;
-}
-
 .video-container {
-  max-width: 100%;
-  margin: 25px 0;
-  padding: 15px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  max-width: 800px !important;  
+  margin: 20px auto !important;  
+  padding: 10px !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+  display: block !important;
 }
-
 .video-container video {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-h1 {
-  text-align: center;
-  color: #222;
-  margin-bottom: 25px;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-h2 {
-  color: #333;
-  margin-bottom: 15px;
-  font-size: 22px;
-  font-weight: 500;
-}
-
-p {
-  color: #666;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
- 
-@media (max-width: 600px) {
-  .cameras-list {
-    margin: 15px;
-    padding: 15px;
-  }
-  .tabs {
-    flex-direction: column;
-    gap: 10px;
-    padding: 5px;
-  }
-  .tab-link {
-    width: 100%;
-    padding: 12px 20px;
-  }
-  .video-container {
-    margin: 15px 0;
-    padding: 10px;
-  }
-  h1 {
-    font-size: 22px;
-  }
-  h2 {
-    font-size: 18px;
-  }
+  width: 100% !important;  
+  height: auto !important;
+  display: block !important;
+  border-radius: 5px !important;
 }
 </style>
-<script>
-  function openTab(tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-      tabcontent[i].classList.remove("active");
-    }
-    tablinks = document.getElementsByClassName("tab-link");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    document.getElementById(tabName).classList.add("active");
-    event.currentTarget.className += " active";
-  }
-  document.getElementsByClassName("tab-link")[0].click();
-</script>
+</div>
+<style>
+.custom-page {
+  max-width: 100% !important;
+  margin: 20px auto !important;
+  padding: 10px !important;
+  display: block !important;
+}
+</style>
 
     </main>
     

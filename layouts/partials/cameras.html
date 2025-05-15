@@ -1,0 +1,378 @@
+<div class="camera-container">
+  <div id="adblock-message" style="display:none; padding:20px; background-color:#ffcccc; border:1px solid #ff0000; border-radius:5px; margin-bottom:20px; text-align:center;">
+    {{ if eq .Site.Language.Lang "ru" }}
+      Пожалуйста, отключите блокировщик рекламы, чтобы просматривать трансляцию.
+    {{ else }}
+      Please disable your ad blocker to view the stream.
+    {{ end }}
+  </div>
+  <div class="tab-buttons">
+    <button class="tab-button" data-tab="camera1">{{ if eq .Site.Language.Lang "ru" }}Камера 1{{ else }}Camera 1{{ end }}</button>
+    <button class="tab-button" data-tab="camera2">{{ if eq .Site.Language.Lang "ru" }}Камера 2{{ else }}Camera 2{{ end }}</button>
+  </div>
+  <div class="tab-content active" id="camera1">
+    <div class="tab-pane">
+      <video id="video1" controls muted></video>
+      <div id="status1" class="status">{{ if eq .Site.Language.Lang "ru" }}Подключено{{ else }}Connected{{ end }}</div>
+    </div>
+  </div>
+  <div class="tab-content" id="camera2">
+    <div class="tab-pane">
+      <video id="video2" controls muted></video>
+      <div id="status2" class="status">{{ if eq .Site.Language.Lang "ru" }}Подключено{{ else }}Connected{{ end }}</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hlsInstances = {};
+    const errorStartTimes = {};
+    const countdownIntervals = {};
+
+    function updateCountdown(videoElementId) {
+      const errorStart = errorStartTimes[videoElementId] || Date.now();
+      const elapsed = (Date.now() - errorStart) / 1000;
+      return Math.max(2 - elapsed, 0);
+    }
+
+    function checkStreamAvailability(url, callback) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('HEAD', url, true);
+      xhr.timeout = 5000;
+      xhr.onload = () => callback(true);
+      xhr.onerror = () => callback(false);
+      xhr.ontimeout = () => callback(false);
+      xhr.send();
+    }
+
+    function setupCamera(videoElementId, statusElementId, streamUrl) {
+      const video = document.getElementById(videoElementId);
+      const tabPane = video.parentElement;
+      const status = document.getElementById(statusElementId);
+
+      console.log(`Инициализация камеры ${videoElementId} с URL: ${streamUrl}`);
+
+      checkStreamAvailability(streamUrl, isAvailable => {
+        if (!isAvailable) {
+          console.log(`Поток ${streamUrl} недоступен для ${videoElementId}`);
+          status.textContent = {{ if eq .Site.Language.Lang "ru" }}'Поток недоступен'{{ else }}'Stream unavailable'{{ end }};
+          status.classList.remove('connected', 'reconnecting', 'buffering');
+          status.classList.add('error');
+          setTimeout(() => setupCamera(videoElementId, statusElementId, streamUrl), 2000);
+          return;
+        }
+
+        if (Hls.isSupported()) {
+          const hls = new Hls({
+            liveSyncDuration: 2,
+            maxBufferLength: 15,
+            maxMaxBufferLength: 30,
+            liveBackBufferLength: 5,
+            maxFragLookUpTolerance: 0.2,
+            highBufferWatchdogPeriod: 2,
+            lowBufferWatchdogPeriod: 1,
+            enableWorker: true,
+            startFragPrefetch: true,
+            backBufferLength: 90,
+            fragLoadingTimeOut: 5000,
+            manifestLoadingTimeOut: 5000,
+            levelLoadingTimeOut: 5000
+          });
+
+          hls.loadSource(streamUrl);
+          hls.attachMedia(video);
+
+          hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            console.log(`Manifest загружен для ${videoElementId}`);
+            video.play().catch(err => console.log(`Ошибка воспроизведения ${videoElementId}: ${err}`));
+            status.textContent = {{ if eq .Site.Language.Lang "ru" }}'Подключено'{{ else }}'Connected'{{ end }};
+            status.classList.remove('error', 'reconnecting', 'buffering');
+            status.classList.add('connected');
+            clearInterval(countdownIntervals[videoElementId]);
+            delete errorStartTimes[videoElementId];
+          });
+
+          hls.on(Hls.Events.ERROR, function(event, data) {
+            console.log(`Ошибка HLS для ${videoElementId}: ${data.type} - ${data.details}`);
+            if (!errorStartTimes[videoElementId]) {
+              errorStartTimes[videoElementId] = Date.now();
+              countdownIntervals[videoElementId] = setInterval(() => {
+                const countdown = updateCountdown(videoElementId);
+                status.textContent = {{ if eq .Site.Language.Lang "ru" }}`Ошибка подключения. Переподключение (${Math.ceil(countdown)}s)`{{ else }}`Connection error. Reconnecting (${Math.ceil(countdown)}s)`{{ end }};
+                if (countdown <= 0) {
+                  clearInterval(countdownIntervals[videoElementId]);
+                  delete countdownIntervals[videoElementId];
+                  setupCamera(videoElementId, statusElementId, streamUrl);
+                }
+              }, 1000);
+            }
+            status.classList.remove('connected', 'buffering');
+            status.classList.add('error', 'reconnecting');
+            if (data.fatal) {
+              switch (data.type) {
+                case Hls.ErrorTypes.NETWORK_ERROR:
+                  console.log(`Сетевая ошибка для ${videoElementId}, переподключение через 2 секунды...`);
+                  hls.destroy();
+                  delete hlsInstances[videoElementId];
+                  setTimeout(() => setupCamera(videoElementId, statusElementId, streamUrl), 2000);
+                  break;
+                case Hls.ErrorTypes.MEDIA_ERROR:
+                  console.log(`Медиа ошибка для ${videoElementId}, попытка восстановления...`);
+                  hls.recoverMediaError();
+                  break;
+                default:
+                  console.log(`Необрабатываемая ошибка для ${videoElementId}, перезагрузка...`);
+                  hls.destroy();
+                  delete hlsInstances[videoElementId];
+                  setTimeout(() => setupCamera(videoElementId, statusElementId, streamUrl), 2000);
+                  break;
+              }
+            }
+          });
+
+          video.addEventListener('error', function(e) {
+            console.log(`Ошибка видео ${videoElementId}:`, e);
+            if (!errorStartTimes[videoElementId]) {
+              errorStartTimes[videoElementId] = Date.now();
+              countdownIntervals[videoElementId] = setInterval(() => {
+                const countdown = updateCountdown(videoElementId);
+                status.textContent = {{ if eq .Site.Language.Lang "ru" }}`Ошибка подключения. Переподключение (${Math.ceil(countdown)}s)`{{ else }}`Connection error. Reconnecting (${Math.ceil(countdown)}s)`{{ end }};
+                if (countdown <= 0) {
+                  clearInterval(countdownIntervals[videoElementId]);
+                  delete countdownIntervals[videoElementId];
+                  setupCamera(videoElementId, statusElementId, streamUrl);
+                }
+              }, 1000);
+            }
+            status.classList.remove('connected', 'buffering');
+            status.classList.add('error', 'reconnecting');
+            if (hlsInstances[videoElementId]) {
+              hlsInstances[videoElementId].destroy();
+              delete hlsInstances[videoElementId];
+            }
+          });
+
+          video.addEventListener('stalled', function() {
+            console.log(`Буфер застопорился для ${videoElementId}, перезагрузка...`);
+            if (!errorStartTimes[videoElementId]) {
+              errorStartTimes[videoElementId] = Date.now();
+              countdownIntervals[videoElementId] = setInterval(() => {
+                const countdown = updateCountdown(videoElementId);
+                status.textContent = {{ if eq .Site.Language.Lang "ru" }}`Ошибка подключения. Переподключение (${Math.ceil(countdown)}s)`{{ else }}`Connection error. Reconnecting (${Math.ceil(countdown)}s)`{{ end }};
+                if (countdown <= 0) {
+                  clearInterval(countdownIntervals[videoElementId]);
+                  delete countdownIntervals[videoElementId];
+                  setupCamera(videoElementId, statusElementId, streamUrl);
+                }
+              }, 1000);
+            }
+            status.classList.remove('connected', 'buffering');
+            status.classList.add('error', 'reconnecting');
+            if (hlsInstances[videoElementId]) {
+              hlsInstances[videoElementId].destroy();
+              delete hlsInstances[videoElementId];
+            }
+          });
+
+          video.addEventListener('waiting', function() {
+            console.log(`Буферизация для ${videoElementId}`);
+            status.textContent = {{ if eq .Site.Language.Lang "ru" }}'Буферизация...'{{ else }}'Buffering...'{{ end }};
+            status.classList.remove('connected', 'error', 'reconnecting');
+            status.classList.add('buffering');
+            clearInterval(countdownIntervals[videoElementId]);
+            delete errorStartTimes[videoElementId];
+          });
+
+          video.addEventListener('playing', function() {
+            console.log(`Камера ${videoElementId} начала воспроизведение`);
+            tabPane.classList.add('loaded');
+            status.textContent = {{ if eq .Site.Language.Lang "ru" }}'Подключено'{{ else }}'Connected'{{ end }};
+            status.classList.remove('error', 'reconnecting', 'buffering');
+            status.classList.add('connected');
+            clearInterval(countdownIntervals[videoElementId]);
+            delete errorStartTimes[videoElementId];
+          });
+
+          hlsInstances[videoElementId] = hls;
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = streamUrl;
+          video.addEventListener('loadedmetadata', function() {
+            video.play().catch(err => console.log(`Ошибка воспроизведения ${videoElementId}: ${err}`));
+            tabPane.classList.add('loaded');
+            status.textContent = {{ if eq .Site.Language.Lang "ru" }}'Подключено'{{ else }}'Connected'{{ end }};
+            status.classList.remove('error', 'reconnecting', 'buffering');
+            status.classList.add('connected');
+            clearInterval(countdownIntervals[videoElementId]);
+            delete errorStartTimes[videoElementId];
+          });
+        }
+      });
+    }
+
+    function openTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-pane video').forEach(vid => vid.pause());
+
+      const activePane = document.getElementById(tabId);
+      activePane.classList.add('active');
+
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      const activeButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+      if (activeButton) activeButton.classList.add('active');
+
+      const videoId = `video${tabId.replace('camera', '')}`;
+      const statusId = `status${tabId.replace('camera', '')}`;
+      let streamUrl = '';
+
+      switch (tabId) {
+        case 'camera1':
+          streamUrl = '{{ .Params.camera1_url | default "https://cam.fortesting.ru/lmost_new/index.m3u8" }}';
+          break;
+        case 'camera2':
+          streamUrl = '{{ .Params.camera2_url | default "https://cam.fortesting.ru/boloto_new/index.m3u8" }}';
+          break;
+      }
+
+      setupCamera(videoId, statusId, streamUrl);
+    }
+
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', function() {
+        openTab(this.dataset.tab);
+      });
+    });
+
+    openTab('camera1');
+
+    function detectAdBlockerAsync(url, cb) {
+      const script = document.createElement('script');
+      script.onerror = function() {
+        script.onerror = null;
+        document.body.removeChild(script);
+        cb(true);
+      };
+      script.onload = function() {
+        document.body.removeChild(script);
+        cb(false);
+      };
+      script.src = url;
+      document.body.appendChild(script);
+    }
+
+    detectAdBlockerAsync('https://ads.pubmatic.com/AdServer/js/gshowad.js', function(isAdBlockDetected) {
+      if (isAdBlockDetected) {
+        console.log('Блокировщик рекламы обнаружен.');
+        document.getElementById('adblock-message').style.display = 'block';
+        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.tab-button').forEach(btn => btn.disabled = true);
+      } else {
+        console.log('Блокировщик рекламы не обнаружен.');
+      }
+    });
+  });
+  </script>
+
+  <style>
+  .camera-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+  }
+  .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007BFF;
+  }
+  .tab-button {
+    flex: 1 1 50%;
+    padding: 15px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .tab-button.active {
+    background-color: #007BFF;
+    color: white;
+  }
+  .tab-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .tab-pane {
+    position: relative;
+    background-color: #000;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .tab-pane video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .tab-pane:not(.loaded)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #fff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+  .status {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  .status.connected {
+    color: #00ff00;
+  }
+  .status.error {
+    color: #ff0000;
+  }
+  .status.reconnecting {
+    color: #ffa500;
+    animation: fade 1s infinite alternate;
+  }
+  .status.buffering {
+    color: #ffff00;
+    animation: fade 1s infinite alternate;
+  }
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes fade {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+  @media (max-width: 600px) {
+    .tab-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  </style>
+</div>

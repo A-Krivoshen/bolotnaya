@@ -15,6 +15,32 @@
                 href="http://localhost:1313/en/cameras/"
                 />
   </url><url>
+    <loc>http://localhost:1313/en/cameras/bolotnaya-square/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru-RU"
+                href="http://localhost:1313/cameras/bolotnaya-square/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/cameras/bolotnaya-square/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/cameras/serafimovich/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru-RU"
+                href="http://localhost:1313/cameras/serafimovich/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/cameras/serafimovich/"
+                />
+  </url><url>
     <loc>http://localhost:1313/en/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
     <xhtml:link

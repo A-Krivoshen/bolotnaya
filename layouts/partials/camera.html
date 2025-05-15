@@ -1,17 +1,45 @@
 <div class="video-container">
-  <video id="video-{{ .Params.id }}" controls autoplay muted>
-    <source src="{{ .Params.hls_url }}" type="application/x-mpegURL">
-  </video>
-  <script src="/js/hls.min.js"></script>
-  <script>
-    var video = document.getElementById('video-{{ .Params.id }}');
-    var hlsUrl = '{{ .Params.hls_url }}';
-    if (Hls.isSupported()) {
-      var hls = new Hls();
-      hls.loadSource(hlsUrl);
-      hls.attachMedia(video);
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = hlsUrl;
-    }
-  </script>
+  {{ if and .Params.id .Params.hls_url }}
+    <video id="video-{{ .Params.id }}" controls autoplay muted>
+      <source src="{{ .Params.hls_url }}" type="application/x-mpegURL">
+    </video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+      var video = document.getElementById('video-{{ .Params.id }}');
+      var hlsUrl = '{{ .Params.hls_url }}';
+      if (hlsUrl) {
+        if (Hls.isSupported()) {
+          var hls = new Hls();
+          hls.loadSource(hlsUrl);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.ERROR, function(event, data) {
+            console.log('HLS Error:', data);
+          });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = hlsUrl;
+        }
+      } else {
+        console.log('HLS URL не указан');
+      }
+    </script>
+  {{ else }}
+    <p>Ошибка: Проверь параметры ID и HLS URL.</p>
+  {{ end }}
 </div>
+<style>
+.video-container {
+  max-width: 800px !important; /* Ограничь ширину */
+  margin: 20px auto !important; /* Центрирование */
+  padding: 10px !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+  display: block !important;
+}
+.video-container video {
+  width: 100% !important; /* Видео занимает всю ширину контейнера */
+  height: auto !important;
+  display: block !important;
+  border-radius: 5px !important;
+}
+</style>

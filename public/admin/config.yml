@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts_ru"
+    label: "Статьи (Русский)"
+    folder: "content/ru/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Теги", name: "tags", widget: "list", default: ["якиманка"] }
+      - { label: "Текст", name: "body", widget: "markdown" }
+  - name: "posts_en"
+    label: "Posts (English)"
+    folder: "content/en/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: personally: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["yakimanka"] }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "cameras_ru"
+    label: "Камеры (Русский)"
+    folder: "content/ru/cameras"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Описание", name: "description", widget: "string" }
+      - { label: "ID камеры", name: "id", widget: "string" }
+      - { label: "HLS URL", name: "hls_url", widget: "string" }
+  - name: "cameras_en"
+    label: "Cameras (English)"
+    folder: "content/en/cameras"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Camera ID", name: "id", widget: "string" }
+      - { label: "HLS URL", name: "hls_url", widget: "string" }
+  - name: "photos_ru"
+    label: "Фото (Русский)"
+    folder: "content/ru/photos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Изображения", name: "images", widget: "image", multiple: true }
+  - name: "photos_en"
+    label: "Photos (English)"
+    folder: "content/en/photos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Images", name: "images", widget: "image", multiple: true }
+  - name: "history_ru"
+    label: "История (Русский)"
+    folder: "content/ru/history"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+  - name: "history_en"
+    label: "History (English)"
+    folder: "content/en/history"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }

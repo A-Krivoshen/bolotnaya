@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="custom-page">
+  {{ .Content }}
+  {{ partial "camera.html" . }}
+</div>
+<style>
+.custom-page {
+  max-width: 100% !important;
+  margin: 20px auto !important;
+  padding: 10px !important;
+  display: block !important;
+}
+</style>
+{{ end }}
