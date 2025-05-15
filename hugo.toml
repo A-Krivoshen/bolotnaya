@@ -1,5 +1,6 @@
 baseURL = "https://bolotnaya.online/"
 defaultContentLanguage = "ru"
+defaultContentLanguageInSubdir = true
 title = "Болотная: Якиманка"
 theme = "PaperMod"
 
@@ -9,40 +10,68 @@ theme = "PaperMod"
     languageCode = "ru-RU"
     contentDir = "content/ru"
     weight = 1
+
+    [languages.ru.menu]
+      [[languages.ru.menu.main]]
+        name   = "Камеры"
+        url    = "/ru/cameras/"
+        weight = 1
+      [[languages.ru.menu.main]]
+        name   = "История"
+        url    = "/ru/history/"
+        weight = 2
+      [[languages.ru.menu.main]]
+        name   = "Фото"
+        url    = "/ru/photos/"
+        weight = 3
+      [[languages.ru.menu.main]]
+        name   = "Блог"
+        url    = "/ru/posts/"
+        weight = 4
+
   [languages.en]
     languageName = "English"
     languageCode = "en-US"
     contentDir = "content/en"
     weight = 2
 
-[params]
-  homeInfoTitle = "Якиманка: Камеры и история"
-  homeInfoDescription = "Онлайн-камеры, фото и рассказы о районе Якиманка"
-  ShowReadingTime = false
-  ShowBreadCrumbs = false
-  ShowToc = false
-  ShowPostNavLinks = false
-  ShowFullTextinRSS = true
-  ShowCodeCopyButtons = false
-  hideSummary = false
-  hideMeta = false
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name   = "Cameras"
+        url    = "/en/cameras/"
+        weight = 1
+      [[languages.en.menu.main]]
+        name   = "History"
+        url    = "/en/history/"
+        weight = 2
+      [[languages.en.menu.main]]
+        name   = "Photos"
+        url    = "/en/photos/"
+        weight = 3
+      [[languages.en.menu.main]]
+        name   = "Blog"
+        url    = "/en/posts/"
+        weight = 4
 
-[[menu.main]]
-  name = "Камеры"
-  url = "/cameras/"
-  weight = 1
-[[menu.main]]
-  name = "История"
-  url = "/history/"
-  weight = 2
-[[menu.main]]
-  name = "Фото"
-  url = "/photos/"
-  weight = 3
-[[menu.main]]
-  name = "Блог"
-  url = "/posts/"
-  weight = 4
+[params]
+  homeInfoTitle        = "Якиманка: Камеры и история"
+  homeInfoDescription  = "Онлайн-камеры, фото и рассказы о районе Якиманка"
+  ShowReadingTime      = false
+  ShowBreadCrumbs      = false
+  ShowToc              = false
+  ShowPostNavLinks     = false
+  ShowFullTextinRSS    = true
+  ShowCodeCopyButtons  = false
+  hideSummary          = false
+  hideMeta             = false
+  customCSS = [
+    "/css/custom.css",
+    "https://unpkg.com/aos@2.3.1/dist/aos.css"
+  ]
+  customJS = [
+    "https://unpkg.com/aos@2.3.1/dist/aos.js",
+    "/js/custom.js"
+  ]
 
 [sitemap]
   filename = "sitemap.xml"

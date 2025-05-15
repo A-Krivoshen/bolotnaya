@@ -2,7 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/cameras/bolotnaya-square/</loc>
+    <loc>http://localhost:1313/ru/posts/</loc>
+    <lastmod>2025-05-15T21:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ru/tags/</loc>
+    <lastmod>2025-05-15T21:00:00+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru-RU"
+                href="http://localhost:1313/ru/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/ru/</loc>
+    <lastmod>2025-05-15T21:00:00+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru-RU"
+                href="http://localhost:1313/ru/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/ru/posts/test/</loc>
+    <lastmod>2025-05-15T21:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ru/tags/%D1%8F%D0%BA%D0%B8%D0%BC%D0%B0%D0%BD%D0%BA%D0%B0/</loc>
+    <lastmod>2025-05-15T21:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ru/cameras/bolotnaya-square/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -12,23 +47,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/cameras/bolotnaya-square/"
+                href="http://localhost:1313/ru/cameras/bolotnaya-square/"
                 />
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru-RU"
-                href="http://localhost:1313/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/cameras/</loc>
+    <loc>http://localhost:1313/ru/cameras/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -38,10 +60,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/cameras/"
+                href="http://localhost:1313/ru/cameras/"
                 />
   </url><url>
-    <loc>http://localhost:1313/cameras/serafimovich/</loc>
+    <loc>http://localhost:1313/ru/cameras/serafimovich/</loc>
     <lastmod>2025-05-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -51,10 +73,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/cameras/serafimovich/"
+                href="http://localhost:1313/ru/cameras/serafimovich/"
                 />
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/ru/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -63,19 +85,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/categories/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru-RU"
-                href="http://localhost:1313/tags/"
+                href="http://localhost:1313/ru/categories/"
                 />
   </url>
 </urlset>

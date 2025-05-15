@@ -7,7 +7,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/cameras/"
+                href="http://localhost:1313/ru/cameras/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/cameras/bolotnaya-square/"
+                href="http://localhost:1313/ru/cameras/bolotnaya-square/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -33,7 +33,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/cameras/serafimovich/"
+                href="http://localhost:1313/ru/cameras/serafimovich/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -46,7 +46,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/"
+                href="http://localhost:1313/ru/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -58,7 +58,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/categories/"
+                href="http://localhost:1313/ru/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -70,7 +70,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-RU"
-                href="http://localhost:1313/tags/"
+                href="http://localhost:1313/ru/tags/"
                 />
     <xhtml:link
                 rel="alternate"
