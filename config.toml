@@ -1,4 +1,4 @@
-baseURL = "https://bolotnaya.online/"
+baseURL = "https://bolotnaya.netlify.app/"
 defaultContentLanguage = "ru"
 defaultContentLanguageInSubdir = true
 title = "Болотная: Якиманка"
