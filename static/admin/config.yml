@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: A-Krivoshen/bolotnaya
+  name: git-gateway
   branch: main
-  client_id: Ov23liQ9bYCTTUD8JgQF
-
 
 
 media_folder: "static/images"
