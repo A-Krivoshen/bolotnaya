@@ -1,13 +1,7 @@
 backend:
-  name: auth0
-  domain: dev-rqgf1v5uk3ghx4xh.us.auth0.com
-  client_id: OmafyIcyMBFdkuHuxgpgD8kaYq1WHIPJ
-  base_url: https://bolotnaya.netlify.app  # или основной домен сайта
-  redirect_uri: https://bolotnaya.netlify.app/admin/
-  # branch: main
-
-#  name: git-gateway
-# branch: main
+  name: github
+  repo: A-Krivoshen/bolotnaya
+  branch: main
 
 media_folder: "static/images"
 public_folder: "/images"
