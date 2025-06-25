@@ -42,32 +42,33 @@ export default defineConfig({
           { type: "rich-text", name: "body", label: "Body", isBody: true },
         ],
       },
-      {
-        name: "cameras_ru",
-        label: "Камеры (Русский)",
-        path: "content/ru/cameras",
-        format: "md",
-        fields: [
-          { type: "string", name: "title", label: "Заголовок", isTitle: true, required: true },
-          { type: "datetime", name: "date", label: "Дата", required: true },
-          { type: "string", name: "description", label: "Описание" },
-          { type: "string", name: "id", label: "ID камеры", required: true },
-          { type: "string", name: "hls_url", label: "HLS URL", required: true },
-        ],
-      },
-      {
-        name: "cameras_en",
-        label: "Cameras (English)",
-        path: "content/en/cameras",
-        format: "md",
-        fields: [
-          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
-          { type: "datetime", name: "date", label: "Date", required: true },
-          { type: "string", name: "description", label: "Description" },
-          { type: "string", name: "id", label: "Camera ID", required: true },
-          { type: "string", name: "hls_url", label: "HLS URL", required: true },
-        ],
-      },
+{
+  name: "cameras_ru",
+  label: "Камеры (Русский)",
+  path: "content/ru/cameras",
+  format: "md",
+  fields: [
+    { type: "string", name: "title", label: "Заголовок", isTitle: true, required: true },
+    { type: "datetime", name: "date", label: "Дата", required: true },
+    { type: "string", name: "description", label: "Описание" },
+    { type: "string", name: "id", label: "ID камеры", required: true }, // Только одно определение id
+    { type: "string", name: "hls_url", label: "HLS URL", required: true },
+  ],
+},
+{
+  name: "cameras_en",
+  label: "Cameras (English)",
+  path: "content/en/cameras",
+  format: "md",
+  fields: [
+    { type: "string", name: "title", label: "Title", isTitle: true, required: true },
+    { type: "datetime", name: "date", label: "Date", required: true },
+    { type: "string", name: "description", label: "Description" },
+    { type: "string", name: "id", label: "Camera ID", required: true }, // Только одно определение id
+    { type: "string", name: "hls_url", label: "HLS URL", required: true },
+  ],
+},
+
       {
         name: "photos_ru",
         label: "Фото (Русский)",
