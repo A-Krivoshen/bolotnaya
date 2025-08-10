@@ -1,4 +1,4 @@
-baseURL = "https://bolotnaya.netlify.app/"
+baseURL = "https://www.bolotnaya.online/"
 defaultContentLanguage = "ru"
 defaultContentLanguageInSubdir = true
 title = "Болотная: Якиманка"
@@ -22,7 +22,7 @@ theme = "PaperMod"
         weight = 2
       [[languages.ru.menu.main]]
         name   = "Фото"
-        url    = "/ru/photos/"
+        url    = "/ru/galleries/"
         weight = 3
       [[languages.ru.menu.main]]
         name   = "Блог"
@@ -46,7 +46,7 @@ theme = "PaperMod"
         weight = 2
       [[languages.en.menu.main]]
         name   = "Photos"
-        url    = "/en/photos/"
+        url    = "/en/galleries/"
         weight = 3
       [[languages.en.menu.main]]
         name   = "Blog"

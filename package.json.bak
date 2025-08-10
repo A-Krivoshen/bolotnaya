@@ -1,0 +1,29 @@
+{
+  "name": "bolotnaya",
+  "version": "1.0.0",
+  "description": "www.bolotnaya.online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-Krivoshen/bolotnaya.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A-Krivoshen/bolotnaya/issues"
+  },
+  "homepage": "https://github.com/A-Krivoshen/bolotnaya#readme",
+  "devDependencies": {
+    "@tinacms/cli": "^0.60.5",
+    "@types/node": "^24.0.3",
+    "tina": "^0.3.23"
+  }
+ "scripts": {
+    "dev": "npx @tinacms/cli dev -c \"hugo server -D\""
+  }
+}
+

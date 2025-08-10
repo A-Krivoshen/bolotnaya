@@ -1,0 +1,43 @@
+{{ define "main" }}
+<main class="container" style="max-width:1100px;margin:0 auto;padding:24px;">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p class="lead" style="opacity:.8;margin-bottom:24px;">{{ . }}</p>{{ end }}
+
+  {{ $p := . }}
+  {{ $slug := $p.Params.gallery_slug }}
+
+  {{/* 1) ищем галерею в текущем языке */}}
+  {{ $gal := $p.Site.GetPage (printf "galleries/%s" $slug) }}
+
+  {{/* 2) фоллбэк — из других локалей */}}
+  {{ if not $gal }}
+    {{ range site.Sites }}
+      {{ if ne .Language.Lang $p.Site.Language.Lang }}
+        {{ $try := .GetPage (printf "galleries/%s" $slug) }}
+        {{ if and (not $gal) $try }}{{ $gal = $try }}{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if not $gal }}
+    <p>{{ if eq .Site.Language.Lang "ru" }}Галерея «{{ $slug }}» не найдена.{{ else }}Gallery “{{ $slug }}” not found.{{ end }}</p>
+  {{ else }}
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
+      {{ range $gal.Params.images }}
+        {{ $src := .src }}
+        {{ if not (hasPrefix $src "/") }}{{ $src = print "/images/galleries/" $src }}{{ end }}
+        <figure style="margin:0">
+          <img src="{{ $src }}" alt="{{ .caption }}" loading="lazy" style="width:100%;height:auto;border-radius:10px;">
+          {{ with .caption }}<figcaption style="font-size:.9rem;opacity:.8;margin-top:6px;">{{ . }}</figcaption>{{ end }}
+        </figure>
+      {{ else }}
+        <p>{{ if eq $.Site.Language.Lang "ru" }}В этой галерее нет фотографий.{{ else }}This gallery has no photos.{{ end }}</p>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{ with .Content }}
+    <div style="margin-top:24px;">{{ . }}</div>
+  {{ end }}
+</main>
+{{ end }}

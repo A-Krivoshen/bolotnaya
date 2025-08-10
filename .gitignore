@@ -1,1 +1,19 @@
-node_modules
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Node / tools
+node_modules/
+.cache/
+dist/
+
+# TinaCMS (folder without a dot)
+tina/__generated__/
+
+# OS & misc
+**/.DS_Store
+**/*.log
+.env
+*.key
+*.pem

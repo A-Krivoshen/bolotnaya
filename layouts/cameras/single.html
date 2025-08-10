@@ -1,14 +1,32 @@
 {{ define "main" }}
-<div class="custom-page">
-  {{ .Content }}
-  {{ partial "camera.html" . }}
-</div>
-<style>
-.custom-page {
-  max-width: 100% !important;
-  margin: 20px auto !important;
-  padding: 10px !important;
-  display: block !important;
-}
-</style>
+<article class="container">
+  <h1>{{ .Params.name }}</h1>
+  <p>{{ .Params.description }}</p>
+  <div id="player"></div>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    (function () {
+      var video = document.createElement('video');
+      video.controls = true;
+      video.autoplay = true;
+      video.style.width = '100%';
+      document.getElementById('player').appendChild(video);
+      var src = "{{ .Params.stream_url }}";
+      if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+          video.play();
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = src;
+        video.addEventListener('canplay', function () { video.play(); });
+      } else {
+        document.getElementById('player').innerHTML = '<p>Ваш браузер не поддерживает HLS. Откройте в другом браузере.</p>';
+      }
+    })();
+  </script>
+  <div class="content">{{ .Content }}</div>
+</article>
 {{ end }}

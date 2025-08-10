@@ -126,7 +126,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/ru/photos/" title="Фото">
+                <a href="http://localhost:1313/ru/galleries/" title="Фото">
                     <span>Фото</span>
                 </a>
             </li>
@@ -139,60 +139,36 @@
     </nav>
 </header>
 <main class="main">
-<div class="custom-page">
-  
-  <div class="video-container">
-  
-    <video id="video-camera1" controls autoplay muted>
-      <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
-    </video>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script>
-      var video = document.getElementById('video-camera1');
-      var hlsUrl = 'https:\/\/test-streams.mux.dev\/x36xhzz\/x36xhzz.m3u8';
-      if (hlsUrl) {
-        if (Hls.isSupported()) {
-          var hls = new Hls();
-          hls.loadSource(hlsUrl);
-          hls.attachMedia(video);
-          hls.on(Hls.Events.ERROR, function(event, data) {
-            console.log('HLS Error:', data);
-          });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-          video.src = hlsUrl;
-        }
+<article class="container">
+  <h1></h1>
+  <p>Онлайн-трансляция Болотной площади</p>
+  <div id="player"></div>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    (function () {
+      var video = document.createElement('video');
+      video.controls = true;
+      video.autoplay = true;
+      video.style.width = '100%';
+      document.getElementById('player').appendChild(video);
+      var src = "";
+      if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+          video.play();
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = src;
+        video.addEventListener('canplay', function () { video.play(); });
       } else {
-        console.log('HLS URL не указан');
+        document.getElementById('player').innerHTML = '<p>Ваш браузер не поддерживает HLS. Откройте в другом браузере.</p>';
       }
-    </script>
-  
-</div>
-<style>
-.video-container {
-  max-width: 800px !important;  
-  margin: 20px auto !important;  
-  padding: 10px !important;
-  background-color: #fff !important;
-  border-radius: 5px !important;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
-  display: block !important;
-}
-.video-container video {
-  width: 100% !important;  
-  height: auto !important;
-  display: block !important;
-  border-radius: 5px !important;
-}
-</style>
-</div>
-<style>
-.custom-page {
-  max-width: 100% !important;
-  margin: 20px auto !important;
-  padding: 10px !important;
-  display: block !important;
-}
-</style>
+    })();
+  </script>
+  <div class="content"></div>
+</article>
 
     </main>
     

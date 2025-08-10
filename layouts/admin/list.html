@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ if eq hugo.Environment "development" }}
+  <meta http-equiv="refresh" content="0; url=http://localhost:4001/public/index.html">
+  <p>Redirecting to Tina…</p>
+{{ else }}
+  <h1>Admin</h1>
+  <p>Tina UI доступна только в dev. Откройте <code>/admin</code> на dev‑сервере.</p>
+{{ end }}
+{{ end }}

@@ -4,17 +4,35 @@
     <title>Posts on Болотная: Якиманка</title>
     <link>http://localhost:1313/ru/posts/</link>
     <description>Recent content in Posts on Болотная: Якиманка</description>
-    <generator>Hugo -- 0.147.9</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>ru-RU</language>
-    <lastBuildDate>Thu, 15 May 2025 21:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 09 Aug 2025 12:00:00 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/ru/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Тестовый пост</title>
-      <link>http://localhost:1313/ru/posts/test/</link>
-      <pubDate>Thu, 15 May 2025 21:00:00 +0300</pubDate>
-      <guid>http://localhost:1313/ru/posts/test/</guid>
-      <description>&lt;p&gt;Это &lt;strong&gt;ручной&lt;/strong&gt; маркдаун, чтобы проверить list.html и single.html.&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<p>Это <strong>ручной</strong> маркдаун, чтобы проверить list.html и single.html.</p>
+      <title>Bolotnaya.online — блог жителя Якиманки на open-source технологиях</title>
+      <link>http://localhost:1313/ru/posts/bolotnaya-blog/</link>
+      <pubDate>Sat, 09 Aug 2025 12:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/ru/posts/bolotnaya-blog/</guid>
+      <description>Bolotnaya.online — это частный блог жителя Якиманки, построенный на open-source технологиях. Личный взгляд, онлайн-трансляции, мультиязычность и автоматизация.</description>
+      <content:encoded><![CDATA[<p><strong>Bolotnaya.online — блог жителя Якиманки на open-source технологиях</strong></p>
+<p>Bolotnaya.online — это частный проект, созданный и поддерживаемый неравнодушным жителем района Якиманка.<br>
+Сайт не является средством массовой информации, а публикуемые материалы отражают личную точку зрения автора.</p>
+<p>Проект собран как демонстрация возможностей современных технологий и свободного ПО:</p>
+<ul>
+<li><strong>Nginx</strong> — веб-сервер и обратный прокси.</li>
+<li><strong>Hugo</strong> — генератор статических сайтов.</li>
+<li><strong>TinaCMS</strong> — headless-админка с визуальным редактированием.</li>
+<li><strong>Docker</strong> — контейнеризация сервисов.</li>
+<li><strong>FFmpeg</strong> — обработка и трансляция видео.</li>
+<li><strong>MediaMTX</strong> — сервер для потокового видео.</li>
+</ul>
+<p>На сайте реализованы:</p>
+<ul>
+<li>Онлайн-трансляции (HLS) с камер.</li>
+<li>Автоматическая публикация контента.</li>
+<li>Поддержка мультиязычности.</li>
+</ul>
+<p>Это пример того, как можно объединить современные технологии в удобный, надёжный и независимый блог без использования проприетарных CMS.</p>
 ]]></content:encoded>
     </item>
   </channel>
