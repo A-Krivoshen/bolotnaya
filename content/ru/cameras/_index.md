@@ -1,4 +1,6 @@
 ---
+aliases:
+  - /online-camera/
 title: "Онлайн-камеры"
 date: 2025-05-12
 description: "Прямые трансляции Якиманки"
