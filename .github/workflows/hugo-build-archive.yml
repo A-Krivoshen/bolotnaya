@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -32,25 +32,22 @@ jobs:
           extended: true
 
       - name: Build site
-        shell: bash
         run: |
           hugo --minify --baseURL "https://www.bolotnaya.online/"
 
       - name: Sanity check: no localhost/old domains in output
-        shell: bash
         run: |
           set -euo pipefail
-          if grep -R -nE '(localhost(:[0-9]+)?|127\.0\.0\.1)' public; then
+          if grep -R -nE "(localhost(:[0-9]+)?|127\.0\.0\.1)" public; then
             echo "Found localhost references in output. Fix baseURL/menus/front matter." >&2
             exit 1
           fi
-          if grep -R -nE 'https?://(a-krivoshen\.github\.io|bolotnaya\.netlify\.app)' public; then
+          if grep -R -nE "https?://(a-krivoshen\.github\.io|bolotnaya\.netlify\.app)" public; then
             echo "Found references to old domains in output." >&2
             exit 1
           fi
 
       - name: Pack clean source archive
-        shell: bash
         run: |
           mkdir -p artifacts
           OUT="artifacts/hugo-sources-${GITHUB_SHA}.tar.gz"
