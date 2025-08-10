@@ -41,30 +41,33 @@ jobs:
       - name: Build site
         run: hugo --minify
 
-      - name: Pack clean source archive
-        run: |
-          tar -czf hugo-sources-$(date +%F).tar.gz \
-            --exclude='.git' \
-            --exclude='public' \
-            --exclude='resources' \
-            --exclude='node_modules' \
-            --exclude='.cache' \
-            --exclude='dist' \
-            --exclude='.hugo_build.lock' \
-            --exclude='**/.DS_Store' \
-            --exclude='**/*.log' \
-            --exclude='.env' \
-            --exclude='**/*.key' \
-            --exclude='**/*.pem' \
-            --exclude='tina/__generated__' \
-            .
+     - name: Pack clean source archive
+  run: |
+    mkdir -p artifacts
+    OUT="artifacts/hugo-sources-$(date +%F).tar.gz"
+    tar -czf "$OUT" \
+      --exclude='.git' \
+      --exclude='public' \
+      --exclude='resources' \
+      --exclude='node_modules' \
+      --exclude='.cache' \
+      --exclude='dist' \
+      --exclude='.hugo_build.lock' \
+      --exclude='**/.DS_Store' \
+      --exclude='**/*.log' \
+      --exclude='.env' \
+      --exclude='**/*.key' \
+      --exclude='**/*.pem' \
+      --exclude='tina/__generated__' \
+      .
 
-      - name: Upload source artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: hugo-sources
-          path: hugo-sources-*.tar.gz
-          retention-days: 14
+- name: Upload source artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: hugo-sources
+    path: artifacts/*.tar.gz
+    retention-days: 14
+
 
       - name: Upload built site (public)
         uses: actions/upload-artifact@v4
