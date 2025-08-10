@@ -58,3 +58,19 @@
   <!-- наши стили -->
   <link rel="stylesheet" href="/css/camera-tabs.css">
 {{ end }}
+
+{{- if hugo.IsProduction -}}
+<div class="ad-under-player">
+  <!-- Yandex.RTB R-A-5829540-5 -->
+  <div id="yandex_rtb_R-A-5829540-5"></div>
+  <script>
+    window.yaContextCb = window.yaContextCb || [];
+    window.yaContextCb.push(() => {
+      Ya.Context.AdvManager.render({
+        blockId: "R-A-5829540-5",
+        renderTo: "yandex_rtb_R-A-5829540-5"
+      });
+    });
+  </script>
+</div>
+{{- end -}}
