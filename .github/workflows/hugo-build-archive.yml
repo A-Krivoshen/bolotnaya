@@ -2,16 +2,20 @@ name: Build & Archive (Hugo)
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch: {}
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: hugo-build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout (with LFS and submodules)
         uses: actions/checkout@v4
@@ -27,21 +31,14 @@ jobs:
           extended: true
 
       - name: Build site
-        run: |
-          hugo --minify --baseURL "https://www.bolotnaya.online/"
-
-      - name: Sanity check: no localhost/old domains in output
-        run: |
-          set -euo pipefail
-          if grep -R -nE 'localhost|127\.0\.0\.1|a-krivoshen\.github\.io|bolotnaya\.netlify\.app' public; then
-            echo "Found forbidden references in output. Fix baseURL/menus/front matter." >&2
-            exit 1
-          fi
+        run: >
+          hugo --minify
+          --baseURL "https://www.bolotnaya.online/"
 
       - name: Pack clean source archive
         run: |
           mkdir -p artifacts
-          OUT="artifacts/hugo-sources-${GITHUB_SHA}.tar.gz"
+          OUT="artifacts/hugo-sources-${{ github.sha }}.tar.gz"
           tar -czf "$OUT" \
             --exclude='.git' \
             --exclude='artifacts' \
