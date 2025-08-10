@@ -24,17 +24,39 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      # Если у темы есть сборка ассетов – раскомментируй:
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      #     cache: 'npm'
+      # - name: Install deps
+      #   run: npm ci
+      # - name: Build assets
+      #   run: npm run build
+
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
 
-      # ВАЖНО: собираем сразу с правильным baseURL
       - name: Build site
         run: >
           hugo --minify
           --baseURL "https://www.bolotnaya.online/"
+
+      - name: Sanity check: no localhost/old domains in output
+        run: |
+          set -euo pipefail
+          if grep -R -nE '(localhost(:[0-9]+)?|127\.0\.0\.1)' public; then
+            echo "Found localhost references in output. Fix baseURL/menus/front matter." >&2
+            exit 1
+          fi
+          if grep -R -nE 'https?://(a-krivoshen\.github\.io|bolotnaya\.netlify\.app)' public; then
+            echo "Found references to old domains in output." >&2
+            exit 1
+          fi
 
       - name: Pack clean source archive
         run: |
@@ -71,7 +93,6 @@ jobs:
           path: public
           retention-days: 14
 
-      # Деплой в gh-pages + CNAME для домена
       - name: Deploy to gh-pages
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
