@@ -75,3 +75,8 @@ theme = "PaperMod"
 
 [sitemap]
   filename = "sitemap.xml"
+
+# --- added by script ---
+[params]
+images = ["/images/placeholders/camera.svg"]
+# --- end ---
