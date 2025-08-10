@@ -1,37 +1,32 @@
 {{ define "main" }}
-<section class="home">
-  <h1>
-    {{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}
-  </h1>
+  <section class="home">
+    <h1>{{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}</h1>
+    <p>{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time.{{ end }}</p>
 
-  <p>
-    {{ if eq $.Site.Language.Lang "ru" }}
-      Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.
-    {{ else }}
-      Watch live streams from Bolotnaya Square and other cameras in real-time.
-    {{ end }}
-  </p>
+    {{ $camsURL := ("cameras/" | relLangURL) }}
+    <p><a class="tag" href="{{ $camsURL }}">{{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}</a></p>
 
-  {{ $camsURL := ("cameras/" | relLangURL) }}
-  <p>
-    <a class="tag" href="{{ $camsURL }}">
-      {{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}
-    </a>
-  </p>
-
-  <h2 style="margin-top:2rem;">
-    {{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}
-  </h2>
-
-  <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-    {{ range first 4 (where .Site.RegularPages "Section" "cameras") }}
-      <a class="post-preview" href="{{ .RelPermalink }}">
-        {{ $img := .Params.image | default "/images/placeholders/camera.svg" }}
-        <img src="{{ $img | relURL }}" alt="{{ .Title }}" style="width:100%; height:160px; object-fit:cover; border-radius:6px;">
-        <h3 style="margin-top:.75rem;">{{ .Title }}</h3>
-        {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-      </a>
-    {{ end }}
-  </div>
-</section>
+    <h2 style="margin-top:2rem;">{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}</h2>
+    <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      {{ $cams := where .Site.RegularPages "Section" "cameras" }}
+      {{ $cams = where $cams "Lang" $.Site.Language.Lang }}
+      {{ range first 4 (sort $cams "Title") }}
+        <a class="post-preview" href="{{ .RelPermalink }}">
+          {{/* Safe image fallback */}}
+          {{ $ph := "/images/placeholders/camera.svg" }}
+          {{ $img := .Params.image }}
+          {{ if $img }}
+            {{ $trim := (strings.TrimPrefix "/" $img) }}
+            {{ $staticPath := (printf "static/%s" $trim) }}
+            {{ if fileExists $staticPath }}{{ else }}{{ $img = $ph }}{{ end }}
+          {{ else }}
+            {{ $img = $ph }}
+          {{ end }}
+          <img src="{{ $img | relURL }}" alt="{{ .Title }}" style="width:100%; height:160px; object-fit:cover; border-radius:6px;">
+          <h3 style="margin-top:.75rem;">{{ .Title }}</h3>
+          {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+        </a>
+      {{ end }}
+    </div>
+  </section>
 {{ end }}
