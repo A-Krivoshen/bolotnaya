@@ -2,10 +2,8 @@
   <section class="home">
     <h1>{{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}</h1>
     <p>{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time.{{ end }}</p>
-
     {{ $camsURL := ("cameras/" | relLangURL) }}
     <p><a class="tag" href="{{ $camsURL }}">{{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}</a></p>
-
     <h2 style="margin-top:2rem;">{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}</h2>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
       {{ $cams := where .Site.RegularPages "Section" "cameras" }}
@@ -18,7 +16,10 @@
           {{ if $img }}
             {{ $trim := (strings.TrimPrefix "/" $img) }}
             {{ $staticPath := (printf "static/%s" $trim) }}
-            {{ if fileExists $staticPath }}{{ else }}{{ $img = $ph }}{{ end }}
+            {{ if fileExists $staticPath }}
+            {{ else }}
+              {{ $img = $ph }}
+            {{ end }}
           {{ else }}
             {{ $img = $ph }}
           {{ end }}
