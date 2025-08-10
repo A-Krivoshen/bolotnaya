@@ -22,3 +22,4 @@ tina/__generated__/
 public/
 *.tar.gz
 /public
+/resources/_gen
