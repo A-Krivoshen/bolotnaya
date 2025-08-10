@@ -1,76 +1,34 @@
-{{/* Источники данных для потоков (через Tina/FrontMatter)
-    Вариант А (предпочтительно):
-    streams:
-      - id: "camera1"
-        title: "Камера 1"
-        url: "https://cam.fortesting.ru/hls/lmost_new/index.m3u8"
-      - id: "camera2"
-        title: "Камера 2"
-        url: "https://cam.fortesting.ru/hls/boloto_new/index.m3u8"
-
-    Вариант B (обратная совместимость):
-    stream_url: "..."
-    stream2_url: "..."
-    camera1_title: "Камера 1" (опц.)
-    camera2_title: "Камера 2" (опц.)
-*/}}
-
-{{ $streams := slice }}
-
-{{ if .Params.streams }}
-  {{/* Массив из frontmatter */}}
-  {{ $streams = .Params.streams }}
-{{ else }}
-  {{/* Собираем из одиночных полей, если задано */}}
-  {{ if .Params.stream_url }}
-    {{ $title1 := (or .Params.camera1_title (cond (eq $.Site.Language.Lang "ru") "Камера 1" "Camera 1")) }}
-    {{ $streams = $streams | append (dict "id" "camera1" "title" $title1 "url" .Params.stream_url) }}
-  {{ end }}
-  {{ if .Params.stream2_url }}
-    {{ $title2 := (or .Params.camera2_title (cond (eq $.Site.Language.Lang "ru") "Камера 2" "Camera 2")) }}
-    {{ $streams = $streams | append (dict "id" "camera2" "title" $title2 "url" .Params.stream2_url) }}
-  {{ end }}
-{{ end }}
-
-{{ if lt (len $streams) 1 }}
-  <div class="note">Не задан URL HLS-потока. Добавь в фронтматтер поле <code>streams</code> или <code>stream_url</code>.</div>
-{{ else }}
-  <div class="camera-container" data-streams='{{ $streams | jsonify }}'>
-    <div id="adblock-message" class="adblock-message" style="display:none;">
-      {{ if eq $.Site.Language.Lang "ru" }}
-        Пожалуйста, отключите блокировщик рекламы, чтобы просматривать трансляцию.
-      {{ else }}
-        Please disable your ad blocker to view the stream.
-      {{ end }}
-    </div>
-
-    {{ if gt (len $streams) 1 }}
-      <div class="tab-buttons"></div>
-    {{ end }}
-
-    <div class="tabs-host"></div>
-  </div>
-
-  <!-- hls.js с CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <!-- наш скрипт -->
-  <script src="/js/hls-tabs-init.js?v=2"></script>
-  <!-- наши стили -->
-  <link rel="stylesheet" href="/css/camera-tabs.css">
-{{ end }}
-
-{{- if hugo.IsProduction -}}
-<div class="ad-under-player">
-  <!-- Yandex.RTB R-A-5829540-5 -->
-  <div id="yandex_rtb_R-A-5829540-5"></div>
-  <script>
-    window.yaContextCb = window.yaContextCb || [];
-    window.yaContextCb.push(() => {
-      Ya.Context.AdvManager.render({
-        blockId: "R-A-5829540-5",
-        renderTo: "yandex_rtb_R-A-5829540-5"
-      });
-    });
-  </script>
-</div>
+{{/* Collect streams from front matter with backward compatibility */}}
+{{- $streams := slice -}}
+{{- if .Params.streams -}}
+  {{- $streams = .Params.streams -}}
+{{- else -}}
+  {{- $s1 := dict "id" "cam1" "title" (default "Камера 1" .Params.camera1_title) "url" .Params.stream_url -}}
+  {{- $s2 := dict "id" "cam2" "title" (default "Камера 2" .Params.camera2_title) "url" .Params.stream2_url -}}
+  {{- if $s1.url -}}{{ $streams = $streams | append $s1 }}{{- end -}}
+  {{- if $s2.url -}}{{ $streams = $streams | append $s2 }}{{- end -}}
 {{- end -}}
+
+<link rel="stylesheet" href="/css/camera-tabs.css" />
+
+<div class="tabs" role="tablist" aria-label="Переключение камер">
+  {{- range $i, $s := $streams -}}
+    <button class="tab-btn" role="tab" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}" data-key="{{ $s.id }}">{{ default (printf "Камера %d" (add $i 1)) $s.title }}</button>
+  {{- end -}}
+</div>
+
+<div class="player-wrap">
+  <video id="hls-video" controls playsinline muted></video>
+  <div class="player-title" id="player-title">Онлайн трансляция</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  window.__STREAMS__ = [
+    {{- range $i, $s := $streams -}}
+      {{- if gt $i 0 }},{{ end -}}
+      {"id":"{{ $s.id }}","title":{{ printf "%q" (default (printf "Камера %d" (add $i 1)) $s.title) }},"url":{{ printf "%q" $s.url }}}
+    {{- end -}}
+  ];
+</script>
+<script src="/js/hls-tabs-init.js"></script>

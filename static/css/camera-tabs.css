@@ -1,1 +1,7 @@
-/* placeholder to avoid 404; keep if theme links it */
+/* Tabs + player minimal styling */
+.tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin:1rem 0; }
+.tab-btn { padding:.5rem .8rem; border-radius:.5rem; border:1px solid #ddd; background:#111827; color:#e5e7eb; cursor:pointer; }
+.tab-btn[aria-selected="true"] { border-color:#3aa9ff; }
+.player-wrap { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:.5rem; overflow:hidden; }
+.player-title { position:absolute; top:.5rem; left:.5rem; font-size:.85rem; color:#e5e7eb; background:rgba(0,0,0,.45); padding:.2rem .5rem; border-radius:999px; }
+video { width:100%; height:100%; display:block; }
