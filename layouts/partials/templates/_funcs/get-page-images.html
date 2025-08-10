@@ -1,0 +1,31 @@
+{{/* PaperMod override: normalize images to [{Permalink: URL}] */}}
+{{- $out := slice -}}
+
+{{- with .Params.images -}}
+  {{- $list := . -}}
+  {{- if not (reflect.IsSlice $list) -}}
+    {{- $list = slice $list -}}
+  {{- end -}}
+
+  {{- range $list -}}
+    {{- $url := "" -}}
+    {{- if (reflect.IsMap .) -}}
+      {{- with index . "src" }} {{- $url = . }} {{- end -}}
+      {{- with index . "Permalink" }} {{- $url = . }} {{- end -}}
+      {{- with index . "RelPermalink" }} {{- $url = . }} {{- end -}}
+    {{- else -}}
+      {{- $url = printf "%v" . -}}
+    {{- end -}}
+    {{- if $url -}}
+      {{- $out = $out | append (dict "Permalink" ($url | absURL)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $out -}}
+  {{- with .Params.cover.image -}}
+    {{- $out = $out | append (dict "Permalink" (. | absURL)) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $out -}}
