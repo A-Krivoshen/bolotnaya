@@ -21,3 +21,5 @@ tina/__generated__/
 # Build artifacts
 public/
 *.tar.gz
+/public
+/resources/_gen
