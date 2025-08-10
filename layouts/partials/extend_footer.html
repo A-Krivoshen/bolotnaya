@@ -1,3 +1,32 @@
 {{- if hugo.IsProduction -}}
 <noscript><div><img src="https://mc.yandex.ru/watch/52478860" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 {{- end -}}
+{{- if hugo.IsProduction -}}
+<script>
+  window.yaContextCb = window.yaContextCb || [];
+  // fullscreen (desktop)
+  window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+      blockId: "R-A-5829540-11",
+      type: "fullscreen",
+      platform: "desktop"
+    });
+  });
+  // fullscreen (touch)
+  window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+      blockId: "R-A-5829540-9",
+      type: "fullscreen",
+      platform: "touch"
+    });
+  });
+  // floorAd (touch)
+  window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+      blockId: "R-A-5829540-7",
+      type: "floorAd",
+      platform: "touch"
+    });
+  });
+</script>
+{{- end -}}
