@@ -1,3 +1,5 @@
+aliases: ["/ru/cameras/serafimovich/"]
+
 ---
 title: "ул.Серафимовича"
 description: "Онлайн-трансляция ул.Серафимовича"
