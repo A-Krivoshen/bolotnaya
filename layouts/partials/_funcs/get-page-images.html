@@ -1,0 +1,33 @@
+{{/* Override PaperMod: accept images as []string or []map{src, caption} */}}
+{{- $out := slice -}}
+
+{{- with .Params.images -}}
+  {{- if (reflect.IsSlice .) -}}
+    {{- range . -}}
+      {{- $v := . -}}
+      {{- if (reflect.IsMap $v) -}}
+        {{- with index $v "src" -}}
+          {{- $out = $out | append . -}}
+        {{- end -}}
+      {{- else -}}
+        {{- /* string or anything printable */ -}}
+        {{- $out = $out | append (printf "%v" $v) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if (reflect.IsMap .) -}}
+    {{- with index . "src" -}}
+      {{- $out = $out | append . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* single string */ -}}
+    {{- $out = $out | append (printf "%v" .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $out -}}
+  {{- with .Params.cover.image -}}
+    {{- $out = $out | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $out -}}
