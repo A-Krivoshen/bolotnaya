@@ -32,8 +32,6 @@ const historyFields = [
     ui: {
       description:
         "Укажи slug существующей галереи (одинаковый для RU/EN), например: bolotnaya-square",
-      // можно задать подсказки по умолчанию
-      // options: ["bolotnaya-square"]
     },
   },
 ];
@@ -44,7 +42,8 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
 
   build: {
-    outputFolder: "public",
+    // кладём админку в static/admin (корректно для Hugo)
+    outputFolder: "admin",
     publicFolder: "static",
   },
 
@@ -137,19 +136,114 @@ export default defineConfig({
         fields: historyFields,
       },
 
-      // ===== Камеры =====
+      // ===== CAMERAS RU: content/ru/cameras/<slug>/index.md =====
       {
-        label: "Камеры",
-        name: "camera",
-        path: "content/cameras",
+        label: "Камеры (RU)",
+        name: "ru_camera",
+        path: "content/ru/cameras",
         format: "md",
+        match: { include: "**/index" }, // работаем с папками
+        ui: {
+          router: ({ document }) =>
+            `/ru/cameras/${document._sys.relativePath.replace(/\/index\.md$/, "")}/`,
+          filename: {
+            slugify: (values) =>
+              (values?.title || "camera")
+                .toString()
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^a-z0-9\-]+/g, ""),
+          },
+          defaultItem: () => ({
+            title: "",
+            description: "",
+            stream_url: "",
+            streams: [],
+          }),
+        },
         fields: [
-          { type: "string", name: "name", label: "Название", required: true },
-          { type: "string", name: "stream_url", label: "Ссылка на поток", required: true },
-          { type: "image", name: "image", label: "Превью/логотип" },
+          { type: "string", name: "title", label: "Заголовок", required: true, isTitle: true },
           { type: "string", name: "description", label: "Описание" },
+          { type: "image",  name: "image", label: "Превью (опц.)" },
+          { type: "string", name: "stream_url", label: "HLS URL (фолбэк)" },
+
+          {
+            type: "object",
+            name: "streams",
+            label: "Ракурсы (streams)",
+            list: true,
+            ui: {
+              itemProps: (item?: any) => ({
+                label: item?.title || item?.id || item?.url || "stream",
+              }),
+            },
+            fields: [
+              { type: "string", name: "id",    label: "ID (напр. camera1)" },
+              { type: "string", name: "title", label: "Название на кнопке" },
+              { type: "string", name: "url",   label: "HLS URL (.m3u8)", required: true },
+            ],
+          },
+
+          { type: "rich-text", name: "body", label: "Текст (опц.)" },
         ],
       },
+
+      // ===== CAMERAS EN: content/en/cameras/<slug>/index.md =====
+      {
+        label: "Cameras (EN)",
+        name: "en_camera",
+        path: "content/en/cameras",
+        format: "md",
+        match: { include: "**/index" },
+        ui: {
+          router: ({ document }) =>
+            `/en/cameras/${document._sys.relativePath.replace(/\/index\.md$/, "")}/`,
+          filename: {
+            slugify: (values) =>
+              (values?.title || "camera")
+                .toString()
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^a-z0-9\-]+/g, ""),
+          },
+          defaultItem: () => ({
+            title: "",
+            description: "",
+            stream_url: "",
+            streams: [],
+          }),
+        },
+        fields: [
+          { type: "string", name: "title", label: "Title", required: true, isTitle: true },
+          { type: "string", name: "description", label: "Description" },
+          { type: "image",  name: "image", label: "Preview (opt.)" },
+          { type: "string", name: "stream_url", label: "HLS URL (fallback)" },
+
+          {
+            type: "object",
+            name: "streams",
+            label: "Streams",
+            list: true,
+            ui: {
+              itemProps: (item?: any) => ({
+                label: item?.title || item?.id || item?.url || "stream",
+              }),
+            },
+            fields: [
+              { type: "string", name: "id",    label: "ID (e.g. camera1)" },
+              { type: "string", name: "title", label: "Button title" },
+              { type: "string", name: "url",   label: "HLS URL (.m3u8)", required: true },
+            ],
+          },
+
+          { type: "rich-text", name: "body", label: "Body (opt.)" },
+        ],
+      },
+
+      // ⚠️ Старую коллекцию "Камеры" (path: content/cameras) удалил —
+      // мы теперь работаем с RU/EN в виде папок. Если нужен бэкап — скажи.
     ],
   },
 });
