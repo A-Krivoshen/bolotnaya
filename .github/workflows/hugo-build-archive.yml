@@ -24,25 +24,18 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # Если у темы/ассетов есть npm-сборка — раскомментируй:
-      # - name: Setup Node
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '20'
-      #     cache: 'npm'
-      # - name: Install deps
-      #   run: npm ci
-      # - name: Build assets
-      #   run: npm run build
-
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
 
+      # ВАЖНО: baseURL указываем на Pages проекта:
+      # https://<owner>.github.io/<repo>/
       - name: Build site
-        run: hugo --minify
+        run: >
+          hugo --minify
+          --baseURL "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
 
       - name: Pack clean source archive
         run: |
@@ -79,7 +72,6 @@ jobs:
           path: public
           retention-days: 14
 
-      # Опционально: деплой в gh-pages
       - name: Deploy to gh-pages (optional)
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
