@@ -1,0 +1,87 @@
+name: Build & Archive (Hugo)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Для деплоя в gh-pages понадобятся права на запись
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (with LFS and submodules)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          submodules: recursive
+          fetch-depth: 0
+
+      # Если у темы есть npm-ассеты (tailwind/webpack) — раскомментируй блок ниже:
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      #     cache: 'npm'
+      # - name: Install deps
+      #   run: npm ci
+      # - name: Build assets
+      #   run: npm run build
+
+      - name: Setup Hugo (extended)
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Pack clean source archive
+        run: |
+          tar -czf hugo-sources-$(date +%F).tar.gz \
+            --exclude='.git' \
+            --exclude='public' \
+            --exclude='resources' \
+            --exclude='node_modules' \
+            --exclude='.cache' \
+            --exclude='dist' \
+            --exclude='.hugo_build.lock' \
+            --exclude='**/.DS_Store' \
+            --exclude='**/*.log' \
+            --exclude='.env' \
+            --exclude='**/*.key' \
+            --exclude='**/*.pem' \
+            --exclude='tina/__generated__' \
+            .
+
+      - name: Upload source artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-sources
+          path: hugo-sources-*.tar.gz
+          retention-days: 14
+
+      - name: Upload built site (public)
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-public
+          path: public
+          retention-days: 14
+
+      # === Опционально: деплой в gh-pages ===
+      # Включи этот шаг, если хочешь публиковать сайт в GitHub Pages
+      # После первого прогона зайди в Settings → Pages и выбери:
+      # Source: Deploy from a branch → gh-pages / (root)
+      - name: Deploy to gh-pages (optional)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true
