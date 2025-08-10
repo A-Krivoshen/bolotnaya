@@ -4,6 +4,11 @@
     <title>Болотная: Якиманка</title>
     <link>http://localhost:1313/ru/</link>
     <description>Recent content on Болотная: Якиманка</description>
+    <image>
+      <title>Болотная: Якиманка</title>
+      <url>http://localhost:1313/images/placeholders/camera.svg</url>
+      <link>http://localhost:1313/images/placeholders/camera.svg</link>
+    </image>
     <generator>Hugo -- 0.148.2</generator>
     <language>ru-RU</language>
     <lastBuildDate>Sat, 09 Aug 2025 12:00:00 +0300</lastBuildDate>
@@ -38,16 +43,11 @@
     <item>
       <title>Болотная площадь</title>
       <link>http://localhost:1313/ru/cameras/bolotnaya-square/</link>
-      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/ru/cameras/bolotnaya-square/</guid>
       <description>Онлайн-трансляция Болотной площади</description>
-    </item>
-    <item>
-      <title>ул.Серафимовича</title>
-      <link>http://localhost:1313/ru/cameras/serafimovich/</link>
-      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/ru/cameras/serafimovich/</guid>
-      <description>Онлайн-трансляция ул.Серафимовича</description>
+      <content:encoded><![CDATA[<p>Вид на Болотную площадь в реальном времени.</p>
+]]></content:encoded>
     </item>
     <item>
       <title>Болотная площадь</title>
@@ -69,6 +69,16 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/ru/galleries/bolotnaya-history/</guid>
       <description>Фото История Болотной Площади</description>
+    </item>
+    <item>
+      <title>ул.Серафимовича</title>
+      <link>http://localhost:1313/ru/cameras/ul-serafimovicha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ru/cameras/ul-serafimovicha/</guid>
+      <description>Онлайн-трансляция ул.Серафимовича</description>
+      <content:encoded><![CDATA[<p>Камера с ракурсом на ул.Серафимовича.</p>
+<p>aliases: [&quot;/ru/cameras/serafimovich/&quot;]</p>
+]]></content:encoded>
     </item>
   </channel>
 </rss>

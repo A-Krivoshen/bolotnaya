@@ -2,7 +2,8 @@
   <main class="container">
     <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-      {{ range .Pages.ByTitle }}
+      {{ $pages := where .Pages "Lang" $.Site.Language.Lang }}
+      {{ range $pages.ByTitle }}
         <a class="post-preview" href="{{ .RelPermalink }}">
           
       {{/* Safe image fallback */}}

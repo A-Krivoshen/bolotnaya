@@ -4,6 +4,11 @@
     <title>Categories on Болотная: Якиманка</title>
     <link>http://localhost:1313/en/categories/</link>
     <description>Recent content in Categories on Болотная: Якиманка</description>
+    <image>
+      <title>Болотная: Якиманка</title>
+      <url>http://localhost:1313/images/placeholders/camera.svg</url>
+      <link>http://localhost:1313/images/placeholders/camera.svg</link>
+    </image>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-US</language>
     <atom:link href="http://localhost:1313/en/categories/index.xml" rel="self" type="application/rss+xml" />

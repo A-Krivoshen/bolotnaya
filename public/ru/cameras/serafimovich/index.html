@@ -129,36 +129,31 @@
     </nav>
 </header>
 <main class="main">
-<article class="container">
-  <h1></h1>
-  <p>Онлайн-трансляция ул.Серафимовича</p>
-  <div id="player"></div>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    (function () {
-      var video = document.createElement('video');
-      video.controls = true;
-      video.autoplay = true;
-      video.style.width = '100%';
-      document.getElementById('player').appendChild(video);
-      var src = "";
-      if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.loadSource(src);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-          video.play();
-        });
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = src;
-        video.addEventListener('canplay', function () { video.play(); });
-      } else {
-        document.getElementById('player').innerHTML = '<p>Ваш браузер не поддерживает HLS. Откройте в другом браузере.</p>';
-      }
-    })();
-  </script>
-  <div class="content"></div>
-</article>
+  <article class="post">
+    <header>
+      <h1>ул.Серафимовича</h1>
+      <p class="post-meta">Онлайн-трансляция ул.Серафимовича</p>
+    </header>
+
+    
+    
+
+
+
+
+  
+  
+  
+
+
+
+  <div class="note">Не задан URL HLS-потока. Добавь в фронтматтер поле <code>streams</code> или <code>stream_url</code>.</div>
+
+
+    <div class="content">
+      
+    </div>
+  </article>
 
     </main>
     
