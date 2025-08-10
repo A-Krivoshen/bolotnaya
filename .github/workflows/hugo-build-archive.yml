@@ -2,7 +2,8 @@ name: Build & Archive (Hugo)
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -24,17 +25,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # Если у темы есть сборка ассетов – раскомментируй:
-      # - name: Setup Node
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '20'
-      #     cache: 'npm'
-      # - name: Install deps
-      #   run: npm ci
-      # - name: Build assets
-      #   run: npm run build
-
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
         with:
@@ -42,11 +32,12 @@ jobs:
           extended: true
 
       - name: Build site
-        run: >
-          hugo --minify
-          --baseURL "https://www.bolotnaya.online/"
+        shell: bash
+        run: |
+          hugo --minify --baseURL "https://www.bolotnaya.online/"
 
       - name: Sanity check: no localhost/old domains in output
+        shell: bash
         run: |
           set -euo pipefail
           if grep -R -nE '(localhost(:[0-9]+)?|127\.0\.0\.1)' public; then
@@ -59,9 +50,10 @@ jobs:
           fi
 
       - name: Pack clean source archive
+        shell: bash
         run: |
           mkdir -p artifacts
-          OUT="artifacts/hugo-sources-${{ github.sha }}.tar.gz"
+          OUT="artifacts/hugo-sources-${GITHUB_SHA}.tar.gz"
           tar -czf "$OUT" \
             --exclude='.git' \
             --exclude='artifacts' \
@@ -94,7 +86,7 @@ jobs:
           retention-days: 14
 
       - name: Deploy to gh-pages
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
