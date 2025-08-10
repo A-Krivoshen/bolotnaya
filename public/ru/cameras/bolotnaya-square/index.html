@@ -129,33 +129,35 @@
     </nav>
 </header>
 <main class="main">
-  <article class="post">
-    <header>
-      <h1>Болотная площадь</h1>
-      <p class="post-meta">Онлайн-трансляция Болотной площади</p>
-    </header>
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Болотная площадь</h1>
+    <p class="post-description">Онлайн-трансляция Болотной площади</p>
+  </header>
 
-    
-    <link rel="stylesheet" href="/css/camera-tabs.css" />
-
-<div class="tabs" role="tablist" aria-label="Переключение камер"><button class="tab-btn" role="tab" aria-selected="true" data-key="cam1">Камера 1</button></div>
-
-<div class="player-wrap">
-  <video id="hls-video" controls playsinline muted></video>
-  <div class="player-title" id="player-title">Онлайн трансляция</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-  window.__STREAMS__ = [{"id":"cam1","title":"\"Камера 1\"","url":"\"https://cam.fortesting.ru/lmost_new/index.m3u8\""}];
-</script>
-<script src="/js/hls-tabs-init.js"></script>
-
-    <div class="content">
-      <p>Вид на Болотную площадь в реальном времени.</p>
-
+  <section class="post-content">
+    <link rel="stylesheet" href="/css/camera-single.css">
+    <div class="camera-container" data-stream-url="https://cam.fortesting.ru/lmost_new/index.m3u8" data-title="Болотная площадь">
+      <div id="adblock-message" style="display:none; padding:20px; background-color:#ffcccc; border:1px solid #ff0000; border-radius:5px; margin-bottom:20px; text-align:center;">
+        Пожалуйста, отключите блокировщик рекламы, чтобы просматривать трансляцию.
+      </div>
+      <div class="tab-pane">
+        <video class="hls-player" data-hls="https://cam.fortesting.ru/lmost_new/index.m3u8" controls muted playsinline></video>
+      </div>
+      <div class="status">Подключение…</div>
     </div>
-  </article>
+  </section>
+
+  
+  <section class="post-content">
+    <p>Вид на Болотную площадь в реальном времени.</p>
+
+  </section>
+  
+</article>
+
+<script src="/js/hls.min.js"></script>
+<script src="/js/hls-init.js"></script>
 
     </main>
     

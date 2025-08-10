@@ -1,0 +1,12 @@
+
+.camera-container{max-width:100%;margin:0 auto;padding:20px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.1);border-radius:5px}
+.tab-pane{position:relative;background:#000;border-radius:5px;overflow:hidden;margin-bottom:12px}
+.tab-pane video{width:100%;height:auto;display:block}
+.tab-pane:not(.loaded)::before{content:'';position:absolute;top:50%;left:50%;width:40px;height:40px;border:4px solid #fff;border-top:4px solid transparent;border-radius:50%;animation:spin 1s linear infinite;transform:translate(-50%,-50%)}
+.status{text-align:center;margin-top:6px;font-size:14px}
+.status.connected{color:#00a000}
+.status.error{color:#ff0000}
+.status.reconnecting{color:#ffa500;animation:fade 1s infinite alternate}
+.status.buffering{color:#b59f00;animation:fade 1s infinite alternate}
+@keyframes spin{0%{transform:translate(-50%,-50%) rotate(0)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes fade{0%{opacity:.6}100%{opacity:1}}

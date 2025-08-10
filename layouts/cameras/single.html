@@ -1,15 +1,30 @@
 {{ define "main" }}
-  <article class="post">
-    <header>
-      <h1>{{ .Title }}</h1>
-      {{ with .Params.description }}<p class="post-meta">{{ . }}</p>{{ end }}
-    </header>
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="post-description">{{ . }}</p>{{ end }}
+  </header>
 
-    {{/* Вставляем плеер с табами */}}
-    {{ partial "camera-player-tabs.html" . }}
-
-    <div class="content">
-      {{ .Content }}
+  <section class="post-content">
+    <link rel="stylesheet" href="/css/camera-single.css">
+    <div class="camera-container" data-stream-url="{{ .Params.stream_url }}" data-title="{{ .Title }}">
+      <div id="adblock-message" style="display:none; padding:20px; background-color:#ffcccc; border:1px solid #ff0000; border-radius:5px; margin-bottom:20px; text-align:center;">
+        Пожалуйста, отключите блокировщик рекламы, чтобы просматривать трансляцию.
+      </div>
+      <div class="tab-pane">
+        <video class="hls-player" data-hls="{{ .Params.stream_url }}" controls muted playsinline></video>
+      </div>
+      <div class="status">Подключение…</div>
     </div>
-  </article>
+  </section>
+
+  {{ if .Content }}
+  <section class="post-content">
+    {{ .Content }}
+  </section>
+  {{ end }}
+</article>
+
+<script src="/js/hls.min.js"></script>
+<script src="/js/hls-init.js"></script>
 {{ end }}
