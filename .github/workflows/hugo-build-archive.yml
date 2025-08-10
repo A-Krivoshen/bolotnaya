@@ -16,7 +16,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout (with LFS and submodules)
         uses: actions/checkout@v4
@@ -38,12 +37,15 @@ jobs:
       - name: Sanity check: no localhost/old domains in output
         run: |
           set -euo pipefail
-          if grep -R -nE "(localhost(:[0-9]+)?|127\.0\.0\.1)" public; then
-            echo "Found localhost references in output. Fix baseURL/menus/front matter." >&2
-            exit 1
-          fi
-          if grep -R -nE "https?://(a-krivoshen\.github\.io|bolotnaya\.netlify\.app)" public; then
-            echo "Found references to old domains in output." >&2
+          cd public
+          FOUND=0
+          for p in "localhost" "127.0.0.1" "a-krivoshen.github.io" "bolotnaya.netlify.app"; do
+            if grep -R -n "$p" .; then
+              echo "Found forbidden reference: $p" >&2
+              FOUND=1
+            fi
+          done
+          if [ "$FOUND" -ne 0 ]; then
             exit 1
           fi
 
