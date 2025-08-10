@@ -6,7 +6,10 @@
     <p><a class="tag" href="{{ $camsURL }}">{{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}</a></p>
     <h2 style="margin-top:2rem;">{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}</h2>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-      {{ range first 4 (where .Site.RegularPages "Section" "cameras") }}
+  {{/* Только камеры текущей локали */}}
+  {{ $cams := where .Site.RegularPages "Section" "cameras" }}
+  {{ $cams = where $cams "Lang" $.Site.Language.Lang }}
+  {{ range first 4 (sort $cams "Title") }}
         <a class="post-preview" href="{{ .RelPermalink }}">
           {{/* Safe image fallback */}}
           {{ $ph := "/images/placeholders/camera.svg" }}
