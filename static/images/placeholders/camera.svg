@@ -1,15 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#222"/>
-      <stop offset="100%" stop-color="#444"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="675" fill="url(#g)"/>
-  <g fill="none" stroke="#bbb" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" transform="translate(350,170) scale(1.2)">
-    <rect x="0" y="40" rx="18" ry="18" width="420" height="260"/>
-    <circle cx="210" cy="170" r="70"/>
-    <path d="M420,100 L520,70 L520,270 L420,240 Z" fill="#333" stroke="#bbb"/>
-  </g>
-  <text x="50%" y="620" text-anchor="middle" fill="#ddd" font-family="sans-serif" font-size="36">Camera preview</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320">
+  <rect x="0" y="0" width="640" height="320" rx="12" fill="#555"/>
+  <circle cx="260" cy="160" r="60" fill="none" stroke="#bbb" stroke-width="12"/>
+  <rect x="380" y="100" width="120" height="120" fill="none" stroke="#bbb" stroke-width="12"/>
+  <rect x="140" y="60" width="260" height="200" fill="none" stroke="#bbb" stroke-width="12" rx="12"/>
+  <text x="50%" y="92%" text-anchor="middle" fill="#ddd" font-family="sans-serif" font-size="16">Camera preview</text>
 </svg>

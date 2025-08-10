@@ -1,17 +1,31 @@
 {{ define "main" }}
-<main class="container">
-  <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
-
-  <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-    {{ range .Pages.ByTitle }}
-      <a class="post-preview" href="{{ .RelPermalink }}">
-        {{ $img := .Params.image | default "/images/placeholders/camera.svg" }}
-        <img src="{{ $img | relURL }}" alt="{{ .Title }}" style="width:100%; height:160px; object-fit:cover; border-radius:6px;">
-        <h2 style="margin-top:.75rem;">{{ .Title }}</h2>
-        {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-        <span class="tag">{{ if eq $.Site.Language.Lang "ru" }}Смотреть поток{{ else }}Watch stream{{ end }}</span>
-      </a>
-    {{ end }}
-  </div>
-</main>
+  <main class="container">
+    <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
+    <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      {{ range .Pages.ByTitle }}
+        <a class="post-preview" href="{{ .RelPermalink }}">
+          
+      {{/* Safe image fallback */}}
+      {{ $ph := "/images/placeholders/camera.svg" }}
+      {{ $img := .Params.image }}
+      {{ if $img }}
+        {{ $trim := (strings.TrimPrefix "/" $img) }}
+        {{ $staticPath := (printf "static/%s" $trim) }}
+        {{ if fileExists $staticPath }}
+          {{/* ok */}}
+        {{ else }}
+          {{ $img = $ph }}
+        {{ end }}
+      {{ else }}
+        {{ $img = $ph }}
+      {{ end }}
+    
+          <img src="{{ $img | relURL }}" alt="{{ .Title }}" style="width:100%; height:160px; object-fit:cover; border-radius:6px;">
+          <h2 style="margin-top:.75rem;">{{ .Title }}</h2>
+          {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+          <span class="tag">{{ if eq $.Site.Language.Lang "ru" }}Смотреть поток{{ else }}Watch stream{{ end }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </main>
 {{ end }}

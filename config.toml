@@ -54,6 +54,7 @@ theme = "PaperMod"
         weight = 4
 
 [params]
+images = ["/images/placeholders/camera.svg"]
   homeInfoTitle        = "Якиманка: Камеры и история"
   homeInfoDescription  = "Онлайн-камеры, фото и рассказы о районе Якиманка"
   ShowReadingTime      = false
@@ -75,4 +76,5 @@ theme = "PaperMod"
 
 [sitemap]
   filename = "sitemap.xml"
+
 

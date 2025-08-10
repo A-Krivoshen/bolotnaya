@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Болотная: Якиманка</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content on Болотная: Якиманка</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 09 Aug 2025 12:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bolotnaya.online — a blog by a Yakimanka resident built on open-source technologies</title>
+      <link>http://localhost:1313/en/posts/bolotnaya-blog/</link>
+      <pubDate>Sat, 09 Aug 2025 12:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/en/posts/bolotnaya-blog/</guid>
+      <description>Bolotnaya.online is a private blog of a Yakimanka resident, built on open-source technologies. Personal views, live streams, multilingual support, and automation.</description>
+      <content:encoded><![CDATA[<p><strong>Bolotnaya.online — a blog by a Yakimanka resident built on open-source technologies</strong></p>
+<p>Bolotnaya.online is a private project created and maintained by a concerned resident of the Yakimanka district.<br>
+The site is not a mass media outlet, and all published materials reflect the author’s personal views.</p>
+<p>The project showcases the capabilities of modern technologies and open-source software:</p>
+<ul>
+<li><strong>Nginx</strong> — web server and reverse proxy.</li>
+<li><strong>Hugo</strong> — static site generator.</li>
+<li><strong>TinaCMS</strong> — headless CMS with visual editing.</li>
+<li><strong>Docker</strong> — containerized services.</li>
+<li><strong>FFmpeg</strong> — video processing and streaming.</li>
+<li><strong>MediaMTX</strong> — live video server.</li>
+</ul>
+<p>Features include:</p>
+<ul>
+<li>Live HLS streams from cameras.</li>
+<li>Automated content publishing.</li>
+<li>Multilingual content support.</li>
+</ul>
+<p>It’s an example of how modern technologies can be combined into a convenient, reliable, and independent blog without proprietary CMS platforms.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Bolotnaya Square</title>
+      <link>http://localhost:1313/en/cameras/bolotnaya-square/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/cameras/bolotnaya-square/</guid>
+      <description>Live stream of Bolotnaya Square</description>
+      <content:encoded><![CDATA[<p>Bolotnaya Square View Bolotnaya Square in real-time.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Serafimovicha street</title>
+      <link>http://localhost:1313/en/cameras/serafimovich/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/cameras/serafimovich/</guid>
+      <description>Live stream of Serafimovicha street</description>
+    </item>
+    <item>
+      <title>Болотная площадь</title>
+      <link>http://localhost:1313/en/history/bolotnaya-history/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/history/bolotnaya-history/</guid>
+      <description>Bolotnaya square in Moscow</description>
+    </item>
+  </channel>
+</rss>
