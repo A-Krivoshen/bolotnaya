@@ -1,21 +1,28 @@
+
 {{ define "main" }}
+<!-- Self-contained includes (на случай, если не правили baseof.html) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<link rel="stylesheet" href="/css/gallery-grid.css">
+
 <article class="container history-page">
-  <header><h1>{{ .Title }}</h1></header>
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="muted">{{ . }}</p>{{ end }}
+    
+  </header>
 
   {{ with .Content }}
-  <section class="history-intro prose">
-    {{ . }}
-  </section>
+  <section class="prose">{{ . }}</section>
   {{ end }}
 
-  {{/* Assemble photos from section params or linked gallery */}}
   {{ $photos := slice }}
-  {{ if .Params.photos }}
-    {{ $photos = .Params.photos }}
-  {{ else if .Params.images }}
-    {{ $photos = .Params.images }}
+
+  {{/* 1) Берём фото из текущей страницы */}}
+  {{ if .Params.photos }}        {{ $photos = .Params.photos }}
+  {{ else if .Params.images }}   {{ $photos = .Params.images }}
   {{ end }}
 
+  {{/* 2) Фолбэк: ищем по gallery_slug, в любом языке */}}
   {{ if and (eq (len $photos) 0) .Params.gallery_slug }}
     {{ $slug := .Params.gallery_slug }}
     {{ $g := $.Site.GetPage (printf "galleries/%s" $slug) }}
@@ -28,23 +35,22 @@
       {{ end }}
     {{ end }}
     {{ with $g }}
-      {{ if .Params.photos }}
-        {{ $photos = .Params.photos }}
-      {{ else if .Params.images }}
-        {{ $photos = .Params.images }}
+      {{ if .Params.photos }}      {{ $photos = .Params.photos }}
+      {{ else if .Params.images }} {{ $photos = .Params.images }}
       {{ end }}
     {{ end }}
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
-  <section class="history-gallery grid">
+  <section class="gallery-grid">
+    {{ $group := printf "hist-%s" .File.BaseFileName | default "hist" }}
     {{ range $photos }}
       {{ $src := .src | default .url | default .image | default . }}
       {{ $thumb := .thumb | default $src }}
-      {{ $caption := .title | default .caption }}
-      <a class="history-card" href="{{ $src }}" target="_blank" rel="noopener">
-        <img loading="lazy" src="{{ $thumb }}" alt="{{ $caption }}">
-        {{ with $caption }}<div class="cap">{{ . }}</div>{{ end }}
+      {{ $cap := .title | default .caption }}
+      <a class="gallery-item glightbox" href="{{ $src }}" data-gallery="{{ $group }}" {{ with $cap }}data-title="{{ . }}"{{ end }}>
+        <img loading="lazy" src="{{ $thumb }}" alt="{{ $cap }}">
+        {{ with $cap }}<div class="cap">{{ . }}</div>{{ end }}
       </a>
     {{ end }}
   </section>
@@ -52,4 +58,7 @@
     <p class="muted">Нет фотографий для галереи.</p>
   {{ end }}
 </article>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+<script src="/js/lightbox-init.js" defer></script>
 {{ end }}

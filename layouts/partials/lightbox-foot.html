@@ -1,0 +1,6 @@
+{{ $isHist := or (eq .Type "history") (eq .Section "history") }}
+{{ $isGals := or (eq .Type "galleries") (eq .Section "galleries") }}
+{{ if or $isHist $isGals }}
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+<script src="/js/lightbox-init.js" defer></script>
+{{ end }}

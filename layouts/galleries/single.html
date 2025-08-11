@@ -1,31 +1,64 @@
-{{ define "main" }}
-{{ partial "glightbox.html" . }}
-<main class="container" style="max-width:1100px;margin:0 auto;padding:24px;">
-  <h1>{{ .Title }}</h1>
-  {{ with .Params.description }}<p class="lead" style="opacity:.8;margin-bottom:24px;">{{ . }}</p>{{ end }}
 
-  {{/* Берём свои images или падаем обратно на перевод */}}
-  {{ $page := . }}
-  {{ $images := $page.Params.images }}
-  {{ if not $images }}
-    {{ range $page.Translations }}
-      {{ if .Params.images }}
-        {{ $images = .Params.images }}
+{{ define "main" }}
+<!-- Self-contained includes (на случай, если не правили baseof.html) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<link rel="stylesheet" href="/css/gallery-grid.css">
+
+<article class="container galleries-page">
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="muted">{{ . }}</p>{{ end }}
+    {{ with .Params.description }}<p class="muted">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ with .Content }}
+  <section class="prose">{{ . }}</section>
+  {{ end }}
+
+  {{ $photos := slice }}
+
+  {{/* 1) Берём фото из текущей страницы */}}
+  {{ if .Params.photos }}        {{ $photos = .Params.photos }}
+  {{ else if .Params.images }}   {{ $photos = .Params.images }}
+  {{ end }}
+
+  {{/* 2) Фолбэк: ищем по gallery_slug, в любом языке */}}
+  {{ if and (eq (len $photos) 0) .Params.gallery_slug }}
+    {{ $slug := .Params.gallery_slug }}
+    {{ $g := $.Site.GetPage (printf "galleries/%s" $slug) }}
+    {{ if not $g }}
+      {{ range $.Sites }}
+        {{ if not $g }}
+          {{ $maybe := .GetPage (printf "galleries/%s" $slug) }}
+          {{ if $maybe }}{{ $g = $maybe }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ with $g }}
+      {{ if .Params.photos }}      {{ $photos = .Params.photos }}
+      {{ else if .Params.images }} {{ $photos = .Params.images }}
       {{ end }}
     {{ end }}
   {{ end }}
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
-    {{ range $images }}
-      {{ $src := .src }}
-      {{ if not (hasPrefix $src "/") }}{{ $src = print "/images/galleries/" $src }}{{ end }}
-      <figure style="margin:0">
-        <img src="{{ $src }}" alt="{{ .caption }}" loading="lazy" style="width:100%;height:auto;border-radius:10px;">
-        {{ with .caption }}<figcaption style="font-size:.9rem;opacity:.8;margin-top:6px;">{{ . }}</figcaption>{{ end }}
-      </figure>
-    {{ else }}
-      <p>В альбоме пока нет фотографий.</p>
+  {{ if gt (len $photos) 0 }}
+  <section class="gallery-grid">
+    {{ $group := printf "gal-%s" .File.BaseFileName | default "gal" }}
+    {{ range $photos }}
+      {{ $src := .src | default .url | default .image | default . }}
+      {{ $thumb := .thumb | default $src }}
+      {{ $cap := .title | default .caption }}
+      <a class="gallery-item glightbox" href="{{ $src }}" data-gallery="{{ $group }}" {{ with $cap }}data-title="{{ . }}"{{ end }}>
+        <img loading="lazy" src="{{ $thumb }}" alt="{{ $cap }}">
+        {{ with $cap }}<div class="cap">{{ . }}</div>{{ end }}
+      </a>
     {{ end }}
-  </div>
-</main>
+  </section>
+  {{ else }}
+    <p class="muted">Нет фотографий для галереи.</p>
+  {{ end }}
+</article>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+<script src="/js/lightbox-init.js" defer></script>
 {{ end }}
