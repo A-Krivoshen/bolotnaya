@@ -1,6 +1,11 @@
 
-/*! Auto Lightbox: wraps images and initializes GLightbox robustly */
+/*! Auto Lightbox with admin guard */
 (function(){
+  // Don't run inside Tina admin app (dev port) or other admin frames
+  var isAdmin = (location.port === "4001") || /\/admin(\/|$)/.test(location.pathname);
+  var inIframe = (function(){ try { return window.top !== window.self; } catch(e){ return true; } })();
+  if (isAdmin && inIframe) return; // disable in Tina preview iframe
+
   function ensureAnchors(scope) {
     document.querySelectorAll(scope + ' .gallery-grid').forEach(function(grid){
       grid.querySelectorAll(':scope img').forEach(function(img){

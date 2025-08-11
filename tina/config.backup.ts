@@ -1,22 +1,6 @@
-// Generated from user's original config with absolute preview for images + dev mediaRoot
 import { defineConfig } from "tinacms";
 
 const branch = process.env.TINA_BRANCH || "main";
-const isDev = process.env.NODE_ENV !== "production";
-const mediaRoot = isDev ? "admin/images/galleries" : "images/galleries";
-
-// Helper: build absolute preview URL, and in dev replace 4001 -> 1313
-const absPreview = (p?: string) => {
-  if (!p) return "";
-  const path = p.startsWith("/") ? p : `/${p}`;
-  try {
-    const o = window?.location?.origin || "";
-    const origin = o.includes(":4001") ? o.replace(":4001", ":1313") : o;
-    return `${origin}${path}`;
-  } catch {
-    return path;
-  }
-};
 
 // Общие поля для галерей
 const galleryFields = [
@@ -29,14 +13,7 @@ const galleryFields = [
     label: "Изображения / Images",
     list: true,
     fields: [
-      {
-        type: "image",
-        name: "src",
-        label: "Картинка",
-        required: true,
-        uploadDir: () => "images/galleries",
-        previewSrc: (values) => absPreview(values?.src),
-      },
+      { type: "image", name: "src", label: "Картинка", required: true },
       { type: "string", name: "caption", label: "Подпись / Caption" },
     ],
   },
@@ -74,7 +51,7 @@ export default defineConfig({
   media: {
     tina: {
       publicFolder: "static",
-      mediaRoot: mediaRoot,
+      mediaRoot: "images/galleries",
     },
   },
 
@@ -189,7 +166,7 @@ export default defineConfig({
         fields: [
           { type: "string", name: "title", label: "Заголовок", required: true, isTitle: true },
           { type: "string", name: "description", label: "Описание" },
-          { type: "image",  name: "image", label: "Превью (опц.)", previewSrc: (values) => absPreview(values?.image) },
+          { type: "image",  name: "image", label: "Превью (опц.)" },
           { type: "string", name: "stream_url", label: "HLS URL (фолбэк)" },
 
           {
@@ -198,7 +175,7 @@ export default defineConfig({
             label: "Ракурсы (streams)",
             list: true,
             ui: {
-              itemProps: (item) => ({
+              itemProps: (item?: any) => ({
                 label: item?.title || item?.id || item?.url || "stream",
               }),
             },
@@ -242,7 +219,7 @@ export default defineConfig({
         fields: [
           { type: "string", name: "title", label: "Title", required: true, isTitle: true },
           { type: "string", name: "description", label: "Description" },
-          { type: "image",  name: "image", label: "Preview (opt.)", previewSrc: (values) => absPreview(values?.image) },
+          { type: "image",  name: "image", label: "Preview (opt.)" },
           { type: "string", name: "stream_url", label: "HLS URL (fallback)" },
 
           {
@@ -251,7 +228,7 @@ export default defineConfig({
             label: "Streams",
             list: true,
             ui: {
-              itemProps: (item) => ({
+              itemProps: (item?: any) => ({
                 label: item?.title || item?.id || item?.url || "stream",
               }),
             },
@@ -265,6 +242,9 @@ export default defineConfig({
           { type: "rich-text", name: "body", label: "Body (opt.)" },
         ],
       },
+
+      // ⚠️ Старую коллекцию "Камеры" (path: content/cameras) удалил —
+      // мы теперь работаем с RU/EN в виде папок. Если нужен бэкап — скажи.
     ],
   },
 });
