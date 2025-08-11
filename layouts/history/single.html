@@ -1,44 +1,60 @@
 {{ define "main" }}
-{{ partial "glightbox.html" . }}
-<main class="container" style="max-width:1100px;margin:0 auto;padding:24px;">
-  <h1>{{ .Title }}</h1>
-  {{ with .Params.description }}<p class="lead" style="opacity:.8;margin-bottom:24px;">{{ . }}</p>{{ end }}
+<article class="container history-page">
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="muted">{{ . }}</p>{{ end }}
+  </header>
 
-  {{ $p := . }}
-  {{ $slug := $p.Params.gallery_slug }}
+  {{ with .Content }}
+  <section class="history-intro prose">
+    {{ . }}
+  </section>
+  {{ end }}
 
-  {{/* 1) ищем галерею в текущем языке */}}
-  {{ $gal := $p.Site.GetPage (printf "galleries/%s" $slug) }}
+  {{/* Build photos list safely */}}
+  {{ $photos := slice }}
+  {{/* 1) take from page if present */}}
+  {{ if .Params.photos }}
+    {{ $photos = .Params.photos }}
+  {{ else if .Params.images }}
+    {{ $photos = .Params.images }}
+  {{ end }}
 
-  {{/* 2) фоллбэк — из других локалей */}}
-  {{ if not $gal }}
-    {{ range site.Sites }}
-      {{ if ne .Language.Lang $p.Site.Language.Lang }}
-        {{ $try := .GetPage (printf "galleries/%s" $slug) }}
-        {{ if and (not $gal) $try }}{{ $gal = $try }}{{ end }}
+  {{/* 2) fallback by gallery_slug: search in current site then other languages */}}
+  {{ if and (eq (len $photos) 0) .Params.gallery_slug }}
+    {{ $slug := .Params.gallery_slug }}
+    {{ $g := $.Site.GetPage (printf "galleries/%s" $slug) }}
+    {{ if not $g }}
+      {{ range $.Sites }}
+        {{ if not $g }}
+          {{ $maybe := .GetPage (printf "galleries/%s" $slug) }}
+          {{ if $maybe }}{{ $g = $maybe }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ with $g }}
+      {{ if .Params.photos }}
+        {{ $photos = .Params.photos }}
+      {{ else if .Params.images }}
+        {{ $photos = .Params.images }}
       {{ end }}
     {{ end }}
   {{ end }}
 
-  {{ if not $gal }}
-    <p>{{ if eq .Site.Language.Lang "ru" }}Галерея «{{ $slug }}» не найдена.{{ else }}Gallery “{{ $slug }}” not found.{{ end }}</p>
+  {{ if gt (len $photos) 0 }}
+  <section class="history-gallery grid">
+    {{ range $photos }}
+      {{ $src := .src | default .url | default .image | default . }}
+      {{ $thumb := .thumb | default $src }}
+      {{ $caption := .title | default .caption }}
+      <a class="history-card" href="{{ $src }}" target="_blank" rel="noopener">
+        <img loading="lazy" src="{{ $thumb }}" alt="{{ $caption }}">
+        {{ with $caption }}<div class="cap">{{ . }}</div>{{ end }}
+      </a>
+    {{ end }}
+  </section>
   {{ else }}
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;">
-      {{ range $gal.Params.images }}
-        {{ $src := .src }}
-        {{ if not (hasPrefix $src "/") }}{{ $src = print "/images/galleries/" $src }}{{ end }}
-        <figure style="margin:0">
-          <img src="{{ $src }}" alt="{{ .caption }}" loading="lazy" style="width:100%;height:auto;border-radius:10px;">
-          {{ with .caption }}<figcaption style="font-size:.9rem;opacity:.8;margin-top:6px;">{{ . }}</figcaption>{{ end }}
-        </figure>
-      {{ else }}
-        <p>{{ if eq $.Site.Language.Lang "ru" }}В этой галерее нет фотографий.{{ else }}This gallery has no photos.{{ end }}</p>
-      {{ end }}
-    </div>
+    <p class="muted">Нет фотографий для галереи.</p>
   {{ end }}
-
-  {{ with .Content }}
-    <div style="margin-top:24px;">{{ . }}</div>
-  {{ end }}
-</main>
+</article>
 {{ end }}

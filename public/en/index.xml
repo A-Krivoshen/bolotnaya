@@ -60,6 +60,8 @@ The site is not a mass media outlet, and all published materials reflect the aut
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/history/bolotnaya-history/</guid>
       <description>Bolotnaya square in Moscow</description>
+      <content:encoded><![CDATA[<p>Bolotnaya Square is a historic square in the center of Moscow. Replace this placeholder with the real story text via Tina (History → Bolotnaya Square).</p>
+]]></content:encoded>
     </item>
   </channel>
 </rss>

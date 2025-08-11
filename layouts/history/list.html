@@ -1,57 +1,55 @@
 {{ define "main" }}
-<main class="container" style="max-width:1100px;margin:0 auto;padding:24px;">
-  <h1>{{ if eq .Site.Language.Lang "ru" }}История{{ else }}History{{ end }}</h1>
+<article class="container history-page">
+  <header><h1>{{ .Title }}</h1></header>
 
-  {{ $pages := .Pages }}
-  {{ if not $pages }}
-    <p>{{ if eq .Site.Language.Lang "ru" }}Пока нет материалов.{{ else }}No entries yet.{{ end }}</p>
-  {{ else }}
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
-    {{ range $pages }}
-      {{ $p := . }}
-      {{ $slug := $p.Params.gallery_slug }}
+  {{ with .Content }}
+  <section class="history-intro prose">
+    {{ . }}
+  </section>
+  {{ end }}
 
-      {{/* 1) ищем галерею с таким slug в текущей локали */}}
-      {{ $gal := $p.Site.GetPage (printf "galleries/%s" $slug) }}
+  {{/* Assemble photos from section params or linked gallery */}}
+  {{ $photos := slice }}
+  {{ if .Params.photos }}
+    {{ $photos = .Params.photos }}
+  {{ else if .Params.images }}
+    {{ $photos = .Params.images }}
+  {{ end }}
 
-      {{/* 2) если нет — берём из другой локали */}}
-      {{ if not $gal }}
-        {{ range site.Sites }}
-          {{ if ne .Language.Lang $p.Site.Language.Lang }}
-            {{ $try := .GetPage (printf "galleries/%s" $slug) }}
-            {{ if and (not $gal) $try }}{{ $gal = $try }}{{ end }}
-          {{ end }}
+  {{ if and (eq (len $photos) 0) .Params.gallery_slug }}
+    {{ $slug := .Params.gallery_slug }}
+    {{ $g := $.Site.GetPage (printf "galleries/%s" $slug) }}
+    {{ if not $g }}
+      {{ range $.Sites }}
+        {{ if not $g }}
+          {{ $maybe := .GetPage (printf "galleries/%s" $slug) }}
+          {{ if $maybe }}{{ $g = $maybe }}{{ end }}
         {{ end }}
       {{ end }}
-
-      {{/* превью = первая картинка галереи */}}
-      {{ $cover := "" }}
-      {{ with $gal }}
-        {{ with index .Params.images 0 }}
-          {{ $src := .src }}
-          {{ if not (hasPrefix $src "/") }}{{ $src = print "/images/galleries/" $src }}{{ end }}
-          {{ $cover = $src }}
-        {{ end }}
+    {{ end }}
+    {{ with $g }}
+      {{ if .Params.photos }}
+        {{ $photos = .Params.photos }}
+      {{ else if .Params.images }}
+        {{ $photos = .Params.images }}
       {{ end }}
+    {{ end }}
+  {{ end }}
 
-      <a href="{{ $p.RelPermalink }}" style="display:block;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;text-decoration:none;">
-        {{ if $cover }}
-          <div style="aspect-ratio:4/3;background:#f6f7f9">
-            <img src="{{ $cover }}" alt="{{ $p.Title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          </div>
-        {{ else }}
-          <div style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#f6f7f9;color:#666;">
-            {{ if eq .Site.Language.Lang "ru" }}Нет превью{{ else }}No cover{{ end }}
-          </div>
-        {{ end }}
-        <div style="padding:12px">
-          <div style="font-weight:700">{{ $p.Title }}</div>
-          {{ with $p.Params.description }}<div style="opacity:.7;margin-top:4px;">{{ . }}</div>{{ end }}
-          {{ with $gal }}<div style="opacity:.6;font-size:.9rem;margin-top:8px;">{{ len .Params.images }} {{ if eq $.Site.Language.Lang "ru" }}фото{{ else }}photos{{ end }}</div>{{ end }}
-        </div>
+  {{ if gt (len $photos) 0 }}
+  <section class="history-gallery grid">
+    {{ range $photos }}
+      {{ $src := .src | default .url | default .image | default . }}
+      {{ $thumb := .thumb | default $src }}
+      {{ $caption := .title | default .caption }}
+      <a class="history-card" href="{{ $src }}" target="_blank" rel="noopener">
+        <img loading="lazy" src="{{ $thumb }}" alt="{{ $caption }}">
+        {{ with $caption }}<div class="cap">{{ . }}</div>{{ end }}
       </a>
     {{ end }}
-  </div>
+  </section>
+  {{ else }}
+    <p class="muted">Нет фотографий для галереи.</p>
   {{ end }}
-</main>
+</article>
 {{ end }}

@@ -34,6 +34,7 @@ const historyFields = [
         "Укажи slug существующей галереи (одинаковый для RU/EN), например: bolotnaya-square",
     },
   },
+  { type: "rich-text", name: "body", label: "Текст", isBody: true },
 ];
 
 export default defineConfig({
