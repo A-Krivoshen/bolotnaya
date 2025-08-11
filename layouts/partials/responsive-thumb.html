@@ -1,0 +1,52 @@
+
+{{/* Partial: responsive-thumb
+Usage: {{ partial "responsive-thumb.html" (dict "Page" . "src" $src "thumb" $thumb "alt" $cap) }}
+Generates <picture> with WebP + JPEG srcsets when the image is a Hugo Resource (page bundle or /assets).
+Falls back to a plain <img> for /static paths.
+*/}}
+{{ $page := .Page }}
+{{ $src  := .src }}
+{{ $thumb := .thumb | default $src }}
+{{ $alt  := .alt | default "" }}
+
+{{/* Try to get Hugo Resource: from page bundle first, then from global /assets */}}
+{{ $clean := strings.TrimPrefix "/" $thumb }}
+{{ $res := $page.Resources.GetMatch $clean }}
+{{ if not $res }}
+  {{ $res = resources.Get $clean }}
+{{ end }}
+
+{{ if $res }}
+  {{/* Build responsive sizes */}}
+  {{ $w480  := $res.Fit "480x360 q75" }}
+  {{ $w800  := $res.Fit "800x600 q75" }}
+  {{ $w1200 := $res.Fit "1200x900 q75" }}
+  {{ $w1600 := $res.Fit "1600x1200 q75" }}
+  {{ $jw480  := $w480 }}
+  {{ $jw800  := $w800 }}
+  {{ $jw1200 := $w1200 }}
+  {{ $jw1600 := $w1600 }}
+  {{/* WebP versions */}}
+  {{ $wp480  := $w480  | resources.Convert "webp" }}
+  {{ $wp800  := $w800  | resources.Convert "webp" }}
+  {{ $wp1200 := $w1200 | resources.Convert "webp" }}
+  {{ $wp1600 := $w1600 | resources.Convert "webp" }}
+
+  <picture>
+    <source type="image/webp"
+      srcset="{{ $wp480.RelPermalink }} 480w, {{ $wp800.RelPermalink }} 800w, {{ $wp1200.RelPermalink }} 1200w, {{ $wp1600.RelPermalink }} 1600w"
+      sizes="(min-width:1200px) 25vw, (min-width:900px) 33vw, (min-width:640px) 50vw, 100vw">
+    <img
+      src="{{ $jw800.RelPermalink }}"
+      srcset="{{ $jw480.RelPermalink }} 480w, {{ $jw800.RelPermalink }} 800w, {{ $jw1200.RelPermalink }} 1200w, {{ $jw1600.RelPermalink }} 1600w"
+      sizes="(min-width:1200px) 25vw, (min-width:900px) 33vw, (min-width:640px) 50vw, 100vw"
+      alt="{{ $alt }}"
+      loading="lazy"
+      decoding="async"
+      width="{{ $jw800.Width }}" height="{{ $jw800.Height }}"
+      style="width:100%;height:100%;object-fit:cover;display:block;">
+  </picture>
+{{ else }}
+  <img src="{{ $thumb }}" alt="{{ $alt }}" loading="lazy" decoding="async"
+       style="width:100%;height:100%;object-fit:cover;display:block;">
+{{ end }}

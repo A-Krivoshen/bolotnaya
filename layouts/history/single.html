@@ -1,28 +1,18 @@
 
 {{ define "main" }}
-<!-- Self-contained includes (на случай, если не правили baseof.html) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-<link rel="stylesheet" href="/css/gallery-grid.css">
-
 <article class="container history-page">
   <header>
     <h1>{{ .Title }}</h1>
     {{ with .Params.summary }}<p class="muted">{{ . }}</p>{{ end }}
-    
   </header>
 
-  {{ with .Content }}
-  <section class="prose">{{ . }}</section>
-  {{ end }}
+  {{ with .Content }}<section class="prose">{{ . }}</section>{{ end }}
 
   {{ $photos := slice }}
-
-  {{/* 1) Берём фото из текущей страницы */}}
   {{ if .Params.photos }}        {{ $photos = .Params.photos }}
   {{ else if .Params.images }}   {{ $photos = .Params.images }}
   {{ end }}
 
-  {{/* 2) Фолбэк: ищем по gallery_slug, в любом языке */}}
   {{ if and (eq (len $photos) 0) .Params.gallery_slug }}
     {{ $slug := .Params.gallery_slug }}
     {{ $g := $.Site.GetPage (printf "galleries/%s" $slug) }}
@@ -42,6 +32,8 @@
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
+  <link rel="stylesheet" href="/css/gallery-grid.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <section class="gallery-grid">
     {{ $group := printf "hist-%s" .File.BaseFileName | default "hist" }}
     {{ range $photos }}
@@ -49,16 +41,19 @@
       {{ $thumb := .thumb | default $src }}
       {{ $cap := .title | default .caption }}
       <a class="gallery-item glightbox" href="{{ $src }}" data-gallery="{{ $group }}" {{ with $cap }}data-title="{{ . }}"{{ end }}>
-        <img loading="lazy" src="{{ $thumb }}" alt="{{ $cap }}">
-        {{ with $cap }}<div class="cap">{{ . }}</div>{{ end }}
+        {{ partial "responsive-thumb.html" (dict "Page" $ "src" $src "thumb" $thumb "alt" $cap) }}
       </a>
     {{ end }}
   </section>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      if (typeof GLightbox==='undefined') return;
+      GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
+    });
+  </script>
   {{ else }}
     <p class="muted">Нет фотографий для галереи.</p>
   {{ end }}
 </article>
-
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
-<script src="/js/lightbox-init.js" defer></script>
 {{ end }}
