@@ -29,7 +29,6 @@
       <guid>http://localhost:1313/ru/cameras/ul-serafimovicha/</guid>
       <description>Онлайн-трансляция ул.Серафимовича</description>
       <content:encoded><![CDATA[<p>Камера с ракурсом на ул.Серафимовича.</p>
-<p>aliases: [&quot;/ru/cameras/serafimovich/&quot;]</p>
 ]]></content:encoded>
     </item>
   </channel>

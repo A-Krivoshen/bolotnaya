@@ -8,5 +8,4 @@ stream_url: "https://cam.fortesting.ru/boloto_new/index.m3u8"
 
 Камера с ракурсом на ул.Серафимовича.
 
-aliases: ["/ru/cameras/serafimovich/"]
 
