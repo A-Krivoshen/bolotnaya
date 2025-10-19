@@ -31,7 +31,7 @@
     });
   });
 
-  // floorAd (desktop) — новый блок R-A-5829540-13
+  // floorAd (desktop)
   window.yaContextCb.push(() => {
     if (window.matchMedia && !window.matchMedia('(max-width: 1023px)').matches) {
       try {
@@ -44,4 +44,21 @@
     }
   });
 </script>
+{{- end -}}
+
+{{- if hugo.IsProduction -}}
+<!-- Yandex.Metrika informer -->
+<div class="ym-informer" style="margin-top:1rem; display:flex; justify-content:center; opacity:.85;">
+  <a href="https://metrika.yandex.ru/stat/?id=52478860&from=informer" target="_blank" rel="nofollow noopener">
+    <img
+      src="https://informer.yandex.ru/informer/52478860/2_1_797979FF_595959FF_1_uniques"
+      alt="Яндекс.Метрика: данные за сегодня (уникальные посетители)"
+      title="Яндекс.Метрика: данные за сегодня (уникальные посетители)"
+      width="80" height="31"
+      loading="lazy"
+      style="border:0;"
+      class="ym-advanced-informer" data-cid="52478860" data-lang="ru" />
+  </a>
+</div>
+<!-- /Yandex.Metrika informer -->
 {{- end -}}
