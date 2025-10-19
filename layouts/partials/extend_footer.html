@@ -48,6 +48,12 @@
 
 {{- if hugo.IsProduction -}}
 <!-- Yandex.Metrika informer -->
+<style>
+  .ym-informer { margin: .25rem 0 .75rem; }
+  @media (max-width: 480px) {
+    .ym-informer img { transform: scale(.95); }
+  }
+</style>
 <div class="ym-informer" style="margin-top:1rem; display:flex; justify-content:center; opacity:.85;">
   <a href="https://metrika.yandex.ru/stat/?id=52478860&from=informer" target="_blank" rel="nofollow noopener">
     <img
