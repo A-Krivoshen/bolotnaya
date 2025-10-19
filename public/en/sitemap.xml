@@ -187,6 +187,19 @@
                 href="http://localhost:1313/en/cameras/"
                 />
   </url><url>
+    <loc>http://localhost:1313/en/cameras/bolotnaya-square/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru-RU"
+                href="http://localhost:1313/ru/cameras/bolotnaya-square/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/cameras/bolotnaya-square/"
+                />
+  </url><url>
     <loc>http://localhost:1313/en/admin/</loc>
     <xhtml:link
                 rel="alternate"
@@ -197,18 +210,6 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="http://localhost:1313/en/admin/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/cameras/bolotnaya-square/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru-RU"
-                href="http://localhost:1313/ru/cameras/bolotnaya-square/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/cameras/bolotnaya-square/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/categories/</loc>

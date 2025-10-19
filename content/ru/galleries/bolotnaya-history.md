@@ -12,5 +12,13 @@ images:
     caption: >-
       Фонтан 1948 года - Чаша отлита из переплавленных немецких орудий времён
       Великой Отечественной войны.
+  - src: /admin/images/galleries/images/galleries/history/9Q_C_Aqel-c.jpg
+    caption: Водоотводный канал до облицовки гранитом. Вид на Дом на набережной.
+  - src: >-
+      /admin/images/galleries/images/galleries/history/ENZA5rkQqmlGVulk2gX9KBzFrFUbBuTyEbXsjL8gZdtYJBPxuSAjPbP4mKLvMz80BXp_uRzDnsvgHmroF75_kNw6u6kkZB1N7KUuO669hf8S-u1e379to8T_P6H8JGmNSP2LPtQi2jCcqOjPqplKimFa6p7DXNh1UeSeQKXYkFx1kNVtA1-k4ELaK0iTd5QcI61KOKaU36VS3Tls2RDLIQ.jpeg
+    caption: Болотная площадь. Круглый фонтан и прогулки москвичей.
+  - src: >-
+      /admin/images/galleries/images/galleries/history/Screenshot_20190626_113749.png
+    caption: Схема района Болотной площади и Водоотводного канала.
 ---
 
