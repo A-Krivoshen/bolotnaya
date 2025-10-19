@@ -1,9 +1,9 @@
 {{- if hugo.IsProduction -}}
-<noscript><div><img src="https://mc.yandex.ru/watch/52478860" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/52478860" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 {{- end -}}
+
 {{- if hugo.IsProduction -}}
 <script>
-  window.yaContextCb = window.yaContextCb || [];
   // fullscreen (desktop)
   window.yaContextCb.push(() => {
     Ya.Context.AdvManager.render({
@@ -12,6 +12,7 @@
       platform: "desktop"
     });
   });
+
   // fullscreen (touch)
   window.yaContextCb.push(() => {
     Ya.Context.AdvManager.render({
@@ -20,6 +21,7 @@
       platform: "touch"
     });
   });
+
   // floorAd (touch)
   window.yaContextCb.push(() => {
     Ya.Context.AdvManager.render({
@@ -28,13 +30,18 @@
       platform: "touch"
     });
   });
-<!-- Yandex.RTB R-A-5829540-13 -->
-window.yaContextCb.push(() => {
-    Ya.Context.AdvManager.render({
-        "blockId": "R-A-5829540-13",
-        "type": "floorAd",
-        "platform": "desktop"
-    })
-})
+
+  // floorAd (desktop) — новый блок R-A-5829540-13
+  window.yaContextCb.push(() => {
+    if (window.matchMedia && !window.matchMedia('(max-width: 1023px)').matches) {
+      try {
+        Ya.Context.AdvManager.render({
+          blockId: "R-A-5829540-13",
+          type: "floorAd",
+          platform: "desktop"
+        });
+      } catch (e) { /* no-op */ }
+    }
+  });
 </script>
 {{- end -}}
