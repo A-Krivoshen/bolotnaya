@@ -68,5 +68,9 @@ images:
       /admin/images/galleries/images/galleries/Bolotnya_square/PANO_20200112_134411.jpg
   - src: >-
       /admin/images/galleries/images/galleries/Bolotnya_square/Screenshot_20200727_104931.png
+  - src: >-
+      /admin/images/galleries/images/galleries/Bolotnya_square/IMG_20251020_174240.jpg
+  - src: >-
+      /admin/images/galleries/images/galleries/Bolotnya_square/IMG_20251020_174043.jpg
 ---
 
