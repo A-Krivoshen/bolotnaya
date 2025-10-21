@@ -225,6 +225,8 @@
   </url><url>
     <loc>http://localhost:1313/ru/galleries/bolotnaya-square/</loc>
   </url><url>
+    <loc>http://localhost:1313/ru/galleries/dom-na-naberezhnoy/</loc>
+  </url><url>
     <loc>http://localhost:1313/ru/history/</loc>
     <xhtml:link
                 rel="alternate"

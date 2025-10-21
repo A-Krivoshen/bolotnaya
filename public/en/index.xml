@@ -43,16 +43,18 @@ The site is not a mass media outlet, and all published materials reflect the aut
     <item>
       <title>Bolotnaya Square</title>
       <link>http://localhost:1313/en/cameras/bolotnaya-square/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/cameras/bolotnaya-square/</guid>
       <description>Live stream of Bolotnaya Square</description>
+      <content:encoded><![CDATA[<p>Bolotnaya Square View Bolotnaya Square in real-time.</p>
+]]></content:encoded>
     </item>
     <item>
-      <title>Ulitsa Serafimovicha</title>
+      <title>Serafimovicha street</title>
       <link>http://localhost:1313/en/cameras/serafimovich/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/cameras/serafimovich/</guid>
-      <description>Live stream of Ulitsa Serafimovicha</description>
+      <description>Live stream of Serafimovicha street</description>
     </item>
     <item>
       <title>Болотная площадь</title>

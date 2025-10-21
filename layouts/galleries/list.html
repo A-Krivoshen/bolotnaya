@@ -1,45 +1,70 @@
 {{ define "main" }}
-<main class="container" style="max-width:1100px;margin:0 auto;padding:24px;">
+<main class="container py-6">
   <h1>{{ .Title }}</h1>
-  {{ if not .Pages }}
-    <p>Пока нет альбомов.</p>
+  {{ if .Content }}<div class="content">{{ .Content }}</div>{{ end }}
+
+  <style>
+    /* Grid */
+    .gallery-grid{display:grid;grid-template-columns:1fr;gap:20px;margin:24px 0}
+    @media(min-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1200px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+
+    /* Card */
+    .gallery-card{
+      border:1px solid var(--line, #e5e7eb);
+      border-radius:12px;overflow:hidden;
+      background:var(--paper, #fff);
+      /* ВАЖНО: задаём базовый цвет текста внутри карточки,
+         чтобы он не наследовал «светлый» цвет body в тёмной теме */
+      color: var(--card-text, var(--content, #111));
+    }
+    .gallery-card:hover{box-shadow:0 8px 24px rgba(15,25,40,.08)}
+    .gallery-card a{display:block;text-decoration:none;color:inherit}
+    .gallery-card img{width:100%;height:360px;object-fit:cover;display:block}
+    .gallery-meta{padding:12px}
+    .gallery-title{margin:0 0 6px 0;font-weight:700;font-size:1.1rem;line-height:1.25}
+    .gallery-count{font-size:.9rem;margin:0;color:var(--muted, #6b7280)}
+    .gallery-desc{margin:.5rem 0 0 0;font-size:.95rem;color:var(--muted, #6b7280)}
+  </style>
+
+  {{ $pages := .Pages }}
+  {{ if gt (len $pages) 0 }}
+    <ul class="gallery-grid">
+      {{ range $p := $pages }}
+        {{/* Collect images from this page or its translations; keep it safe */}}
+        {{- $images := slice -}}
+        {{- with $p.Params.images -}}
+          {{- $images = . -}}
+        {{- else -}}
+          {{- with $p.Translations -}}
+            {{- range . -}}
+              {{- if .Params.images -}}
+                {{- $images = .Params.images -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{ if not $images }}{{ $images = slice }}{{ end }}
+        {{ $cover := index $images 0 }}
+
+        <li class="gallery-card">
+          <a href="{{ $p.RelPermalink }}">
+            {{ with $cover }}
+              <img src="{{ .src }}" alt="{{ .alt | default "" }}">
+            {{ end }}
+            <div class="gallery-meta">
+              <h2 class="gallery-title">{{ $p.Title }}</h2>
+              <p class="gallery-count">{{ len $images }} фото</p>
+              {{ with $p.Params.description }}
+                <p class="gallery-desc">{{ . }}</p>
+              {{ end }}
+            </div>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
   {{ else }}
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
-    {{ range .Pages }}
-      {{/* Берём картинки из текущей версии, а если пусто — из перевода (RU/EN) с тем же именем файла */}}
-      {{ $p := . }}
-      {{ $images := $p.Params.images }}
-      {{ if not $images }}
-        {{ range $p.Translations }}
-          {{ if .Params.images }}
-            {{ $images = .Params.images }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-
-      {{ $cover := "" }}
-      {{ with index $images 0 }}
-        {{ $src := .src }}
-        {{ if not (hasPrefix $src "/") }}{{ $src = print "/images/galleries/" $src }}{{ end }}
-        {{ $cover = $src }}
-      {{ end }}
-
-      <a href="{{ $p.RelPermalink }}" style="display:block;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;text-decoration:none;">
-        {{ if $cover }}
-          <div style="aspect-ratio:4/3;background:#f6f7f9">
-            <img src="{{ $cover }}" alt="{{ $p.Title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-          </div>
-        {{ else }}
-          <div style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#f6f7f9;color:#666;">Нет превью</div>
-        {{ end }}
-        <div style="padding:12px">
-          <div style="font-weight:700">{{ $p.Title }}</div>
-          {{ with $p.Params.description }}<div style="opacity:.7;font-size:.95rem;margin-top:4px;">{{ . }}</div>{{ end }}
-          <div style="opacity:.6;font-size:.85rem;margin-top:8px;">{{ len $images }} фото</div>
-        </div>
-      </a>
-    {{ end }}
-  </div>
+    <p class="text-muted">Пока нет альбомов.</p>
   {{ end }}
 </main>
 {{ end }}

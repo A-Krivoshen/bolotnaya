@@ -18,5 +18,11 @@ images:
     caption: >-
       Архивное фото: панорама Болотной площади в Москве с круговым фонтаном,
       трамвайными путями и набережными Водоотводного канала.
+  - src: >-
+      /admin/images/galleries/images/galleries/history/grok-video-c6840f57-0a36-4f4d-9965-f6d04850028e_watermarked.gif
+    caption: ИИ генерация
+  - src: >-
+      /admin/images/galleries/images/galleries/history/grok-video-f66d40a6-7003-4730-a6c8-e6d9e0b0c5c4_watermarked.gif
+    caption: ИИ генерация
 ---
 
