@@ -23,3 +23,11 @@ public/
 *.tar.gz
 /public
 /resources/_gen
+*.zip
+*.tar.gz
+*.tgz
+public/
+resources/_gen/
+node_modules/
+tina/__generated__/
+static/admin/
