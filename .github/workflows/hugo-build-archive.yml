@@ -1,4 +1,4 @@
-name: Build & Archive (Hugo)
+name: Build & Deploy (Hugo)
 
 on:
   push:
@@ -22,53 +22,38 @@ jobs:
         with:
           lfs: true
           submodules: recursive
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Setup Hugo (extended)
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.152.2'
           extended: true
 
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: |
+            resources/_gen
+            ~/.cache/hugo
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.scss','**/*.md','**/*.toml','**/*.yaml','**/*.yml') }}
+
       - name: Build site
+        env:
+          HUGO_ENV: production
         run: >
-          hugo --minify
+          hugo --minify --gc
           --baseURL "https://www.bolotnaya.online/"
 
-      - name: Pack clean source archive
-        run: |
-          mkdir -p artifacts
-          OUT="artifacts/hugo-sources-${{ github.sha }}.tar.gz"
-          tar -czf "$OUT" \
-            --exclude='.git' \
-            --exclude='artifacts' \
-            --exclude='public' \
-            --exclude='resources' \
-            --exclude='node_modules' \
-            --exclude='.cache' \
-            --exclude='dist' \
-            --exclude='.hugo_build.lock' \
-            --exclude='**/.DS_Store' \
-            --exclude='**/*.log' \
-            --exclude='.env' \
-            --exclude='**/*.key' \
-            --exclude='**/*.pem' \
-            --exclude='tina/__generated__' \
-            .
-
-      - name: Upload source artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: hugo-sources-${{ github.sha }}
-          path: artifacts/*.tar.gz
-          retention-days: 14
-
+      # Артефакт только со сборкой, а не со всем репозиторием
       - name: Upload built site (public)
         uses: actions/upload-artifact@v4
         with:
           name: site-public-${{ github.sha }}
-          path: public
-          retention-days: 14
+          path: public/**
+          retention-days: 7
+          compression-level: 9
+          if-no-files-found: error
 
       - name: Deploy to gh-pages
         if: ${{ github.ref == 'refs/heads/main' }}
