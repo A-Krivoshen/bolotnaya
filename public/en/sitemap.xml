@@ -187,22 +187,6 @@
                 href="http://localhost:1313/en/cameras/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/cameras/bolotnaya-square/</loc>
-    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru-RU"
-                href="http://localhost:1313/ru/cameras/bolotnaya-square/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/cameras/bolotnaya-square/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/cameras/serafimovich/</loc>
-    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/en/admin/</loc>
     <xhtml:link
                 rel="alternate"
@@ -213,6 +197,18 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="http://localhost:1313/en/admin/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/cameras/bolotnaya-square/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru-RU"
+                href="http://localhost:1313/ru/cameras/bolotnaya-square/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/cameras/bolotnaya-square/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/categories/</loc>
@@ -250,6 +246,8 @@
                 hreflang="en-US"
                 href="http://localhost:1313/en/galleries/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/en/cameras/serafimovich/</loc>
   </url><url>
     <loc>http://localhost:1313/en/history/bolotnaya-history/</loc>
   </url>
