@@ -1,4 +1,11 @@
-welcome: "Добро пожаловать на Bolotnaya Online"
-description: "Смотрите прямые трансляции с Болотной площади и других камер в реальном времени."
-live_cameras: "Прямые трансляции"
-cameras: "Камеры"
+- id: welcome
+  translation: "Добро пожаловать на Bolotnaya Online"
+
+- id: description
+  translation: "Смотрите прямые трансляции с Болотной площади и других камер в реальном времени."
+
+- id: live_cameras
+  translation: "Прямые трансляции"
+
+- id: cameras
+  translation: "Камеры"

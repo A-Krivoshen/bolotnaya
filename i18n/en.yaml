@@ -1,4 +1,11 @@
-welcome: "Welcome to Bolotnaya Online"
-description: "Watch live streams from Bolotnaya Square and other cameras in real-time."
-live_cameras: "Live Cameras"
-cameras: "Cameras"
+- id: welcome
+  translation: "Welcome to Bolotnaya Online"
+
+- id: description
+  translation: "Watch live streams from Bolotnaya Square and other cameras in real-time."
+
+- id: live_cameras
+  translation: "Live Cameras"
+
+- id: cameras
+  translation: "Cameras"
