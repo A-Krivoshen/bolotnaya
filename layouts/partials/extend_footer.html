@@ -4,45 +4,34 @@
 
 {{- if hugo.IsProduction -}}
 <script>
-  // fullscreen (desktop)
-  window.yaContextCb.push(() => {
+window.yaContextCb.push(() => {
     Ya.Context.AdvManager.render({
-      blockId: "R-A-5829540-11",
-      type: "fullscreen",
-      platform: "desktop"
-    });
-  });
-
-  // fullscreen (touch)
-  window.yaContextCb.push(() => {
+        "blockId": "R-A-352174-33",
+        "type": "fullscreen",
+        "platform": "desktop"
+    })
+})
+window.yaContextCb.push(() => {
     Ya.Context.AdvManager.render({
-      blockId: "R-A-5829540-9",
-      type: "fullscreen",
-      platform: "touch"
-    });
-  });
-
-  // floorAd (touch)
-  window.yaContextCb.push(() => {
+        "blockId": "R-A-352174-32",
+        "type": "fullscreen",
+        "platform": "touch"
+    })
+})
+window.yaContextCb.push(() => {
     Ya.Context.AdvManager.render({
-      blockId: "R-A-5829540-7",
-      type: "floorAd",
-      platform: "touch"
-    });
-  });
-
-  // floorAd (desktop)
-  window.yaContextCb.push(() => {
-    if (window.matchMedia && !window.matchMedia('(max-width: 1023px)').matches) {
-      try {
-        Ya.Context.AdvManager.render({
-          blockId: "R-A-5829540-13",
-          type: "floorAd",
-          platform: "desktop"
-        });
-      } catch (e) { /* no-op */ }
-    }
-  });
+        "blockId": "R-A-352174-31",
+        "type": "floorAd",
+        "platform": "desktop"
+    })
+})
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-352174-30",
+        "type": "floorAd",
+        "platform": "touch"
+    })
+})
 </script>
 {{- end -}}
 
