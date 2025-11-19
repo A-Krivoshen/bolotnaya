@@ -1,0 +1,19 @@
+/* Minimal styles for history gallery */
+.history-page .prose { line-height: 1.7; }
+.history-gallery.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.history-card {
+  display: block;
+  background: var(--entry) !important;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.history-card img { width: 100%; height: auto; display: block; }
+.history-card .cap { padding: 10px 12px; font-size: 0.95rem; opacity: .85; }
+.muted { opacity: .7; }
