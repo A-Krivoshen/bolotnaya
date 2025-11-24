@@ -105,31 +105,9 @@
 
 /* сам виджет по центру и без клика/URL */
 
-.camera-page .weather-widget .rus-widget-catamaran {
+.camera-page .weather-widget .widget-plain {
     display: inline-block;
-    pointer-events: none;
+    pointer-events: none;  /* отключаем переход на rusmeteo */
     cursor: default;
     text-decoration: none;
-}
-
-/* выравниваем строку "Москва ☁ -3°" */
-
-.camera-page .weather-widget .rus-weather-city {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-}
-
-/* температура чуть жирнее */
-
-.camera-page .weather-widget .rus-temp-city {
-    font-weight: 600;
-}
-
-/* вырубаем анимацию catamaran, чтобы ничего не дёргалось */
-
-.camera-page .weather-widget .catamaran-0,
-.camera-page .weather-widget .catamaran-0-0 {
-    animation: none !important;
 }
