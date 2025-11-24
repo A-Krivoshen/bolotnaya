@@ -122,9 +122,3 @@
         line-height: 1.15;
     }
 }
-/* Сделать виджет погоды некликабельным */
-.camera-page .weather-widget .rus-widget-catamaran {
-    pointer-events: none;  /* клики не проходят */
-    cursor: default;       /* обычный курсор, без «руки» */
-    text-decoration: none; /* на всякий случай без подчёркивания */
-}
