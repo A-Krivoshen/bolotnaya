@@ -7,6 +7,7 @@
 
   <section class="post-content">
     <link rel="stylesheet" href="/css/camera-single.css">
+
     <div class="camera-container" data-stream-url="{{ .Params.stream_url }}" data-title="{{ .Title }}">
       <div id="adblock-message" style="display:none; padding:20px; background-color:#ffcccc; border:1px solid #ff0000; border-radius:5px; margin-bottom:20px; text-align:center;">
         Пожалуйста, отключите блокировщик рекламы, чтобы просматривать трансляцию.
@@ -17,14 +18,13 @@
       <div class="status">Подключение…</div>
     </div>
 
-    <div class="weather-widget" style="text-align:center; margin-top:1.5rem;">
+    <div class="weather-widget">
       <!-- Code Weather Forecast rusmeteo.net  -->
-<a href="https://rusmeteo.net/weather/moskva-249761/"
-   class="rus-widget-catamaran"
-   id="346254d8a5d1bee2d15de1827104083f"
-   style="background-color:rgba(0, 0, 0, 0);color:rgb(54, 57, 69)">
-  Погода в Москве
-</a>
+      <a href="https://rusmeteo.net/weather/moskva-249761/"
+         class="rus-widget-catamaran"
+         id="346254d8a5d1bee2d15de1827104083f">
+        Погода в Москве
+      </a>
       <script async
               src="https://rusmeteo.net/api/informerV2/346254d8a5d1bee2d15de1827104083f/"
               type="text/javascript"></script>
@@ -41,14 +41,4 @@
 
 <script src="/js/hls.min.js"></script>
 <script src="/js/hls-init.js"></script>
-<script>
-  window.addEventListener('load', function () {
-    var w = document.getElementById('346254d8a5d1bee2d15de1827104083f');
-    if (w) {
-      w.removeAttribute('href');
-      w.style.cursor = 'default';
-    }
-  });
-</script>
-
 {{ end }}

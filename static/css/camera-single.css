@@ -41,19 +41,10 @@
     font-size: 14px;
 }
 
-.status.connected {
-    color: #00a000;
-}
+.status.connected { color: #00a000; }
+.status.error     { color: #ff0000; }
 
-.status.error {
-    color: #ff0000;
-}
-
-.status.reconnecting {
-    color: #ffa500;
-    animation: fade 1s infinite alternate;
-}
-
+.status.reconnecting,
 .status.buffering {
     color: #b59f00;
     animation: fade 1s infinite alternate;
@@ -69,7 +60,7 @@
     100% { opacity: 1; }
 }
 
-/* --- наши добавки только для страниц камер --- */
+/* --- страница камеры --- */
 
 .camera-page .camera-header,
 .camera-page .camera-header .post-title,
@@ -83,42 +74,32 @@
     margin-right: auto;
 }
 
-/* Виджет погоды RusMeteo */
-
-.camera-page .weather-widget .rus-widget-catamaran {
-    display: inline-block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 280px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.camera-page .weather-widget .rus-weather-city {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 8px;
-}
-
-.camera-page .weather-widget .rus-img-city {
-    width: 32px;
-    height: 32px;
-    background-size: contain !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-/* Заголовок камеры — аккуратные переносы и размер на мобильных */
+/* аккуратнее перенос заголовка */
 
 .camera-page .post-title {
-    text-wrap: balance;   /* современные браузеры пытаются не делать уродские строки */
+    text-wrap: balance;
 }
 
-/* На узких экранах чуть уменьшаем заголовок, чтобы слово влазило */
 @media (max-width: 480px) {
     .camera-page .post-title {
         font-size: clamp(1.4rem, 4vw, 1.8rem);
         line-height: 1.15;
     }
+}
+
+/* --- виджет погоды --- */
+
+.camera-page .weather-widget {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+/* делаем виджет некликабельным, но не ломаем верстку */
+.camera-page .weather-widget .rus-widget-catamaran {
+    display: inline-block;
+    max-width: 280px;
+    width: 100%;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
 }
