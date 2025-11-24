@@ -1,3 +1,5 @@
+/* Карточка камеры */
+
 .camera-container {
     max-width: 100%;
     margin: 0 auto;
@@ -20,6 +22,8 @@
     height: auto;
     display: block;
 }
+
+/* прелоадер, пока hls не загрузился */
 
 .tab-pane:not(.loaded)::before {
     content: '';
@@ -60,7 +64,7 @@
     100% { opacity: 1; }
 }
 
-/* --- страница камеры --- */
+/* --- оформление страницы камеры --- */
 
 .camera-page .camera-header,
 .camera-page .camera-header .post-title,
@@ -74,7 +78,7 @@
     margin-right: auto;
 }
 
-/* аккуратнее перенос заголовка */
+/* чтобы заголовок не разваливался на одинокую букву "а" */
 
 .camera-page .post-title {
     text-wrap: balance;
@@ -87,18 +91,17 @@
     }
 }
 
-/* --- виджет погоды --- */
+/* --- виджет погоды под камерой --- */
 
 .camera-page .weather-widget {
     text-align: center;
     margin-top: 1.5rem;
 }
 
-/* делаем виджет некликабельным, но не ломаем верстку */
+/* делаем виджет некликабельным, чтобы не было URL и "руки" */
+
 .camera-page .weather-widget .rus-widget-catamaran {
     display: inline-block;
-    max-width: 280px;
-    width: 100%;
     pointer-events: none;
     cursor: default;
     text-decoration: none;
