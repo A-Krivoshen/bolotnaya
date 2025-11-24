@@ -16,6 +16,18 @@
       </div>
       <div class="status">Подключение…</div>
     </div>
+    <div class="weather-widget" style="text-align:center; margin-top:1.5rem;">
+      <!-- Code Weather Forecast rusmeteo.net  -->
+      <a href="https://rusmeteo.net/weather/moskva/"
+         class="rus-widget-line"
+         id="cd9650e2dad74724eb35591eb27d14f1"
+         style="color:rgb(54, 57, 69); display:inline-block;">
+        Погода в Москве
+      </a>
+      <script async
+              src="https://rusmeteo.net/api/informerV2/cd9650e2dad74724eb35591eb27d14f1/"
+              type="text/javascript"></script>
+      <!-- End Code Weather Forecast rusmeteo.net -->
   </section>
 
   {{ if .Content }}
