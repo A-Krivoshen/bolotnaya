@@ -45,8 +45,13 @@
     font-size: 14px;
 }
 
-.status.connected { color: #00a000; }
-.status.error     { color: #ff0000; }
+.status.connected {
+    color: #00a000;
+}
+
+.status.error {
+    color: #ff0000;
+}
 
 .status.reconnecting,
 .status.buffering {
@@ -91,22 +96,24 @@
     }
 }
 
-/* --- виджет погоды над камерой --- */
+/* --- виджет погоды --- */
 
 .camera-page .weather-widget {
-    text-align: center;      /* центрируем блок */
-    margin: 0 0 1rem;        /* отступ снизу до камеры */
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
-/* делаем виджет некликабельным, чтобы не было URL и "руки" */
+/* сам виджет по центру и без клика/URL */
+
 .camera-page .weather-widget .rus-widget-catamaran {
-    display: inline-block;   /* сам виджет по центру строки */
+    display: inline-block;
     pointer-events: none;
     cursor: default;
     text-decoration: none;
 }
 
 /* выравниваем строку "Москва ☁ -3°" */
+
 .camera-page .weather-widget .rus-weather-city {
     display: inline-flex;
     align-items: center;
@@ -114,12 +121,14 @@
     gap: 4px;
 }
 
-/* температура чуть жирнее, чтобы не терялась */
+/* температура чуть жирнее */
+
 .camera-page .weather-widget .rus-temp-city {
     font-weight: 600;
 }
 
-/* рубим анимацию catamaran, чтобы ничего не дёргалось и не смещалось */
+/* вырубаем анимацию catamaran, чтобы ничего не дёргалось */
+
 .camera-page .weather-widget .catamaran-0,
 .camera-page .weather-widget .catamaran-0-0 {
     animation: none !important;
