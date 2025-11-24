@@ -1,6 +1,6 @@
 {{ define "main" }}
-<article class="post-single">
-  <header class="post-header">
+<article class="post-single camera-page">
+  <header class="post-header camera-header">
     <h1 class="post-title">{{ .Title }}</h1>
     {{ with .Params.description }}<p class="post-description">{{ . }}</p>{{ end }}
   </header>
@@ -16,6 +16,7 @@
       </div>
       <div class="status">Подключение…</div>
     </div>
+
     <div class="weather-widget" style="text-align:center; margin-top:1.5rem;">
       <!-- Code Weather Forecast rusmeteo.net  -->
       <a href="https://rusmeteo.net/weather/moskva-249761/"
@@ -28,10 +29,11 @@
               src="https://rusmeteo.net/api/informerV2/346254d8a5d1bee2d15de1827104083f/"
               type="text/javascript"></script>
       <!-- End Code Weather Forecast rusmeteo.net -->
+    </div>
   </section>
 
   {{ if .Content }}
-  <section class="post-content">
+  <section class="post-content camera-bottom-text">
     {{ .Content }}
   </section>
   {{ end }}

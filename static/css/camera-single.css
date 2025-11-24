@@ -10,3 +10,15 @@
 .status.buffering{color:#b59f00;animation:fade 1s infinite alternate}
 @keyframes spin{0%{transform:translate(-50%,-50%) rotate(0)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes fade{0%{opacity:.6}100%{opacity:1}}
+/* Центровка текста на страницах камер */
+.camera-header,
+.camera-subtitle,
+.camera-bottom-text {
+    text-align: center;
+}
+
+/* Чтобы нижний текст выглядел аккуратно по ширине */
+.camera-bottom-text p {
+    margin-left: auto;
+    margin-right: auto;
+}
