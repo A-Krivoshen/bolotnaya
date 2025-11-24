@@ -91,18 +91,36 @@
     }
 }
 
-/* --- виджет погоды под камерой --- */
+/* --- виджет погоды над камерой --- */
 
 .camera-page .weather-widget {
-    text-align: center;
-    margin-top: 1.5rem;
+    text-align: center;      /* центрируем блок */
+    margin: 0 0 1rem;        /* отступ снизу до камеры */
 }
 
 /* делаем виджет некликабельным, чтобы не было URL и "руки" */
-
 .camera-page .weather-widget .rus-widget-catamaran {
-    display: inline-block;
+    display: inline-block;   /* сам виджет по центру строки */
     pointer-events: none;
     cursor: default;
     text-decoration: none;
+}
+
+/* выравниваем строку "Москва ☁ -3°" */
+.camera-page .weather-widget .rus-weather-city {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* температура чуть жирнее, чтобы не терялась */
+.camera-page .weather-widget .rus-temp-city {
+    font-weight: 600;
+}
+
+/* рубим анимацию catamaran, чтобы ничего не дёргалось и не смещалось */
+.camera-page .weather-widget .catamaran-0,
+.camera-page .weather-widget .catamaran-0-0 {
+    animation: none !important;
 }
