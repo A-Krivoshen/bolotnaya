@@ -13,8 +13,6 @@ images:
   - src: /admin/images/galleries/images/galleries/Bolotnya_square/IMG_0148.JPG
   - src: /admin/images/galleries/images/galleries/Bolotnya_square/IMG_0831.JPG
   - src: >-
-      /admin/images/galleries/images/galleries/Bolotnya_square/IMG_20181204_152447.jpg
-  - src: >-
       /admin/images/galleries/images/galleries/Bolotnya_square/IMG_20190326_115502.jpg
   - src: >-
       /admin/images/galleries/images/galleries/Bolotnya_square/IMG_20190505_170428.jpg
