@@ -1,0 +1,22 @@
+{{- /*
+Shortcode: support-button
+
+Usage:
+  {{< support-button >}}
+  {{< support-button url="https://..." label="..." >}}
+
+Defaults:
+  url   -> site.Params.support.yoomoney_url
+  label -> language-aware
+*/ -}}
+
+{{- $url := (.Get "url") | default (site.Params.support.yoomoney_url | default "") -}}
+
+{{- $label_default_ru := "Поддержать через ЮMoney" -}}
+{{- $label_default_en := "Support via YooMoney" -}}
+{{- $label_default := (cond (eq .Site.Language.Lang "ru") $label_default_ru $label_default_en) -}}
+{{- $label := (.Get "label") | default $label_default -}}
+
+{{- if $url -}}
+<a class="support-btn support-btn--primary" href="{{ $url | safeURL }}" target="_blank" rel="nofollow noopener">{{ $label }}</a>
+{{- end -}}

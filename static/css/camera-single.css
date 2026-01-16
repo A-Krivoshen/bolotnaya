@@ -3,16 +3,16 @@
 .camera-container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
-    border-radius: 5px;
+    padding: 14px;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 16px;
 }
 
 .tab-pane {
     position: relative;
     background: #000;
-    border-radius: 5px;
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 12px;
 }

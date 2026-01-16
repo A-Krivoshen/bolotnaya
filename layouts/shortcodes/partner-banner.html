@@ -1,0 +1,19 @@
+{{- /*
+Shortcode: partner-banner
+
+Usage:
+  {{< partner-banner >}}
+
+Reads settings from site.Params.partner:
+  url, banner_img, banner_alt
+*/ -}}
+
+{{- $href := site.Params.partner.url | default "https://beget.com/?id=754742" -}}
+{{- $img  := site.Params.partner.banner_img | default "https://cp.beget.com/promo_data/static/970x90-12.png" -}}
+{{- $alt  := site.Params.partner.banner_alt | default (cond (eq .Site.Language.Lang "ru") "Beget — партнёр трансляции" "Beget — stream partner") -}}
+
+<div class="partner-banner">
+  <a href="{{ $href | safeURL }}" target="_blank" rel="nofollow sponsored noopener" class="partner-banner__link">
+    <img src="{{ $img | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async" class="partner-banner__img">
+  </a>
+</div>

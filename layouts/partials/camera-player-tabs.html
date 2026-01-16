@@ -11,15 +11,19 @@
 
 <link rel="stylesheet" href="/css/camera-tabs.css" />
 
-<div class="tabs" role="tablist" aria-label="Переключение камер">
-  {{- range $i, $s := $streams -}}
-    <button class="tab-btn" role="tab" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}" data-key="{{ $s.id }}">{{ default (printf "Камера %d" (add $i 1)) $s.title }}</button>
-  {{- end -}}
-</div>
+<div class="camera-shell">
+  <div class="tabs" role="tablist" aria-label="Переключение камер">
+    {{- range $i, $s := $streams -}}
+      <button class="tab-btn" role="tab" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}" data-key="{{ $s.id }}">{{ default (printf "Камера %d" (add $i 1)) $s.title }}</button>
+    {{- end -}}
+  </div>
 
-<div class="player-wrap">
-  <video id="hls-video" controls playsinline muted></video>
-  <div class="player-title" id="player-title">Онлайн трансляция</div>
+  <div class="camera-card player-wrap">
+    <video id="hls-video" controls playsinline muted></video>
+    <div class="player-title" id="player-title">Онлайн трансляция</div>
+  </div>
+
+  {{ partial "support-partner.html" . }}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>

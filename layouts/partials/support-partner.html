@@ -1,0 +1,68 @@
+{{- $lang := .Site.Language.Lang -}}
+{{- $yoo := site.Params.support.yoomoney_url | default "" -}}
+{{- $purl := site.Params.partner.url | default "" -}}
+{{- $pimg := site.Params.partner.banner_img | default "" -}}
+{{- $palt := site.Params.partner.banner_alt | default "" -}}
+{{- $email := site.Params.contact.email | default "info@bolotnaya.online" -}}
+
+<div class="sp-wrap" aria-label="Support and partner">
+  <div class="sp-grid">
+    <div class="sp-card sp-card--support">
+      <div class="sp-title">
+        {{- if eq $lang "ru" -}}Поддержать проект{{- else -}}Support the project{{- end -}}
+      </div>
+
+      <div class="sp-text">
+        {{- if eq $lang "ru" -}}
+          Сервер, трафик и хранение архива. Если проект полезен — можно поддержать.
+        {{- else -}}
+          Hosting, traffic, and archive storage. If this project helps you — consider supporting it.
+        {{- end -}}
+      </div>
+
+      {{- if $yoo -}}
+        <a class="sp-btn sp-btn--primary" href="{{ $yoo }}" target="_blank" rel="nofollow noopener">
+          {{- if eq $lang "ru" -}}Поддержать через ЮMoney{{- else -}}Support via YooMoney{{- end -}}
+        </a>
+      {{- else -}}
+        <div class="sp-note">{{ if eq $lang "ru" }}Ссылка поддержки не настроена{{ else }}Support link is not configured{{ end }}</div>
+      {{- end -}}
+
+      <div class="sp-contact">
+        {{- if eq $lang "ru" -}}Вопросы:{{- else -}}Contact:{{- end -}}
+        <a href="mailto:{{ $email }}">{{ $email }}</a>
+      </div>
+    </div>
+
+    <div class="sp-card sp-card--partner">
+      <div class="sp-title">
+        {{- if eq $lang "ru" -}}Партнёр трансляции{{- else -}}Stream partner{{- end -}}
+      </div>
+
+      {{- if and $purl $pimg -}}
+        <div class="sp-banner">
+          <a href="{{ $purl }}" target="_blank" rel="nofollow sponsored noopener" class="sp-banner__link">
+            <img src="{{ $pimg }}" alt="{{ if $palt }}{{ $palt }}{{ else }}Partner{{ end }}" loading="lazy" decoding="async" class="sp-banner__img" />
+          </a>
+        </div>
+      {{- else -}}
+        <div class="sp-text">
+          {{- if eq $lang "ru" -}}
+            Здесь может быть ваш логотип и ссылка.
+          {{- else -}}
+            Your logo and link can be here.
+          {{- end -}}
+        </div>
+      {{- end -}}
+
+      <a class="sp-btn sp-btn--secondary" href="{{ "/partner/" | relLangURL }}">
+        {{- if eq $lang "ru" -}}Стать партнёром{{- else -}}Become a partner{{- end -}}
+      </a>
+
+      <div class="sp-contact">
+        {{- if eq $lang "ru" -}}Почта для партнёрства:{{- else -}}Partner email:{{- end -}}
+        <a href="mailto:{{ $email }}">{{ $email }}</a>
+      </div>
+    </div>
+  </div>
+</div>

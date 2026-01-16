@@ -78,3 +78,16 @@ images = ["/images/placeholders/camera.svg"]
   filename = "sitemap.xml"
 
 
+
+
+[params.support]
+  yoomoney_url = "https://yoomoney.ru/fundraise/YeyI3ANEDyA.230505"
+
+[params.partner]
+  name = "Beget"
+  url = "https://beget.com/?id=754742"
+  banner_img = "https://cp.beget.com/promo_data/static/970x90-12.png"
+  banner_alt = "Beget — партнёр трансляции"
+
+[params.contact]
+  email = "info@bolotnaya.online"

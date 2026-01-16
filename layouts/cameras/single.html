@@ -8,6 +8,8 @@
   <section class="post-content">
     <link rel="stylesheet" href="/css/camera-single.css">
 
+    <div class="camera-shell">
+
     <div class="weather-widget">
       <!-- Code Weather Forecast rusmeteo.net -->
       <a href="https://rusmeteo.net/weather/moskva/"
@@ -22,7 +24,7 @@
       <!-- End Code Weather Forecast rusmeteo.net -->
     </div>
 
-    <div class="camera-container"
+    <div class="camera-container camera-card"
          data-stream-url="{{ .Params.stream_url }}"
          data-title="{{ .Title }}">
       <div id="adblock-message"
@@ -39,6 +41,10 @@
       </div>
 
       <div class="status">Подключение…</div>
+    </div>
+
+    {{ partial "support-partner.html" . }}
+
     </div>
   </section>
 
