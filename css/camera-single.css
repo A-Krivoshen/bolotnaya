@@ -1,0 +1,113 @@
+/* Карточка камеры */
+
+.camera-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 14px;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.tab-pane {
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.tab-pane video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* прелоадер, пока hls не загрузился */
+
+.tab-pane:not(.loaded)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #fff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+.status {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.status.connected {
+    color: #00a000;
+}
+
+.status.error {
+    color: #ff0000;
+}
+
+.status.reconnecting,
+.status.buffering {
+    color: #b59f00;
+    animation: fade 1s infinite alternate;
+}
+
+@keyframes spin {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fade {
+    0%   { opacity: .6; }
+    100% { opacity: 1; }
+}
+
+/* --- оформление страницы камеры --- */
+
+.camera-page .camera-header,
+.camera-page .camera-header .post-title,
+.camera-page .camera-header .post-description,
+.camera-page .camera-bottom-text {
+    text-align: center;
+}
+
+.camera-page .camera-bottom-text p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* чтобы заголовок не разваливался на одинокую букву "а" */
+
+.camera-page .post-title {
+    text-wrap: balance;
+}
+
+@media (max-width: 480px) {
+    .camera-page .post-title {
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        line-height: 1.15;
+    }
+}
+
+/* --- виджет погоды --- */
+
+.camera-page .weather-widget {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+/* сам виджет по центру и без клика/URL */
+
+.camera-page .weather-widget .widget-plain {
+    display: inline-block;
+    pointer-events: none;  /* отключаем переход на rusmeteo */
+    cursor: default;
+    text-decoration: none;
+}
