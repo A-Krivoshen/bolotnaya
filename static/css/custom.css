@@ -55,7 +55,33 @@
 .sp-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
 
 /* Minimal footer links keep tidy */
-.footer .footer-links a{white-space:nowrap}
+
+.footer .footer-links {
+  padding: 0 12px;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.footer .footer-links a {
+  color: inherit;
+  text-decoration: none;
+
+  /* мобильный фикс: разрешаем переносы и разрыв длинных “безпробельных” строк */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* на десктопе можно оставить “в одну линию”, если нравится */
+@media (min-width: 768px) {
+  .footer .footer-links a {
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+}
 
 /* Aliases for markdown pages */
 .support-btn{

@@ -9,3 +9,5 @@
 
 - id: cameras
   translation: "Камеры"
+- id: mail_us
+  translation: "Написать нам"

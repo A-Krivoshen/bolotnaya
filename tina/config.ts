@@ -1,22 +1,37 @@
-// Generated from user's original config with absolute preview for images + dev mediaRoot
 import { defineConfig } from "tinacms";
 
 const branch = process.env.TINA_BRANCH || "main";
-const isDev = process.env.NODE_ENV !== "production";
-const mediaRoot = isDev ? "admin/images/galleries" : "images/galleries";
 
-// Helper: build absolute preview URL, and in dev replace 4001 -> 1313
-const absPreview = (p?: string) => {
+/**
+ * Медиа складываем ТОЛЬКО сюда:
+ * static/images/galleries/...
+ * На сайте это будет /images/galleries/...
+ */
+const MEDIA_ROOT = "images/galleries";
+
+/**
+ * Абсолютная ссылка для превью:
+ * - если ты открыл админку через 4001 (Tina dev server) — превью берём с 1313 (Hugo)
+ * - если ты уже в 1313 — ничего не меняем
+ */
+function absPreview(p?: string) {
   if (!p) return "";
   const path = p.startsWith("/") ? p : `/${p}`;
-  try {
-    const o = window?.location?.origin || "";
-    const origin = o.includes(":4001") ? o.replace(":4001", ":1313") : o;
-    return `${origin}${path}`;
-  } catch {
-    return path;
-  }
-};
+
+  // На всякий случай чистим старые косяки вида /admin/images/galleries/images/galleries/...
+  const fixed = path
+    .replace(/^\/admin\/images\/galleries\/images\/galleries/i, `/${MEDIA_ROOT}`)
+    .replace(/^\/admin\/images\/galleries/i, `/${MEDIA_ROOT}`)
+    .replace(/^\/images\/galleries\/images\/galleries/i, `/${MEDIA_ROOT}`);
+
+  // В браузере можно собрать origin; в Node — просто вернём относительный путь
+  if (typeof window === "undefined") return fixed;
+
+  const o = window.location.origin || "";
+  const origin = o.includes(":4001") ? o.replace(":4001", ":1313") : o;
+
+  return `${origin}${fixed}`;
+}
 
 // Общие поля для галерей
 const galleryFields = [
@@ -34,7 +49,7 @@ const galleryFields = [
         name: "src",
         label: "Картинка",
         required: true,
-        uploadDir: () => "images/galleries",
+        uploadDir: () => MEDIA_ROOT,
         previewSrc: (values) => absPreview(values?.src),
       },
       { type: "string", name: "caption", label: "Подпись / Caption" },
@@ -66,7 +81,7 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
 
   build: {
-    // кладём админку в static/admin (корректно для Hugo)
+    // админка будет в static/admin (Hugo отдаёт как /admin/)
     outputFolder: "admin",
     publicFolder: "static",
   },
@@ -74,7 +89,7 @@ export default defineConfig({
   media: {
     tina: {
       publicFolder: "static",
-      mediaRoot: mediaRoot,
+      mediaRoot: MEDIA_ROOT,
     },
   },
 
@@ -166,7 +181,7 @@ export default defineConfig({
         name: "ru_camera",
         path: "content/ru/cameras",
         format: "md",
-        match: { include: "**/index" }, // работаем с папками
+        match: { include: "**/index" },
         ui: {
           router: ({ document }) =>
             `/ru/cameras/${document._sys.relativePath.replace(/\/index\.md$/, "")}/`,
@@ -189,9 +204,14 @@ export default defineConfig({
         fields: [
           { type: "string", name: "title", label: "Заголовок", required: true, isTitle: true },
           { type: "string", name: "description", label: "Описание" },
-          { type: "image",  name: "image", label: "Превью (опц.)", previewSrc: (values) => absPreview(values?.image) },
+          {
+            type: "image",
+            name: "image",
+            label: "Превью (опц.)",
+            previewSrc: (values) => absPreview(values?.image),
+            uploadDir: () => MEDIA_ROOT,
+          },
           { type: "string", name: "stream_url", label: "HLS URL (фолбэк)" },
-
           {
             type: "object",
             name: "streams",
@@ -203,12 +223,11 @@ export default defineConfig({
               }),
             },
             fields: [
-              { type: "string", name: "id",    label: "ID (напр. camera1)" },
+              { type: "string", name: "id", label: "ID (напр. camera1)" },
               { type: "string", name: "title", label: "Название на кнопке" },
-              { type: "string", name: "url",   label: "HLS URL (.m3u8)", required: true },
+              { type: "string", name: "url", label: "HLS URL (.m3u8)", required: true },
             ],
           },
-
           { type: "rich-text", name: "body", label: "Текст (опц.)" },
         ],
       },
@@ -242,9 +261,14 @@ export default defineConfig({
         fields: [
           { type: "string", name: "title", label: "Title", required: true, isTitle: true },
           { type: "string", name: "description", label: "Description" },
-          { type: "image",  name: "image", label: "Preview (opt.)", previewSrc: (values) => absPreview(values?.image) },
+          {
+            type: "image",
+            name: "image",
+            label: "Preview (opt.)",
+            previewSrc: (values) => absPreview(values?.image),
+            uploadDir: () => MEDIA_ROOT,
+          },
           { type: "string", name: "stream_url", label: "HLS URL (fallback)" },
-
           {
             type: "object",
             name: "streams",
@@ -256,12 +280,11 @@ export default defineConfig({
               }),
             },
             fields: [
-              { type: "string", name: "id",    label: "ID (e.g. camera1)" },
+              { type: "string", name: "id", label: "ID (e.g. camera1)" },
               { type: "string", name: "title", label: "Button title" },
-              { type: "string", name: "url",   label: "HLS URL (.m3u8)", required: true },
+              { type: "string", name: "url", label: "HLS URL (.m3u8)", required: true },
             ],
           },
-
           { type: "rich-text", name: "body", label: "Body (opt.)" },
         ],
       },
