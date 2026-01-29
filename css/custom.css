@@ -1,0 +1,154 @@
+/* Bolotnaya.online custom styles (loaded via PaperMod extended CSS pipeline) */
+
+/* --- Support + Partner block --- */
+.sp-wrap{margin:16px 0}
+.sp-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 860px){.sp-grid{grid-template-columns:1fr}}
+
+.sp-card{border:1px solid var(--border);border-radius:14px;padding:14px;background:var(--entry)}
+.sp-title{font-size:16px;font-weight:700;margin:0 0 6px}
+.sp-text{font-size:14px;line-height:1.35;opacity:.88;margin:0 0 10px}
+.sp-note{font-size:13px;opacity:.78}
+
+.sp-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  font-weight:600;
+  text-decoration:none;
+  border:1px solid var(--border);
+  transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.sp-btn--primary{
+  background:var(--primary);
+  color:var(--theme);
+  border-color:transparent;
+}
+
+.sp-btn--secondary{
+  background:transparent;
+  color:var(--primary);
+}
+
+.sp-btn--primary:hover,
+.sp-btn--secondary:hover{
+  text-decoration:none;
+  box-shadow:0 10px 22px rgba(0,0,0,.16);
+  transform:translateY(-1px);
+}
+
+.sp-btn--primary:active,
+.sp-btn--secondary:active{
+  transform:translateY(0);
+  box-shadow:0 6px 14px rgba(0,0,0,.14);
+}
+
+.sp-contact{margin-top:10px;font-size:13px;opacity:.86}
+.sp-contact a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+
+.sp-banner{display:flex;justify-content:center;margin:10px 0 12px}
+.sp-banner__link{display:block;width:100%;max-width:970px}
+.sp-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
+
+/* Minimal footer links keep tidy */
+
+.footer .footer-links {
+  padding: 0 12px;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.footer .footer-links a {
+  color: inherit;
+  text-decoration: none;
+
+  /* мобильный фикс: разрешаем переносы и разрыв длинных “безпробельных” строк */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* на десктопе можно оставить “в одну линию”, если нравится */
+@media (min-width: 768px) {
+  .footer .footer-links a {
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+}
+
+/* Aliases for markdown pages */
+.support-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius:12px;
+  font-weight:600;
+  text-decoration:none;
+  border:1px solid var(--border);
+  transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.support-btn--primary{background:var(--primary);color:var(--theme);border-color:transparent}
+.support-btn--primary:hover{box-shadow:0 10px 22px rgba(0,0,0,.16);transform:translateY(-1px);text-decoration:none}
+.support-btn--primary:active{transform:translateY(0);box-shadow:0 6px 14px rgba(0,0,0,.14)}
+
+.partner-banner{display:flex;justify-content:center;margin:14px 0}
+.partner-banner__link{display:block;width:100%;max-width:970px}
+.partner-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
+
+/* --- Camera layout polish --- */
+.camera-shell{margin:18px 0}
+
+/* Make the camera block and the support block share one visual width */
+.camera-shell .sp-wrap{margin-top:14px}
+
+.camera-card{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  background:var(--entry);
+}
+
+/* Player containers that already control sizing */
+.camera-card.video-container,
+.camera-card.camera-container{
+  padding:14px;
+}
+
+/* Generic video styling without affecting other site videos */
+.camera-shell video{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+}
+
+/* Tabs: centered and theme-friendly */
+.camera-shell .tabs,
+.camera-shell .tab-buttons{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+
+.camera-shell .tab-btn,
+.camera-shell .tab-button{
+  padding:.55rem .9rem;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--entry);
+  color:var(--primary);
+  cursor:pointer;
+}
+
+.camera-shell .tab-btn[aria-selected="true"],
+.camera-shell .tab-button.active{
+  box-shadow:0 0 0 2px var(--tertiary) inset;
+}
+
+/* Keep partner banner from stretching beyond the camera block */
+.camera-shell .sp-banner__link,
+.camera-shell .partner-banner__link{max-width:970px}
