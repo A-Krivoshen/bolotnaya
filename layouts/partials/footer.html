@@ -20,7 +20,13 @@
         {{- print " · " -}}
         <a href="{{ "/terms/" | relLangURL }}">Terms</a>
         {{- print " · " -}}
-        <a href="mailto:{{ $email }}">{{ $email }}</a>
+<a class="footer-email"
+   href="mailto:info@bolotnaya.online"
+   title="info@bolotnaya.online"
+   aria-label="info@bolotnaya.online">
+  {{ i18n "mail_us" }}
+</a>
+
       {{- end -}}
     </span>
 </footer>
