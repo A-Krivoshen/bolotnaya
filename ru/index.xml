@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Болотная: Якиманка</title><link>https://www.bolotnaya.online/ru/</link><description>Recent content on Болотная: Якиманка</description><image><title>Болотная: Якиманка</title><url>https://www.bolotnaya.online/images/placeholders/camera.svg</url><link>https://www.bolotnaya.online/images/placeholders/camera.svg</link></image><generator>Hugo -- 0.152.2</generator><language>ru-RU</language><lastBuildDate>Sat, 09 Aug 2025 12:00:00 +0300</lastBuildDate><atom:link href="https://www.bolotnaya.online/ru/index.xml" rel="self" type="application/rss+xml"/><item><title>Bolotnaya.online — блог жителя Якиманки на open-source технологиях</title><link>https://www.bolotnaya.online/ru/posts/bolotnaya-blog/</link><pubDate>Sat, 09 Aug 2025 12:00:00 +0300</pubDate><guid>https://www.bolotnaya.online/ru/posts/bolotnaya-blog/</guid><description>Bolotnaya.online — это частный блог жителя Якиманки, построенный на open-source технологиях. Личный взгляд, онлайн-трансляции, мультиязычность и автоматизация.</description><content:encoded><![CDATA[<p><strong>Bolotnaya.online — блог жителя Якиманки на open-source технологиях</strong></p>
+<p>Bolotnaya.online — это частный проект, созданный и поддерживаемый неравнодушным жителем района Якиманка.<br>
+Сайт не является средством массовой информации, а публикуемые материалы отражают личную точку зрения автора.</p>
+<p>Проект собран как демонстрация возможностей современных технологий и свободного ПО:</p>
+<ul>
+<li><strong>Nginx</strong> — веб-сервер и обратный прокси.</li>
+<li><strong>Hugo</strong> — генератор статических сайтов.</li>
+<li><strong>TinaCMS</strong> — headless-админка с визуальным редактированием.</li>
+<li><strong>Docker</strong> — контейнеризация сервисов.</li>
+<li><strong>FFmpeg</strong> — обработка и трансляция видео.</li>
+<li><strong>MediaMTX</strong> — сервер для потокового видео.</li>
+</ul>
+<p>На сайте реализованы:</p>
+<ul>
+<li>Онлайн-трансляции (HLS) с камер.</li>
+<li>Автоматическая публикация контента.</li>
+<li>Поддержка мультиязычности.</li>
+</ul>
+<p>Это пример того, как можно объединить современные технологии в удобный, надёжный и независимый блог без использования проприетарных CMS.</p>
+]]></content:encoded></item><item><title>Болотная площадь</title><link>https://www.bolotnaya.online/ru/cameras/bolotnaya-square/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.bolotnaya.online/ru/cameras/bolotnaya-square/</guid><description>Онлайн-трансляция Болотной площади</description><content:encoded>&lt;p>Вид на Болотную площадь в реальном времени.&lt;/p>
+</content:encoded></item><item><title>Болотная площадь</title><link>https://www.bolotnaya.online/ru/galleries/bolotnaya-square/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.bolotnaya.online/ru/galleries/bolotnaya-square/</guid><description>Болотная площадь в Москве</description></item><item><title>Дом на набережной</title><link>https://www.bolotnaya.online/ru/galleries/dom-na-naberezhnoy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.bolotnaya.online/ru/galleries/dom-na-naberezhnoy/</guid><description>История Дом на набережной ИИ генерация</description></item><item><title>История Болотная площадь</title><link>https://www.bolotnaya.online/ru/history/boloto-history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.bolotnaya.online/ru/history/boloto-history/</guid><description>История Болотной площади в Москве: от болотистого прошлого и митингов до культурных событий и прогулок в сердце столицы.</description></item><item><title>История Болотной Площади</title><link>https://www.bolotnaya.online/ru/galleries/bolotnaya-history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.bolotnaya.online/ru/galleries/bolotnaya-history/</guid><description>Фото История Болотной Площади</description></item><item><title>ул.Серафимовича</title><link>https://www.bolotnaya.online/ru/cameras/ul-serafimovicha/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.bolotnaya.online/ru/cameras/ul-serafimovicha/</guid><description>Онлайн-трансляция ул.Серафимовича</description><content:encoded>&lt;p>Камера с ракурсом на ул.Серафимовича.&lt;/p>
+</content:encoded></item></channel></rss>
