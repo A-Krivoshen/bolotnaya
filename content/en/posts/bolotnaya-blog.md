@@ -2,7 +2,6 @@
 title: "Bolotnaya.online — a blog by a Yakimanka resident built on open-source technologies"
 date: 2025-08-09T12:00:00+03:00
 draft: false
-lang: "en"
 tags: ["bolotnaya", "yakimanka", "opensource", "nginx", "hugo", "tinacms", "docker", "ffmpeg", "mediamtx", "streaming"]
 summary: "Bolotnaya.online is a private blog of a Yakimanka resident, built on open-source technologies. Personal views, live streams, multilingual support, and automation."
 ---
