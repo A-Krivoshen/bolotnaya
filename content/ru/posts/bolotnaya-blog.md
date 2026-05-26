@@ -2,7 +2,6 @@
 title: "Bolotnaya.online — блог жителя Якиманки на open-source технологиях"
 date: 2025-08-09T12:00:00+03:00
 draft: false
-lang: "ru"
 tags: ["bolotnaya", "yakimanka", "opensource", "nginx", "hugo", "tinacms", "docker", "ffmpeg", "mediamtx", "стриминг"]
 summary: "Bolotnaya.online — это частный блог жителя Якиманки, построенный на open-source технологиях. Личный взгляд, онлайн-трансляции, мультиязычность и автоматизация."
 ---

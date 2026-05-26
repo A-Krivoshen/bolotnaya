@@ -1,5 +1,5 @@
 ---
 title: "Admin"
-_build:
+build:
   render: always
 ---

@@ -6,8 +6,8 @@ theme = "PaperMod"
 
 [languages]
   [languages.ru]
-    languageName = "Русский"
-    languageCode = "ru-RU"
+    label = "Русский"
+    locale = "ru-RU"
     contentDir = "content/ru"
     weight = 1
 
@@ -30,8 +30,8 @@ theme = "PaperMod"
         weight = 4
 
   [languages.en]
-    languageName = "English"
-    languageCode = "en-US"
+    label = "English"
+    locale = "en-US"
     contentDir = "content/en"
     weight = 2
 
@@ -54,6 +54,7 @@ theme = "PaperMod"
         weight = 4
 
 [params]
+  author = { name = "Bolotnaya.online" }
 images = ["/images/placeholders/camera.svg"]
   homeInfoTitle        = "Якиманка: Камеры и история"
   homeInfoDescription  = "Онлайн-камеры, фото и рассказы о районе Якиманка"
