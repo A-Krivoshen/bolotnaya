@@ -152,3 +152,38 @@
 /* Keep partner banner from stretching beyond the camera block */
 .camera-shell .sp-banner__link,
 .camera-shell .partner-banner__link{max-width:970px}
+
+/* --- Post tags and notice block --- */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0 1.2rem;
+}
+
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(180, 180, 180, 0.28);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--secondary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.content blockquote {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #f0b429;
+  border-radius: 12px;
+  background: rgba(240, 180, 41, 0.08);
+  color: var(--primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.content blockquote p {
+  margin: 0;
+}

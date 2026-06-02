@@ -3,10 +3,16 @@
   <header>
     <h1>{{ .Title }}</h1>
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+
     {{ with .Params.tags }}
-      <p class="tags">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</p>
+      <div class="post-tags">
+        {{ range . }}
+          <span class="post-tag">{{ . }}</span>
+        {{ end }}
+      </div>
     {{ end }}
   </header>
+
   <div class="content">{{ .Content }}</div>
 </article>
 {{ end }}
