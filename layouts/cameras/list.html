@@ -1,6 +1,18 @@
 {{ define "main" }}
   <main class="container">
     <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
+    {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
+    <div class="site-alert" role="status">
+      <div class="site-alert__title">
+        {{ if eq $.Site.Language.Lang "ru" }}Временное отключение камер{{ else }}Temporary camera outage{{ end }}
+      </div>
+      <p>
+        {{ if eq $.Site.Language.Lang "ru" }}На фасаде здания идут ремонтные работы. Камеры могут быть временно отключены, а обзор может быть закрыт строительными лесами. О запуске сообщим дополнительно.{{ else }}Facade maintenance work is in progress. The cameras may be temporarily offline, and the view may be blocked by scaffolding. We will announce when the streams are restored.{{ end }}
+      </p>
+      <a href="{{ $noticeURL }}">
+        {{ if eq $.Site.Language.Lang "ru" }}Подробности{{ else }}Details{{ end }}
+      </a>
+    </div>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
       {{ range .Pages.ByTitle }}
         <a class="post-preview" href="{{ .RelPermalink }}">

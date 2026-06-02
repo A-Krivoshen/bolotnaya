@@ -187,3 +187,30 @@
 .content blockquote p {
   margin: 0;
 }
+
+/* --- Site alert banner --- */
+.site-alert {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(240, 180, 41, 0.45);
+  border-left: 4px solid #f0b429;
+  border-radius: 14px;
+  background: rgba(240, 180, 41, 0.08);
+}
+
+.site-alert__title {
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.site-alert p {
+  margin: 0 0 0.65rem;
+  line-height: 1.5;
+}
+
+.site-alert a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
