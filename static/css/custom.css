@@ -1,154 +1,136 @@
-/* Bolotnaya.online custom styles (loaded via PaperMod extended CSS pipeline) */
+/* Bolotnaya custom styles */
 
-/* --- Support + Partner block --- */
-.sp-wrap{margin:16px 0}
-.sp-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width: 860px){.sp-grid{grid-template-columns:1fr}}
-
-.sp-card{border:1px solid var(--border);border-radius:14px;padding:14px;background:var(--entry)}
-.sp-title{font-size:16px;font-weight:700;margin:0 0 6px}
-.sp-text{font-size:14px;line-height:1.35;opacity:.88;margin:0 0 10px}
-.sp-note{font-size:13px;opacity:.78}
-
-.sp-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  padding:12px 14px;
-  border-radius:12px;
-  font-weight:600;
-  text-decoration:none;
-  border:1px solid var(--border);
-  transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
+.post {
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-.sp-btn--primary{
-  background:var(--primary);
-  color:var(--theme);
-  border-color:transparent;
+.post header {
+  margin-bottom: 1.6rem;
 }
 
-.sp-btn--secondary{
-  background:transparent;
-  color:var(--primary);
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
 }
 
-.sp-btn--primary:hover,
-.sp-btn--secondary:hover{
-  text-decoration:none;
-  box-shadow:0 10px 22px rgba(0,0,0,.16);
-  transform:translateY(-1px);
-}
-
-.sp-btn--primary:active,
-.sp-btn--secondary:active{
-  transform:translateY(0);
-  box-shadow:0 6px 14px rgba(0,0,0,.14);
-}
-
-.sp-contact{margin-top:10px;font-size:13px;opacity:.86}
-.sp-contact a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
-
-.sp-banner{display:flex;justify-content:center;margin:10px 0 12px}
-.sp-banner__link{display:block;width:100%;max-width:970px}
-.sp-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
-
-/* Minimal footer links keep tidy */
-
-.footer .footer-links {
-  padding: 0 12px;
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(180, 180, 180, 0.28);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.82rem;
   line-height: 1.4;
-  max-width: 100%;
+  color: var(--secondary);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.footer .footer-links a {
-  color: inherit;
-  text-decoration: none;
-
-  /* мобильный фикс: разрешаем переносы и разрыв длинных “безпробельных” строк */
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+.content blockquote {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #f0b429;
+  border-radius: 12px;
+  background: rgba(240, 180, 41, 0.08);
+  color: var(--primary);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-/* на десктопе можно оставить “в одну линию”, если нравится */
-@media (min-width: 768px) {
-  .footer .footer-links a {
-    white-space: nowrap;
-    overflow-wrap: normal;
-    word-break: normal;
+.content blockquote p {
+  margin: 0;
+}
+
+.content ul {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.content li {
+  margin: 0.25rem 0;
+}
+
+.posts-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.post-preview {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(180, 180, 180, 0.22);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.post-preview h2 {
+  margin-bottom: 0.35rem;
+}
+
+.post-preview time {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .post {
+    max-width: 100%;
+  }
+
+  .post-tag {
+    font-size: 0.78rem;
+  }
+
+  .content blockquote {
+    padding: 0.9rem 1rem;
   }
 }
 
+/* --- Post tags and notice block --- */
+.post .tags,
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0 1.2rem;
 }
 
-/* Aliases for markdown pages */
-.support-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 14px;
-  border-radius:12px;
-  font-weight:600;
-  text-decoration:none;
-  border:1px solid var(--border);
-  transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
-}
-.support-btn--primary{background:var(--primary);color:var(--theme);border-color:transparent}
-.support-btn--primary:hover{box-shadow:0 10px 22px rgba(0,0,0,.16);transform:translateY(-1px);text-decoration:none}
-.support-btn--primary:active{transform:translateY(0);box-shadow:0 6px 14px rgba(0,0,0,.14)}
-
-.partner-banner{display:flex;justify-content:center;margin:14px 0}
-.partner-banner__link{display:block;width:100%;max-width:970px}
-.partner-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
-
-/* --- Camera layout polish --- */
-.camera-shell{margin:18px 0}
-
-/* Make the camera block and the support block share one visual width */
-.camera-shell .sp-wrap{margin-top:14px}
-
-.camera-card{
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:14px;
-  background:var(--entry);
+.post .tag,
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(180, 180, 180, 0.28);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--secondary);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-/* Player containers that already control sizing */
-.camera-card.video-container,
-.camera-card.camera-container{
-  padding:14px;
+.content blockquote {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #f0b429;
+  border-radius: 12px;
+  background: rgba(240, 180, 41, 0.08);
+  color: var(--primary);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-/* Generic video styling without affecting other site videos */
-.camera-shell video{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px;
+.content blockquote p {
+  margin: 0;
 }
 
-/* Tabs: centered and theme-friendly */
-.camera-shell .tabs,
-.camera-shell .tab-buttons{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
-
-.camera-shell .tab-btn,
-.camera-shell .tab-button{
-  padding:.55rem .9rem;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:var(--entry);
-  color:var(--primary);
-  cursor:pointer;
+.content ul {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
 }
 
-.camera-shell .tab-btn[aria-selected="true"],
-.camera-shell .tab-button.active{
-  box-shadow:0 0 0 2px var(--tertiary) inset;
+.content li {
+  margin: 0.25rem 0;
 }
-
-/* Keep partner banner from stretching beyond the camera block */
-.camera-shell .sp-banner__link,
-.camera-shell .partner-banner__link{max-width:970px}
