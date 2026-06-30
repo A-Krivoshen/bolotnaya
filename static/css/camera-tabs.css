@@ -7,3 +7,39 @@
 .player-title{position:absolute;top:.5rem;left:.5rem;font-size:.85rem;color:#fff;background:rgba(0,0,0,.45);padding:.2rem .55rem;border-radius:999px}
 
 .player-wrap video{width:100%;height:100%;display:block}
+
+/* Video ad overlay - non-intrusive, per camera */
+.video-ad-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 4px;
+  width: 300px;
+  height: 300px; /* support 300x300 when expanded */
+  overflow: hidden;
+  border-bottom-left-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Position variants for rotating to not always cover same area */
+.video-ad-overlay.pos-tr { top: 0; right: 0; bottom: auto; left: auto; }
+.video-ad-overlay.pos-br { top: auto; right: 0; bottom: 0; left: auto; }
+.video-ad-overlay.pos-tl { top: 0; right: auto; bottom: auto; left: 0; }
+.video-ad-overlay.pos-bl { top: auto; right: auto; bottom: 0; left: 0; }
+
+.ad-slot {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.ad-slot.active {
+  display: block;
+}
+
+/* The ad content will fill */
+.ad-slot > div {
+  width: 100%;
+  height: 100%;
+}

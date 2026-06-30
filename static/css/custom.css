@@ -249,44 +249,55 @@ a:hover { text-decoration-thickness: 1.5px; }
   padding: 0 1rem;
 }
 
-.home-intro {
+.home-hero {
   max-width: 620px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .home-lead {
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--secondary);
-  margin: 0.5rem 0 1.25rem;
+  margin: 0.5rem 0 1rem;
 }
 
-.home-cameras {
-  margin-top: 2.5rem;
-}
-.home-cameras__header {
+.home-actions {
+  margin: 1.25rem 0 2rem;
   display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons - clean and prominent */
+.btn {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-}
-.home-cameras__header h2 {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.home-cameras__link {
-  font-size: 0.82rem;
+  justify-content: center;
+  padding: 0.65rem 1.5rem;
+  border-radius: 6px;
   font-weight: 500;
-  color: var(--primary);
+  font-size: 0.95rem;
   text-decoration: none;
-  transition: opacity .15s;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
 }
-.home-cameras__link:hover {
-  opacity: 0.8;
-  text-decoration: underline;
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--border);
+}
+.btn-secondary:hover {
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border-color: var(--primary);
 }
 
 /* Designed sections on homepage */

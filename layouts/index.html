@@ -1,6 +1,6 @@
 {{ define "main" }}
   <section class="home">
-    <div class="home-intro">
+    <div class="home-hero">
       <h1>{{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}</h1>
       <p class="home-lead">{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time.{{ end }}</p>
     </div>
@@ -13,8 +13,14 @@
       <p>
         {{ if eq $.Site.Language.Lang "ru" }}В связи с ремонтными работами на фасаде здания трансляции могут быть недоступны. Часть обзора также может быть закрыта строительными лесами. О возобновлении работы камер сообщим дополнительно.{{ else }}Due to facade maintenance work, the live streams may be unavailable. Part of the view may also be blocked by scaffolding. We will announce when the cameras are back online.{{ end }}
       </p>
-      <a href="{{ $noticeURL }}">
+      <a class="btn btn-secondary" href="{{ $noticeURL }}">
         {{ if eq $.Site.Language.Lang "ru" }}Подробнее{{ else }}Read more{{ end }}
+      </a>
+    </div>
+
+    <div class="home-actions">
+      <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
+        {{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}
       </a>
     </div>
 
