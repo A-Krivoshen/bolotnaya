@@ -64,6 +64,17 @@
     rotateAdPosition(overlay);
   }
 
+  // Expand to 300x300 (e.g. call when page fullscreen ad is shown or video goes fullscreen)
+  // By default it's small (240x100) to not cover the picture
+  window.expandVideoAd = function() {
+    const overlay = document.querySelector('.video-ad-overlay');
+    if (overlay) overlay.classList.add('expanded');
+  };
+  window.contractVideoAd = function() {
+    const overlay = document.querySelector('.video-ad-overlay');
+    if (overlay) overlay.classList.remove('expanded');
+  };
+
   tabs.forEach(btn => {
     btn.addEventListener("click", () => {
       tabs.forEach(t => t.setAttribute("aria-selected","false"));

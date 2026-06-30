@@ -16,11 +16,17 @@
   z-index: 30;
   background: rgba(0, 0, 0, 0.75);
   padding: 4px;
-  width: 300px;
-  height: 300px; /* support 300x300 when expanded */
+  max-width: 240px;
+  max-height: 100px;
   overflow: hidden;
   border-bottom-left-radius: 6px;
   transition: all 0.3s ease;
+}
+
+/* Expanded to 300x300 only when page fullscreen ad (R-A-5829540-11/9) is active */
+.video-ad-overlay.expanded {
+  max-width: 300px;
+  max-height: 300px;
 }
 
 /* Position variants for rotating to not always cover same area */
