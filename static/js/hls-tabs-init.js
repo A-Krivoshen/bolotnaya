@@ -96,4 +96,38 @@
       startAdPositionRotation();
     }, 50);
   }
+
+  // Custom fullscreen for the player wrapper so that the ad overlay stays visible
+  const playerWrap = document.querySelector('.player-wrap');
+  const fsBtn = document.querySelector('.player-fs-btn');
+
+  if (fsBtn && playerWrap) {
+    fsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        playerWrap.requestFullscreen().then(() => {
+          // When player is fullscreen, expand the current ad to 300x300 in corner
+          const overlay = document.querySelector('.video-ad-overlay');
+          if (overlay) {
+            overlay.classList.add('expanded');
+            // optionally force a position
+            overlay.classList.remove('pos-tr', 'pos-br', 'pos-tl', 'pos-bl');
+            overlay.classList.add('pos-br'); // example corner in fullscreen
+          }
+        }).catch(err => console.warn('Fullscreen error', err));
+      } else {
+        document.exitFullscreen().then(() => {
+          const overlay = document.querySelector('.video-ad-overlay');
+          if (overlay) overlay.classList.remove('expanded');
+        });
+      }
+    });
+
+    // If user exits fullscreen, contract the ad
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        const overlay = document.querySelector('.video-ad-overlay');
+        if (overlay) overlay.classList.remove('expanded');
+      }
+    });
+  }
 })();

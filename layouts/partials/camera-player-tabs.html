@@ -19,8 +19,9 @@
   </div>
 
   <div class="camera-card player-wrap">
-    <video id="hls-video" controls playsinline muted></video>
+    <video id="hls-video" playsinline muted></video>
     <div class="player-title" id="player-title">{{ if eq .Site.Language.Lang "ru" }}Онлайн трансляция{{ else }}Live stream{{ end }}</div>
+    <button class="player-fs-btn" title="Fullscreen" aria-label="Toggle fullscreen">⛶</button>
 
     <!-- Yandex ads per camera (non-interrupting overlays) -->
     <div class="video-ad-overlay">
