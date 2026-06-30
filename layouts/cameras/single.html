@@ -25,23 +25,23 @@
       <!-- End Code Weather Forecast rusmeteo.net -->
     </div>
 
-    <div class="camera-container camera-card"
-         data-stream-url="{{ $streamURL }}"
-         data-title="{{ .Title }}">
-      <div id="adblock-message"
-           style="display:none; padding:20px; background-color:#ffcccc; border:1px solid #ff0000; border-radius:5px; margin-bottom:20px; text-align:center;">
-        Пожалуйста, отключите блокировщик рекламы, чтобы просматривать трансляцию.
+    <div class="camera-container camera-card" data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}">
+      <div class="site-alert" role="status">
+        <div class="site-alert__title">
+          {{ if eq .Site.Language.Lang "ru" }}Трансляция временно недоступна{{ else }}Stream temporarily unavailable{{ end }}
+        </div>
+        <p>{{ if eq .Site.Language.Lang "ru" }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
+      </div>
+
+      <div id="adblock-message" style="display:none; padding: 0.75rem 1rem; background:#2a1515; border:1px solid #5c2a2a; border-radius:6px; margin:0.75rem 0; font-size:0.85rem; text-align:center;">
+        {{ if eq .Site.Language.Lang "ru" }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
       </div>
 
       <div class="tab-pane">
-        <video class="hls-player"
-               data-hls="{{ $streamURL }}"
-               controls
-               muted
-               playsinline></video>
+        <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
       </div>
 
-      <div class="status">Подключение…</div>
+      <div class="status">{{ if eq .Site.Language.Lang "ru" }}Подключение…{{ else }}Connecting…{{ end }}</div>
     </div>
 
     {{ partial "support-partner.html" . }}

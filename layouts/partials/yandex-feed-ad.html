@@ -1,0 +1,13 @@
+{{- if hugo.IsProduction -}}
+<!-- Yandex.RTB feed (лента рекламная) -->
+<div id="yandex_rtb_R-A-5829540-12" style="margin-top: 1.5rem;"></div>
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-5829540-12",
+        "renderTo": "yandex_rtb_R-A-5829540-12",
+        "type": "feed"
+    })
+})
+</script>
+{{- end -}}

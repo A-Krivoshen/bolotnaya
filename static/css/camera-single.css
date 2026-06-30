@@ -1,62 +1,56 @@
 /* Карточка камеры */
 
 .camera-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 14px;
-    background: var(--entry);
-    border: 1px solid var(--border);
-    border-radius: 16px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 
 .tab-pane {
-    position: relative;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 12px;
+  position: relative;
+  background: #050505;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 1px solid #111;
 }
 
 .tab-pane video {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* прелоадер, пока hls не загрузился */
-
+/* clean strict preloader */
 .tab-pane:not(.loaded)::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    border: 4px solid #fff;
-    border-top: 4px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    transform: translate(-50%, -50%);
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #222;
+  border-top-color: #666;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
 .status {
-    text-align: center;
-    margin-top: 6px;
-    font-size: 14px;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-feature-settings: "tnum";
 }
 
-.status.connected {
-    color: #00a000;
-}
-
-.status.error {
-    color: #ff0000;
-}
-
+.status.connected { color: #22c55e; }
+.status.error { color: #ef4444; }
 .status.reconnecting,
 .status.buffering {
-    color: #b59f00;
-    animation: fade 1s infinite alternate;
+  color: #eab308;
 }
 
 @keyframes spin {
@@ -96,18 +90,16 @@
     }
 }
 
-/* --- виджет погоды --- */
-
+/* Weather widget - kept minimal and strict (optional external) */
 .camera-page .weather-widget {
-    text-align: center;
-    margin-top: 1.5rem;
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+  opacity: 0.6;
 }
-
-/* сам виджет по центру и без клика/URL */
-
 .camera-page .weather-widget .widget-plain {
-    display: inline-block;
-    pointer-events: none;  /* отключаем переход на rusmeteo */
-    cursor: default;
-    text-decoration: none;
+  display: inline-block;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  font-size: 12px;
 }

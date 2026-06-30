@@ -4,34 +4,70 @@
   {{ if .Content }}<div class="content">{{ .Content }}</div>{{ end }}
 
   <style>
-    /* Responsive grid (2 on desktop, 3 on wide screens) */
-    .gallery-grid{display:grid;grid-template-columns:1fr;gap:24px;margin:24px 0}
-    @media(min-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1200px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+    /* 2026 strict modern gallery grid — заметно строже и чище */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
 
-    /* Card uses PaperMod CSS variables to match dark/light themes */
-    .gallery-card{
-      background:var(--entry, #fff);
-      color:var(--content, #111);
-      border:1px solid var(--border, rgba(0,0,0,.08));
-      border-radius:12px;
-      overflow:hidden;
-      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    .gallery-card {
+      background: var(--entry);
+      color: var(--content);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
-    .gallery-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 28px rgba(15,25,40,.15);
-      border-color:var(--border, rgba(0,0,0,.15));
+    .gallery-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
-    .gallery-card a{display:block;text-decoration:none;color:inherit}
-    .gallery-card img{width:100%;height:320px;object-fit:cover;display:block}
-    .gallery-meta{padding:14px}
-    .gallery-title{margin:0 0 6px 0;font-weight:700;font-size:1.05rem;line-height:1.25;color:var(--content, #111)}
-    .gallery-count{margin:0;font-size:.9rem;color:var(--secondary, #6b7280)}
-    .gallery-desc{margin:.5rem 0 0 0;font-size:.95rem;color:var(--secondary, #6b7280)}
+    .gallery-card a { display: block; text-decoration: none; color: inherit; }
+    .gallery-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: #0a0a0a;
+    }
+    .gallery-meta { padding: 1.25rem 1.25rem 1.5rem; }
+    .gallery-title {
+      margin: 0 0 0.35rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+    .gallery-count {
+      margin: 0 0 0.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+    .gallery-desc {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
   </style>
 
-  {{ $pages := .Pages }}
+  {{/* Robust collection for current language only */}}
+  {{ $pages := .RegularPages }}
+  {{ if not $pages }}
+    {{ $pages = where (where .Site.RegularPages "Section" "galleries") "Lang" .Lang | sort "Title" }}
+  {{ end }}
+  {{ if not $pages }}
+    {{ $pages = where (where .Site.RegularPages "Type" "galleries") "Kind" "page" | sort "Title" }}
+  {{ end }}
+  {{ $isRu := or (eq .Site.Language.Lang "ru") (eq .Lang "ru") }}
+
   {{ if gt (len $pages) 0 }}
     <ul class="gallery-grid">
       {{ range $p := $pages }}
@@ -58,7 +94,7 @@
             {{ end }}
             <div class="gallery-meta">
               <h2 class="gallery-title">{{ $p.Title }}</h2>
-              <p class="gallery-count">{{ len $images }} фото</p>
+              <p class="gallery-count">{{ len $images }} {{ if $isRu }}фото{{ else }}photos{{ end }}</p>
               {{ with $p.Params.description }}
                 <p class="gallery-desc">{{ . }}</p>
               {{ end }}
@@ -68,7 +104,7 @@
       {{ end }}
     </ul>
   {{ else }}
-    <p class="text-muted">Пока нет альбомов.</p>
+    <p class="text-muted">{{ if $isRu }}Пока нет альбомов.{{ else }}No albums yet.{{ end }}</p>
   {{ end }}
 </main>
 {{ end }}

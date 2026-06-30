@@ -103,55 +103,47 @@
 .partner-banner__link{display:block;width:100%;max-width:970px}
 .partner-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
 
-/* --- Camera layout polish --- */
-.camera-shell{margin:18px 0}
+/* Camera area - kept clean and strict */
+.camera-shell { margin: 1.25rem 0; }
+.camera-shell .sp-wrap { margin-top: 0.75rem; }
 
-/* Make the camera block and the support block share one visual width */
-.camera-shell .sp-wrap{margin-top:14px}
-
-.camera-card{
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:14px;
-  background:var(--entry);
+.camera-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--entry);
 }
 
-/* Player containers that already control sizing */
-.camera-card.video-container,
-.camera-card.camera-container{
-  padding:14px;
+.camera-shell video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
 }
 
-/* Generic video styling without affecting other site videos */
-.camera-shell video{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px;
-}
-
-/* Tabs: centered and theme-friendly */
+/* Tabs (if used) */
 .camera-shell .tabs,
-.camera-shell .tab-buttons{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
-
+.camera-shell .tab-buttons {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: .75rem 0;
+}
 .camera-shell .tab-btn,
-.camera-shell .tab-button{
-  padding:.55rem .9rem;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:var(--entry);
-  color:var(--primary);
-  cursor:pointer;
+.camera-shell .tab-button {
+  padding: .4rem .75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  font-size: 0.85rem;
+  cursor: pointer;
 }
-
 .camera-shell .tab-btn[aria-selected="true"],
-.camera-shell .tab-button.active{
-  box-shadow:0 0 0 2px var(--tertiary) inset;
+.camera-shell .tab-button.active {
+  background: var(--primary);
+  color: var(--theme);
+  border-color: transparent;
 }
-
-/* Keep partner banner from stretching beyond the camera block */
-.camera-shell .sp-banner__link,
-.camera-shell .partner-banner__link{max-width:970px}
 
 /* --- Post tags and notice block --- */
 .post-tags {
@@ -213,4 +205,134 @@
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* === Modern 2026 Strict Design (clean, serious, minimal) === */
+
+/* Base strict typography & spacing */
+:root {
+  --spacing-xs: 0.5rem;
+  --spacing-s: 0.75rem;
+  --spacing-m: 1.25rem;
+  --spacing-l: 2rem;
+}
+
+body {
+  font-feature-settings: "kern" "tnum";
+}
+
+h1 { font-size: clamp(1.65rem, 5vw, 2.25rem); font-weight: 600; }
+h2 { font-size: 1.35rem; font-weight: 600; }
+
+/* Cleaner links and buttons */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover { text-decoration-thickness: 1.5px; }
+
+/* Strict modern cards used across site */
+.post-preview,
+.camera-preview,
+.history-page,
+.galleries-page {
+  border-radius: 8px;
+}
+
+/* Home camera previews - strict premium cards */
+.camera-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.camera-preview {
+  display: block;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+.camera-preview:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+.camera-preview__media {
+  position: relative;
+  background: #0a0a0a;
+}
+.camera-preview__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+.camera-preview__badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #111;
+  color: #ff4444;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid #333;
+}
+.camera-preview__meta {
+  padding: 0.9rem 1rem 1.1rem;
+}
+.camera-preview__meta h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.camera-preview__meta p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  line-height: 1.35;
+}
+
+/* Home section polish */
+.home h1 { font-size: clamp(1.6rem, 5vw, 2.1rem); margin-bottom: 0.5rem; }
+.home > p { max-width: 52ch; opacity: 0.85; }
+
+/* Strict modern site alert */
+.site-alert {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--entry) 94%, transparent);
+  font-size: 0.92rem;
+}
+.site-alert__title {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--primary);
+}
+.site-alert p { margin: 0 0 0.5rem; line-height: 1.45; }
+.site-alert a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* General modern strict polish */
+h1, h2, h3 { font-weight: 600; letter-spacing: -0.01em; }
+a { transition: color 0.1s ease; }
+a:hover { color: var(--primary); }
+
+.card, .post-preview {
+  border-radius: 8px;
 }
