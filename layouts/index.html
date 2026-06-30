@@ -1,7 +1,10 @@
 {{ define "main" }}
   <section class="home">
-    <h1>{{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}</h1>
-    <p>{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time.{{ end }}</p>
+    <div class="home-intro">
+      <h1>{{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}</h1>
+      <p class="home-lead">{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time.{{ end }}</p>
+    </div>
+
     {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
     <div class="site-alert" role="status">
       <div class="site-alert__title">
@@ -14,32 +17,61 @@
         {{ if eq $.Site.Language.Lang "ru" }}Подробнее{{ else }}Read more{{ end }}
       </a>
     </div>
-    {{ $camsURL := ("cameras/" | relLangURL) }}
-    <p><a class="tag" href="{{ $camsURL }}">{{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}</a></p>
-    <h2 class="mt-2rem">{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}</h2>
-    <div class="camera-preview-grid">
-      {{ range first 4 (where .Site.RegularPages "Section" "cameras") }}
-        <a class="camera-preview" href="{{ .RelPermalink }}">
-          {{/* Safe image fallback */}}
-          {{ $ph := "/images/placeholders/camera.svg" }}
-          {{ $img := .Params.image }}
-          {{ if $img }}
-            {{ $trim := (strings.TrimPrefix "/" $img) }}
-            {{ $staticPath := (printf "static/%s" $trim) }}
-            {{ if fileExists $staticPath }}{{ else }}{{ $img = $ph }}{{ end }}
-          {{ else }}
-            {{ $img = $ph }}
-          {{ end }}
-          <div class="camera-preview__media">
-            <img src="{{ $img | relURL }}" alt="{{ .Title }}">
-            <div class="camera-preview__badge">LIVE</div>
-          </div>
-          <div class="camera-preview__meta">
-            <h3>{{ .Title }}</h3>
-            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-          </div>
+
+    <!-- Cameras section - main visual focus -->
+    <section class="home-section home-cameras">
+      <div class="home-section__header">
+        <h2>{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}</h2>
+        <a class="home-section__link" href="{{ "cameras/" | relLangURL }}">
+          {{ if eq $.Site.Language.Lang "ru" }}Все камеры →{{ else }}All cameras →{{ end }}
         </a>
-      {{ end }}
-    </div>
+      </div>
+      <div class="camera-preview-grid">
+        {{ range first 4 (where .Site.RegularPages "Section" "cameras") }}
+          <a class="camera-preview" href="{{ .RelPermalink }}">
+            {{ $ph := "/images/placeholders/camera.svg" }}
+            {{ $img := .Params.image | default $ph }}
+            {{ if $img }}
+              {{ $trim := (strings.TrimPrefix "/" $img) }}
+              {{ $staticPath := (printf "static/%s" $trim) }}
+              {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
+            {{ end }}
+            <div class="camera-preview__media">
+              <img src="{{ $img | relURL }}" alt="{{ .Title }}">
+              <div class="camera-preview__badge">LIVE</div>
+            </div>
+            <div class="camera-preview__meta">
+              <h3>{{ .Title }}</h3>
+              {{ with .Params.description }}<p>{{ . | truncate 80 }}</p>{{ end }}
+            </div>
+          </a>
+        {{ end }}
+      </div>
+    </section>
+
+    <!-- Blog section - clearly separated, designed cards (no raw text dump) -->
+    {{ $posts := where .Site.RegularPages "Section" "posts" | first 3 }}
+    {{ if $posts }}
+    <section class="home-section home-blog">
+      <div class="home-section__header">
+        <h2>{{ if eq $.Site.Language.Lang "ru" }}Из блога{{ else }}From the blog{{ end }}</h2>
+        <a class="home-section__link" href="{{ "posts/" | relLangURL }}">
+          {{ if eq $.Site.Language.Lang "ru" }}Все записи →{{ else }}All posts →{{ end }}
+        </a>
+      </div>
+      <div class="home-blog-grid">
+        {{ range $posts }}
+          <a class="post-teaser" href="{{ .RelPermalink }}">
+            <h3>{{ .Title }}</h3>
+            <div class="post-teaser__meta">
+              <time>{{ .Date.Format "02.01.2006" }}</time>
+            </div>
+            <p>{{ .Summary | truncate 120 }}</p>
+          </a>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+    {{ end }}
   </section>
 {{ end }}
