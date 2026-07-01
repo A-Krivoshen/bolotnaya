@@ -3,7 +3,46 @@
 {{- end -}}
 
 {{- if hugo.IsProduction -}}
+<!-- Yandex.RTB floorAd + fullscreen -->
+<!-- Yandex.RTB R-A-5829540-13 -->
 <script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-5829540-13",
+        "type": "floorAd",
+        "platform": "desktop"
+    })
+})
+</script>
+<!-- Yandex.RTB R-A-5829540-11 -->
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-5829540-11",
+        "type": "fullscreen",
+        "platform": "desktop"
+    })
+})
+</script>
+<!-- Yandex.RTB R-A-5829540-7 -->
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-5829540-7",
+        "type": "floorAd",
+        "platform": "touch"
+    })
+})
+</script>
+<!-- Yandex.RTB R-A-5829540-9 -->
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-5829540-9",
+        "type": "fullscreen",
+        "platform": "touch"
+    })
+})
 </script>
 {{- end -}}
 

@@ -44,6 +44,8 @@
       <div class="status">{{ if eq .Site.Language.Lang "ru" }}Подключение…{{ else }}Connecting…{{ end }}</div>
     </div>
 
+    {{- partial "yandex-feed-ad.html" . -}}
+
     {{ partial "support-partner.html" . }}
 
     </div>
