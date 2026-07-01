@@ -1,34 +1,22 @@
 {{- if not (.Param "hideFooter") }}
 {{- $email := site.Params.contact.email | default "info@bolotnaya.online" -}}
 <footer class="footer">
-    <span>&copy; {{ now.Year }}</span>
-    {{- print " · " -}}
-
+  <div class="footer-main">
+    <span class="footer-copyright">© {{ now.Year }} Bolotnaya Online</span>
     <span class="footer-links">
       {{- if eq .Site.Language.Lang "ru" -}}
         <a href="{{ "/support/" | relLangURL }}">Поддержать</a>
-        {{- print " · " -}}
-        <a href="{{ "/partner/" | relLangURL }}">Партнёр&nbsp;трансляции</a>
-        {{- print " · " -}}
+        <a href="{{ "/partner/" | relLangURL }}">Партнёр трансляции</a>
         <a href="{{ "/terms/" | relLangURL }}">Условия</a>
-        {{- print " · " -}}
         <a href="mailto:{{ $email }}">{{ $email }}</a>
       {{- else -}}
         <a href="{{ "/support/" | relLangURL }}">Support</a>
-        {{- print " · " -}}
-        <a href="{{ "/partner/" | relLangURL }}">Stream&nbsp;Partner</a>
-        {{- print " · " -}}
+        <a href="{{ "/partner/" | relLangURL }}">Stream Partner</a>
         <a href="{{ "/terms/" | relLangURL }}">Terms</a>
-        {{- print " · " -}}
-<a class="footer-email"
-   href="mailto:info@bolotnaya.online"
-   title="info@bolotnaya.online"
-   aria-label="info@bolotnaya.online">
-  {{ i18n "mail_us" }}
-</a>
-
+        <a href="mailto:{{ $email }}">{{ $email }}</a>
       {{- end -}}
     </span>
+  </div>
 </footer>
 {{- end }}
 

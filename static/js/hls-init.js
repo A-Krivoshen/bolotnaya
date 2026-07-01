@@ -191,4 +191,29 @@
   document.addEventListener('visibilitychange', () => {
     videos.forEach(v => { if (document.hidden) v.pause(); else v.play().catch(()=>{}); });
   });
+
+  // Basic support for video ad overlay (small RSYA block over the video)
+  // Rotate position to different corners so it doesn't block the same area all the time
+  function initVideoAdOverlay() {
+    const overlay = document.querySelector('.video-ad-overlay');
+    if (!overlay) return;
+
+    const positions = ['pos-tr', 'pos-br', 'pos-tl', 'pos-bl'];
+    let idx = 0;
+
+    function setPos() {
+      positions.forEach(p => overlay.classList.remove(p));
+      overlay.classList.add(positions[idx % positions.length]);
+      idx++;
+    }
+
+    // initial
+    setPos();
+
+    // rotate every 45s
+    setInterval(setPos, 45000);
+  }
+
+  // Call after DOM ready
+  setTimeout(initVideoAdOverlay, 100);
 })();

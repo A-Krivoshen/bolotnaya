@@ -1,62 +1,9 @@
 {{ define "main" }}
-<main class="container py-6">
-  <h1>{{ .Title }}</h1>
-  {{ if .Content }}<div class="content">{{ .Content }}</div>{{ end }}
-
-  <style>
-    /* 2026 strict modern gallery grid — заметно строже и чище */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin: 2.5rem 0;
-    }
-    @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
-
-    .gallery-card {
-      background: var(--entry);
-      color: var(--content);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-    .gallery-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    }
-    .gallery-card a { display: block; text-decoration: none; color: inherit; }
-    .gallery-card img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      display: block;
-      background: #0a0a0a;
-    }
-    .gallery-meta { padding: 1.25rem 1.25rem 1.5rem; }
-    .gallery-title {
-      margin: 0 0 0.35rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      line-height: 1.2;
-    }
-    .gallery-count {
-      margin: 0 0 0.5rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--secondary);
-    }
-    .gallery-desc {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--secondary);
-      line-height: 1.5;
-    }
-  </style>
+<main class="container">
+  <div class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ if .Content }}<p class="page-lead">{{ .Content | plainify | truncate 140 }}</p>{{ end }}
+  </div>
 
   {{/* Robust collection for current language only */}}
   {{ $pages := .RegularPages }}
@@ -69,7 +16,7 @@
   {{ $isRu := or (eq .Site.Language.Lang "ru") (eq .Lang "ru") }}
 
   {{ if gt (len $pages) 0 }}
-    <ul class="gallery-grid">
+    <div class="gallery-grid">
       {{ range $p := $pages }}
         {{/* Collect images from this page or its translations; keep it safe */}}
         {{- $images := slice -}}
@@ -87,22 +34,20 @@
         {{ if not $images }}{{ $images = slice }}{{ end }}
         {{ $cover := index $images 0 }}
 
-        <li class="gallery-card">
-          <a href="{{ $p.RelPermalink }}">
-            {{ with $cover }}
-              <img src="{{ .src }}" alt="{{ .alt | default "" }}">
+        <a class="gallery-card card" href="{{ $p.RelPermalink }}">
+          {{ with $cover }}
+            <img src="{{ .src | default . }}" alt="{{ .alt | default $p.Title }}">
+          {{ end }}
+          <div class="gallery-meta">
+            <h2 class="gallery-title">{{ $p.Title }}</h2>
+            <p class="gallery-count">{{ len $images }} {{ if $isRu }}фото{{ else }}photos{{ end }}</p>
+            {{ with $p.Params.description }}
+              <p class="gallery-desc">{{ . | truncate 90 }}</p>
             {{ end }}
-            <div class="gallery-meta">
-              <h2 class="gallery-title">{{ $p.Title }}</h2>
-              <p class="gallery-count">{{ len $images }} {{ if $isRu }}фото{{ else }}photos{{ end }}</p>
-              {{ with $p.Params.description }}
-                <p class="gallery-desc">{{ . }}</p>
-              {{ end }}
-            </div>
-          </a>
-        </li>
+          </div>
+        </a>
       {{ end }}
-    </ul>
+    </div>
   {{ else }}
     <p class="text-muted">{{ if $isRu }}Пока нет альбомов.{{ else }}No albums yet.{{ end }}</p>
   {{ end }}

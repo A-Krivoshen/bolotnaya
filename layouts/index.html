@@ -1,27 +1,32 @@
 {{ define "main" }}
   <section class="home">
-    <div class="home-hero">
-      <h1>{{ if eq $.Site.Language.Lang "ru" }}Добро пожаловать на Bolotnaya Online{{ else }}Welcome to Bolotnaya Online{{ end }}</h1>
-      <p class="home-lead">{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time.{{ end }}</p>
-    </div>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>{{ if eq $.Site.Language.Lang "ru" }}Bolotnaya Online{{ else }}Bolotnaya Online{{ end }}</h1>
+        <p class="hero-lead">{{ if eq $.Site.Language.Lang "ru" }}Онлайн-камеры, история и заметки о Болотной площади и Якиманке{{ else }}Live cameras, history and notes about Bolotnaya Square and Yakimanka{{ end }}</p>
+        <p class="hero-desc">{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени. Проект района Якиманка с открытым исходным кодом.{{ else }}Watch live streams from Bolotnaya Square and other cameras in real-time. An open-source district project for Yakimanka.{{ end }}</p>
 
-    {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
-    <div class="site-alert" role="status">
-      <div class="site-alert__title">
-        {{ if eq $.Site.Language.Lang "ru" }}Камеры временно недоступны{{ else }}Live cameras are temporarily unavailable{{ end }}
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
+            {{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}
+          </a>
+          <a class="btn btn-secondary" href="{{ "posts/" | relLangURL }}">
+            {{ if eq $.Site.Language.Lang "ru" }}Читать блог{{ else }}Read the blog{{ end }}
+          </a>
+        </div>
       </div>
-      <p>
-        {{ if eq $.Site.Language.Lang "ru" }}В связи с ремонтными работами на фасаде здания трансляции могут быть недоступны. Часть обзора также может быть закрыта строительными лесами. О возобновлении работы камер сообщим дополнительно.{{ else }}Due to facade maintenance work, the live streams may be unavailable. Part of the view may also be blocked by scaffolding. We will announce when the cameras are back online.{{ end }}
-      </p>
-      <a class="btn btn-secondary" href="{{ $noticeURL }}">
-        {{ if eq $.Site.Language.Lang "ru" }}Подробнее{{ else }}Read more{{ end }}
-      </a>
-    </div>
 
-    <div class="home-actions">
-      <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
-        {{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}
-      </a>
+      <!-- Status card -->
+      {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
+      <div class="hero-status" role="status">
+        <div class="status-badge">⚠️</div>
+        <div>
+          <div class="status-title">{{ if eq $.Site.Language.Lang "ru" }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
+          <p class="status-text">{{ if eq $.Site.Language.Lang "ru" }}Причина: ремонтные работы на фасаде здания. Часть обзора может быть закрыта строительными лесами.{{ else }}Reason: facade maintenance work. Part of the view may be blocked by scaffolding.{{ end }}</p>
+          <a class="status-link" href="{{ $noticeURL }}">{{ if eq $.Site.Language.Lang "ru" }}Подробности в блоге →{{ else }}Details in blog →{{ end }}</a>
+        </div>
+      </div>
     </div>
 
     <!-- Cameras section - main visual focus -->

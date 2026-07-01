@@ -1,9 +1,10 @@
 {{ define "main" }}
 {{ $streamURL := .Params.stream_url | default .Params.hls_url }}
+<main class="container">
 <article class="post-single camera-page">
-  <header class="post-header camera-header">
-    <h1 class="post-title">{{ .Title }}</h1>
-    {{ with .Params.description }}<p class="post-description">{{ . }}</p>{{ end }}
+  <header class="page-header camera-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="page-lead">{{ . }}</p>{{ end }}
   </header>
 
   <section class="post-content">
@@ -39,6 +40,22 @@
 
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
+
+        <!-- Yandex RSYA overlay directly over the video (small non-intrusive banner in corner) -->
+        <div class="video-ad-overlay">
+          <div class="ad-slot active">
+            <!-- Yandex.RTB [VIDEO OVERLAY BLOCK] - replace ID with the one for player overlay -->
+            <div id="yandex_rtb_R-A-5829540-6"></div>
+            <script>
+            window.yaContextCb.push(() => {
+                Ya.Context.AdvManager.render({
+                    "blockId": "R-A-5829540-6",
+                    "renderTo": "yandex_rtb_R-A-5829540-6"
+                })
+            })
+            </script>
+          </div>
+        </div>
       </div>
 
       <div class="status">{{ if eq .Site.Language.Lang "ru" }}Подключение…{{ else }}Connecting…{{ end }}</div>
@@ -57,6 +74,7 @@
   </section>
   {{ end }}
 </article>
+</main>
 
 <script src="/js/hls.min.js"></script>
 <script src="/js/hls-init.js"></script>

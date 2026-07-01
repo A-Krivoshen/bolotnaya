@@ -1,21 +1,30 @@
 {{ define "main" }}
-<article class="post">
-  <header class="post-header">
-    <h1>{{ .Title }}</h1>
-    <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
-      {{ with .Params.tags }}
-        <div class="post-tags">
-          {{ range . }}
-            <span class="post-tag">{{ . }}</span>
-          {{ end }}
-        </div>
+<main class="container">
+  <article class="post">
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+        {{ with .Params.tags }}
+          <div class="post-tags">
+            {{ range . }}
+              <span class="post-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}
+        <p class="page-lead">{{ . }}</p>
       {{ end }}
-    </div>
-  </header>
+    </header>
 
-  <div class="post-content">
-    {{ .Content }}
-  </div>
-</article>
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+    <div style="margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+      <a href="{{ "posts/" | relLangURL }}" class="btn btn-secondary">{{ if eq $.Site.Language.Lang "ru" }}← Назад к блогу{{ else }}← Back to blog{{ end }}</a>
+    </div>
+  </article>
+</main>
 {{ end }}

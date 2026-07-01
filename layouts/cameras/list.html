@@ -1,43 +1,38 @@
 {{ define "main" }}
   <main class="container">
-    <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
-    {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
-    <div class="site-alert" role="status">
-      <div class="site-alert__title">
-        {{ if eq $.Site.Language.Lang "ru" }}Временное отключение камер{{ else }}Temporary camera outage{{ end }}
-      </div>
-      <p>
-        {{ if eq $.Site.Language.Lang "ru" }}На фасаде здания идут ремонтные работы. Камеры могут быть временно отключены, а обзор может быть закрыт строительными лесами. О запуске сообщим дополнительно.{{ else }}Facade maintenance work is in progress. The cameras may be temporarily offline, and the view may be blocked by scaffolding. We will announce when the streams are restored.{{ end }}
-      </p>
-      <a href="{{ $noticeURL }}">
-        {{ if eq $.Site.Language.Lang "ru" }}Подробности{{ else }}Details{{ end }}
-      </a>
+    <div class="page-header">
+      <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
+      <p class="page-lead">{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции с Болотной площади и Якиманки. Камеры могут быть временно недоступны из-за ремонтных работ.{{ else }}Live streams from Bolotnaya Square and Yakimanka. Streams may be temporarily unavailable due to facade work.{{ end }}</p>
     </div>
-    <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+
+    <div class="cameras-grid">
       {{ range .Pages.ByTitle }}
-        <a class="post-preview" href="{{ .RelPermalink }}">
-          
-      {{/* Safe image fallback */}}
-      {{ $ph := "/images/placeholders/camera.svg" }}
-      {{ $img := .Params.image }}
-      {{ if $img }}
-        {{ $trim := (strings.TrimPrefix "/" $img) }}
-        {{ $staticPath := (printf "static/%s" $trim) }}
-        {{ if fileExists $staticPath }}
-          {{/* ok */}}
-        {{ else }}
-          {{ $img = $ph }}
+        {{ $ph := "/images/placeholders/camera.svg" }}
+        {{ $img := .Params.image | default $ph }}
+        {{ if $img }}
+          {{ $trim := (strings.TrimPrefix "/" $img) }}
+          {{ $staticPath := (printf "static/%s" $trim) }}
+          {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
         {{ end }}
-      {{ else }}
-        {{ $img = $ph }}
-      {{ end }}
-    
-          <img src="{{ $img | relURL }}" alt="{{ .Title }}" style="width:100%; height:160px; object-fit:cover; border-radius:6px;">
-          <h2 style="margin-top:.75rem;">{{ .Title }}</h2>
-          {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-          <span class="tag">{{ if eq $.Site.Language.Lang "ru" }}Смотреть поток{{ else }}Watch stream{{ end }}</span>
+
+        <a class="camera-card card" href="{{ .RelPermalink }}">
+          <div class="media">
+            <img src="{{ $img | relURL }}" alt="{{ .Title }}">
+            <div class="badge">LIVE</div>
+          </div>
+          <div class="meta">
+            <h3>{{ .Title }}</h3>
+            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+            <span class="action">{{ if eq $.Site.Language.Lang "ru" }}Открыть камеру →{{ else }}Open camera →{{ end }}</span>
+          </div>
         </a>
       {{ end }}
+    </div>
+
+    <div class="site-alert" role="status" style="margin-top: 2.5rem;">
+      <div class="site-alert__title">{{ if eq $.Site.Language.Lang "ru" }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
+      <p>{{ if eq $.Site.Language.Lang "ru" }}На фасаде здания идут ремонтные работы. Трансляции могут быть недоступны. Обновления публикуются в блоге.{{ else }}Facade maintenance work is in progress. Updates are published in the blog.{{ end }}</p>
+      <a href="{{ "posts/cameras-maintenance-2026-06-02/" | relLangURL }}">{{ if eq $.Site.Language.Lang "ru" }}Подробности →{{ else }}Details →{{ end }}</a>
     </div>
   </main>
 {{ end }}
