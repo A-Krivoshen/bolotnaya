@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $streamURL := .Params.stream_url | default .Params.hls_url }}
-<main class="container">
+<div class="container">
 <article class="post-single camera-page">
   <header class="page-header camera-header">
     <h1>{{ .Title }}</h1>
@@ -65,7 +65,7 @@
   </section>
   {{ end }}
 </article>
-</main>
+</div>
 
 <script src="/js/hls.min.js"></script>
 <script src="/js/hls-init.js"></script>

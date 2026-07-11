@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="container">
+<div class="container">
   <div class="page-header">
     <h1>{{ .Title }}</h1>
     {{ if .Content }}<p class="page-lead">{{ .Content | plainify | truncate 140 }}</p>{{ end }}
@@ -51,5 +51,5 @@
   {{ else }}
     <p class="text-muted">{{ if $isRu }}Пока нет альбомов.{{ else }}No albums yet.{{ end }}</p>
   {{ end }}
-</main>
+</div>
 {{ end }}

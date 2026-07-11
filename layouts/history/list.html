@@ -1,6 +1,6 @@
 
 {{ define "main" }}
-<main class="container">
+<div class="container">
   <div class="page-header">
     <h1>{{ .Title }}</h1>
     <p class="page-lead">{{ if .Params.summary }}{{ .Params.summary }}{{ else }}История Болотной площади и Якиманки.{{ end }}</p>
@@ -65,5 +65,5 @@
   {{ else }}
     <p class="muted">Нет фотографий для галереи.</p>
   {{ end }}
-</main>
+</div>
 {{ end }}
