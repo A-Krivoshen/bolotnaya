@@ -188,32 +188,149 @@
     });
   });
 
+  // Shared flag: visibility handler must not resume stream while mid-roll is open
+  let midrollActive = false;
+
   document.addEventListener('visibilitychange', () => {
-    videos.forEach(v => { if (document.hidden) v.pause(); else v.play().catch(()=>{}); });
+    videos.forEach(v => {
+      if (document.hidden) {
+        v.pause();
+      } else if (!midrollActive) {
+        // Resume only if no mid-roll ad is currently shown
+        v.play().catch(() => {});
+      }
+    });
   });
 
-  // Basic support for video ad overlay (small RSYA block over the video)
-  // Rotate position to different corners so it doesn't block the same area all the time
-  function initVideoAdOverlay() {
-    const overlay = document.querySelector('.video-ad-overlay');
-    if (!overlay) return;
+  // ==================== VIDEO MID-ROLL ====================
+  // Floor Ad R-A-5829540-22 after 8 minutes of viewing; skip after 6s.
+  // Does not touch HLS setup / reconnect / adblock detection above.
+  function initVideoMidroll(video) {
+    const overlay = document.getElementById('video-ad-overlay');
+    const adContainer = document.getElementById('video-ad-container');
+    const skipBtn = document.getElementById('skip-ad-btn');
 
-    const positions = ['pos-tr', 'pos-br', 'pos-tl', 'pos-bl'];
-    let idx = 0;
+    if (!overlay || !adContainer || !video) return;
 
-    function setPos() {
-      positions.forEach(p => overlay.classList.remove(p));
-      overlay.classList.add(positions[idx % positions.length]);
-      idx++;
+    let adShown = false;
+    let midrollTimer = null;
+    let skipTimer = null;
+    const MIDROLL_DELAY = 8 * 60 * 1000; // 8 минут
+    const SKIP_DELAY = 6 * 1000;         // 6 секунд до кнопки «Пропустить»
+    const BLOCK_ID = 'R-A-5829540-22';
+
+    function clearMidrollTimer() {
+      if (midrollTimer) {
+        clearTimeout(midrollTimer);
+        midrollTimer = null;
+      }
     }
 
-    // initial
-    setPos();
+    function clearSkipTimer() {
+      if (skipTimer) {
+        clearTimeout(skipTimer);
+        skipTimer = null;
+      }
+    }
 
-    // rotate every 45s
-    setInterval(setPos, 45000);
+    function scheduleMidroll() {
+      clearMidrollTimer();
+      midrollTimer = setTimeout(showMidrollAd, MIDROLL_DELAY);
+    }
+
+    function renderFloorAd() {
+      // Fresh mount point for each mid-roll (avoids stale RTB DOM)
+      adContainer.innerHTML = '<div id="floor-ad-midroll"></div>';
+
+      const doRender = function () {
+        if (!window.Ya || !Ya.Context || !Ya.Context.AdvManager) return;
+        try {
+          Ya.Context.AdvManager.render({
+            blockId: BLOCK_ID,
+            renderTo: 'floor-ad-midroll',
+            async: true
+          });
+        } catch (e) {
+          console.warn('[midroll] AdvManager.render failed', e);
+        }
+      };
+
+      // context.js may still be loading (Autoplacement async scripts)
+      window.yaContextCb = window.yaContextCb || [];
+      if (window.Ya && Ya.Context && Ya.Context.AdvManager) {
+        doRender();
+      } else {
+        window.yaContextCb.push(doRender);
+      }
+    }
+
+    function showMidrollAd() {
+      if (adShown) return;
+      adShown = true;
+      midrollActive = true;
+      clearMidrollTimer();
+      clearSkipTimer();
+
+      // Пауза трансляции на время рекламы
+      try { video.pause(); } catch (e) {}
+
+      if (skipBtn) skipBtn.style.display = 'none';
+      overlay.style.display = 'flex';
+      overlay.setAttribute('aria-hidden', 'false');
+
+      // Рендерим Floor Ad
+      renderFloorAd();
+
+      // Показываем кнопку пропуска через 6 секунд
+      skipTimer = setTimeout(function () {
+        if (skipBtn) skipBtn.style.display = 'block';
+      }, SKIP_DELAY);
+    }
+
+    // Обработчик кнопки пропуска (один раз)
+    if (skipBtn) {
+      skipBtn.onclick = function () {
+        clearSkipTimer();
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden', 'true');
+        adContainer.innerHTML = '';
+        skipBtn.style.display = 'none';
+
+        midrollActive = false;
+        adShown = false;
+
+        // Возобновляем HLS-трансляцию
+        video.play().catch(function () {});
+
+        // Перезапускаем таймер для следующей рекламы (ещё 8 минут)
+        scheduleMidroll();
+      };
+    }
+
+    // Запускаем таймер при начале воспроизведения (один раз на старт сессии)
+    video.addEventListener('playing', function () {
+      if (!adShown && !midrollTimer) {
+        scheduleMidroll();
+      }
+    }, { once: true });
+
+    // Если поток уже играет к моменту init (race с HLS MANIFEST_PARSED)
+    if (!video.paused && !video.ended && !adShown && !midrollTimer) {
+      scheduleMidroll();
+    }
   }
 
-  // Call after DOM ready
-  setTimeout(initVideoAdOverlay, 100);
+  // Инициализация mid-roll на всех видео камер (рядом с HLS DOMContentLoaded)
+  function bootVideoMidroll() {
+    const midrollVideos = document.querySelectorAll('video.hls-player, video[data-hls]');
+    midrollVideos.forEach(function (video) {
+      initVideoMidroll(video);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootVideoMidroll);
+  } else {
+    bootVideoMidroll();
+  }
 })();

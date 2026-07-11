@@ -1,10 +1,13 @@
 ---
 aliases:
   - /online-camera/
-title: "Онлайн-камеры"
+title: "Онлайн-камеры Болотной площади и Якиманки"
 date: 2025-05-12
-description: "Прямые трансляции Якиманки"
-id: "camera1"
-hls_url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+description: "Прямые HLS-трансляции с Болотной площади и улицы Серафимовича в Москве. Смотрите район Якиманка в реальном времени."
+keywords:
+  - онлайн камера
+  - Болотная площадь
+  - Якиманка
+  - live stream
+  - Москва
 ---
-{{ partial "camera.html" . }}

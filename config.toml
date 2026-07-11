@@ -1,15 +1,51 @@
 baseURL = "https://www.bolotnaya.online/"
 defaultContentLanguage = "ru"
 defaultContentLanguageInSubdir = true
-title = "Болотная: Якиманка"
+title = "Bolotnaya Online — Болотная: Якиманка"
 theme = "PaperMod"
+enableRobotsTXT = false # static/robots.txt is the source of truth
+enableGitInfo = false
+canonifyURLs = false
+relativeURLs = false
+disableHugoGeneratorInject = false
+summaryLength = 40
+timeout = "60s"
+
+[pagination]
+  pagerSize = 12
+
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
 
 [languages]
   [languages.ru]
+    languageName = "Русский"
+    languageCode = "ru"
     label = "Русский"
     locale = "ru-RU"
     contentDir = "content/ru"
     weight = 1
+    title = "Bolotnaya Online — Болотная: Якиманка"
+    [languages.ru.params]
+      description = "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Open-source проект местного жителя."
+      keywords = ["Болотная площадь", "Якиманка", "онлайн камеры", "Москва", "трансляция", "история Москвы", "live camera"]
+      homeInfoTitle = "Якиманка: камеры и история"
+      homeInfoDescription = "Онлайн-камеры, фото и рассказы о районе Якиманка"
 
     [languages.ru.menu]
       [[languages.ru.menu.main]]
@@ -30,10 +66,18 @@ theme = "PaperMod"
         weight = 4
 
   [languages.en]
+    languageName = "English"
+    languageCode = "en"
     label = "English"
     locale = "en-US"
     contentDir = "content/en"
     weight = 2
+    title = "Bolotnaya Online — Yakimanka live cameras"
+    [languages.en.params]
+      description = "Live cameras, history and photos of Bolotnaya Square and Yakimanka district in Moscow. Open-source local project."
+      keywords = ["Bolotnaya Square", "Yakimanka", "live cameras", "Moscow", "HLS stream", "Moscow history"]
+      homeInfoTitle = "Yakimanka: cameras and history"
+      homeInfoDescription = "Live cameras, photos and notes about the Yakimanka district"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -54,32 +98,30 @@ theme = "PaperMod"
         weight = 4
 
 [params]
-  author = { name = "Bolotnaya.online" }
-images = ["/images/placeholders/camera.svg"]
-  homeInfoTitle        = "Якиманка: Камеры и история"
-  homeInfoDescription  = "Онлайн-камеры, фото и рассказы о районе Якиманка"
-  ShowReadingTime      = false
-  ShowBreadCrumbs      = false
-  ShowToc              = false
-  ShowPostNavLinks     = false
-  ShowFullTextinRSS    = true
-  ShowCodeCopyButtons  = false
-  hideSummary          = false
-  hideMeta             = false
+  author = "Bolotnaya.online"
+  description = "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Live cameras of Bolotnaya Square, Moscow."
+  keywords = ["Болотная площадь", "Якиманка", "онлайн камеры", "Bolotnaya", "Yakimanka", "Moscow live camera"]
+  images = ["/images/placeholders/camera.svg"]
+  mainSections = ["cameras", "posts", "history", "galleries"]
+  DateFormat = "02.01.2006"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = false
+  ShowBreadCrumbs = true
+  ShowToc = false
+  ShowPostNavLinks = false
+  ShowFullTextinRSS = true
+  ShowCodeCopyButtons = false
+  hideSummary = false
+  hideMeta = false
+  # Performance: drop unused AOS (not referenced in templates)
   customCSS = [
-    "/css/custom.css",
-    "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    "/css/custom.css"
   ]
   customJS = [
-    "https://unpkg.com/aos@2.3.1/dist/aos.js",
     "/js/custom.js"
   ]
-
-[sitemap]
-  filename = "sitemap.xml"
-
-
-
+  env = "production"
 
 [params.support]
   yoomoney_url = "https://yoomoney.ru/fundraise/YeyI3ANEDyA.230505"
@@ -92,3 +134,14 @@ images = ["/images/placeholders/camera.svg"]
 
 [params.contact]
   email = "info@bolotnaya.online"
+
+[params.label]
+  text = "Bolotnaya Online"
+
+# Markup / goldmark security for safer HTML
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false

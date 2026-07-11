@@ -1,0 +1,238 @@
+{{- /*
+  SEO + structured data + AI discovery helpers for Bolotnaya Online.
+  Loaded from extend_head.html (PaperMod extend hook).
+*/ -}}
+
+{{- $isRu := eq .Site.Language.Lang "ru" -}}
+{{- $siteTitle := .Site.Title -}}
+{{- $pageTitle := .Title | default $siteTitle -}}
+{{- $desc := "" -}}
+{{- with .Description }}{{ $desc = . }}{{ end -}}
+{{- if not $desc }}{{ with .Params.description }}{{ $desc = . }}{{ end }}{{ end -}}
+{{- if not $desc }}{{ with .Params.summary }}{{ $desc = . }}{{ end }}{{ end -}}
+{{- if not $desc }}{{ with .Summary }}{{ $desc = (. | plainify | truncate 160) }}{{ end }}{{ end -}}
+{{- if not $desc }}{{ with .Site.Params.description }}{{ $desc = . }}{{ end }}{{ end -}}
+{{- if not $desc -}}
+  {{- if $isRu -}}
+    {{- $desc = "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Open-source проект bolotnaya.online." -}}
+  {{- else -}}
+    {{- $desc = "Live cameras, history and photos of Bolotnaya Square and Yakimanka, Moscow. Open-source project bolotnaya.online." -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $canonical := .Permalink -}}
+{{- $ogImage := "" -}}
+{{/* Params.images may be []string or []map with .src (galleries) */}}
+{{- with .Params.images -}}
+  {{- $first := index . 0 -}}
+  {{- if reflect.IsMap $first -}}
+    {{- $ogImage = $first.src | default $first.url | default "" -}}
+  {{- else -}}
+    {{- $ogImage = printf "%v" $first -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $ogImage }}{{ with .Params.image }}{{ $ogImage = . }}{{ end }}{{ end -}}
+{{- if not $ogImage -}}
+  {{- with .Site.Params.images -}}
+    {{- $sf := index . 0 -}}
+    {{- if reflect.IsMap $sf }}{{ $ogImage = $sf.src | default "" }}{{ else }}{{ $ogImage = printf "%v" $sf }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $ogImage }}{{ $ogImage = "/images/placeholders/camera.svg" }}{{ end -}}
+{{- $ogImageAbs := $ogImage | absURL -}}
+{{- $siteURL := .Site.BaseURL -}}
+{{- $authorName := "Bolotnaya.online" -}}
+{{- with .Site.Params.author -}}
+  {{- if reflect.IsMap . }}{{ with .name }}{{ $authorName = . }}{{ end }}{{ else }}{{ $authorName = printf "%v" . }}{{ end -}}
+{{- end -}}
+{{- $contactEmail := .Site.Params.contact.email | default "info@bolotnaya.online" -}}
+
+{{/* Admin / internal: keep out of search */}}
+{{- if or (eq .Section "admin") (eq .Type "admin") -}}
+<meta name="robots" content="noindex, nofollow">
+{{- else -}}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{{- end -}}
+
+<meta name="description" content="{{ $desc | plainify | htmlUnescape | truncate 300 }}">
+<meta name="author" content="{{ $authorName }}">
+{{- with .Site.Params.keywords }}
+<meta name="keywords" content="{{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}">
+{{- end }}
+
+{{/* Local / geo relevance (Bolotnaya Square, Moscow) */}}
+<meta name="geo.region" content="RU-MOW">
+<meta name="geo.placename" content="Bolotnaya Square, Yakimanka, Moscow">
+<meta name="geo.position" content="55.7447;37.6208">
+<meta name="ICBM" content="55.7447, 37.6208">
+
+<link rel="canonical" href="{{ $canonical }}">
+
+{{/* Hreflang alternates */}}
+{{- $xDefault := "" -}}
+{{- if .IsTranslated -}}
+  {{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{- if eq .Language.Lang "ru" }}{{ $xDefault = .Permalink }}{{ end -}}
+  {{- end -}}
+{{- else -}}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- if eq .Language.Lang "ru" }}{{ $xDefault = .Permalink }}{{ end -}}
+{{- end -}}
+{{- if not $xDefault }}{{ $xDefault = "ru/" | absURL }}{{ end -}}
+<link rel="alternate" hreflang="x-default" href="{{ $xDefault }}">
+
+{{/* Open Graph */}}
+<meta property="og:site_name" content="{{ $siteTitle }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else if eq .Section "posts" }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ $pageTitle }}{{ end }}">
+<meta property="og:description" content="{{ $desc | plainify | htmlUnescape | truncate 300 }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:locale" content="{{ if $isRu }}ru_RU{{ else }}en_US{{ end }}">
+<meta property="og:image" content="{{ $ogImageAbs }}">
+{{- if eq .Section "posts" }}
+  {{- with .Date }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  {{- with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{- end }}
+
+{{/* Twitter / X cards */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ $pageTitle }}{{ end }}">
+<meta name="twitter:description" content="{{ $desc | plainify | htmlUnescape | truncate 200 }}">
+<meta name="twitter:image" content="{{ $ogImageAbs }}">
+
+{{/* AI discovery */}}
+<link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="llms.txt">
+<meta name="ai-content-declaration" content="human-authored local district project; open-source; not mass media">
+
+{{/* Theme / PWA hints */}}
+<meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+
+{{/* Prefetch third parties used on many pages */}}
+<link rel="dns-prefetch" href="https://mc.yandex.ru">
+<link rel="dns-prefetch" href="https://yandex.ru">
+{{- if or (eq .Section "cameras") (eq .Type "cameras") }}
+<link rel="dns-prefetch" href="https://cam.bolotnaya.online">
+{{- end }}
+
+{{/* ---------- JSON-LD graph (single jsonify → correct JSON) ---------- */}}
+{{- $langs := slice -}}
+{{- range .Site.Languages }}{{ $langs = $langs | append .Lang }}{{ end -}}
+{{- $orgID := printf "%s#org" $siteURL -}}
+{{- $webID := printf "%s#website" $siteURL -}}
+{{- $org := dict
+  "@type" "Organization"
+  "@id" $orgID
+  "name" "Bolotnaya Online"
+  "url" $siteURL
+  "email" $contactEmail
+  "sameAs" (slice "https://github.com/A-Krivoshen/bolotnaya")
+-}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $webID
+  "url" $siteURL
+  "name" $siteTitle
+  "description" (.Site.Params.description | default $desc)
+  "inLanguage" $langs
+  "publisher" (dict "@id" $orgID)
+-}}
+{{- $graph := slice $website $org -}}
+{{- if .IsHome -}}
+  {{- $place := dict
+    "@type" "Place"
+    "name" "Bolotnaya Square"
+    "alternateName" "Болотная площадь"
+    "address" (dict "@type" "PostalAddress" "addressLocality" "Moscow" "addressCountry" "RU")
+    "geo" (dict "@type" "GeoCoordinates" "latitude" 55.7447 "longitude" 37.6208)
+  -}}
+  {{- $homePage := dict
+    "@type" "WebPage"
+    "@id" (printf "%s#webpage" .Permalink)
+    "url" .Permalink
+    "name" $siteTitle
+    "description" $desc
+    "isPartOf" (dict "@id" $webID)
+    "about" $place
+  -}}
+  {{- $graph = $graph | append $homePage -}}
+{{- end -}}
+{{- $ldRoot := dict "@context" "https://schema.org" "@graph" $graph -}}
+<script type="application/ld+json">{{ $ldRoot | jsonify | safeJS }}</script>
+
+{{/* Page / article entity */}}
+{{- if and (not .IsHome) (ne .Section "admin") -}}
+  {{- $pageType := "WebPage" -}}
+  {{- if eq .Section "posts" }}{{ $pageType = "BlogPosting" }}{{ end -}}
+  {{- $pageLd := dict
+    "@context" "https://schema.org"
+    "@type" $pageType
+    "mainEntityOfPage" .Permalink
+    "headline" $pageTitle
+    "description" $desc
+    "url" .Permalink
+    "inLanguage" .Site.Language.Lang
+    "isPartOf" (dict "@type" "WebSite" "name" $siteTitle "url" $siteURL)
+    "image" $ogImageAbs
+  -}}
+  {{- if eq .Section "posts" -}}
+    {{- $pageLd = merge $pageLd (dict
+      "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+      "dateModified" ((.Lastmod | default .Date).Format "2006-01-02T15:04:05Z07:00")
+      "author" (dict "@type" "Person" "name" $authorName)
+    ) -}}
+  {{- end -}}
+<script type="application/ld+json">{{ $pageLd | jsonify | safeJS }}</script>
+{{- end -}}
+
+{{/* Camera: VideoObject */}}
+{{- if and (eq .Section "cameras") (eq .Kind "page") -}}
+  {{- $stream := .Params.stream_url | default .Params.hls_url -}}
+  {{- if $stream -}}
+    {{- $videoLd := dict
+      "@context" "https://schema.org"
+      "@type" "VideoObject"
+      "name" (printf "%s — live camera" $pageTitle)
+      "description" $desc
+      "thumbnailUrl" $ogImageAbs
+      "uploadDate" ((.Date | default now).Format "2006-01-02T15:04:05Z07:00")
+      "contentUrl" $stream
+      "embedUrl" .Permalink
+      "isFamilyFriendly" true
+      "publisher" (dict "@type" "Organization" "name" "Bolotnaya Online" "url" $siteURL)
+    -}}
+<script type="application/ld+json">{{ $videoLd | jsonify | safeJS }}</script>
+  {{- end -}}
+{{- end -}}
+
+{{/* Breadcrumbs */}}
+{{- if and (not .IsHome) (ne .Section "admin") -}}
+  {{- $items := slice (dict
+    "@type" "ListItem"
+    "position" 1
+    "name" (cond $isRu "Главная" "Home")
+    "item" .Site.Home.Permalink
+  ) -}}
+  {{- if .Section -}}
+    {{- $items = $items | append (dict
+      "@type" "ListItem"
+      "position" 2
+      "name" (.Section | humanize)
+      "item" (printf "%s/" .Section | absLangURL)
+    ) -}}
+  {{- end -}}
+  {{- if and .Title (eq .Kind "page") -}}
+    {{- $pos := 2 -}}
+    {{- if .Section }}{{ $pos = 3 }}{{ end -}}
+    {{- $items = $items | append (dict
+      "@type" "ListItem"
+      "position" $pos
+      "name" $pageTitle
+      "item" .Permalink
+    ) -}}
+  {{- end -}}
+  {{- $bc := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $items -}}
+<script type="application/ld+json">{{ $bc | jsonify | safeJS }}</script>
+{{- end -}}

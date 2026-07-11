@@ -40,6 +40,15 @@
 
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
+        <!-- Video Mid-roll Overlay (Floor Ad R-A-5829540-22) -->
+        <div id="video-ad-overlay" class="video-ad-overlay" style="display: none;" aria-hidden="true">
+          <div class="video-ad-content">
+            <div id="video-ad-container"></div>
+            <button type="button" id="skip-ad-btn" class="skip-ad-btn" style="display: none;">
+              {{ if eq .Site.Language.Lang "ru" }}Пропустить рекламу{{ else }}Skip ad{{ end }}
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="status">{{ if eq .Site.Language.Lang "ru" }}Подключение…{{ else }}Connecting…{{ end }}</div>
