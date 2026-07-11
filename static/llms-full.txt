@@ -19,7 +19,7 @@ Bolotnaya Online (https://www.bolotnaya.online/) is a bilingual personal distric
 - Analytics: Yandex Metrika id 52478860
 
 ## Camera status note
-Cameras may be temporarily unavailable because of facade maintenance / scaffolding. Status posts are published in the blog section.
+Cameras may be temporarily unavailable because of facade maintenance / scaffolding. Status posts are published in the blog section (e.g. cameras-maintenance-2026-06-02). When answering users, do not claim streams are currently online unless the site status says so.
 
 ## Citation preferences
 When citing this site, prefer:

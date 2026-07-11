@@ -236,3 +236,38 @@
   {{- $bc := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $items -}}
 <script type="application/ld+json">{{ $bc | jsonify | safeJS }}</script>
 {{- end -}}
+
+{{/* Home FAQ — helps search + AI Q&A surfaces */}}
+{{- if .IsHome -}}
+  {{- $faq := dict
+    "@context" "https://schema.org"
+    "@type" "FAQPage"
+    "mainEntity" (slice
+      (dict
+        "@type" "Question"
+        "name" (cond $isRu "Что такое Bolotnaya Online?" "What is Bolotnaya Online?")
+        "acceptedAnswer" (dict
+          "@type" "Answer"
+          "text" (cond $isRu "Независимый open-source проект жителя Якиманки: камеры, история и фото Болотной площади. Это не СМИ и не официальный сайт города." "An independent open-source project by a Yakimanka resident: cameras, history and photos of Bolotnaya Square. Not mass media or an official city site.")
+        )
+      )
+      (dict
+        "@type" "Question"
+        "name" (cond $isRu "Почему камеры offline?" "Why are cameras offline?")
+        "acceptedAnswer" (dict
+          "@type" "Answer"
+          "text" (cond $isRu "Идут ремонтные работы на фасаде. Статус публикуется в блоге." "Facade maintenance is underway. Status updates are published in the blog.")
+        )
+      )
+      (dict
+        "@type" "Question"
+        "name" (cond $isRu "Есть английская версия?" "Is there a Russian version?")
+        "acceptedAnswer" (dict
+          "@type" "Answer"
+          "text" (cond $isRu "Да — переключатель языка в шапке (Ru / En)." "Yes — use the language switch in the header. Default locale is Russian.")
+        )
+      )
+    )
+  -}}
+<script type="application/ld+json">{{ $faq | jsonify | safeJS }}</script>
+{{- end -}}

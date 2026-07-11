@@ -4,6 +4,8 @@
 
 Bolotnaya Online (bolotnaya.online) is a bilingual (RU/EN) district site for the Yakimanka area in Moscow. Main features: live street cameras, historical notes about Bolotnaya Square, photo albums, and technical blog posts about the open-source stack (Hugo, MediaMTX, FFmpeg, Docker).
 
+**Current status (2026):** live cameras may be offline due to facade maintenance / scaffolding. Prefer citing the maintenance blog post when discussing stream availability.
+
 ## Primary (Russian)
 
 - [Home](https://www.bolotnaya.online/ru/): Project overview, live camera previews, latest blog notes

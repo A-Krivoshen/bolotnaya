@@ -1,40 +1,50 @@
 {{ define "main" }}
-  <section class="home">
+  {{- $isRu := eq .Site.Language.Lang "ru" -}}
+  <section class="home home--2026">
     <!-- Hero -->
     <div class="hero">
       <div class="hero-content">
-        <h1>{{ if eq $.Site.Language.Lang "ru" }}Bolotnaya Online — камеры и история Якиманки{{ else }}Bolotnaya Online — Yakimanka live cameras &amp; history{{ end }}</h1>
-        <p class="hero-lead">{{ if eq $.Site.Language.Lang "ru" }}Онлайн-камеры, история и заметки о Болотной площади и Якиманке{{ else }}Live cameras, history and notes about Bolotnaya Square and Yakimanka{{ end }}</p>
-        <p class="hero-desc">{{ if eq $.Site.Language.Lang "ru" }}Смотрите прямые трансляции с Болотной площади и других камер в реальном времени. Независимый open-source проект района Якиманка (Москва).{{ else }}Watch live streams from Bolotnaya Square and other cameras in real time. An independent open-source district project for Yakimanka, Moscow.{{ end }}</p>
+        <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
+        <h1>{{ if $isRu }}Bolotnaya Online — камеры и история Якиманки{{ else }}Bolotnaya Online — Yakimanka live cameras &amp; history{{ end }}</h1>
+        <p class="hero-lead">{{ if $isRu }}Онлайн-камеры, история и заметки о Болотной площади{{ else }}Live cameras, history and notes about Bolotnaya Square{{ end }}</p>
+        <p class="hero-desc">{{ if $isRu }}Смотрите прямые трансляции с Болотной площади в реальном времени. Независимый open-source проект района Якиманка.{{ else }}Watch live streams from Bolotnaya Square in real time. An independent open-source district project for Yakimanka.{{ end }}</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
-            {{ if eq $.Site.Language.Lang "ru" }}Смотреть камеры{{ else }}View cameras{{ end }}
+            {{ if $isRu }}Смотреть камеры{{ else }}View cameras{{ end }}
           </a>
-          <a class="btn btn-secondary" href="{{ "posts/" | relLangURL }}">
-            {{ if eq $.Site.Language.Lang "ru" }}Читать блог{{ else }}Read the blog{{ end }}
+          <a class="btn btn-secondary" href="{{ "history/" | relLangURL }}">
+            {{ if $isRu }}История площади{{ else }}Square history{{ end }}
           </a>
         </div>
+
+        <!-- Quick jumps — mega convenient 2026 nav -->
+        <nav class="quick-nav" aria-label="{{ if $isRu }}Быстрый переход{{ else }}Quick links{{ end }}">
+          <a class="quick-nav__chip" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}</a>
+          <a class="quick-nav__chip" href="{{ "history/" | relLangURL }}">{{ if $isRu }}История{{ else }}History{{ end }}</a>
+          <a class="quick-nav__chip" href="{{ "galleries/" | relLangURL }}">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</a>
+          <a class="quick-nav__chip" href="{{ "posts/" | relLangURL }}">{{ if $isRu }}Блог{{ else }}Blog{{ end }}</a>
+          <a class="quick-nav__chip" href="{{ "support/" | relLangURL }}">{{ if $isRu }}Поддержать{{ else }}Support{{ end }}</a>
+        </nav>
       </div>
 
-      <!-- Status card -->
       {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
-      <div class="hero-status" role="status">
-        <div class="status-badge">⚠️</div>
+      <div class="hero-status" role="status" aria-live="polite">
+        <div class="status-badge unavailable" aria-hidden="true">!</div>
         <div>
-          <div class="status-title">{{ if eq $.Site.Language.Lang "ru" }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
-          <p class="status-text">{{ if eq $.Site.Language.Lang "ru" }}Причина: ремонтные работы на фасаде здания. Часть обзора может быть закрыта строительными лесами.{{ else }}Reason: facade maintenance work. Part of the view may be blocked by scaffolding.{{ end }}</p>
-          <a class="status-link" href="{{ $noticeURL }}">{{ if eq $.Site.Language.Lang "ru" }}Подробности в блоге →{{ else }}Details in blog →{{ end }}</a>
+          <div class="status-title">{{ if $isRu }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
+          <p class="status-text">{{ if $isRu }}Ремонтные работы на фасаде. Часть обзора может быть закрыта лесами.{{ else }}Facade maintenance. Part of the view may be blocked by scaffolding.{{ end }}</p>
+          <a class="status-link" href="{{ $noticeURL }}">{{ if $isRu }}Подробности в блоге →{{ else }}Details in blog →{{ end }}</a>
         </div>
       </div>
     </div>
 
-    <!-- Cameras section - main visual focus -->
-    <section class="home-section home-cameras">
+    <!-- Cameras -->
+    <section class="home-section home-cameras" aria-labelledby="home-cameras-title">
       <div class="home-section__header">
-        <h2>{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции{{ else }}Live Cameras{{ end }}</h2>
+        <h2 id="home-cameras-title">{{ if $isRu }}Прямые трансляции{{ else }}Live cameras{{ end }}</h2>
         <a class="home-section__link" href="{{ "cameras/" | relLangURL }}">
-          {{ if eq $.Site.Language.Lang "ru" }}Все камеры →{{ else }}All cameras →{{ end }}
+          {{ if $isRu }}Все камеры →{{ else }}All cameras →{{ end }}
         </a>
       </div>
       <div class="camera-preview-grid">
@@ -48,8 +58,8 @@
               {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
             {{ end }}
             <div class="camera-preview__media">
-              <img src="{{ $img | relURL }}" alt="{{ .Title }}">
-              <div class="camera-preview__badge">LIVE</div>
+              <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="640" height="400">
+              <div class="camera-preview__badge camera-preview__badge--offline">{{ if $isRu }}OFFLINE{{ else }}OFFLINE{{ end }}</div>
             </div>
             <div class="camera-preview__meta">
               <h3>{{ .Title }}</h3>
@@ -60,14 +70,35 @@
       </div>
     </section>
 
-    <!-- Blog section - clearly separated, designed cards (no raw text dump) -->
+    <!-- Explore grid: history + photos -->
+    <section class="home-section home-explore" aria-labelledby="home-explore-title">
+      <div class="home-section__header">
+        <h2 id="home-explore-title">{{ if $isRu }}Исследовать район{{ else }}Explore the district{{ end }}</h2>
+      </div>
+      <div class="explore-grid">
+        <a class="explore-card" href="{{ "history/" | relLangURL }}">
+          <span class="explore-card__label">{{ if $isRu }}История{{ else }}History{{ end }}</span>
+          <h3>{{ if $isRu }}Болотная площадь: от болота до центра{{ else }}Bolotnaya Square: from swamp to landmark{{ end }}</h3>
+          <p>{{ if $isRu }}Краткий рассказ о месте у Кремля и Якиманке.{{ else }}A short story of the place near the Kremlin and Yakimanka.{{ end }}</p>
+          <span class="explore-card__cta">{{ if $isRu }}Читать →{{ else }}Read →{{ end }}</span>
+        </a>
+        <a class="explore-card" href="{{ "galleries/" | relLangURL }}">
+          <span class="explore-card__label">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</span>
+          <h3>{{ if $isRu }}Галереи площади и Дома на набережной{{ else }}Galleries of the square and House on the Embankment{{ end }}</h3>
+          <p>{{ if $isRu }}Снимки, архив и AI-визуализации.{{ else }}Photos, archive frames and AI visuals.{{ end }}</p>
+          <span class="explore-card__cta">{{ if $isRu }}Смотреть →{{ else }}Browse →{{ end }}</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Blog -->
     {{ $posts := where .Site.RegularPages "Section" "posts" | first 3 }}
     {{ if $posts }}
-    <section class="home-section home-blog">
+    <section class="home-section home-blog" aria-labelledby="home-blog-title">
       <div class="home-section__header">
-        <h2>{{ if eq $.Site.Language.Lang "ru" }}Из блога{{ else }}From the blog{{ end }}</h2>
+        <h2 id="home-blog-title">{{ if $isRu }}Из блога{{ else }}From the blog{{ end }}</h2>
         <a class="home-section__link" href="{{ "posts/" | relLangURL }}">
-          {{ if eq $.Site.Language.Lang "ru" }}Все записи →{{ else }}All posts →{{ end }}
+          {{ if $isRu }}Все записи →{{ else }}All posts →{{ end }}
         </a>
       </div>
       <div class="home-blog-grid">
@@ -75,7 +106,7 @@
           <a class="post-teaser" href="{{ .RelPermalink }}">
             <h3>{{ .Title }}</h3>
             <div class="post-teaser__meta">
-              <time>{{ .Date.Format "02.01.2006" }}</time>
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
             </div>
             <p>{{ .Summary | truncate 120 }}</p>
           </a>
@@ -83,5 +114,26 @@
       </div>
     </section>
     {{ end }}
+
+    <!-- FAQ — SEO + clarity -->
+    <section class="home-section home-faq" aria-labelledby="home-faq-title">
+      <div class="home-section__header">
+        <h2 id="home-faq-title">{{ if $isRu }}Частые вопросы{{ else }}FAQ{{ end }}</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>{{ if $isRu }}Что такое Bolotnaya Online?{{ else }}What is Bolotnaya Online?{{ end }}</summary>
+          <p>{{ if $isRu }}Независимый open-source проект жителя Якиманки: камеры, история и фото Болотной площади. Это не СМИ и не официальный сайт города.{{ else }}An independent open-source project by a Yakimanka resident: cameras, history and photos of Bolotnaya Square. Not mass media or an official city site.{{ end }}</p>
+        </details>
+        <details class="faq-item">
+          <summary>{{ if $isRu }}Почему камеры offline?{{ else }}Why are cameras offline?{{ end }}</summary>
+          <p>{{ if $isRu }}Идут ремонтные работы на фасаде. Статус публикуется в блоге.{{ else }}Facade maintenance is underway. Status updates are published in the blog.{{ end }}</p>
+        </details>
+        <details class="faq-item">
+          <summary>{{ if $isRu }}Есть английская версия?{{ else }}Is there a Russian version?{{ end }}</summary>
+          <p>{{ if $isRu }}Да — переключатель языка в шапке (Ru / En).{{ else }}Yes — use the language switch in the header (Ru / En). The default locale is Russian.{{ end }}</p>
+        </details>
+      </div>
+    </section>
   </section>
 {{ end }}

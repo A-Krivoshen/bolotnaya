@@ -25,8 +25,9 @@
 {{- end }}
 {{- end }}
 
+<a class="skip-link" href="#main-content">{{ if eq site.Language.Lang "ru" }}К содержимому{{ else }}Skip to content{{ end }}</a>
 <header class="header">
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" aria-label="{{ if eq site.Language.Lang "ru" }}Главное меню{{ else }}Main{{ end }}">
         <div class="logo">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}

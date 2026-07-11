@@ -1,8 +1,19 @@
 {{ define "main" }}
-  <main class="container">
-    <div class="page-header">
-      <h1>{{ if eq $.Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</h1>
-      <p class="page-lead">{{ if eq $.Site.Language.Lang "ru" }}Прямые трансляции с Болотной площади и Якиманки. Камеры могут быть временно недоступны из-за ремонтных работ.{{ else }}Live streams from Bolotnaya Square and Yakimanka. Streams may be temporarily unavailable due to facade work.{{ end }}</p>
+  {{- $isRu := eq $.Site.Language.Lang "ru" -}}
+  <div class="container page-cameras">
+    <header class="page-header">
+      <h1>{{ with .Title }}{{ . }}{{ else }}{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}{{ end }}</h1>
+      <p class="page-lead">
+        {{ with .Description }}{{ . }}{{ else }}
+          {{ if $isRu }}Прямые трансляции с Болотной площади и Якиманки. Камеры могут быть временно недоступны из-за ремонтных работ.{{ else }}Live streams from Bolotnaya Square and Yakimanka. Streams may be temporarily unavailable due to facade work.{{ end }}
+        {{ end }}
+      </p>
+    </header>
+
+    <div class="site-alert" role="status">
+      <div class="site-alert__title">{{ if $isRu }}Сейчас offline{{ else }}Currently offline{{ end }}</div>
+      <p>{{ if $isRu }}На фасаде здания идут ремонтные работы. Трансляции могут быть недоступны.{{ else }}Facade maintenance is in progress. Streams may be unavailable.{{ end }}</p>
+      <a href="{{ "posts/cameras-maintenance-2026-06-02/" | relLangURL }}">{{ if $isRu }}Подробности →{{ else }}Details →{{ end }}</a>
     </div>
 
     <div class="cameras-grid">
@@ -17,22 +28,16 @@
 
         <a class="camera-card card" href="{{ .RelPermalink }}">
           <div class="media">
-            <img src="{{ $img | relURL }}" alt="{{ .Title }}">
-            <div class="badge">LIVE</div>
+            <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="640" height="360">
+            <div class="badge badge--offline">OFFLINE</div>
           </div>
           <div class="meta">
-            <h3>{{ .Title }}</h3>
+            <h2 class="camera-card__title">{{ .Title }}</h2>
             {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
-            <span class="action">{{ if eq $.Site.Language.Lang "ru" }}Открыть камеру →{{ else }}Open camera →{{ end }}</span>
+            <span class="action">{{ if $isRu }}Открыть камеру →{{ else }}Open camera →{{ end }}</span>
           </div>
         </a>
       {{ end }}
     </div>
-
-    <div class="site-alert" role="status" style="margin-top: 2.5rem;">
-      <div class="site-alert__title">{{ if eq $.Site.Language.Lang "ru" }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
-      <p>{{ if eq $.Site.Language.Lang "ru" }}На фасаде здания идут ремонтные работы. Трансляции могут быть недоступны. Обновления публикуются в блоге.{{ else }}Facade maintenance work is in progress. Updates are published in the blog.{{ end }}</p>
-      <a href="{{ "posts/cameras-maintenance-2026-06-02/" | relLangURL }}">{{ if eq $.Site.Language.Lang "ru" }}Подробности →{{ else }}Details →{{ end }}</a>
-    </div>
-  </main>
+  </div>
 {{ end }}

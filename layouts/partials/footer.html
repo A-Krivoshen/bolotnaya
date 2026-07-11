@@ -1,30 +1,49 @@
 {{- if not (.Param "hideFooter") }}
 {{- $email := site.Params.contact.email | default "info@bolotnaya.online" -}}
-<footer class="footer">
-  <div class="footer-main">
-    <span class="footer-copyright">© {{ now.Year }} Bolotnaya Online</span>
-    <span class="footer-links">
-      {{- if eq .Site.Language.Lang "ru" -}}
-        <a href="{{ "/support/" | relLangURL }}">Поддержать</a>
-        <a href="{{ "/partner/" | relLangURL }}">Партнёр трансляции</a>
-        <a href="{{ "/terms/" | relLangURL }}">Условия</a>
-        <a href="{{ "/cameras/" | relLangURL }}">Камеры</a>
+{{- $isRu := eq .Site.Language.Lang "ru" -}}
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-copyright">© {{ now.Year }} Bolotnaya Online</div>
+      <p class="footer-tagline">
+        {{- if $isRu -}}
+          Камеры, история и фото Болотной площади · open-source
+        {{- else -}}
+          Cameras, history and photos of Bolotnaya Square · open-source
+        {{- end -}}
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="{{ if $isRu }}Ссылки в подвале{{ else }}Footer{{ end }}">
+      <div class="footer-col">
+        <div class="footer-col__title">{{ if $isRu }}Разделы{{ else }}Sections{{ end }}</div>
+        <a href="{{ "/cameras/" | relLangURL }}">{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}</a>
+        <a href="{{ "/history/" | relLangURL }}">{{ if $isRu }}История{{ else }}History{{ end }}</a>
+        <a href="{{ "/galleries/" | relLangURL }}">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</a>
+        <a href="{{ "/posts/" | relLangURL }}">{{ if $isRu }}Блог{{ else }}Blog{{ end }}</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col__title">{{ if $isRu }}Проект{{ else }}Project{{ end }}</div>
+        <a href="{{ "/support/" | relLangURL }}">{{ if $isRu }}Поддержать{{ else }}Support{{ end }}</a>
+        <a href="{{ "/partner/" | relLangURL }}">{{ if $isRu }}Партнёр{{ else }}Partner{{ end }}</a>
+        <a href="{{ "/terms/" | relLangURL }}">{{ if $isRu }}Условия{{ else }}Terms{{ end }}</a>
         <a href="mailto:{{ $email }}">{{ $email }}</a>
-      {{- else -}}
-        <a href="{{ "/support/" | relLangURL }}">Support</a>
-        <a href="{{ "/partner/" | relLangURL }}">Stream Partner</a>
-        <a href="{{ "/terms/" | relLangURL }}">Terms</a>
-        <a href="{{ "/cameras/" | relLangURL }}">Cameras</a>
-        <a href="mailto:{{ $email }}">{{ $email }}</a>
-      {{- end -}}
-    </span>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col__title">{{ if $isRu }}Для ботов{{ else }}For bots{{ end }}</div>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/robots.txt">robots.txt</a>
+        <a href="https://github.com/A-Krivoshen/bolotnaya" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </nav>
   </div>
 </footer>
 {{- end }}
 
 {{- if (not site.Params.disableScrollToTop) }}
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+<a href="#top" aria-label="{{ if eq .Site.Language.Lang "ru" }}Наверх{{ else }}Go to top{{ end }}" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor" aria-hidden="true">
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
@@ -45,14 +64,17 @@
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
+            var target = document.querySelector(`[id='${decodeURIComponent(id)}']`);
+            if (!target) return;
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
+                target.scrollIntoView({ behavior: "smooth" });
             } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+                target.scrollIntoView();
             }
-            if (id === "top") {
+            if (typeof target.focus === 'function') {
+                try { target.focus({ preventScroll: true }); } catch (err) { target.focus(); }
+            }
+            if (id === "top" || id === "main-content") {
                 history.replaceState(null, null, " ");
             } else {
                 history.pushState(null, null, `#${id}`);
