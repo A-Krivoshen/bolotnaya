@@ -22,37 +22,7 @@
     <video id="hls-video" playsinline muted></video>
     <div class="player-title" id="player-title">{{ if eq .Site.Language.Lang "ru" }}Онлайн трансляция{{ else }}Live stream{{ end }}</div>
     <button class="player-fs-btn" title="Fullscreen" aria-label="Toggle fullscreen">⛶</button>
-
-    <!-- Yandex ads per camera (non-interrupting overlays) -->
-    <div class="video-ad-overlay">
-      <div class="ad-slot" data-ad="cam1">
-        <!-- Yandex.RTB R-A-5829540-6 -->
-        <div id="yandex_rtb_R-A-5829540-6"></div>
-        <script>
-        window.yaContextCb.push(() => {
-            Ya.Context.AdvManager.render({
-                "blockId": "R-A-5829540-6",
-                "renderTo": "yandex_rtb_R-A-5829540-6"
-            })
-        })
-        </script>
-      </div>
-      <div class="ad-slot" data-ad="cam2">
-        <!-- Yandex.RTB R-A-5829540-5 -->
-        <div id="yandex_rtb_R-A-5829540-5"></div>
-        <script>
-        window.yaContextCb.push(() => {
-            Ya.Context.AdvManager.render({
-                "blockId": "R-A-5829540-5",
-                "renderTo": "yandex_rtb_R-A-5829540-5"
-            })
-        })
-        </script>
-      </div>
-    </div>
   </div>
-
-  {{- partial "yandex-feed-ad.html" . -}}
 
   {{ partial "support-partner.html" . }}
 </div>

@@ -34,34 +34,16 @@
         <p>{{ if eq .Site.Language.Lang "ru" }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
       </div>
 
-      <div id="adblock-message" style="display:none; padding: 0.75rem 1rem; background:#2a1515; border:1px solid #5c2a2a; border-radius:6px; margin:0.75rem 0; font-size:0.85rem; text-align:center;">
+      <div id="adblock-message" class="adblock-message" style="display:none;">
         {{ if eq .Site.Language.Lang "ru" }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
       </div>
 
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
-
-        <!-- Yandex RSYA overlay directly over the video (small non-intrusive banner in corner) -->
-        <div class="video-ad-overlay">
-          <div class="ad-slot active">
-            <!-- Yandex.RTB [VIDEO OVERLAY BLOCK] - replace ID with the one for player overlay -->
-            <div id="yandex_rtb_R-A-5829540-6"></div>
-            <script>
-            window.yaContextCb.push(() => {
-                Ya.Context.AdvManager.render({
-                    "blockId": "R-A-5829540-6",
-                    "renderTo": "yandex_rtb_R-A-5829540-6"
-                })
-            })
-            </script>
-          </div>
-        </div>
       </div>
 
       <div class="status">{{ if eq .Site.Language.Lang "ru" }}Подключение…{{ else }}Connecting…{{ end }}</div>
     </div>
-
-    {{- partial "yandex-feed-ad.html" . -}}
 
     {{ partial "support-partner.html" . }}
 

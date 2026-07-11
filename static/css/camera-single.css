@@ -1,30 +1,33 @@
-/* Карточка камеры */
+/* Camera single page */
 
 .camera-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.85rem;
   background: var(--entry);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
 }
 
 .tab-pane {
   position: relative;
   background: #050505;
-  border-radius: 6px;
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   border: 1px solid #111;
+  aspect-ratio: 16 / 9;
 }
 
 .tab-pane video {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: contain;
+  background: #000;
 }
 
-/* clean strict preloader */
+/* Preloader while stream connects */
 .tab-pane:not(.loaded)::before {
   content: '';
   position: absolute;
@@ -33,15 +36,18 @@
   width: 28px;
   height: 28px;
   border: 3px solid #222;
-  border-top-color: #666;
+  border-top-color: #888;
   border-radius: 50%;
   animation: spin 0.9s linear infinite;
   transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: none;
 }
 
 .status {
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
+  min-height: 1.35em;
   font-size: 0.8rem;
   font-feature-settings: "tnum";
 }
@@ -54,91 +60,63 @@
 }
 
 @keyframes spin {
-    0%   { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-@keyframes fade {
-    0%   { opacity: .6; }
-    100% { opacity: 1; }
-}
-
-/* --- оформление страницы камеры --- */
-
+/* Page chrome */
 .camera-page .camera-header,
 .camera-page .camera-header .post-title,
 .camera-page .camera-header .post-description,
 .camera-page .camera-bottom-text {
-    text-align: center;
+  text-align: center;
 }
 
 .camera-page .camera-bottom-text p {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* чтобы заголовок не разваливался на одинокую букву "а" */
-
-.camera-page .post-title {
-    text-wrap: balance;
+.camera-page .post-title,
+.camera-page .page-header h1 {
+  text-wrap: balance;
 }
 
 @media (max-width: 480px) {
-    .camera-page .post-title {
-        font-size: clamp(1.4rem, 4vw, 1.8rem);
-        line-height: 1.15;
-    }
+  .camera-container {
+    padding: 0.55rem;
+    border-radius: 12px;
+  }
+
+  .camera-page .page-header h1,
+  .camera-page .post-title {
+    font-size: clamp(1.35rem, 6.5vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  .camera-page .page-lead {
+    font-size: 0.92rem;
+  }
 }
 
-/* Weather widget - kept minimal and strict (optional external) */
+/* Weather widget — compact, non-blocking */
 .camera-page .weather-widget {
   text-align: center;
-  margin: 1rem 0 0.5rem;
-  opacity: 0.6;
+  margin: 0.35rem 0 0.65rem;
+  opacity: 0.7;
 }
+
 .camera-page .weather-widget .widget-plain {
   display: inline-block;
   pointer-events: none;
   cursor: default;
   text-decoration: none;
   font-size: 12px;
+  max-width: 100%;
 }
 
-/* Video ad overlay - non-intrusive RSYA block directly over the video (as suggested) */
-.tab-pane .video-ad-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 30;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 4px;
-  max-width: 240px;
-  max-height: 100px;
-  overflow: hidden;
-  border-bottom-left-radius: 6px;
-  transition: all 0.3s ease;
+/* Adblock notice — readable on small screens */
+#adblock-message {
+  border-radius: 10px !important;
+  line-height: 1.4;
 }
-
-.tab-pane .video-ad-overlay.expanded {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-.tab-pane .ad-slot {
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-.tab-pane .ad-slot.active {
-  display: block;
-}
-.tab-pane .ad-slot > div {
-  width: 100%;
-  height: 100%;
-}
-
-/* Position variants (used by JS to rotate the overlay) */
-.tab-pane .video-ad-overlay.pos-tr { top: 0; right: 0; bottom: auto; left: auto; }
-.tab-pane .video-ad-overlay.pos-br { top: auto; right: 0; bottom: 0; left: auto; }
-.tab-pane .video-ad-overlay.pos-tl { top: 0; right: auto; bottom: auto; left: 0; }
-.tab-pane .video-ad-overlay.pos-bl { top: auto; right: auto; bottom: 0; left: 0; }

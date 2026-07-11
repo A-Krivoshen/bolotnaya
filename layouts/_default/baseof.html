@@ -22,10 +22,6 @@
         {{- block "main" . }}{{ end }}
     </main>
 
-    {{ if ne .Section "cameras" }}
-    {{- partial "yandex-feed-ad.html" . -}}
-    {{ end }}
-
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
 

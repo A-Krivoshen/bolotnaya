@@ -81,8 +81,6 @@
   }
 }
 
-}
-
 /* Aliases for markdown pages */
 .support-btn{
   display:inline-flex;
@@ -223,14 +221,20 @@ body {
 h1 { font-size: clamp(1.65rem, 5vw, 2.25rem); font-weight: 600; }
 h2 { font-size: 1.35rem; font-weight: 600; }
 
-/* Cleaner links and buttons */
+/* Links: keep content readable; cards/buttons override via bolotnaya.css */
 a {
   color: inherit;
-  text-decoration: underline;
   text-underline-offset: 3px;
+}
+.content a,
+.post-content a {
+  text-decoration: underline;
   text-decoration-thickness: 1px;
 }
-a:hover { text-decoration-thickness: 1.5px; }
+.content a:hover,
+.post-content a:hover {
+  text-decoration-thickness: 1.5px;
+}
 
 /* Strict modern cards used across site */
 .post-preview,
@@ -337,40 +341,7 @@ a:hover { text-decoration-thickness: 1.5px; }
   overflow: hidden;
 }
 
-/* Old home camera previews superseded by redesign in bolotnaya.css */
-  object-fit: cover;
-  display: block;
-}
-.camera-preview__badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #111;
-  color: #ff4444;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 2px 8px;
-  border-radius: 2px;
-  border: 1px solid #333;
-}
-.camera-preview__meta {
-  padding: 1rem 1rem 1.25rem;
-}
-.camera-preview__meta h3 {
-  margin: 0 0 0.4rem;
-  font-size: 0.98rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-.camera-preview__meta p {
-  margin: 0;
-  font-size: 0.82rem;
-  color: var(--secondary);
-  line-height: 1.4;
-}
-
-/* Superseded */
+/* Superseded — main camera preview styles live in bolotnaya.css */
 
 /* Strict modern site alert */
 .site-alert {
@@ -527,14 +498,20 @@ body {
 h1 { font-size: clamp(1.65rem, 5vw, 2.25rem); font-weight: 600; }
 h2 { font-size: 1.35rem; font-weight: 600; }
 
-/* Cleaner links and buttons */
+/* Links: keep content readable; cards/buttons override via bolotnaya.css */
 a {
   color: inherit;
-  text-decoration: underline;
   text-underline-offset: 3px;
+}
+.content a,
+.post-content a {
+  text-decoration: underline;
   text-decoration-thickness: 1px;
 }
-a:hover { text-decoration-thickness: 1.5px; }
+.content a:hover,
+.post-content a:hover {
+  text-decoration-thickness: 1.5px;
+}
 
 /* Strict modern cards used across site */
 .post-preview,

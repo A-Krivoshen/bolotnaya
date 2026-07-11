@@ -5,7 +5,7 @@
     <p class="page-lead">{{ if eq .Site.Language.Lang "ru" }}Заметки о районе, камерах, истории и open-source разработке проекта.{{ else }}Notes on the district, cameras, history and the project's open-source development.{{ end }}</p>
   </div>
 
-  <div class="cameras-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+  <div class="blog-list-grid">
     {{ range .Pages.ByDate.Reverse }}
       <a class="blog-card card" href="{{ .RelPermalink }}">
         <div class="meta">

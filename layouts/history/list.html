@@ -6,13 +6,13 @@
     <p class="page-lead">{{ if .Params.summary }}{{ .Params.summary }}{{ else }}История Болотной площади и Якиманки.{{ end }}</p>
   </div>
 
-  <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
-    <div class="history-info">
+  <div class="history-layout">
+    <aside class="history-info">
       <strong>Локация:</strong> Москва, Якиманка<br>
       <strong>Темы:</strong> история, город, культура, Болотная площадь
-    </div>
+    </aside>
 
-    <div class="prose" style="flex: 1; min-width: 280px;">
+    <div class="prose">
       {{ with .Content }}<section>{{ . }}</section>{{ end }}
     </div>
   </div>
@@ -41,7 +41,7 @@
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
-  <h2 style="margin-top: 3rem; font-size: 1.35rem;">Архивные и исторические фото</h2>
+  <h2 class="history-section-title">Архивные и исторические фото</h2>
   <link rel="stylesheet" href="/css/gallery-grid.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <section class="gallery-grid">
