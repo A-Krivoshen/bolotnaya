@@ -1,6 +1,7 @@
 # Hugo
-public/
+/public/
 resources/
+resources/_gen/
 .hugo_build.lock
 
 # Node / tools
@@ -8,28 +9,25 @@ node_modules/
 .cache/
 dist/
 
-# TinaCMS (folder without a dot)
+# TinaCMS / generated admin
 tina/__generated__/
+static/admin/
+static/public/
 
-# OS & misc
-**/.DS_Store
-**/*.log
+# Local environment and secrets
 .env
+.env.*
+!.env.example
 *.key
 *.pem
 
-# Build artifacts
-public/
-*.tar.gz
-/public
-/resources/_gen
+# Temporary and packaging artifacts
+_pr_bundle/
+package.json.bak
 *.zip
 *.tar.gz
 *.tgz
-public/
-resources/_gen/
-node_modules/
-tina/__generated__/
-static/admin/
 
-public/
+# OS and logs
+**/.DS_Store
+**/*.log
