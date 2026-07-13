@@ -32,6 +32,10 @@
   {{- end -}}
 {{- end -}}
 {{- if not $ogImage }}{{ with .Params.image }}{{ $ogImage = . }}{{ end }}{{ end -}}
+{{- if and $ogImage (strings.HasPrefix $ogImage "/") -}}
+  {{- $staticPath := printf "static/%s" (strings.TrimPrefix "/" $ogImage) -}}
+  {{- if not (fileExists $staticPath) }}{{ $ogImage = "" }}{{ end -}}
+{{- end -}}
 {{- if not $ogImage -}}
   {{- with .Site.Params.images -}}
     {{- $sf := index . 0 -}}
