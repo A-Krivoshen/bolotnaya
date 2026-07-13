@@ -61,13 +61,15 @@
                 </button>
                 {{- end }}
 
-                {{- $lang := .Lang}}
-                {{- with site.Home.Translations }}
+                {{- $lang := .Lang }}
+                {{- $translations := .Translations }}
+                {{- if not $translations }}{{ $translations = site.Home.Translations }}{{ end }}
+                {{- with $translations }}
                 <ul class="lang-switch">
                     {{- range . -}}
                     {{- if ne $lang .Lang }}
                     <li>
-                        <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.Label | emojify) | default (.Lang | title) }}"
+                        <a href="{{- .Permalink -}}" rel="alternate" hreflang="{{ .Lang }}" title="{{ .Language.Params.languageAltTitle | default (.Language.Label | emojify) | default (.Lang | title) }}"
                             aria-label="{{ .Language.Label | default (.Lang | title) }}">
                             {{- if (and site.Params.displayFullLangName (.Language.Label)) }}
                             {{- .Language.Label | emojify -}}

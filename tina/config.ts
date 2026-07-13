@@ -60,6 +60,7 @@ const galleryFields = [
 // Общие поля для Истории (ссылка на галерею по slug)
 const historyFields = [
   { type: "string", name: "slug", label: "Slug записи (латиница, -)", required: true },
+  { type: "string", name: "translationKey", label: "Translation key" },
   { type: "string", name: "title", label: "Заголовок / Title", required: true },
   { type: "string", name: "description", label: "Краткое описание / Summary" },
   {
@@ -203,6 +204,7 @@ export default defineConfig({
         },
         fields: [
           { type: "string", name: "title", label: "Заголовок", required: true, isTitle: true },
+          { type: "string", name: "translationKey", label: "Translation key" },
           { type: "string", name: "description", label: "Описание" },
           {
             type: "image",
@@ -260,6 +262,7 @@ export default defineConfig({
         },
         fields: [
           { type: "string", name: "title", label: "Title", required: true, isTitle: true },
+          { type: "string", name: "translationKey", label: "Translation key" },
           { type: "string", name: "description", label: "Description" },
           {
             type: "image",

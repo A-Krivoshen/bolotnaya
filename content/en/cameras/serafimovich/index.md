@@ -1,5 +1,6 @@
 ---
 title: "Camera: Ulitsa Serafimovicha"
+translationKey: "camera-serafimovicha"
 description: "Live camera toward Ulitsa Serafimovicha near Bolotnaya Square, Moscow."
 # image: "/images/cameras/serafimovich-thumb.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"

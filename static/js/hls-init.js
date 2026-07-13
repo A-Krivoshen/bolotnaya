@@ -4,59 +4,153 @@
   const hlsInstances = new Map();
   const errorStart = new Map();
   const timers = new Map();
+  const reconnectDelayMs = 2000;
+  const lang = (document.documentElement.getAttribute('lang') || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru';
+  const messages = {
+    ru: {
+      connecting: 'Подключение…',
+      connected: 'Подключено',
+      buffering: 'Буферизация…',
+      streamUnavailable: 'Поток недоступен',
+      unsupported: 'HLS не поддерживается в этом браузере',
+      adblock: 'Отключите блокировщик рекламы для просмотра трансляции.',
+      connectionError: seconds => `Ошибка подключения. Переподключение (${seconds}s)`
+    },
+    en: {
+      connecting: 'Connecting…',
+      connected: 'Connected',
+      buffering: 'Buffering…',
+      streamUnavailable: 'Stream unavailable',
+      unsupported: 'HLS is not supported in this browser',
+      adblock: 'Disable your ad blocker to view the stream.',
+      connectionError: seconds => `Connection error. Reconnecting (${seconds}s)`
+    }
+  };
+
+  function msg(key, value){
+    const text = messages[lang][key] || messages.ru[key];
+    return typeof text === 'function' ? text(value) : text;
+  }
+
+  function setStatus(status, text, state){
+    if (!status) return;
+    status.textContent = text;
+    status.className = ('status ' + (state || '')).trim();
+  }
+
+  function videoKey(video){
+    const url = video.getAttribute('data-hls') || '';
+    const index = Array.prototype.indexOf.call(videos, video);
+    return url + '|' + (video.id || index);
+  }
 
   function updateCountdown(key){
     const start = errorStart.get(key) || Date.now();
     const elapsed = (Date.now() - start)/1000;
-    return Math.max(2 - elapsed, 0);
+    return Math.max((reconnectDelayMs / 1000) - elapsed, 0);
   }
 
-  function headOk(url){
-    return new Promise(resolve => {
-      try {
-        const xhr = new XMLHttpRequest();
-        xhr.open('HEAD', url, true);
-        xhr.timeout = 5000;
-        xhr.onload = () => resolve(true);
-        xhr.onerror = () => resolve(false);
-        xhr.ontimeout = () => resolve(false);
-        xhr.send();
-      } catch(e){ resolve(false); }
-    });
+  function clearTimer(key){
+    const timer = timers.get(key);
+    if (timer){
+      clearInterval(timer);
+      timers.delete(key);
+    }
+  }
+
+  function destroyHls(key){
+    const hls = hlsInstances.get(key);
+    if (hls){
+      try { hls.destroy(); } catch(e){}
+      hlsInstances.delete(key);
+    }
   }
 
   function cleanup(key){
-    const h = hlsInstances.get(key);
-    if (h){ try { h.destroy(); } catch(e){}; hlsInstances.delete(key); }
-    const t = timers.get(key);
-    if (t){ clearInterval(t); timers.delete(key); }
+    destroyHls(key);
+    clearTimer(key);
     errorStart.delete(key);
   }
 
-  async function setup(video){
+  function scheduleReconnect(key, video, status){
+    if (!errorStart.has(key)) errorStart.set(key, Date.now());
+    setStatus(status, msg('connectionError', Math.ceil(updateCountdown(key))), 'error reconnecting');
+    if (timers.has(key)) return;
+
+    timers.set(key, setInterval(() => {
+      const seconds = Math.ceil(updateCountdown(key));
+      setStatus(status, msg('connectionError', seconds), 'error reconnecting');
+      if (seconds <= 0){
+        clearTimer(key);
+        errorStart.delete(key);
+        setup(video);
+      }
+    }, 1000));
+  }
+
+  function markConnected(key, pane, status){
+    pane && pane.classList.add('loaded');
+    setStatus(status, msg('connected'), 'connected');
+    clearTimer(key);
+    errorStart.delete(key);
+  }
+
+  function bindVideoEvents(video){
+    if (video.dataset.hlsEventsBound) return;
+    video.dataset.hlsEventsBound = 'true';
+
+    video.addEventListener('error', () => {
+      const key = videoKey(video);
+      const container = video.closest('.camera-container') || document;
+      const status = container.querySelector('.status');
+      destroyHls(key);
+      scheduleReconnect(key, video, status);
+    });
+
+    video.addEventListener('stalled', () => {
+      const key = videoKey(video);
+      const container = video.closest('.camera-container') || document;
+      const status = container.querySelector('.status');
+      destroyHls(key);
+      scheduleReconnect(key, video, status);
+    });
+
+    video.addEventListener('waiting', () => {
+      const key = videoKey(video);
+      const container = video.closest('.camera-container') || document;
+      const status = container.querySelector('.status');
+      setStatus(status, msg('buffering'), 'buffering');
+      clearTimer(key);
+      errorStart.delete(key);
+    });
+
+    video.addEventListener('playing', () => {
+      const key = videoKey(video);
+      const container = video.closest('.camera-container') || document;
+      const status = container.querySelector('.status');
+      const pane = video.closest('.tab-pane') || container;
+      markConnected(key, pane, status);
+    });
+  }
+
+  function setup(video){
     const url = video.getAttribute('data-hls');
     const container = video.closest('.camera-container') || document;
     const status = container.querySelector('.status');
     const pane = video.closest('.tab-pane') || container;
+    const key = videoKey(video);
 
-    const key = url + '|' + (video.id || '');
-
-    const ok = await headOk(url);
-    if (!ok){
-      status && (status.textContent = 'Поток недоступен');
-      status && status.classList.remove('connected','buffering');
-      status && status.classList.add('error','reconnecting');
-      if (!errorStart.has(key)) errorStart.set(key, Date.now());
-      timers.set(key, setInterval(()=>{
-        const t = Math.ceil(updateCountdown(key));
-        status && (status.textContent = `Ошибка подключения. Переподключение (${t}s)`);
-        if (t<=0){ clearInterval(timers.get(key)); timers.delete(key); setup(video); }
-      }, 1000));
+    if (!url){
+      setStatus(status, msg('streamUnavailable'), 'error');
       return;
     }
 
-    if (window.Hls && Hls.isSupported()){
-      const hls = new Hls({
+    cleanup(key);
+    bindVideoEvents(video);
+    setStatus(status, msg('connecting'), '');
+
+    if (window.Hls && window.Hls.isSupported()){
+      const hls = new window.Hls({
         liveSyncDuration: 2,
         maxBufferLength: 15,
         maxMaxBufferLength: 30,
@@ -74,80 +168,25 @@
       hls.loadSource(url);
       hls.attachMedia(video);
 
-      hls.on(Hls.Events.MANIFEST_PARSED, function(){
+      hls.on(window.Hls.Events.MANIFEST_PARSED, function(){
         video.play().catch(()=>{});
-        pane && pane.classList.add('loaded');
-        status && (status.textContent = 'Подключено');
-        status && (status.className = 'status connected');
-        const t = timers.get(key); if (t) { clearInterval(t); timers.delete(key); }
-        errorStart.delete(key);
+        markConnected(key, pane, status);
       });
 
-      hls.on(Hls.Events.ERROR, function(event, data){
-        if (!errorStart.has(key)) errorStart.set(key, Date.now());
-        status && (status.className = 'status error reconnecting');
-        if (!timers.has(key)){
-          timers.set(key, setInterval(()=>{
-            const t = Math.ceil(updateCountdown(key));
-            status && (status.textContent = `Ошибка подключения. Переподключение (${t}s)`);
-            if (t<=0){ clearInterval(timers.get(key)); timers.delete(key); setup(video); }
-          },1000));
-        }
+      hls.on(window.Hls.Events.ERROR, function(event, data){
+        scheduleReconnect(key, video, status);
         if (data && data.fatal){
           switch (data.type){
-            case Hls.ErrorTypes.NETWORK_ERROR:
-              cleanup(key);
-              setTimeout(()=>setup(video), 2000);
+            case window.Hls.ErrorTypes.NETWORK_ERROR:
+              destroyHls(key);
               break;
-            case Hls.ErrorTypes.MEDIA_ERROR:
+            case window.Hls.ErrorTypes.MEDIA_ERROR:
               try{ hls.recoverMediaError(); }catch(e){}
               break;
             default:
-              cleanup(key);
-              setTimeout(()=>setup(video), 2000);
+              destroyHls(key);
           }
         }
-      });
-
-      video.addEventListener('error', ()=>{
-        status && (status.className = 'status error reconnecting');
-        if (!errorStart.has(key)) errorStart.set(key, Date.now());
-        if (!timers.has(key)){
-          timers.set(key, setInterval(()=>{
-            const t = Math.ceil(updateCountdown(key));
-            status && (status.textContent = `Ошибка подключения. Переподключение (${t}s)`);
-            if (t<=0){ clearInterval(timers.get(key)); timers.delete(key); setup(video); }
-          },1000));
-        }
-        cleanup(key);
-      });
-
-      video.addEventListener('stalled', ()=>{
-        status && (status.className = 'status error reconnecting');
-        if (!errorStart.has(key)) errorStart.set(key, Date.now());
-        if (!timers.has(key)){
-          timers.set(key, setInterval(()=>{
-            const t = Math.ceil(updateCountdown(key));
-            status && (status.textContent = `Ошибка подключения. Переподключение (${t}s)`);
-            if (t<=0){ clearInterval(timers.get(key)); timers.delete(key); setup(video); }
-          },1000));
-        }
-        cleanup(key);
-      });
-
-      video.addEventListener('waiting', ()=>{
-        status && (status.textContent = 'Буферизация…');
-        status && (status.className = 'status buffering');
-        const t = timers.get(key); if (t) { clearInterval(t); timers.delete(key); }
-        errorStart.delete(key);
-      });
-
-      video.addEventListener('playing', ()=>{
-        pane && pane.classList.add('loaded');
-        status && (status.textContent = 'Подключено');
-        status && (status.className = 'status connected');
-        const t = timers.get(key); if (t) { clearInterval(t); timers.delete(key); }
-        errorStart.delete(key);
       });
 
       hlsInstances.set(key, hls);
@@ -156,35 +195,62 @@
       video.src = url;
       video.addEventListener('loadedmetadata', function(){
         video.play().catch(()=>{});
-        pane && pane.classList.add('loaded');
-        status && (status.textContent = 'Подключено');
-        status && (status.className = 'status connected');
+        markConnected(key, pane, status);
       });
+    } else {
+      setStatus(status, msg('unsupported'), 'error');
     }
   }
 
   function detectAdBlockerAsync(url){
     return new Promise(resolve => {
+      let settled = false;
       const script = document.createElement('script');
-      script.onerror = () => { script.remove(); resolve(true); };
-      script.onload  = () => { script.remove(); resolve(false); };
+      const timer = setTimeout(() => finish(false), 1500);
+
+      function finish(blocked){
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        script.onerror = null;
+        script.onload = null;
+        script.remove();
+        resolve(blocked);
+      }
+
+      script.onerror = () => finish(true);
+      script.onload  = () => finish(false);
       script.src = url;
       document.body.appendChild(script);
     });
   }
 
-  document.addEventListener('DOMContentLoaded', async function(){
-    const isBlock = await detectAdBlockerAsync('https://ads.pubmatic.com/AdServer/js/gshowad.js');
-    videos.forEach(video => {
-      const container = video.closest('.camera-container') || document;
-      const adBox = container.querySelector('#adblock-message');
-      if (isBlock){
-        if (adBox) adBox.style.display = 'block';
-        const pane = container.querySelector('.tab-pane'); if (pane) pane.style.display='none';
-        const status = container.querySelector('.status'); if (status){ status.textContent='Загрузка заблокирована adblock'; status.className='status error'; }
-      } else {
+  document.addEventListener('DOMContentLoaded', function(){
+    detectAdBlockerAsync('https://ads.pubmatic.com/AdServer/js/gshowad.js').then(isBlock => {
+      videos.forEach(video => {
+        const container = video.closest('.camera-container') || document;
+        const adBox = container.querySelector('#adblock-message');
+
+        if (isBlock){
+          if (adBox){
+            if (!adBox.textContent.trim()) adBox.textContent = msg('adblock');
+            adBox.style.display = 'block';
+          }
+
+          const pane = video.closest('.tab-pane');
+          if (pane) pane.style.display = 'none';
+
+          const status = container.querySelector('.status');
+          setStatus(status, msg('adblock'), 'error');
+          return;
+        }
+
+        if (adBox) {
+          adBox.style.display = 'none';
+        }
+
         setup(video);
-      }
+      });
     });
   });
 
@@ -212,12 +278,30 @@
 
     if (!overlay || !adContainer || !video) return;
 
-    let adShown = false;
-    let midrollTimer = null;
-    let skipTimer = null;
+    const SESSION_KEY = 'bolotnayaMidrollShown';
     const MIDROLL_DELAY = 8 * 60 * 1000; // 8 минут
     const SKIP_DELAY = 6 * 1000;         // 6 секунд до кнопки «Пропустить»
+    const FAILSAFE_DELAY = 12 * 1000;    // не держим пустой overlay, если реклама не отрендерилась
     const BLOCK_ID = 'R-A-5829540-22';
+
+    let adShown = hasSessionMidrollShown();
+    let midrollTimer = null;
+    let skipTimer = null;
+    let failSafeTimer = null;
+
+    function hasSessionMidrollShown() {
+      try {
+        return window.sessionStorage.getItem(SESSION_KEY) === '1';
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function markSessionMidrollShown() {
+      try {
+        window.sessionStorage.setItem(SESSION_KEY, '1');
+      } catch (e) {}
+    }
 
     function clearMidrollTimer() {
       if (midrollTimer) {
@@ -233,7 +317,37 @@
       }
     }
 
+    function clearFailSafeTimer() {
+      if (failSafeTimer) {
+        clearTimeout(failSafeTimer);
+        failSafeTimer = null;
+      }
+    }
+
+    function hasRenderedFloorAd() {
+      const mount = document.getElementById('floor-ad-midroll');
+      if (!mount) return false;
+      const box = mount.getBoundingClientRect();
+      return Boolean(
+        mount.querySelector('iframe, ins, [id^="yandex"], [class*="yandex"], [class*="ya-"]') ||
+        (mount.childElementCount > 0 && box.width > 20 && box.height > 20) ||
+        mount.textContent.trim()
+      );
+    }
+
+    function closeMidroll() {
+      clearSkipTimer();
+      clearFailSafeTimer();
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden', 'true');
+      adContainer.innerHTML = '';
+      if (skipBtn) skipBtn.style.display = 'none';
+      midrollActive = false;
+      video.play().catch(function () {});
+    }
+
     function scheduleMidroll() {
+      if (adShown) return;
       clearMidrollTimer();
       midrollTimer = setTimeout(showMidrollAd, MIDROLL_DELAY);
     }
@@ -267,9 +381,11 @@
     function showMidrollAd() {
       if (adShown) return;
       adShown = true;
+      markSessionMidrollShown();
       midrollActive = true;
       clearMidrollTimer();
       clearSkipTimer();
+      clearFailSafeTimer();
 
       // Пауза трансляции на время рекламы
       try { video.pause(); } catch (e) {}
@@ -281,6 +397,14 @@
       // Рендерим Floor Ad
       renderFloorAd();
 
+      // Если рекламный SDK не вставил содержимое, не оставляем зрителя на пустом экране.
+      failSafeTimer = setTimeout(function () {
+        if (!hasRenderedFloorAd()) {
+          console.warn('[midroll] ad did not render, closing overlay');
+          closeMidroll();
+        }
+      }, FAILSAFE_DELAY);
+
       // Показываем кнопку пропуска через 6 секунд
       skipTimer = setTimeout(function () {
         if (skipBtn) skipBtn.style.display = 'block';
@@ -290,20 +414,7 @@
     // Обработчик кнопки пропуска (один раз)
     if (skipBtn) {
       skipBtn.onclick = function () {
-        clearSkipTimer();
-        overlay.style.display = 'none';
-        overlay.setAttribute('aria-hidden', 'true');
-        adContainer.innerHTML = '';
-        skipBtn.style.display = 'none';
-
-        midrollActive = false;
-        adShown = false;
-
-        // Возобновляем HLS-трансляцию
-        video.play().catch(function () {});
-
-        // Перезапускаем таймер для следующей рекламы (ещё 8 минут)
-        scheduleMidroll();
+        closeMidroll();
       };
     }
 
