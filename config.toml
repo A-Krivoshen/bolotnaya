@@ -34,8 +34,6 @@ timeout = "60s"
 
 [languages]
   [languages.ru]
-    languageName = "Русский"
-    languageCode = "ru"
     label = "Русский"
     locale = "ru-RU"
     contentDir = "content/ru"
@@ -66,8 +64,6 @@ timeout = "60s"
         weight = 4
 
   [languages.en]
-    languageName = "English"
-    languageCode = "en"
     label = "English"
     locale = "en-US"
     contentDir = "content/en"

@@ -118,8 +118,8 @@
 {{- end }}
 
 {{/* ---------- JSON-LD graph (single jsonify → correct JSON) ---------- */}}
-{{- $langs := slice -}}
-{{- range .Site.Languages }}{{ $langs = $langs | append .Lang }}{{ end -}}
+{{- $langs := slice site.Home.Lang -}}
+{{- range site.Home.Translations }}{{ $langs = $langs | append .Lang }}{{ end -}}
 {{- $orgID := printf "%s#org" $siteURL -}}
 {{- $webID := printf "%s#website" $siteURL -}}
 {{- $org := dict
