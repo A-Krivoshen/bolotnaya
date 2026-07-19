@@ -1,0 +1,27 @@
+/* Masonry layout using CSS columns + GLightbox styling overrides */
+.gallery-masonry {
+  column-count: 1;
+  column-gap: 16px;
+  margin-top: 16px;
+}
+@media (min-width: 640px) { .gallery-masonry { column-count: 2; } }
+@media (min-width: 900px) { .gallery-masonry { column-count: 3; } }
+@media (min-width: 1200px){ .gallery-masonry { column-count: 4; } }
+
+.gallery-item {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 16px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Optional: dark-theme compatible tweaks */
+.muted { opacity: .7; }

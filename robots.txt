@@ -1,0 +1,73 @@
+# Bolotnaya Online — https://www.bolotnaya.online/
+# Search engines + AI crawlers: public content is allowed.
+
+# Preferred host (Yandex)
+Host: https://www.bolotnaya.online
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /ru/admin/
+Disallow: /en/admin/
+Disallow: /static/admin/
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Disallow: /ru/admin/
+Disallow: /en/admin/
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /ru/admin/
+Disallow: /en/admin/
+
+# AI / LLM crawlers (allowed for discovery; see also /llms.txt)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps (Hugo multilingual)
+Sitemap: https://www.bolotnaya.online/sitemap.xml
+Sitemap: https://www.bolotnaya.online/ru/sitemap.xml
+Sitemap: https://www.bolotnaya.online/en/sitemap.xml
+
+# AI content index
+# See: https://www.bolotnaya.online/llms.txt

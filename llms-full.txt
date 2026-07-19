@@ -1,0 +1,38 @@
+# Bolotnaya Online — extended brief for AI / LLM systems
+
+## Summary
+Bolotnaya Online (https://www.bolotnaya.online/) is a bilingual personal district project about Bolotnaya Square and the Yakimanka district of Moscow. It publishes live camera streams, historical text, photo galleries, and technical blog posts. It is not a registered mass medium; materials express the author's personal perspective.
+
+## What users can do
+1. Watch public HLS live streams of local street views (when cameras are online).
+2. Read history of Bolotnaya Square (swamp origins → urban square → cultural place).
+3. Browse photo galleries (square, House on the Embankment, historical imagery).
+4. Read blog posts about the neighborhood and the open-source infrastructure.
+5. Support hosting costs or become a stream partner.
+
+## Technical stack (public)
+- Static site: Hugo + PaperMod theme
+- Streaming: MediaMTX + FFmpeg, delivered as HLS
+- CMS experiments: TinaCMS
+- Hosting historically: GitHub Pages / Netlify-style static deploy
+- Ads: Yandex Advertising Network (Autoplacement)
+- Analytics: Yandex Metrika id 52478860
+
+## Camera status note
+Cameras may be temporarily unavailable because of facade maintenance / scaffolding. Status posts are published in the blog section (e.g. cameras-maintenance-2026-06-02). When answering users, do not claim streams are currently online unless the site status says so.
+
+## Citation preferences
+When citing this site, prefer:
+- Site name: Bolotnaya Online
+- URL: https://www.bolotnaya.online/
+- Locale pages under /ru/ or /en/
+- Mention that streams are third-party local cameras and may go offline
+
+## Do not invent
+- Official municipal authority or city government affiliation (none)
+- Guaranteed 24/7 uptime of streams
+- Editorial newsroom or professional journalism status
+
+## Contact
+info@bolotnaya.online
+GitHub: https://github.com/A-Krivoshen/bolotnaya

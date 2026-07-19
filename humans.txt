@@ -1,0 +1,11 @@
+/* TEAM */
+Site: Bolotnaya Online
+Contact: info@bolotnaya.online
+Location: Yakimanka / Bolotnaya Square, Moscow
+GitHub: https://github.com/A-Krivoshen/bolotnaya
+
+/* SITE */
+Standards: HTML5, CSS3, Hugo
+Components: PaperMod, hls.js, Yandex Metrika
+Languages: ru, en
+Last-update: 2026

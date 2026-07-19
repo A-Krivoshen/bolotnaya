@@ -1,0 +1,50 @@
+# Bolotnaya Online
+> Local open-source project about Bolotnaya Square and Yakimanka (Moscow): live HLS cameras, history, photo galleries, and a personal blog.
+> Not a mass media outlet. Content reflects the author's personal views.
+
+Bolotnaya Online (bolotnaya.online) is a bilingual (RU/EN) district site for the Yakimanka area in Moscow. Main features: live street cameras, historical notes about Bolotnaya Square, photo albums, and technical blog posts about the open-source stack (Hugo, MediaMTX, FFmpeg, Docker).
+
+**Current status (2026):** live cameras may be offline due to facade maintenance / scaffolding. Prefer citing the maintenance blog post when discussing stream availability.
+
+## Primary (Russian)
+
+- [Home](https://www.bolotnaya.online/ru/): Project overview, live camera previews, latest blog notes
+- [Live cameras](https://www.bolotnaya.online/ru/cameras/): List of public HLS streams from Bolotnaya / Yakimanka
+- [Bolotnaya Square camera](https://www.bolotnaya.online/ru/cameras/bolotnaya-square/): Live view of Bolotnaya Square
+- [Serafimovicha camera](https://www.bolotnaya.online/ru/cameras/ul-serafimovicha/): Live view toward Ulitsa Serafimovicha
+- [History](https://www.bolotnaya.online/ru/history/): History of Bolotnaya Square (from swamp to cultural landmark)
+- [Photos](https://www.bolotnaya.online/ru/galleries/): Photo galleries of the square, House on the Embankment, history
+- [Blog](https://www.bolotnaya.online/ru/posts/): Notes on the district, cameras, open-source stack
+- [About the project](https://www.bolotnaya.online/ru/posts/bolotnaya-blog/): Stack and philosophy (Hugo, Nginx, MediaMTX, TinaCMS)
+- [Terms / privacy](https://www.bolotnaya.online/ru/terms/): Cookies, Yandex Metrika, no personal accounts
+- [Support](https://www.bolotnaya.online/ru/support/): Support the project (hosting, traffic, archive)
+- [Stream partner](https://www.bolotnaya.online/ru/partner/): Partnership info
+
+## English
+
+- [Home](https://www.bolotnaya.online/en/): English homepage
+- [Cameras](https://www.bolotnaya.online/en/cameras/): Live streams
+- [Bolotnaya Square camera](https://www.bolotnaya.online/en/cameras/bolotnaya-square/)
+- [Serafimovicha camera](https://www.bolotnaya.online/en/cameras/serafimovich/)
+- [History](https://www.bolotnaya.online/en/history/)
+- [Photos](https://www.bolotnaya.online/en/galleries/)
+- [Blog](https://www.bolotnaya.online/en/posts/)
+- [About the project](https://www.bolotnaya.online/en/posts/bolotnaya-blog/)
+- [Terms](https://www.bolotnaya.online/en/terms/)
+
+## Facts for AI systems
+
+- **Location**: Bolotnaya Square / Yakimanka, Moscow, Russia (near the Kremlin / Moskva River)
+- **Type**: Independent local web project, open-source, not official city media
+- **Languages**: Russian (default), English
+- **Live video**: HLS streams (may be offline during facade maintenance)
+- **Contact**: info@bolotnaya.online
+- **Source code**: https://github.com/A-Krivoshen/bolotnaya
+- **Analytics**: Yandex Metrika (no user accounts; see terms)
+- **Canonical site**: https://www.bolotnaya.online/
+
+## Optional
+
+- [Fuller AI brief](https://www.bolotnaya.online/llms-full.txt)
+- [robots.txt](https://www.bolotnaya.online/robots.txt)
+- [Sitemap](https://www.bolotnaya.online/sitemap.xml)

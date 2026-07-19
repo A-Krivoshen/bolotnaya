@@ -1,0 +1,108 @@
+/* Tabs + player styling (theme colors also in extended bolotnaya.css) */
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.tab-btn {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn[aria-selected="true"] {
+  background: var(--primary);
+  color: var(--theme);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.player-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.player-title {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 20;
+  font-size: 0.8rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  max-width: calc(100% - 4.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.player-wrap video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #000;
+}
+
+.player-fs-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.9;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.player-fs-btn:hover,
+.player-fs-btn:focus-visible {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 480px) {
+  .player-title {
+    font-size: 0.72rem;
+    top: 0.4rem;
+    left: 0.4rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .player-fs-btn {
+    top: 6px;
+    right: 6px;
+  }
+}
