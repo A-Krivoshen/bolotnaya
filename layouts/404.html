@@ -1,0 +1,33 @@
+{{- define "main" }}
+<section class="not-found-page" aria-labelledby="not-found-title">
+  <div class="not-found-page__panel">
+    <div class="not-found-page__map" aria-hidden="true">
+      <span class="not-found-page__pin not-found-page__pin--one"></span>
+      <span class="not-found-page__pin not-found-page__pin--two"></span>
+      <span class="not-found-page__pin not-found-page__pin--three"></span>
+    </div>
+
+    <div class="not-found-page__content">
+      <p class="not-found-page__eyebrow">404 / page not found</p>
+      <h1 id="not-found-title">{{ if eq .Site.Language.Lang "ru" }}Страница потерялась у Болотной{{ else }}This page drifted away from Bolotnaya{{ end }}</h1>
+      <p>
+        {{ if eq .Site.Language.Lang "ru" }}
+          Возможно, ссылка устарела или раздел был перенесён. Вернитесь на главную, откройте камеры или посмотрите историю района.
+        {{ else }}
+          The link may be outdated or the page may have moved. Return home, open the cameras, or browse the district history.
+        {{ end }}
+      </p>
+
+      <div class="not-found-page__actions" aria-label="{{ if eq .Site.Language.Lang "ru" }}Навигация по сайту{{ else }}Site navigation{{ end }}">
+        <a class="not-found-page__button not-found-page__button--primary" href="{{ "/ru/" | relURL }}">{{ if eq .Site.Language.Lang "ru" }}На главную{{ else }}Russian home{{ end }}</a>
+        <a class="not-found-page__button" href="{{ "/ru/cameras/" | relURL }}">{{ if eq .Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</a>
+        <a class="not-found-page__button" href="{{ "/ru/history/" | relURL }}">{{ if eq .Site.Language.Lang "ru" }}История{{ else }}History{{ end }}</a>
+      </div>
+
+      <p class="not-found-page__alt-link">
+        <a href="{{ "/en/" | relURL }}">English version</a>
+      </p>
+    </div>
+  </div>
+</section>
+{{- end }}

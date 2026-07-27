@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>404 | Bolotnaya Online</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #071012;
+      --panel: #f7f3e8;
+      --text: #14211f;
+      --muted: #5b6b67;
+      --accent: #2f7d70;
+      --warm: #c8832f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(111, 210, 194, 0.25), transparent 30%),
+        linear-gradient(135deg, var(--bg), #20352f);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+    }
+
+    main {
+      width: min(100%, 900px);
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      background: var(--panel);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+    }
+
+    main::after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      bottom: -150px;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(47, 125, 112, 0.28);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 64px rgba(47, 125, 112, 0.08), inset 0 0 0 128px rgba(47, 125, 112, 0.06);
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      padding: clamp(32px, 7vw, 72px);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font: 800 13px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 11ch;
+      margin: 0 0 16px;
+      font-size: clamp(42px, 9vw, 84px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid rgba(20, 33, 31, 0.14);
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .en {
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .en a {
+      color: var(--warm);
+      font-weight: 800;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px;
+      }
+
+      main {
+        border-radius: 22px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section aria-labelledby="title">
+      <p class="eyebrow">404 / GitHub Pages fallback</p>
+      <h1 id="title">Страница потерялась у Болотной</h1>
+      <p>Возможно, ссылка устарела или раздел был перенесён. Вернитесь на главную, откройте камеры или посмотрите историю района.</p>
+      <nav class="actions" aria-label="Навигация по сайту">
+        <a class="button primary" href="/ru/">На главную</a>
+        <a class="button" href="/ru/cameras/">Камеры</a>
+        <a class="button" href="/ru/history/">История</a>
+      </nav>
+      <p class="en">English: <a href="/en/">open the English home page</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
