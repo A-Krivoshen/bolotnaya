@@ -30,9 +30,12 @@
         <a href="mailto:{{ $email }}">{{ $email }}</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col__title">{{ if $isRu }}Для ботов{{ else }}For bots{{ end }}</div>
-        <a href="/sitemap.xml">Sitemap</a>
+        <div class="footer-col__title">{{ if $isRu }}Для ботов{{ else }}For agents{{ end }}</div>
+        <a href="{{ "/for-agents/" | relLangURL }}">{{ if $isRu }}Для ИИ-агентов{{ else }}For AI agents{{ end }}</a>
         <a href="/llms.txt">llms.txt</a>
+        <a href="{{ if $isRu }}/llms-ru.txt{{ else }}/llms-en.txt{{ end }}">{{ if $isRu }}llms-ru.txt{{ else }}llms-en.txt{{ end }}</a>
+        <a href="/ai/cameras.json">cameras.json</a>
+        <a href="/sitemap.xml">Sitemap</a>
         <a href="/robots.txt">robots.txt</a>
       </div>
     </nav>
