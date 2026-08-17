@@ -55,6 +55,35 @@
     Cache-Control = "public, max-age=3600"
 
 [[headers]]
+  for = "/llms-ru.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/llms-en.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/ai.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/.well-known/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/ai/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
   for = "/sitemap.xml"
   [headers.values]
     Cache-Control = "public, max-age=3600"

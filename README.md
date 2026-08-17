@@ -63,7 +63,8 @@ The build output goes to `public/`. Production is static nginx on the VPS (`88.2
 - Production: <https://bolotnaya.online/>
 - Russian home: <https://bolotnaya.online/ru/>
 - English home: <https://bolotnaya.online/en/>
-- AI brief: <https://bolotnaya.online/llms.txt>
+- AI brief: <https://bolotnaya.online/llms.txt> (RU <https://bolotnaya.online/llms-ru.txt>, EN <https://bolotnaya.online/llms-en.txt>)
+- For agents: <https://bolotnaya.online/ru/for-agents/> · <https://bolotnaya.online/en/for-agents/>
 
 ## License
 
