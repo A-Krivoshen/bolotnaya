@@ -1,4 +1,4 @@
-name: Build & Deploy (Hugo)
+name: Build Hugo (CI check)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: hugo-build-${{ github.ref }}
@@ -54,13 +54,3 @@ jobs:
           retention-days: 7
           compression-level: 9
           if-no-files-found: error
-
-      - name: Deploy to gh-pages
-        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
-          cname: bolotnaya.online
-          force_orphan: true

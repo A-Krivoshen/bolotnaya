@@ -56,7 +56,7 @@ Hugo Extended `0.158.0+` is required by the templates. CI currently builds with 
 HUGO_ENV=production hugo --minify --gc --baseURL "https://bolotnaya.online/"
 ```
 
-The build output goes to `public/`. On `main`, GitHub Actions uploads that folder as an artifact and publishes it to the `gh-pages` branch with the `bolotnaya.online` CNAME.
+The build output goes to `public/`. Production is static nginx on the VPS (`88.218.120.187`): after a `main` push run `/usr/local/bin/deploy-bolotnaya.sh` there (`git pull` + Hugo + rsync). GitHub Actions only checks the build; it does not publish Pages.
 
 ## Useful Links
 
