@@ -43,7 +43,7 @@ jobs:
           HUGO_ENV: production
         run: >
           hugo --minify --gc
-          --baseURL "https://www.bolotnaya.online/"
+          --baseURL "https://bolotnaya.online/"
 
       # Артефакт только со сборкой, а не со всем репозиторием
       - name: Upload built site (public)
@@ -62,5 +62,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-          cname: www.bolotnaya.online
+          cname: bolotnaya.online
           force_orphan: true

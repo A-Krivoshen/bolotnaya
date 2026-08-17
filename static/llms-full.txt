@@ -1,7 +1,7 @@
 # Bolotnaya Online — extended brief for AI / LLM systems
 
 ## Summary
-Bolotnaya Online (https://www.bolotnaya.online/) is a bilingual personal district project about Bolotnaya Square and the Yakimanka district of Moscow. It publishes live camera streams, historical text, photo galleries, and technical blog posts. It is not a registered mass medium; materials express the author's personal perspective.
+Bolotnaya Online (https://bolotnaya.online/) is a bilingual personal district project about Bolotnaya Square and the Yakimanka district of Moscow. It publishes live camera streams, historical text, photo galleries, and technical blog posts. It is not a registered mass medium; materials express the author's personal perspective.
 
 ## What users can do
 1. Watch public HLS live streams of local street views (when cameras are online).
@@ -24,7 +24,7 @@ Cameras may be temporarily unavailable because of facade maintenance / scaffoldi
 ## Citation preferences
 When citing this site, prefer:
 - Site name: Bolotnaya Online
-- URL: https://www.bolotnaya.online/
+- URL: https://bolotnaya.online/
 - Locale pages under /ru/ or /en/
 - Mention that streams are third-party local cameras and may go offline
 

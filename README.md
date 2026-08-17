@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.bolotnaya.online/">Site</a> ·
-  <a href="https://www.bolotnaya.online/ru/cameras/">Cameras</a> ·
-  <a href="https://www.bolotnaya.online/ru/history/">History</a> ·
+  <a href="https://bolotnaya.online/">Site</a> ·
+  <a href="https://bolotnaya.online/ru/cameras/">Cameras</a> ·
+  <a href="https://bolotnaya.online/ru/history/">History</a> ·
   <a href="https://github.com/A-Krivoshen/bolotnaya/actions/workflows/hugo-build-archive.yml">Deploy workflow</a>
 </p>
 
@@ -53,17 +53,17 @@ Hugo Extended `0.158.0+` is required by the templates. CI currently builds with 
 ## Production Build
 
 ```bash
-HUGO_ENV=production hugo --minify --gc --baseURL "https://www.bolotnaya.online/"
+HUGO_ENV=production hugo --minify --gc --baseURL "https://bolotnaya.online/"
 ```
 
-The build output goes to `public/`. On `main`, GitHub Actions uploads that folder as an artifact and publishes it to the `gh-pages` branch with the `www.bolotnaya.online` CNAME.
+The build output goes to `public/`. On `main`, GitHub Actions uploads that folder as an artifact and publishes it to the `gh-pages` branch with the `bolotnaya.online` CNAME.
 
 ## Useful Links
 
-- Production: <https://www.bolotnaya.online/>
-- Russian home: <https://www.bolotnaya.online/ru/>
-- English home: <https://www.bolotnaya.online/en/>
-- AI brief: <https://www.bolotnaya.online/llms.txt>
+- Production: <https://bolotnaya.online/>
+- Russian home: <https://bolotnaya.online/ru/>
+- English home: <https://bolotnaya.online/en/>
+- AI brief: <https://bolotnaya.online/llms.txt>
 
 ## License
 

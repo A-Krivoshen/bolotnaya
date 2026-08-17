@@ -1,8 +1,8 @@
-# Bolotnaya Online — https://www.bolotnaya.online/
+# Bolotnaya Online — https://bolotnaya.online/
 # Search engines + AI crawlers: public content is allowed.
 
 # Preferred host (Yandex)
-Host: https://www.bolotnaya.online
+Host: https://bolotnaya.online
 
 User-agent: *
 Allow: /
@@ -65,9 +65,9 @@ User-agent: Applebot-Extended
 Allow: /
 
 # Sitemaps (Hugo multilingual)
-Sitemap: https://www.bolotnaya.online/sitemap.xml
-Sitemap: https://www.bolotnaya.online/ru/sitemap.xml
-Sitemap: https://www.bolotnaya.online/en/sitemap.xml
+Sitemap: https://bolotnaya.online/sitemap.xml
+Sitemap: https://bolotnaya.online/ru/sitemap.xml
+Sitemap: https://bolotnaya.online/en/sitemap.xml
 
 # AI content index
-# See: https://www.bolotnaya.online/llms.txt
+# See: https://bolotnaya.online/llms.txt
