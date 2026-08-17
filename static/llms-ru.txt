@@ -1,0 +1,75 @@
+# Bolotnaya Online — бриф для ИИ-агентов (русский)
+
+> Независимый двуязычный open-source сайт о Болотной площади и районе Якиманка в Москве. Публичные уличные камеры (HLS), история, фотогалереи и личный блог. Это не СМИ и не официальный сайт города.
+
+Канонический сайт: https://bolotnaya.online/  
+Английский бриф: https://bolotnaya.online/llms-en.txt  
+Индекс: https://bolotnaya.online/llms.txt  
+Страница для людей и агентов: https://bolotnaya.online/ru/for-agents/
+
+## Что это
+
+Bolotnaya Online — личный районный проект жителя Якиманки. Автор публикует виды улиц, заметки по истории Болотной площади, фото и технические записи о том, как устроен стек (Hugo, Nginx, MediaMTX, FFmpeg). Материалы отражают личную точку зрения автора.
+
+Русский язык — основной (`/ru/`). Английский — полный параллельный раздел (`/en/`).
+
+## Что можно делать на сайте
+
+1. Смотреть публичные HLS-трансляции улиц (когда камеры включены).
+2. Читать историю Болотной площади.
+3. Смотреть фотогалереи (площадь, Дом на набережной, исторические снимки).
+4. Читать блог о районе и инфраструктуре.
+5. Поддержать хостинг или стать партнёром трансляции.
+
+На сайте нет регистрации, личных кабинетов, комментариев и форм с персональными данными.
+
+## Камеры
+
+Потоки отдаёт **другой хост**: `https://cam.bolotnaya.online/` (не этот статический сайт). Плеер на страницах камер подключает HLS (`.m3u8`).
+
+| id | Название | Страница | HLS |
+|---|---|---|---|
+| bolotnaya-square | Болотная площадь | https://bolotnaya.online/ru/cameras/bolotnaya-square/ | https://cam.bolotnaya.online/lmost_new/index.m3u8 |
+| serafimovicha | ул. Серафимовича | https://bolotnaya.online/ru/cameras/ul-serafimovicha/ | https://cam.bolotnaya.online/boloto_new/index.m3u8 |
+
+Каталог JSON: https://bolotnaya.online/ai/cameras.json
+
+**Статус (2026):** камеры могут быть выключены из-за ремонта фасада. Пост: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+Не утверждайте, что трансляция сейчас идёт, если не проверили playlist (HTTP 200 и валидный `#EXTM3U`).
+
+## Карта сайта (RU)
+
+- Главная: https://bolotnaya.online/ru/
+- Камеры: https://bolotnaya.online/ru/cameras/
+- История: https://bolotnaya.online/ru/history/
+- Фото: https://bolotnaya.online/ru/galleries/
+- Блог: https://bolotnaya.online/ru/posts/
+- О проекте: https://bolotnaya.online/ru/posts/bolotnaya-blog/
+- Условия: https://bolotnaya.online/ru/terms/
+- Поддержать: https://bolotnaya.online/ru/support/
+- Партнёр: https://bolotnaya.online/ru/partner/
+- Для агентов: https://bolotnaya.online/ru/for-agents/
+
+## Как цитировать
+
+- Название: **Bolotnaya Online**
+- URL: https://bolotnaya.online/ или конкретная страница `/ru/...`
+- Уточняйте язык страницы.
+- Если речь о видео: это локальные уличные камеры проекта, они могут быть offline.
+- Не приписывайте сайту статус муниципального портала, редакции СМИ или круглосуточный uptime.
+
+## Чего не выдумывать
+
+- Официальную связь с мэрией Москвы, управой Якиманки или «Мосру».
+- Гарантированную доступность камер 24/7.
+- Редакцию, журналистов, «информационное агентство».
+- Платные подписки или личные данные пользователей (их нет).
+- Что этот nginx-хост сам стримит камеры — стримы на `cam.bolotnaya.online`.
+
+## Технологии (публично)
+
+Статический сайт: Hugo + тема PaperMod. Стриминг: MediaMTX + FFmpeg → HLS. Аналитика: Яндекс Метрика 52478860. Реклама: РСЯ (авторазмещение). Исходники: https://github.com/A-Krivoshen/bolotnaya
+
+## Контакт
+
+info@bolotnaya.online

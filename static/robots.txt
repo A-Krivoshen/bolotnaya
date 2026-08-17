@@ -1,11 +1,21 @@
 # Bolotnaya Online — https://bolotnaya.online/
 # Search engines + AI crawlers: public content is allowed.
+# AI index: https://bolotnaya.online/llms.txt
+#           https://bolotnaya.online/llms-ru.txt
+#           https://bolotnaya.online/llms-en.txt
 
 # Preferred host (Yandex)
 Host: https://bolotnaya.online
 
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-ru.txt
+Allow: /llms-en.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+Allow: /ai/
+Allow: /.well-known/llms.txt
 Disallow: /admin/
 Disallow: /ru/admin/
 Disallow: /en/admin/
@@ -26,15 +36,20 @@ Disallow: /admin/
 Disallow: /ru/admin/
 Disallow: /en/admin/
 
-# AI / LLM crawlers (allowed for discovery; see also /llms.txt)
+# AI / LLM crawlers (allowed; start at /llms.txt)
 User-agent: GPTBot
 Allow: /
-Disallow: /admin/
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Google-CloudVertexBot
 Allow: /
 
 User-agent: anthropic-ai
@@ -61,13 +76,43 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
+User-agent: FacebookBot
+Allow: /
+
 User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: Grok
+Allow: /
+
+User-agent: xAI
 Allow: /
 
 # Sitemaps (Hugo multilingual)
 Sitemap: https://bolotnaya.online/sitemap.xml
 Sitemap: https://bolotnaya.online/ru/sitemap.xml
 Sitemap: https://bolotnaya.online/en/sitemap.xml
-
-# AI content index
-# See: https://bolotnaya.online/llms.txt

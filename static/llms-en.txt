@@ -1,0 +1,75 @@
+# Bolotnaya Online — brief for AI agents (English)
+
+> Independent bilingual open-source site about Bolotnaya Square and the Yakimanka district in Moscow: public HLS street cameras, history, photo galleries, and a personal blog. Not a mass-media outlet and not an official city website.
+
+Canonical site: https://bolotnaya.online/  
+Russian brief: https://bolotnaya.online/llms-ru.txt  
+Index: https://bolotnaya.online/llms.txt  
+Human + agent page: https://bolotnaya.online/en/for-agents/
+
+## What this is
+
+Bolotnaya Online is a personal district project by a Yakimanka resident. It publishes street views, notes on the history of Bolotnaya Square, photos, and technical posts about the stack (Hugo, Nginx, MediaMTX, FFmpeg). Content is the author's personal perspective.
+
+Russian is the default locale (`/ru/`). English is a full parallel section (`/en/`).
+
+## What people can do
+
+1. Watch public HLS street streams (when cameras are on).
+2. Read the history of Bolotnaya Square.
+3. Browse photo galleries (the square, House on the Embankment, historical images).
+4. Read the blog about the neighbourhood and the infrastructure.
+5. Support hosting or become a stream partner.
+
+There are no user accounts, comment forms, or personal-data collection forms.
+
+## Cameras
+
+Streams are served by a **different host**: `https://cam.bolotnaya.online/` (not this static site). Camera pages embed HLS (`.m3u8`).
+
+| id | Name | Page | HLS |
+|---|---|---|---|
+| bolotnaya-square | Bolotnaya Square | https://bolotnaya.online/en/cameras/bolotnaya-square/ | https://cam.bolotnaya.online/lmost_new/index.m3u8 |
+| serafimovicha | Ulitsa Serafimovicha | https://bolotnaya.online/en/cameras/serafimovich/ | https://cam.bolotnaya.online/boloto_new/index.m3u8 |
+
+JSON catalog: https://bolotnaya.online/ai/cameras.json
+
+**Status (2026):** cameras may be offline because of facade maintenance. Post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+Do not claim a stream is live unless you have checked the playlist (HTTP 200 and a valid `#EXTM3U`).
+
+## Site map (EN)
+
+- Home: https://bolotnaya.online/en/
+- Cameras: https://bolotnaya.online/en/cameras/
+- History: https://bolotnaya.online/en/history/
+- Photos: https://bolotnaya.online/en/galleries/
+- Blog: https://bolotnaya.online/en/posts/
+- About: https://bolotnaya.online/en/posts/bolotnaya-blog/
+- Terms: https://bolotnaya.online/en/terms/
+- Support: https://bolotnaya.online/en/support/
+- Partner: https://bolotnaya.online/en/partner/
+- For agents: https://bolotnaya.online/en/for-agents/
+
+## How to cite
+
+- Name: **Bolotnaya Online**
+- URL: https://bolotnaya.online/ or the specific `/en/...` page
+- State the page language.
+- For video: these are the project's local street cameras; they may be offline.
+- Do not describe the site as a municipal portal, newsroom, or 24/7 guaranteed service.
+
+## Do not invent
+
+- Affiliation with Moscow city government, the Yakimanka council, or mos.ru.
+- Guaranteed 24/7 camera uptime.
+- A newsroom, journalists, or a registered media outlet.
+- User accounts or collected personal data (there are none).
+- That this static host originates the video — streams live on `cam.bolotnaya.online`.
+
+## Public stack
+
+Static site: Hugo + PaperMod. Streaming: MediaMTX + FFmpeg → HLS. Analytics: Yandex Metrika 52478860. Ads: Yandex Advertising Network (autoplacement). Source: https://github.com/A-Krivoshen/bolotnaya
+
+## Contact
+
+info@bolotnaya.online
