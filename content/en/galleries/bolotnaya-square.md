@@ -73,4 +73,24 @@ images:
     caption: Repin monument, October 2025
   - src: /images/galleries/Bolotnya_square/IMG_20251020_174043.jpg
     caption: Maly Kamenny Bridge in the evening
+  - src: /images/galleries/Bolotnya_square/gphoto-000-dusk-park.jpg
+    caption: Bolotnaya Square at dusk, canal and the Kotelnicheskaya tower
+  - src: /images/galleries/Bolotnya_square/gphoto-029-spring-aerial.jpg
+    caption: Repin Garden in spring, aerial view of the fountain and canal
+  - src: /images/galleries/Bolotnya_square/gphoto-031-canal-fountains.jpg
+    caption: Canal fountains and the Kotelnicheskaya tower
+  - src: /images/galleries/Bolotnya_square/gphoto-033-canal-storm.jpg
+    caption: Storm clouds over the canal
+  - src: /images/galleries/Bolotnya_square/gphoto-038-rainbow-aerial.jpg
+    caption: Rainbow over the garden and Vodootvodny Canal
+  - src: /images/galleries/Bolotnya_square/gphoto-016-night-park.jpg
+    caption: Night view of the garden, alley and embankment lights
+  - src: /images/galleries/Bolotnya_square/gphoto-056-autumn-fountain.jpg
+    caption: Autumn fountain after the rain
+  - src: /images/galleries/Bolotnya_square/gphoto-122-frost.jpg
+    caption: Hoarfrost on the trees by the garden
+  - src: /images/galleries/Bolotnya_square/gphoto-123-ny2022.jpg
+    caption: New Year installation “2022”
+  - src: /images/galleries/Bolotnya_square/gphoto-127-winter-aerial.jpg
+    caption: Winter garden from above, fountain and alley
 ---

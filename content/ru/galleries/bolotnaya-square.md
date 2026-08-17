@@ -73,4 +73,24 @@ images:
     caption: Памятник Репину, октябрь 2025
   - src: /images/galleries/Bolotnya_square/IMG_20251020_174043.jpg
     caption: Малый Каменный мост вечером
+  - src: /images/galleries/Bolotnya_square/gphoto-000-dusk-park.jpg
+    caption: Болотная площадь сверху на закате, канал и высотка на Котельнической
+  - src: /images/galleries/Bolotnya_square/gphoto-029-spring-aerial.jpg
+    caption: Репинский сквер весной, вид сверху на фонтан и канал
+  - src: /images/galleries/Bolotnya_square/gphoto-031-canal-fountains.jpg
+    caption: Фонтаны на Водоотводном канале и высотка на Котельнической
+  - src: /images/galleries/Bolotnya_square/gphoto-033-canal-storm.jpg
+    caption: Грозовое небо над каналом
+  - src: /images/galleries/Bolotnya_square/gphoto-038-rainbow-aerial.jpg
+    caption: Радуга над сквером и Водоотводным каналом
+  - src: /images/galleries/Bolotnya_square/gphoto-016-night-park.jpg
+    caption: Ночной сквер, огни аллеи и набережной
+  - src: /images/galleries/Bolotnya_square/gphoto-056-autumn-fountain.jpg
+    caption: Осенний фонтан после дождя
+  - src: /images/galleries/Bolotnya_square/gphoto-122-frost.jpg
+    caption: Иней на деревьях у сквера
+  - src: /images/galleries/Bolotnya_square/gphoto-123-ny2022.jpg
+    caption: Новогодняя инсталляция «2022»
+  - src: /images/galleries/Bolotnya_square/gphoto-127-winter-aerial.jpg
+    caption: Сквер зимой, вид сверху на фонтан и аллею
 ---
