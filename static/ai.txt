@@ -1,0 +1,12 @@
+# Bolotnaya Online — AI discovery
+llms: https://bolotnaya.online/llms.txt
+llms-ru: https://bolotnaya.online/llms-ru.txt
+llms-en: https://bolotnaya.online/llms-en.txt
+llms-full: https://bolotnaya.online/llms-full.txt
+well-known: https://bolotnaya.online/.well-known/llms.txt
+site-json: https://bolotnaya.online/ai/site.json
+cameras-json: https://bolotnaya.online/ai/cameras.json
+ru: https://bolotnaya.online/ru/for-agents/
+en: https://bolotnaya.online/en/for-agents/
+contact: info@bolotnaya.online
+source: https://github.com/A-Krivoshen/bolotnaya
