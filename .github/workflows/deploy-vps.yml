@@ -1,0 +1,35 @@
+name: Deploy VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-vps-main
+  cancel-in-progress: false
+
+jobs:
+  notify-vps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping VPS webhook (pull + hugo)
+        env:
+          SECRET: ${{ secrets.BOLOTNAYA_WEBHOOK_SECRET }}
+        run: |
+          if [ -z "$SECRET" ]; then
+            echo "Secret BOLOTNAYA_WEBHOOK_SECRET is not set."
+            echo "VPS timer still deploys within ~2 minutes, or add a GitHub webhook."
+            exit 0
+          fi
+          BODY='{"ref":"refs/heads/main"}'
+          SIG=$(printf '%s' "$BODY" | openssl dgst -sha256 -hmac "$SECRET" | awk '{print $2}')
+          curl -fsS -X POST "https://bolotnaya.online/_hooks/github" \
+            -H "Content-Type: application/json" \
+            -H "X-GitHub-Event: push" \
+            -H "X-Hub-Signature-256: sha256=${SIG}" \
+            --data-binary "$BODY"
+          echo
