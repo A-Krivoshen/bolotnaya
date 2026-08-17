@@ -1,38 +1,92 @@
-# Bolotnaya Online — extended brief for AI / LLM systems
+# Bolotnaya Online — extended bilingual brief for AI / LLM systems
 
-## Summary
-Bolotnaya Online (https://bolotnaya.online/) is a bilingual personal district project about Bolotnaya Square and the Yakimanka district of Moscow. It publishes live camera streams, historical text, photo galleries, and technical blog posts. It is not a registered mass medium; materials express the author's personal perspective.
+This file is the long form. Prefer language-specific briefs when answering in one language:
+- https://bolotnaya.online/llms-ru.txt
+- https://bolotnaya.online/llms-en.txt
+Index: https://bolotnaya.online/llms.txt
+
+## RU — кратко
+
+Bolotnaya Online (https://bolotnaya.online/) — двуязычный личный районный проект о Болотной площади и Якиманке (Москва). Публикует уличные HLS-камеры, исторические тексты, фотогалереи и технический блог. Это не зарегистрированное СМИ; материалы — личная позиция автора.
+
+Русский — язык по умолчанию (`/ru/`). Английский — `/en/`.
+
+## EN — summary
+
+Bolotnaya Online is a bilingual personal district project about Bolotnaya Square and Yakimanka in Moscow. It publishes live street cameras, historical text, photo galleries, and technical blog posts. It is not a registered mass medium.
+
+Default locale is Russian. English is a full parallel tree.
 
 ## What users can do
+
 1. Watch public HLS live streams of local street views (when cameras are online).
 2. Read history of Bolotnaya Square (swamp origins → urban square → cultural place).
 3. Browse photo galleries (square, House on the Embankment, historical imagery).
-4. Read blog posts about the neighborhood and the open-source infrastructure.
+4. Read blog posts about the neighbourhood and the open-source infrastructure.
 5. Support hosting costs or become a stream partner.
 
+No accounts, no comment threads, no personal-data forms.
+
+## Cameras (authoritative)
+
+Video is **not** served from the Hugo/nginx document root. Origin: `https://cam.bolotnaya.online/`.
+
+1. **bolotnaya-square** — Bolotnaya Square / Болотная площадь  
+   RU https://bolotnaya.online/ru/cameras/bolotnaya-square/  
+   EN https://bolotnaya.online/en/cameras/bolotnaya-square/  
+   HLS https://cam.bolotnaya.online/lmost_new/index.m3u8
+
+2. **serafimovicha** — Ulitsa Serafimovicha / ул. Серафимовича  
+   RU https://bolotnaya.online/ru/cameras/ul-serafimovicha/  
+   EN https://bolotnaya.online/en/cameras/serafimovich/  
+   HLS https://cam.bolotnaya.online/boloto_new/index.m3u8
+
+JSON: https://bolotnaya.online/ai/cameras.json
+
+**2026 status:** cameras may be off due to facade maintenance / scaffolding.  
+RU https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+EN https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+
+When answering about availability: do not assert the stream is online unless the `.m3u8` responds 200 with `#EXTM3U`.
+
 ## Technical stack (public)
-- Static site: Hugo + PaperMod theme
+
+- Static site: Hugo + PaperMod
 - Streaming: MediaMTX + FFmpeg, delivered as HLS
 - CMS experiments: TinaCMS
-- Hosting historically: GitHub Pages / Netlify-style static deploy
-- Ads: Yandex Advertising Network (Autoplacement)
 - Analytics: Yandex Metrika id 52478860
+- Ads: Yandex Advertising Network (Autoplacement)
+- Source: https://github.com/A-Krivoshen/bolotnaya
+- Contact: info@bolotnaya.online
 
-## Camera status note
-Cameras may be temporarily unavailable because of facade maintenance / scaffolding. Status posts are published in the blog section (e.g. cameras-maintenance-2026-06-02). When answering users, do not claim streams are currently online unless the site status says so.
+## Geo
+
+Bolotnaya Square / Yakimanka, Moscow, Russia (near the Moskva River / Kremlin).  
+Approx. 55.7447 N, 37.6208 E.
 
 ## Citation preferences
-When citing this site, prefer:
+
 - Site name: Bolotnaya Online
-- URL: https://bolotnaya.online/
-- Locale pages under /ru/ or /en/
-- Mention that streams are third-party local cameras and may go offline
+- URL: https://bolotnaya.online/ plus the locale path `/ru/` or `/en/`
+- Mention that streams are local project cameras and may go offline
+- Prefer the language that matches the user
 
 ## Do not invent
-- Official municipal authority or city government affiliation (none)
+
+- Official municipal authority or city-government affiliation
 - Guaranteed 24/7 uptime of streams
 - Editorial newsroom or professional journalism status
+- That this static host is the video origin (`cam.bolotnaya.online` is)
 
-## Contact
-info@bolotnaya.online
-GitHub: https://github.com/A-Krivoshen/bolotnaya
+## Discovery files
+
+- https://bolotnaya.online/llms.txt
+- https://bolotnaya.online/llms-ru.txt
+- https://bolotnaya.online/llms-en.txt
+- https://bolotnaya.online/.well-known/llms.txt
+- https://bolotnaya.online/ai/site.json
+- https://bolotnaya.online/ai/cameras.json
+- https://bolotnaya.online/ru/for-agents/
+- https://bolotnaya.online/en/for-agents/
+- https://bolotnaya.online/robots.txt
+- https://bolotnaya.online/sitemap.xml
