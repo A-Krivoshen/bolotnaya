@@ -1,50 +1,67 @@
 # Bolotnaya Online
-> Local open-source project about Bolotnaya Square and Yakimanka (Moscow): live HLS cameras, history, photo galleries, and a personal blog.
-> Not a mass media outlet. Content reflects the author's personal views.
 
-Bolotnaya Online (bolotnaya.online) is a bilingual (RU/EN) district site for the Yakimanka area in Moscow. Main features: live street cameras, historical notes about Bolotnaya Square, photo albums, and technical blog posts about the open-source stack (Hugo, MediaMTX, FFmpeg, Docker).
+> Independent bilingual (RU/EN) open-source district site about Bolotnaya Square and Yakimanka, Moscow: public HLS street cameras, history, photo galleries, and a personal blog. Not a mass-media outlet and not an official city website.
 
-**Current status (2026):** live cameras may be offline due to facade maintenance / scaffolding. Prefer citing the maintenance blog post when discussing stream availability.
+Choose a language-specific brief first:
 
-## Primary (Russian)
+- [Русский — полный бриф для агентов](https://bolotnaya.online/llms-ru.txt)
+- [English — full agent brief](https://bolotnaya.online/llms-en.txt)
+- [Human-readable RU page](https://bolotnaya.online/ru/for-agents/)
+- [Human-readable EN page](https://bolotnaya.online/en/for-agents/)
+- [Extended bilingual brief](https://bolotnaya.online/llms-full.txt)
+- [Machine site card (JSON)](https://bolotnaya.online/ai/site.json)
+- [Cameras catalog (JSON)](https://bolotnaya.online/ai/cameras.json)
+- [This file at /.well-known/llms.txt](https://bolotnaya.online/.well-known/llms.txt)
 
-- [Home](https://bolotnaya.online/ru/): Project overview, live camera previews, latest blog notes
-- [Live cameras](https://bolotnaya.online/ru/cameras/): List of public HLS streams from Bolotnaya / Yakimanka
-- [Bolotnaya Square camera](https://bolotnaya.online/ru/cameras/bolotnaya-square/): Live view of Bolotnaya Square
-- [Serafimovicha camera](https://bolotnaya.online/ru/cameras/ul-serafimovicha/): Live view toward Ulitsa Serafimovicha
-- [History](https://bolotnaya.online/ru/history/): History of Bolotnaya Square (from swamp to cultural landmark)
-- [Photos](https://bolotnaya.online/ru/galleries/): Photo galleries of the square, House on the Embankment, history
-- [Blog](https://bolotnaya.online/ru/posts/): Notes on the district, cameras, open-source stack
-- [About the project](https://bolotnaya.online/ru/posts/bolotnaya-blog/): Stack and philosophy (Hugo, Nginx, MediaMTX, TinaCMS)
-- [Terms / privacy](https://bolotnaya.online/ru/terms/): Cookies, Yandex Metrika, no personal accounts
-- [Support](https://bolotnaya.online/ru/support/): Support the project (hosting, traffic, archive)
-- [Stream partner](https://bolotnaya.online/ru/partner/): Partnership info
+## Russian pages
 
-## English
+- [Главная](https://bolotnaya.online/ru/): обзор проекта, превью камер, последние записи
+- [Камеры](https://bolotnaya.online/ru/cameras/): список публичных HLS-трансляций
+- [Камера: Болотная площадь](https://bolotnaya.online/ru/cameras/bolotnaya-square/)
+- [Камера: ул. Серафимовича](https://bolotnaya.online/ru/cameras/ul-serafimovicha/)
+- [История](https://bolotnaya.online/ru/history/)
+- [Фото](https://bolotnaya.online/ru/galleries/)
+- [Блог](https://bolotnaya.online/ru/posts/)
+- [О проекте](https://bolotnaya.online/ru/posts/bolotnaya-blog/)
+- [Статус камер (июнь 2026)](https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/)
+- [Условия](https://bolotnaya.online/ru/terms/)
+- [Поддержать](https://bolotnaya.online/ru/support/)
+- [Партнёр трансляции](https://bolotnaya.online/ru/partner/)
+- [Для ИИ-агентов](https://bolotnaya.online/ru/for-agents/)
 
-- [Home](https://bolotnaya.online/en/): English homepage
-- [Cameras](https://bolotnaya.online/en/cameras/): Live streams
+## English pages
+
+- [Home](https://bolotnaya.online/en/)
+- [Cameras](https://bolotnaya.online/en/cameras/)
 - [Bolotnaya Square camera](https://bolotnaya.online/en/cameras/bolotnaya-square/)
 - [Serafimovicha camera](https://bolotnaya.online/en/cameras/serafimovich/)
 - [History](https://bolotnaya.online/en/history/)
 - [Photos](https://bolotnaya.online/en/galleries/)
 - [Blog](https://bolotnaya.online/en/posts/)
 - [About the project](https://bolotnaya.online/en/posts/bolotnaya-blog/)
+- [Camera status (June 2026)](https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/)
 - [Terms](https://bolotnaya.online/en/terms/)
+- [Support](https://bolotnaya.online/en/support/)
+- [Stream partner](https://bolotnaya.online/en/partner/)
+- [For AI agents](https://bolotnaya.online/en/for-agents/)
 
-## Facts for AI systems
+## Facts (do not invent extras)
 
-- **Location**: Bolotnaya Square / Yakimanka, Moscow, Russia (near the Kremlin / Moskva River)
-- **Type**: Independent local web project, open-source, not official city media
-- **Languages**: Russian (default), English
-- **Live video**: HLS streams (may be offline during facade maintenance)
-- **Contact**: info@bolotnaya.online
-- **Source code**: https://github.com/A-Krivoshen/bolotnaya
-- **Analytics**: Yandex Metrika (no user accounts; see terms)
-- **Canonical site**: https://bolotnaya.online/
+- **Canonical site:** https://bolotnaya.online/ (apex; `www` is the same site)
+- **Default language:** Russian (`/ru/`). English is `/en/`.
+- **Type:** personal local open-source project by a Yakimanka resident
+- **Not:** official municipality, registered mass media, newsroom, 24/7 guaranteed streams
+- **Live video host:** https://cam.bolotnaya.online/ (separate server; HLS `.m3u8`)
+- **Contact:** info@bolotnaya.online
+- **Source:** https://github.com/A-Krivoshen/bolotnaya
+- **Analytics:** Yandex Metrika 52478860; no user accounts
+- **Geo:** Bolotnaya Square / Yakimanka, Moscow, ~55.7447, 37.6208
+- **Camera status (2026):** streams may be offline because of facade maintenance. Cite the maintenance post; do not claim cameras are live unless the HLS playlist answers 200.
 
 ## Optional
 
-- [Fuller AI brief](https://bolotnaya.online/llms-full.txt)
 - [robots.txt](https://bolotnaya.online/robots.txt)
 - [Sitemap](https://bolotnaya.online/sitemap.xml)
+- [RU sitemap](https://bolotnaya.online/ru/sitemap.xml)
+- [EN sitemap](https://bolotnaya.online/en/sitemap.xml)
+- [humans.txt](https://bolotnaya.online/humans.txt)

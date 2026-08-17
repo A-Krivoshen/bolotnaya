@@ -8,4 +8,5 @@ GitHub: https://github.com/A-Krivoshen/bolotnaya
 Standards: HTML5, CSS3, Hugo
 Components: PaperMod, hls.js, Yandex Metrika
 Languages: ru, en
-Last-update: 2026
+AI: /llms.txt /llms-ru.txt /llms-en.txt /ai/site.json
+Last-update: 2026-08-17

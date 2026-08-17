@@ -1,0 +1,12 @@
+# Bolotnaya Online
+
+> Independent bilingual (RU/EN) open-source district site about Bolotnaya Square and Yakimanka, Moscow.
+
+Canonical AI index: https://bolotnaya.online/llms.txt  
+Russian: https://bolotnaya.online/llms-ru.txt  
+English: https://bolotnaya.online/llms-en.txt  
+Full: https://bolotnaya.online/llms-full.txt  
+JSON: https://bolotnaya.online/ai/site.json  
+Cameras JSON: https://bolotnaya.online/ai/cameras.json  
+RU page: https://bolotnaya.online/ru/for-agents/  
+EN page: https://bolotnaya.online/en/for-agents/

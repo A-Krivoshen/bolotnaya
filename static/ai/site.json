@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "updated": "2026-08-17",
+  "name": "Bolotnaya Online",
+  "url": "https://bolotnaya.online/",
+  "canonical_host": "bolotnaya.online",
+  "type": "independent-local-open-source-project",
+  "not": [
+    "official-city-website",
+    "registered-mass-media",
+    "newsroom"
+  ],
+  "default_language": "ru",
+  "languages": ["ru", "en"],
+  "description": {
+    "ru": "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Open-source проект местного жителя.",
+    "en": "Live cameras, history and photos of Bolotnaya Square and Yakimanka, Moscow. Open-source local project."
+  },
+  "geo": {
+    "name": {
+      "ru": "Болотная площадь, Якиманка, Москва",
+      "en": "Bolotnaya Square, Yakimanka, Moscow"
+    },
+    "latitude": 55.7447,
+    "longitude": 37.6208,
+    "country": "RU",
+    "region": "RU-MOW"
+  },
+  "contact": {
+    "email": "info@bolotnaya.online"
+  },
+  "source": "https://github.com/A-Krivoshen/bolotnaya",
+  "analytics": {
+    "provider": "Yandex Metrika",
+    "id": "52478860"
+  },
+  "video_origin": "https://cam.bolotnaya.online/",
+  "ai": {
+    "llms": "https://bolotnaya.online/llms.txt",
+    "llms_ru": "https://bolotnaya.online/llms-ru.txt",
+    "llms_en": "https://bolotnaya.online/llms-en.txt",
+    "llms_full": "https://bolotnaya.online/llms-full.txt",
+    "well_known": "https://bolotnaya.online/.well-known/llms.txt",
+    "ai_txt": "https://bolotnaya.online/ai.txt",
+    "cameras": "https://bolotnaya.online/ai/cameras.json",
+    "page_ru": "https://bolotnaya.online/ru/for-agents/",
+    "page_en": "https://bolotnaya.online/en/for-agents/"
+  },
+  "sitemaps": [
+    "https://bolotnaya.online/sitemap.xml",
+    "https://bolotnaya.online/ru/sitemap.xml",
+    "https://bolotnaya.online/en/sitemap.xml"
+  ]
+}

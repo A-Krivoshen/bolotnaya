@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "updated": "2026-08-17",
+  "site": "https://bolotnaya.online/",
+  "stream_host": "https://cam.bolotnaya.online/",
+  "protocol": "HLS",
+  "status": "may_be_offline",
+  "status_note": {
+    "ru": "Камеры могут быть выключены из-за ремонта фасада. Не утверждайте, что эфир идёт, пока playlist .m3u8 не ответил 200 и не начинается с #EXTM3U.",
+    "en": "Cameras may be offline because of facade maintenance. Do not claim a stream is live unless the .m3u8 playlist returns HTTP 200 and starts with #EXTM3U."
+  },
+  "status_posts": {
+    "ru": "https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/",
+    "en": "https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/"
+  },
+  "cameras": [
+    {
+      "id": "bolotnaya-square",
+      "name": {
+        "ru": "Болотная площадь",
+        "en": "Bolotnaya Square"
+      },
+      "pages": {
+        "ru": "https://bolotnaya.online/ru/cameras/bolotnaya-square/",
+        "en": "https://bolotnaya.online/en/cameras/bolotnaya-square/"
+      },
+      "hls": "https://cam.bolotnaya.online/lmost_new/index.m3u8"
+    },
+    {
+      "id": "serafimovicha",
+      "name": {
+        "ru": "ул. Серафимовича",
+        "en": "Ulitsa Serafimovicha"
+      },
+      "pages": {
+        "ru": "https://bolotnaya.online/ru/cameras/ul-serafimovicha/",
+        "en": "https://bolotnaya.online/en/cameras/serafimovich/"
+      },
+      "hls": "https://cam.bolotnaya.online/boloto_new/index.m3u8"
+    }
+  ]
+}
