@@ -105,8 +105,18 @@
 <meta name="twitter:description" content="{{ $desc | plainify | htmlUnescape | truncate 200 }}">
 <meta name="twitter:image" content="{{ $ogImageAbs }}">
 
-{{/* AI discovery */}}
+{{/* AI discovery — bilingual */}}
 <link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="llms.txt">
+<link rel="alternate" type="text/plain" href="{{ "llms-ru.txt" | absURL }}" hreflang="ru" title="llms.txt (ru)">
+<link rel="alternate" type="text/plain" href="{{ "llms-en.txt" | absURL }}" hreflang="en" title="llms.txt (en)">
+<link rel="alternate" type="text/plain" href="{{ "llms-full.txt" | absURL }}" title="llms-full.txt">
+<link rel="describedby" href="{{ ".well-known/llms.txt" | absURL }}">
+<link rel="alternate" type="application/json" href="{{ "ai/site.json" | absURL }}" title="site.json">
+{{- if $isRu }}
+<link rel="help" href="{{ "for-agents/" | absLangURL }}">
+{{- else }}
+<link rel="help" href="{{ "for-agents/" | absLangURL }}">
+{{- end }}
 <meta name="ai-content-declaration" content="human-authored local district project; open-source; not mass media">
 
 {{/* Theme / PWA hints */}}
