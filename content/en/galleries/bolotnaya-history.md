@@ -8,6 +8,12 @@ images:
     caption: >-
       Fountain from 1948 - The bowl was cast from melted German guns from the
       Great Patriotic War.
+  - src: /images/galleries/history/fountain-1948-repin-square.jpg
+    caption: >-
+      Repin fountain, 1950s. The garden is already tree-lined, the jet still high.
+  - src: /images/galleries/history/fountain-1948-women-steps.jpg
+    caption: >-
+      By the Repin fountain on Bolotnaya Square, late 1940s–1950s.
   - src: /images/galleries/history/9Q_C_Aqel-c.jpg
     caption: "Vodootvodny Canal before granite facing. View of the House on the Embankment."
   - src: >-
@@ -24,4 +30,10 @@ images:
   - src: >-
       /images/galleries/history/grok-video-f66d40a6-7003-4730-a6c8-e6d9e0b0c5c4_watermarked.gif
     caption: "AI generation"
+  - src: >-
+      /images/galleries/history/grok-video-dad0caab-234d-42fc-bde0-35e4195d41ae_watermarked.gif
+    caption: "AI animation of an archival photo — Repin fountain from above"
+  - src: >-
+      /images/galleries/history/grok-video-46045c2e-97ae-4e08-b596-6d42b0f584cf_watermarked.gif
+    caption: "AI animation of an archival photo — two women by the fountain"
 ---

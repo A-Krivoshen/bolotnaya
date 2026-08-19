@@ -8,6 +8,12 @@ images:
     caption: >-
       Фонтан 1948 года - Чаша отлита из переплавленных немецких орудий времён
       Великой Отечественной войны.
+  - src: /images/galleries/history/fountain-1948-repin-square.jpg
+    caption: >-
+      Репинский фонтан, 1950-е. Сквер уже зарос деревьями, струя ещё высокая.
+  - src: /images/galleries/history/fountain-1948-women-steps.jpg
+    caption: >-
+      У Репинского фонтана на Болотной площади, конец 1940-х — 1950-е.
   - src: /images/galleries/history/9Q_C_Aqel-c.jpg
     caption: Водоотводный канал до облицовки гранитом. Вид на Дом на набережной.
   - src: >-
@@ -24,5 +30,11 @@ images:
   - src: >-
       /images/galleries/history/grok-video-f66d40a6-7003-4730-a6c8-e6d9e0b0c5c4_watermarked.gif
     caption: ИИ генерация
+  - src: >-
+      /images/galleries/history/grok-video-dad0caab-234d-42fc-bde0-35e4195d41ae_watermarked.gif
+    caption: ИИ-анимация архивного фото — Репинский фонтан, вид сверху
+  - src: >-
+      /images/galleries/history/grok-video-46045c2e-97ae-4e08-b596-6d42b0f584cf_watermarked.gif
+    caption: ИИ-анимация архивного фото — две женщины у фонтана
 ---
 
