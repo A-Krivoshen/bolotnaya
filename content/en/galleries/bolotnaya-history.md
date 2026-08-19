@@ -16,6 +16,10 @@ images:
       By the Repin fountain on Bolotnaya Square, late 1940s–1950s.
   - src: /images/galleries/history/9Q_C_Aqel-c.jpg
     caption: "Vodootvodny Canal before granite facing. View of the House on the Embankment."
+  - src: /images/galleries/history/canal-bridge-house-embankment.jpg
+    caption: >-
+      View from a bridge over the Vodootvodny Canal toward the House on the
+      Embankment. The embankments are already faced; the railing reflects in puddles.
   - src: >-
       /images/galleries/history/Screenshot_20190626_113749.png
     caption: "Map of Bolotnaya Square and the Vodootvodny Canal area."
@@ -36,4 +40,7 @@ images:
   - src: >-
       /images/galleries/history/grok-video-46045c2e-97ae-4e08-b596-6d42b0f584cf_watermarked.gif
     caption: "AI animation of an archival photo — two women by the fountain"
+  - src: >-
+      /images/galleries/history/grok-video-9ff9ec50-7f36-47db-8ddc-36a6262ba06f_watermarked.gif
+    caption: "AI animation of an archival photo — bridge, canal and the House on the Embankment"
 ---

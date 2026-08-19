@@ -16,6 +16,10 @@ images:
       У Репинского фонтана на Болотной площади, конец 1940-х — 1950-е.
   - src: /images/galleries/history/9Q_C_Aqel-c.jpg
     caption: Водоотводный канал до облицовки гранитом. Вид на Дом на набережной.
+  - src: /images/galleries/history/canal-bridge-house-embankment.jpg
+    caption: >-
+      Вид с моста через Водоотводный канал на Дом на набережной. Набережные уже
+      облицованы, перила отражаются в лужах.
   - src: >-
       /images/galleries/history/Screenshot_20190626_113749.png
     caption: Схема района Болотной площади и Водоотводного канала.
@@ -36,5 +40,8 @@ images:
   - src: >-
       /images/galleries/history/grok-video-46045c2e-97ae-4e08-b596-6d42b0f584cf_watermarked.gif
     caption: ИИ-анимация архивного фото — две женщины у фонтана
+  - src: >-
+      /images/galleries/history/grok-video-9ff9ec50-7f36-47db-8ddc-36a6262ba06f_watermarked.gif
+    caption: ИИ-анимация архивного фото — мост, канал и Дом на набережной
 ---
 
