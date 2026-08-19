@@ -13,6 +13,7 @@ timeout = "60s"
 
 [pagination]
   pagerSize = 12
+  disableAliases = true
 
 [imaging]
   quality = 85

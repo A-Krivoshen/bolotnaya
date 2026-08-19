@@ -51,8 +51,10 @@
 {{- end -}}
 {{- $contactEmail := .Site.Params.contact.email | default "info@bolotnaya.online" -}}
 
-{{/* Admin / internal: keep out of search */}}
-{{- if or (eq .Section "admin") (eq .Type "admin") -}}
+{{/* One robots tag. Admin, 404, and explicit noindex stay out of search. */}}
+{{- $is404 := or (eq .Kind "404") (eq .Layout "404") -}}
+{{- $noIndex := or (eq .Section "admin") (eq .Type "admin") $is404 .Params.robotsNoIndex (eq .Kind "taxonomy") -}}
+{{- if $noIndex -}}
 <meta name="robots" content="noindex, nofollow">
 {{- else -}}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -70,18 +72,16 @@
 <meta name="geo.position" content="55.7447;37.6208">
 <meta name="ICBM" content="55.7447, 37.6208">
 
+{{- with .Params.canonicalURL -}}
+  {{- $canonical = trim . " " -}}
+{{- end -}}
 <link rel="canonical" href="{{ $canonical }}">
 
-{{/* Hreflang alternates */}}
+{{/* One hreflang cluster. Codes must match sitemap (languageCode). Do not put hreflang on llms.txt. */}}
 {{- $xDefault := "" -}}
-{{- if .IsTranslated -}}
-  {{- range .AllTranslations -}}
-<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
-    {{- if eq .Language.Lang "ru" }}{{ $xDefault = .Permalink }}{{ end -}}
-  {{- end -}}
-{{- else -}}
-<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
-  {{- if eq .Language.Lang "ru" }}{{ $xDefault = .Permalink }}{{ end -}}
+{{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ .Language.Locale | default .Lang }}" href="{{ .Permalink }}">
+  {{- if eq .Lang "ru" }}{{ $xDefault = .Permalink }}{{ end -}}
 {{- end -}}
 {{- if not $xDefault }}{{ $xDefault = "ru/" | absURL }}{{ end -}}
 <link rel="alternate" hreflang="x-default" href="{{ $xDefault }}">
@@ -107,8 +107,8 @@
 
 {{/* AI discovery — bilingual */}}
 <link rel="alternate" type="text/plain" href="{{ "llms.txt" | absURL }}" title="llms.txt">
-<link rel="alternate" type="text/plain" href="{{ "llms-ru.txt" | absURL }}" hreflang="ru" title="llms.txt (ru)">
-<link rel="alternate" type="text/plain" href="{{ "llms-en.txt" | absURL }}" hreflang="en" title="llms.txt (en)">
+<link rel="alternate" type="text/plain" href="{{ "llms-ru.txt" | absURL }}" title="llms.txt (ru)">
+<link rel="alternate" type="text/plain" href="{{ "llms-en.txt" | absURL }}" title="llms.txt (en)">
 <link rel="alternate" type="text/plain" href="{{ "llms-full.txt" | absURL }}" title="llms-full.txt">
 <link rel="describedby" href="{{ ".well-known/llms.txt" | absURL }}">
 <link rel="alternate" type="application/json" href="{{ "ai/site.json" | absURL }}" title="site.json">

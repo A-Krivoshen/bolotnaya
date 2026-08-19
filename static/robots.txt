@@ -112,7 +112,5 @@ Allow: /
 User-agent: xAI
 Allow: /
 
-# Sitemaps (Hugo multilingual)
+# Sitemaps (Hugo multilingual index → /ru/sitemap.xml + /en/sitemap.xml)
 Sitemap: https://bolotnaya.online/sitemap.xml
-Sitemap: https://bolotnaya.online/ru/sitemap.xml
-Sitemap: https://bolotnaya.online/en/sitemap.xml

@@ -114,9 +114,15 @@
   to = "/ru/cameras/"
   status = 301
 
-# Bare domain language hint (optional soft redirect handled by Hugo subdir)
+# Apex language home (VPS nginx should 301 this too; see deploy/nginx-canonical.conf)
 [[redirects]]
   from = "/"
   to = "/ru/"
-  status = 302
-  force = false
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bolotnaya.online/*"
+  to = "https://bolotnaya.online/:splat"
+  status = 301
+  force = true
