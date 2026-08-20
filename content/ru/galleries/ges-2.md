@@ -29,6 +29,8 @@ images:
     caption: Октябрь 2022. ГЭС-2 ночью.
   - src: /images/galleries/ges-2/2023-04-04-windows.jpg
     caption: Апрель 2023. Моют витражи. Дом культуры уже работает.
+  - src: /images/galleries/ges-2/2025-10-20-chimneys-night.jpg
+    caption: 20 октября 2025. Трубы с красными огнями, купол в сетке.
   - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
     caption: 20 июня 2026. Корпус с пандуса, кирпичные своды двора.
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
