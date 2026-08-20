@@ -2,7 +2,7 @@
 summary: From swamp to the 800th-anniversary garden — a Bolotnaya Square timeline
 slug: History of Bolotnaya Square — From Moscow Swamp to Cultural Landmark
 title: History
-description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies."
+description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, GES-2, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies."
 gallery_slug: bolotnaya-history
 images:
   - /images/galleries/history/reconstruct-1800.jpg
@@ -34,6 +34,10 @@ timeline:
   - year: "2011–2012"
     title: The rallies
     text: 10 December 2011 — one of Moscow’s largest rallies since the 1990s. 6 May 2012 — the March of Millions.
+  - year: "2021"
+    title: GES-2 and the clay
+    text: On 4 December the GES-2 House of Culture opened (Renzo Piano) on Bolotnaya Embankment. In August Urs Fischer’s Big Clay No. 4 went up beside it. Not the square.
+    image: /images/galleries/ges-2/2021-08-22-clay.jpg
   - year: "2024"
     title: Pedestrian bridge to Balchug
     text: On 11 July a bridge opened across Vodootvodny Canal — the island spit (Peter the Great) to Krymskaya Embankment and Muzeon. 58 m. Not the square.
@@ -83,6 +87,8 @@ On 10 December 2011 an opposition rally filled the square — one of Moscow’s 
 ## Festivals
 
 Since the 2010s the garden has been a city stage: holidays, a rink, Day of the City, temporary fairs. Not an official culture centre and not a municipal portal — a square people walk into.
+
+Along Bolotnaya Embankment, by the House on the Embankment, stands the old **GES-2** power station. **Renzo Piano** rebuilt it in 2015–2021; on 4 December 2021 it opened as the V-A-C House of Culture. In August 2021 Urs Fischer’s aluminium **Big Clay No. 4** was assembled on the steps. How they built it and how the clay went up is in a [separate album](/en/galleries/ges-2/). Not the square — the neighbouring canal bank.
 
 On 11 July 2024 a [pedestrian bridge](/en/galleries/most-balchug/) opened across the canal: the Balchug spit (Peter the Great) to Krymskaya Embankment and Muzeon. It is not the square.
 

@@ -7,7 +7,7 @@
 {{- $id := .id | default "bolotnaya-map" -}}
 {{- $id = printf "dmap-%s" $id -}}
 {{- $lang := cond $isRu "ru_RU" "en_US" -}}
-{{- $src := printf "https://yandex.ru/map-widget/v1/?ll=37.6128,55.7435&z=14&l=map&lang=%s&scroll=false&pt=37.61750,55.74500,pm2rdm~37.61861,55.74417,pm2blm~37.61750,55.75200,pm2gnm~37.61230,55.74440,pm2orgm~37.6084,55.7382,pm2ywm" $lang -}}
+{{- $src := printf "https://yandex.ru/map-widget/v1/?ll=37.6128,55.7435&z=14&l=map&lang=%s&scroll=false&pt=37.61750,55.74500,pm2rdm~37.61861,55.74417,pm2blm~37.61750,55.75200,pm2gnm~37.61230,55.74440,pm2orgm~37.6084,55.7382,pm2ywm~37.6094,55.7435,pm2pmm" $lang -}}
 
 <div class="district-map" role="region" aria-label="{{ if $isRu }}Карта района{{ else }}District map{{ end }}">
   <div class="district-map__viewport">
@@ -27,7 +27,7 @@
     </div>
   </div>
   <p class="district-map__note">
-    {{ if $isRu }}Яндекс.Карты. Маркеры: сквер, Лужков мост, Кремль, Дом на набережной, пешеходный мост на Балчуг (к Музеону).{{ else }}Yandex Maps. Markers: the garden, Luzhkov Bridge, the Kremlin, House on the Embankment, the pedestrian bridge to Balchug (Muzeon).{{ end }}
+    {{ if $isRu }}Яндекс.Карты. Маркеры: сквер, Лужков мост, Кремль, Дом на набережной, ГЭС-2, пешеходный мост на Балчуг (к Музеону).{{ else }}Yandex Maps. Markers: the garden, Luzhkov Bridge, the Kremlin, House on the Embankment, GES-2, the pedestrian bridge to Balchug (Muzeon).{{ end }}
   </p>
 </div>
 
