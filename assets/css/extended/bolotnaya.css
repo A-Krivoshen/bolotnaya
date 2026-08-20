@@ -2708,10 +2708,67 @@ summary:focus-visible,
 .history-timeline__body img {
   display: block;
   width: 100%;
-  max-width: 420px;
+  max-width: 640px;
   height: auto;
   border-radius: 10px;
   border: 1px solid var(--border);
+}
+
+.history-timeline__figure {
+  margin: 0.35rem 0 0;
+}
+
+.history-timeline__figure figcaption {
+  max-width: 640px;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--secondary);
+}
+
+.history-now {
+  margin: 0 0 2.5rem;
+}
+
+.history-now__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+@media (min-width: 900px) {
+  .history-now__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .history-now__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.history-now__card {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--entry);
+}
+
+.history-now__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.history-now__card figcaption {
+  padding: 0.65rem 0.8rem 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--secondary);
 }
 
 .history-recon {

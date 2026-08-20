@@ -11,10 +11,10 @@
   <aside class="history-info">
     {{ if $isRu }}
       <strong>Локация:</strong> Москва, Якиманка<br>
-      <strong>Темы:</strong> болото, храм на Берсеневке, Дом на набережной, ГЭС-2, сквер 800-летия, Репин, 2011–2012
+      <strong>Темы:</strong> болото, храм на Берсеневке, Дом на набережной, ГЭС-2, сквер 800-летия, Репин, 2011–2012, леса 2026
     {{ else }}
       <strong>Location:</strong> Moscow, Yakimanka<br>
-      <strong>Themes:</strong> swamp, Bersenevka church, House on the Embankment, GES-2, 800th-anniversary garden, Repin, 2011–2012
+      <strong>Themes:</strong> swamp, Bersenevka church, House on the Embankment, GES-2, 800th-anniversary garden, Repin, 2011–2012, scaffolding 2026
     {{ end }}
   </aside>
 
@@ -34,7 +34,10 @@
           <h2 class="history-timeline__title">{{ $item.title }}</h2>
           {{ with $item.text }}<p>{{ . }}</p>{{ end }}
           {{ with $item.image }}
-            <img src="{{ . }}" alt="{{ $item.title }}" loading="lazy" decoding="async">
+            <figure class="history-timeline__figure">
+              <img src="{{ . }}" alt="{{ $item.caption | default $item.title }}" loading="lazy" decoding="async">
+              {{ with $item.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+            </figure>
           {{ end }}
         </div>
       </li>
@@ -42,8 +45,28 @@
   </ol>
   {{ end }}
 
-  {{ with .Params.reconstructions }}
+  {{ if or .Params.now .Params.reconstructions }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  {{ end }}
+
+  {{ with .Params.now }}
+  <section class="history-now" aria-labelledby="history-now-title">
+    <h2 id="history-now-title" class="history-section-title">{{ if $isRu }}Сейчас{{ else }}Now{{ end }}</h2>
+    <p class="muted">{{ if $isRu }}Живые кадры 2019–2026. Не архив и не ИИ. Полные альбомы — ниже.{{ else }}Stills, 2019–2026. Not archive and not AI. Full albums below.{{ end }}</p>
+    <div class="history-now__grid">
+      {{ range . }}
+        <figure class="history-now__card">
+          <a class="glightbox" href="{{ .src }}" data-gallery="hist-now" {{ with .caption }}data-title="{{ . }}"{{ end }}>
+            <img src="{{ .src }}" alt="{{ .caption | default "" }}" loading="lazy" decoding="async">
+          </a>
+          {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+        </figure>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with .Params.reconstructions }}
   <section class="history-recon" aria-labelledby="history-recon-title">
     <h2 id="history-recon-title">{{ if $isRu }}Как выглядело: 1800 / 1930 / 1980{{ else }}How it looked: 1800 / 1930 / 1980{{ end }}</h2>
     <p class="muted">{{ if $isRu }}ИИ. Два кадра — раскраска архива, один — реконструкция. Не фотографии эпохи.{{ else }}AI. Two frames are colourised archive shots; one is a reconstruction. Not period photographs.{{ end }}</p>
@@ -92,6 +115,14 @@
   <h2 class="history-section-title">{{ if $isRu }}Архивные фото и оживлённые кадры{{ else }}Archive photographs and animated frames{{ end }}</h2>
   {{ $empty := "" }}
   {{ partial "photo-grid.html" (dict "Page" . "photos" $photos "group" "hist-main" "empty" $empty) }}
+  {{ else if or $.Params.now $.Params.reconstructions }}
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof GLightbox === 'undefined') return;
+      GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, plyr: false });
+    });
+  </script>
   {{ end }}
 
   <nav class="history-albums" aria-label="{{ if $isRu }}Другие альбомы{{ else }}Other albums{{ end }}">
@@ -100,7 +131,10 @@
       {{- $church := .Site.GetPage "galleries/nikola-bersenevka" -}}
       {{- $house := .Site.GetPage "galleries/dom-na-naberezhnoy" -}}
       {{- $square := .Site.GetPage "galleries/bolotnaya-square" -}}
+      {{- $ges := .Site.GetPage "galleries/ges-2" -}}
       {{- $bridge := .Site.GetPage "galleries/most-balchug" -}}
+      {{- $lesa := .Site.GetPage "remont-lesa-2026" -}}
+      {{- if not $lesa }}{{ $lesa = .Site.GetPage "galleries/remont-lesa-2026" }}{{ end -}}
       {{- with $church }}
         <a class="history-albums__card" href="{{ .RelPermalink }}">
           <strong>{{ .Title }}</strong>
@@ -110,19 +144,31 @@
       {{- with $house }}
         <a class="history-albums__card" href="{{ .RelPermalink }}">
           <strong>{{ .Title }}</strong>
-          <span>{{ if $isRu }}Живые фото 2018–2024 и ИИ-анимации дома.{{ else }}Photographs 2018–2024 and AI animations of the house.{{ end }}</span>
+          <span>{{ if $isRu }}Живые фото 2018–2024, закрытый музей во дворе и ИИ-анимации дома.{{ else }}Photographs 2018–2024, the closed courtyard museum, and AI animations of the house.{{ end }}</span>
         </a>
       {{- end }}
       {{- with $square }}
         <a class="history-albums__card" href="{{ .RelPermalink }}">
           <strong>{{ .Title }}</strong>
-          <span>{{ if $isRu }}Сквер, фонтан, Лужков мост — как площадь выглядит сейчас.{{ else }}The garden, fountain and Luzhkov Bridge as the square looks now.{{ end }}</span>
+          <span>{{ if $isRu }}Сквер, фонтан, канал, Репин — как площадь выглядит сейчас.{{ else }}The garden, fountain, canal and Repin as the square looks now.{{ end }}</span>
+        </a>
+      {{- end }}
+      {{- with $ges }}
+        <a class="history-albums__card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>{{ if $isRu }}Стройка 2019–2021, глина Фишера, свод и кадры июня 2026.{{ else }}The 2019–2021 rebuild, Fischer’s clay, the vault, and June 2026 stills.{{ end }}</span>
         </a>
       {{- end }}
       {{- with $bridge }}
         <a class="history-albums__card" href="{{ .RelPermalink }}">
           <strong>{{ .Title }}</strong>
           <span>{{ if $isRu }}Стрелка острова к Музеону, 2024. Не площадь.{{ else }}Island spit to Muzeon, 2024. Not the square.{{ end }}</span>
+        </a>
+      {{- end }}
+      {{- with $lesa }}
+        <a class="history-albums__card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>{{ if $isRu }}Фасад в лесах с июня 2026, пока камеры offline.{{ else }}Facade in scaffolding since June 2026, while the cameras are offline.{{ end }}</span>
         </a>
       {{- end }}
     </div>
