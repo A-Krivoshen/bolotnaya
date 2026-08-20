@@ -110,6 +110,36 @@
   status = 301
 
 [[redirects]]
+  from = "/lesa-2026"
+  to = "/ru/remont-lesa-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/lesa-2026/"
+  to = "/ru/remont-lesa-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/repair-2026"
+  to = "/en/remont-lesa-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/repair-2026/"
+  to = "/en/remont-lesa-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/scaffolding-2026"
+  to = "/en/remont-lesa-2026/"
+  status = 301
+
+[[redirects]]
+  from = "/scaffolding-2026/"
+  to = "/en/remont-lesa-2026/"
+  status = 301
+
+[[redirects]]
   from = "/online-camera/*"
   to = "/ru/cameras/"
   status = 301
