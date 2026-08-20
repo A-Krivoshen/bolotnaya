@@ -42,7 +42,7 @@
     {{- if reflect.IsMap $sf }}{{ $ogImage = $sf.src | default "" }}{{ else }}{{ $ogImage = printf "%v" $sf }}{{ end -}}
   {{- end -}}
 {{- end -}}
-{{- if not $ogImage }}{{ $ogImage = "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg" }}{{ end -}}
+{{- if not $ogImage }}{{ $ogImage = "/images/galleries/lesa-2026/camera-still-mesh.jpg" }}{{ end -}}
 {{- $ogImageAbs := $ogImage | absURL -}}
 {{- $siteURL := .Site.BaseURL -}}
 {{- $authorName := "Bolotnaya.online" -}}
@@ -127,7 +127,7 @@
 {{/* Prefetch third parties used on many pages */}}
 <link rel="dns-prefetch" href="https://mc.yandex.ru">
 <link rel="dns-prefetch" href="https://yandex.ru">
-{{- if or (eq .Section "cameras") (eq .Type "cameras") }}
+{{- if and (or (eq .Section "cameras") (eq .Type "cameras")) (not site.Params.camerasOffline) }}
 <link rel="dns-prefetch" href="https://cam.bolotnaya.online">
 {{- end }}
 

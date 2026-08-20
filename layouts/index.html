@@ -49,22 +49,22 @@
         </a>
       </div>
       <div class="camera-preview-grid">
-        {{ range first 4 (where .Site.RegularPages "Section" "cameras") }}
-          <a class="camera-preview" href="{{ .RelPermalink }}">
+        {{ range $i, $p := first 4 (where .Site.RegularPages "Section" "cameras") }}
+          <a class="camera-preview" href="{{ $p.RelPermalink }}">
             {{ $ph := "/images/placeholders/camera.svg" }}
-            {{ $img := .Params.image | default $ph }}
+            {{ $img := $p.Params.image | default $ph }}
             {{ if $img }}
               {{ $trim := (strings.TrimPrefix "/" $img) }}
               {{ $staticPath := (printf "static/%s" $trim) }}
               {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
             {{ end }}
             <div class="camera-preview__media">
-              <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="640" height="400">
+              <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
               <div class="camera-preview__badge camera-preview__badge--offline">{{ if $isRu }}OFFLINE{{ else }}OFFLINE{{ end }}</div>
             </div>
             <div class="camera-preview__meta">
-              <h3>{{ .Title }}</h3>
-              {{ with .Params.description }}<p>{{ . | truncate 80 }}</p>{{ end }}
+              <h3>{{ $p.Title }}</h3>
+              {{ with $p.Params.description }}<p>{{ . | truncate 80 }}</p>{{ end }}
             </div>
           </a>
         {{ end }}

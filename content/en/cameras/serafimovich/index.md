@@ -2,7 +2,7 @@
 title: "Camera: Ulitsa Serafimovicha"
 translationKey: "camera-serafimovicha"
 description: "Camera toward Ulitsa Serafimovicha near Bolotnaya Square. Stream offline since 2 June 2026."
-image: "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"
+image: "/images/galleries/lesa-2026/camera-still-mesh.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 keywords:
   - Serafimovicha

@@ -1,7 +1,7 @@
 ---
 title: "Камера: Болотная площадь"
 description: "Камера на Болотную площадь (Якиманка). Эфир offline с 2 июня 2026: леса закрыли обзор. На странице — кадр через сетку и ссылка на хронику."
-image: "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"
+image: "/images/galleries/lesa-2026/camera-still-mesh.jpg"
 stream_url: "https://cam.bolotnaya.online/lmost_new/index.m3u8"
 keywords:
   - Болотная площадь

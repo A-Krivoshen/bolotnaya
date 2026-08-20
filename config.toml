@@ -106,13 +106,13 @@ timeout = "60s"
   author = "Bolotnaya.online"
   description = "Болотная площадь и Якиманка: история, фото и камеры проекта (сейчас offline из-за лесов). Open-source bolotnaya.online."
   keywords = ["Болотная площадь", "Якиманка", "леса 2026", "Bolotnaya", "Yakimanka", "Moscow"]
-  images = ["/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"]
+  images = ["/images/galleries/lesa-2026/camera-still-mesh.jpg"]
   mainSections = ["cameras", "posts", "history", "galleries"]
   DateFormat = "02.01.2006"
   defaultTheme = "auto" # auto = light 07:00–21:00, dark nights; local clock, not OS
   disableThemeToggle = false
   camerasOffline = true
-  camerasOfflineStill = "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"
+  camerasOfflineStill = "/images/galleries/lesa-2026/camera-still-mesh.jpg"
   ShowReadingTime = false
   ShowBreadCrumbs = true
   ShowToc = false

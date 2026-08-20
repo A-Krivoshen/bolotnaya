@@ -590,7 +590,7 @@ p, .home-lead, body {
 .camera-preview__media {
   position: relative;
   background: #111;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 

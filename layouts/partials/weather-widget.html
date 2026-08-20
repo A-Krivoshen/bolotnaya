@@ -13,7 +13,22 @@
      style="width:125px;height:80px;background-color:rgba(0, 0, 0, 0);color:rgb(54, 57, 69);">
     {{ if eq site.Language.Lang "ru" }}Погода в Москве{{ else }}Moscow weather{{ end }}
   </a>
-  <script async
-          src="https://rusmeteo.net/api/informerV2/e76467b5337d868231eb8281690870ba/"
-          type="text/javascript"></script>
+  <script>
+  (function () {
+    if (window.__bolotnayaMeteo) return;
+    window.__bolotnayaMeteo = 1;
+    function load() {
+      var s = document.createElement('script');
+      s.src = 'https://rusmeteo.net/api/informerV2/e76467b5337d868231eb8281690870ba/';
+      s.async = true;
+      document.body.appendChild(s);
+    }
+    function later() {
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 4000 });
+      else setTimeout(load, 2000);
+    }
+    if (document.readyState === 'complete') later();
+    else window.addEventListener('load', later);
+  })();
+  </script>
 </div>

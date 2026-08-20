@@ -19,23 +19,23 @@
     {{ partial "weather-map.html" (dict "id" "cameras") }}
 
     <div class="cameras-grid">
-      {{ range .Pages.ByTitle }}
+      {{ range $i, $p := .Pages.ByTitle }}
         {{ $ph := "/images/placeholders/camera.svg" }}
-        {{ $img := .Params.image | default $ph }}
+        {{ $img := $p.Params.image | default $ph }}
         {{ if $img }}
           {{ $trim := (strings.TrimPrefix "/" $img) }}
           {{ $staticPath := (printf "static/%s" $trim) }}
           {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
         {{ end }}
 
-        <a class="camera-card card" href="{{ .RelPermalink }}">
+        <a class="camera-card card" href="{{ $p.RelPermalink }}">
           <div class="media">
-            <img src="{{ $img | relURL }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="640" height="360">
+            <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
             <div class="badge badge--offline">OFFLINE</div>
           </div>
           <div class="meta">
-            <h2 class="camera-card__title">{{ .Title }}</h2>
-            {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+            <h2 class="camera-card__title">{{ $p.Title }}</h2>
+            {{ with $p.Params.description }}<p>{{ . }}</p>{{ end }}
             <span class="action">{{ if $isRu }}Открыть камеру →{{ else }}Open camera →{{ end }}</span>
           </div>
         </a>

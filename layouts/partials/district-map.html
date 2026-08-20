@@ -15,7 +15,8 @@
       id="{{ $id }}"
       class="district-map__canvas"
       title="{{ if $isRu }}Карта Болотной площади{{ else }}Map of Bolotnaya Square{{ end }}"
-      src="{{ $src }}"
+      src="about:blank"
+      data-src="{{ $src }}"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       allow="fullscreen"
@@ -49,8 +50,16 @@
     if (s) s.setAttribute('aria-pressed', 'false');
   }
 
+  function loadFrame(wrap) {
+    if (!wrap) return;
+    var f = wrap.querySelector('iframe[data-src]');
+    if (!f) return;
+    var u = f.getAttribute('data-src');
+    if (u && f.getAttribute('src') !== u) f.setAttribute('src', u);
+  }
   function unlock(wrap) {
     if (!wrap) return;
+    loadFrame(wrap);
     wrap.classList.add('is-unlocked');
     var s = wrap.querySelector('.district-map__shield');
     if (s) s.setAttribute('aria-pressed', 'true');
@@ -102,6 +111,22 @@
     if (!shield) return;
     e.preventDefault();
     unlock(wrapOf(shield));
+  });
+
+  document.querySelectorAll('.district-map').forEach(function (wrap) {
+    if (!('IntersectionObserver' in window)) {
+      loadFrame(wrap);
+      return;
+    }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (ent) {
+        if (ent.isIntersecting) {
+          loadFrame(wrap);
+          io.disconnect();
+        }
+      });
+    }, { rootMargin: '240px' });
+    io.observe(wrap);
   });
 })();
 </script>

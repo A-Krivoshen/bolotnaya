@@ -20,14 +20,19 @@ images:
   - src: /images/galleries/history/Screenshot_20190626_113749.png
     caption: Схема района площади и Водоотводного канала.
   - src: /images/galleries/history/grok-video-c6840f57-0a36-4f4d-9965-f6d04850028e_watermarked.gif
+    thumb: /images/galleries/history/grok-video-c6840f57-0a36-4f4d-9965-f6d04850028e_watermarked-poster.jpg
     caption: Оживлённый архив — фонтан, люди у чаши.
   - src: /images/galleries/history/grok-video-f66d40a6-7003-4730-a6c8-e6d9e0b0c5c4_watermarked.gif
+    thumb: /images/galleries/history/grok-video-f66d40a6-7003-4730-a6c8-e6d9e0b0c5c4_watermarked-poster.jpg
     caption: Оживлённый архив — панорама площади и канала сверху.
   - src: /images/galleries/history/grok-video-dad0caab-234d-42fc-bde0-35e4195d41ae_watermarked.gif
+    thumb: /images/galleries/history/grok-video-dad0caab-234d-42fc-bde0-35e4195d41ae_watermarked-poster.jpg
     caption: Оживлённый архив — Репинский фонтан, вид сверху.
   - src: /images/galleries/history/grok-video-46045c2e-97ae-4e08-b596-6d42b0f584cf_watermarked.gif
+    thumb: /images/galleries/history/grok-video-46045c2e-97ae-4e08-b596-6d42b0f584cf_watermarked-poster.jpg
     caption: Оживлённый архив — две женщины у фонтана.
   - src: /images/galleries/history/grok-video-9ff9ec50-7f36-47db-8ddc-36a6262ba06f_watermarked.gif
+    thumb: /images/galleries/history/grok-video-9ff9ec50-7f36-47db-8ddc-36a6262ba06f_watermarked-poster.jpg
     caption: Оживлённый архив — мост, канал и Дом на набережной.
   - src: /images/galleries/history/reconstruct-1800.jpg
     caption: "ИИ-реконструкция, около 1800. Храм на Берсеневке и низкий берег. Не документ."
