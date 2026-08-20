@@ -108,9 +108,9 @@ images:
   - src: /images/galleries/Bolotnya_square/2022-09-30-canal.jpg
     caption: 30 September 2022. Vodootvodny Canal, a magpie on the parapet.
   - src: /images/galleries/Bolotnya_square/2022-10-10-cathedral.jpg
-    caption: 10 October 2022. Cathedral of Christ the Saviour from the canal, Patriarshy Bridge.
+    caption: 10 October 2022. Cathedral of Christ the Saviour and Patriarshy Bridge from Bersenevskaya Embankment.
   - src: /images/galleries/Bolotnya_square/2023-01-14-sofiyskaya-ice.jpg
-    caption: 14 January 2023. Sofiyskaya Embankment, ice on the canal.
+    caption: 14 January 2023. Sofiyskaya Embankment, ice on the Moskva.
   - src: /images/galleries/Bolotnya_square/2023-02-11-sophia.jpg
     caption: 11 February 2023. Church of St Sophia in Sredniye Sadovniki.
   - src: /images/galleries/Bolotnya_square/2025-10-20-fountain.jpg

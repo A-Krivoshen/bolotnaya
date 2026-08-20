@@ -26,7 +26,7 @@ images:
   - src: /images/galleries/ges-2/2022-06-17-rowers.jpg
     caption: June 2022. From the canal — stacks, arches and a four on the water.
   - src: /images/galleries/ges-2/2022-10-11-sofiyskaya.jpg
-    caption: 11 October 2022. Sofiyskaya Embankment from the steps at GES-2.
+    caption: 11 October 2022. Yakimanskaya Embankment on Vodootvodny Canal, from the GES-2 steps.
   - src: /images/galleries/ges-2/2022-10-11-night.jpg
     caption: October 2022. GES-2 at night.
   - src: /images/galleries/ges-2/2022-10-13-canal.jpg
@@ -50,7 +50,7 @@ images:
   - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
     caption: 20 June 2026. The hall from the ramp, brick vaults of the yard.
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
-    caption: 20 June 2026. Facade, stacks and a crane by the river.
+    caption: 20 June 2026. Facade, stacks and a crane by Vodootvodny Canal (at Maly Kamenny).
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
     caption: 20 June 2026. Works under Maly Kamenny Bridge, seen from GES-2.
   - src: /images/galleries/ges-2/2026-06-20-vault.jpg

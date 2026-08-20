@@ -108,9 +108,9 @@ images:
   - src: /images/galleries/Bolotnya_square/2022-09-30-canal.jpg
     caption: 30 сентября 2022. Водоотводный канал, сорока на парапете.
   - src: /images/galleries/Bolotnya_square/2022-10-10-cathedral.jpg
-    caption: 10 октября 2022. Храм Христа Спасителя с канала, Патриарший мост.
+    caption: 10 октября 2022. Храм Христа Спасителя и Патриарший мост, вид с Берсеневской набережной.
   - src: /images/galleries/Bolotnya_square/2023-01-14-sofiyskaya-ice.jpg
-    caption: 14 января 2023. Софийская набережная, лёд на канале.
+    caption: 14 января 2023. Софийская набережная, лёд на Москве-реке.
   - src: /images/galleries/Bolotnya_square/2023-02-11-sophia.jpg
     caption: 11 февраля 2023. Храм Софии в Средних Садовниках.
   - src: /images/galleries/Bolotnya_square/2025-10-20-fountain.jpg

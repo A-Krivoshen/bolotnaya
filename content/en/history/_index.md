@@ -77,7 +77,7 @@ now:
   - src: /images/galleries/Bolotnya_square/2022-09-30-canal.jpg
     caption: 30 September 2022. Vodootvodny Canal, a magpie on the parapet.
   - src: /images/galleries/Bolotnya_square/2022-10-10-cathedral.jpg
-    caption: 10 October 2022. Cathedral of Christ the Saviour from the canal, Patriarshy Bridge.
+    caption: 10 October 2022. Cathedral of Christ the Saviour and Patriarshy Bridge from Bersenevskaya Embankment.
   - src: /images/galleries/Bolotnya_square/2023-02-11-sophia.jpg
     caption: 11 February 2023. Church of St Sophia in Sredniye Sadovniki.
   - src: /images/galleries/most-balchug/2024-07-11-otkrytie.jpg
@@ -97,7 +97,7 @@ now:
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
     caption: 20 June 2026. Works under Maly Kamenny Bridge, seen from GES-2.
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
-    caption: 20 June 2026. GES-2 facade, stacks and a crane by the river.
+    caption: 20 June 2026. GES-2 facade, stacks and a crane by Vodootvodny Canal (at Maly Kamenny).
   - src: /images/galleries/ges-2/2026-06-20-vault.jpg
     caption: 20 June 2026. The birch vault in summer.
   - src: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg

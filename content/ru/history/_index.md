@@ -77,7 +77,7 @@ now:
   - src: /images/galleries/Bolotnya_square/2022-09-30-canal.jpg
     caption: 30 сентября 2022. Водоотводный канал, сорока на парапете.
   - src: /images/galleries/Bolotnya_square/2022-10-10-cathedral.jpg
-    caption: 10 октября 2022. Храм Христа Спасителя с канала, Патриарший мост.
+    caption: 10 октября 2022. Храм Христа Спасителя и Патриарший мост, вид с Берсеневской набережной.
   - src: /images/galleries/Bolotnya_square/2023-02-11-sophia.jpg
     caption: 11 февраля 2023. Храм Софии в Средних Садовниках.
   - src: /images/galleries/most-balchug/2024-07-11-otkrytie.jpg
@@ -97,7 +97,7 @@ now:
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
     caption: 20 июня 2026. Работы под Малым Каменным мостом, вид со стороны ГЭС-2.
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
-    caption: 20 июня 2026. Фасад ГЭС-2, трубы и кран у реки.
+    caption: 20 июня 2026. Фасад ГЭС-2, трубы и кран у Водоотводного канала (у Малого Каменного).
   - src: /images/galleries/ges-2/2026-06-20-vault.jpg
     caption: 20 июня 2026. Берёзовый свод летом.
   - src: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg

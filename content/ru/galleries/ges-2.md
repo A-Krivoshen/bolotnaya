@@ -26,7 +26,7 @@ images:
   - src: /images/galleries/ges-2/2022-06-17-rowers.jpg
     caption: Июнь 2022. С канала — трубы, арки и четвёрка на воде.
   - src: /images/galleries/ges-2/2022-10-11-sofiyskaya.jpg
-    caption: 11 октября 2022. Софийская набережная со ступеней у ГЭС-2.
+    caption: 11 октября 2022. Якиманская набережная Водоотводного канала, со ступеней ГЭС-2.
   - src: /images/galleries/ges-2/2022-10-11-night.jpg
     caption: Октябрь 2022. ГЭС-2 ночью.
   - src: /images/galleries/ges-2/2022-10-13-canal.jpg
@@ -50,7 +50,7 @@ images:
   - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
     caption: 20 июня 2026. Корпус с пандуса, кирпичные своды двора.
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
-    caption: 20 июня 2026. Фасад, трубы и кран у реки.
+    caption: 20 июня 2026. Фасад, трубы и кран у Водоотводного канала (у Малого Каменного).
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
     caption: 20 июня 2026. Работы под Малым Каменным мостом, вид со стороны ГЭС-2.
   - src: /images/galleries/ges-2/2026-06-20-vault.jpg

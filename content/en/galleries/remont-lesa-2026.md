@@ -24,7 +24,7 @@ images:
   - src: /images/galleries/lesa-2026/2026-07-28-15-45-41.jpg
     caption: 28 July. The building in mesh, from the square
   - src: /images/galleries/lesa-2026/2026-08-08-18-59-27.jpg
-    caption: 8 August. Builder's Day — a hard hat on the Drainage Canal
+    caption: 8 August. Builder's Day — a hard hat on Vodootvodny Canal
   - src: /images/galleries/lesa-2026/2026-08-08-18-59-38.jpg
     caption: 8 August. “70 years of Builder's Day” and the boat Unikum
   - src: /images/galleries/lesa-2026/2026-08-15-12-32-11.jpg
@@ -34,7 +34,7 @@ images:
   - src: /images/galleries/lesa-2026/2026-08-18-11-38-42.jpg
     caption: 18 August. Grey paint, windows still covered
   - src: /images/galleries/lesa-2026/2026-08-18-11-38-47.jpg
-    caption: 18 August. Shop windows in film
+    caption: 18 August. Supermarket windows in film
   - src: /images/galleries/lesa-2026/2026-08-18-11-40-23.jpg
     caption: 18 August. Facade partly open, electric buses on Serafimovicha
   - src: /images/galleries/lesa-2026/2026-08-18-11-40-27.jpg
