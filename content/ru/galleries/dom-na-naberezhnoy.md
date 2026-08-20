@@ -1,7 +1,7 @@
 ---
 slug: dom-na-naberezhnoy
 title: Дом на набережной
-description: Живые фото дома 2018–2024 и ИИ-анимации, которые оживляли архив.
+description: Живые фото дома 2018–2024, музей во дворе (сейчас закрыт) и ИИ-анимации архива.
 translationKey: gallery-dom-na-naberezhnoy
 weight: 3
 images:
@@ -31,6 +31,20 @@ images:
     caption: Зима 2018. Кремль слева, дом справа, лёд на реке.
   - src: /images/galleries/domnanaberzhnoy/2024-04-08-udarnik-roof.jpg
     caption: Ремонт кровли «Ударника», апрель 2024.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-entrance.jpg
+    caption: Апрель 2019. Вход в музей «Дом на набережной» во дворе. Сейчас музей закрыт.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-12-17-sign.jpg
+    caption: Декабрь 2019. Указатель — вход через арку с ул. Серафимовича.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-build-photos.jpg
+    caption: "Музей, апрель 2019. Строительство Дома ЦИК и СНК, 1928–1931."
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-model.jpg
+    caption: Апрель 2019. Макет дома. Всехсвятская переименована в Серафимовича в 1933-м.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-ww2-board.jpg
+    caption: Апрель 2019. «Вечная память» жителям дома, погибшим на фронтах ВОВ.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-room.jpg
+    caption: Апрель 2019. Комната-экспозиция — радио, машинка, телефоны.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-residents.jpg
+    caption: Апрель 2019. Карточки жильцов на столе в музейной квартире.
   - src: >-
       /images/galleries/domnanaberzhnoy/grok-video-f5fdfe3e-9f74-497f-8f46-f49ea6821ea1_watermarked.gif
     caption: ИИ-анимация дома. Не фотография.
@@ -164,3 +178,6 @@ images:
       /images/galleries/domnanaberzhnoy/grok-video-024d34fb-2ddf-4b95-80e7-c140e126ab63_watermarked.gif
     caption: ИИ-анимация дома. Не фотография.
 ---
+
+Фасад и набережная — живые кадры 2018–2024. Дальше — **музей «Дом на набережной»** во дворе, апрель–декабрь 2019: макет, стройка 1928–1931, комнаты-экспозиции. Музей сейчас закрыт; посетителей со спины в альбом не клал. ИИ-анимации в конце — не фотографии.
+

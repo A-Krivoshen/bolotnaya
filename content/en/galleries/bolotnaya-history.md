@@ -15,6 +15,8 @@ images:
     caption: Vodootvodny Canal before granite. View of the House on the Embankment.
   - src: /images/galleries/history/canal-bridge-house-embankment.jpg
     caption: Bridge over the canal, House on the Embankment, granite already in place.
+  - src: /images/galleries/history/kremlin-zamoskvorechye-color.jpg
+    caption: "Colourised archive. From the Kremlin: Beklemishevskaya Tower, Moskvoretsky Bridge, Zamoskvorechye. Boloto is the low bank beyond the river. Not a present-day shot."
   - src: /images/galleries/686a92f9bfaf3193ca70a4f7eef1ca4b.jpeg
     caption: Panorama of the square with the circular fountain, tram tracks and embankments.
   - src: /images/galleries/history/Screenshot_20190626_113749.png

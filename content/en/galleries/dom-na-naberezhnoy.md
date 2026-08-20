@@ -1,7 +1,7 @@
 ---
 slug: dom-na-naberezhnoy
 title: "House on the Embankment"
-description: Photographs of the house, 2018–2024, and the AI animations that bring the archive to life.
+description: Photographs of the house, 2018–2024, the courtyard museum (now closed), and AI animations of the archive.
 translationKey: gallery-dom-na-naberezhnoy
 weight: 3
 images:
@@ -31,6 +31,20 @@ images:
     caption: Winter 2018. Kremlin to the left, the house to the right, ice on the river.
   - src: /images/galleries/domnanaberzhnoy/2024-04-08-udarnik-roof.jpg
     caption: Udarnik roof works, April 2024.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-entrance.jpg
+    caption: April 2019. Entrance to the House on the Embankment museum in the courtyard. The museum is now closed.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-12-17-sign.jpg
+    caption: December 2019. Sign — enter through the arch from Ulitsa Serafimovicha.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-build-photos.jpg
+    caption: "Museum, April 2019. Building the TsIK–SNK House, 1928–1931."
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-model.jpg
+    caption: April 2019. Model of the house. Vsekhsvyatskaya was renamed Serafimovicha in 1933.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-ww2-board.jpg
+    caption: April 2019. “Eternal memory” to residents of the house killed at the front in the Great Patriotic War.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-room.jpg
+    caption: April 2019. A reconstructed room — radio, sewing machine, telephones.
+  - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-residents.jpg
+    caption: April 2019. Resident cards on the table in the museum flat.
   - src: >-
       /images/galleries/domnanaberzhnoy/grok-video-f5fdfe3e-9f74-497f-8f46-f49ea6821ea1_watermarked.gif
     caption: AI animation of the house. Not a photograph.
@@ -161,3 +175,6 @@ images:
       /images/galleries/domnanaberzhnoy/grok-video-024d34fb-2ddf-4b95-80e7-c140e126ab63_watermarked.gif
     caption: AI animation of the house. Not a photograph.
 ---
+
+Facade and embankment — stills from 2018–2024. Then the **House on the Embankment museum** in the courtyard, April–December 2019: the model, the 1928–1931 build, reconstructed rooms. The museum is closed now; visitors from behind are not in the set. The AI animations at the end are not photographs.
+

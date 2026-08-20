@@ -72,7 +72,7 @@ Next to the square stands the **Church of St Nicholas on Bersenevka** (main alta
 
 ## House on the Embankment
 
-In 1927 a commission chose Bersenevka opposite the Kremlin. By **1931** the Government House stood on the Wine and Salt Court — **architect Boris Iofan**, 12 storeys, apartments for the Soviet elite. In the 1920s the square was still a market of warehouses and apple carts. A planned central market tower was never built. Photographs and animations of the house are in the [House on the Embankment](/en/galleries/dom-na-naberezhnoy/) album.
+In 1927 a commission chose Bersenevka opposite the Kremlin. By **1931** the Government House stood on the Wine and Salt Court — **architect Boris Iofan**, 12 storeys, apartments for the Soviet elite. In the 1920s the square was still a market of warehouses and apple carts. A planned central market tower was never built. A museum sat in the courtyard (entrance from Serafimovicha); it is closed now. Stills from 2019 remain in the [House on the Embankment](/en/galleries/dom-na-naberezhnoy/) album.
 
 ## 800th-anniversary garden and Repin
 

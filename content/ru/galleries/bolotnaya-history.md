@@ -15,6 +15,8 @@ images:
     caption: Водоотводный канал до гранита. Вид на Дом на набережной.
   - src: /images/galleries/history/canal-bridge-house-embankment.jpg
     caption: Мост через канал, Дом на набережной, гранит уже есть.
+  - src: /images/galleries/history/kremlin-zamoskvorechye-color.jpg
+    caption: "Раскрашенный архив. Вид с Кремля: Беклемишевская башня, Москворецкий мост, Замоскворечье. Болото — низкий берег за рекой. Не современный кадр."
   - src: /images/galleries/686a92f9bfaf3193ca70a4f7eef1ca4b.jpeg
     caption: Панорама площади с круговым фонтаном, трамвайными путями и набережными.
   - src: /images/galleries/history/Screenshot_20190626_113749.png
