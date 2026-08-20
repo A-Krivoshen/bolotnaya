@@ -3,7 +3,7 @@ slug: remont-lesa-2026
 title: Ремонт и леса 2026
 description: Фасад в лесах у Болотной — хроника ремонта по ул. Серафимовича, пока камеры offline.
 translationKey: remont-lesa-2026-gallery
-weight: 5
+weight: 6
 images:
   - src: /images/galleries/lesa-2026/2026-06-05-12-46-55.jpg
     caption: 5 июня. Леса уже стоят вдоль фасада по Серафимовича

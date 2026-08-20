@@ -1,4 +1,4 @@
 ---
 title: "Photo galleries — Bolotnaya Square"
-description: "Archive of the square, St Nicholas on Bersenevka, House on the Embankment, the garden, and the 2026 scaffolding chronicle."
+description: "Archive of the square, St Nicholas on Bersenevka, House on the Embankment, the garden, the Balchug bridge, and the 2026 scaffolding chronicle."
 ---

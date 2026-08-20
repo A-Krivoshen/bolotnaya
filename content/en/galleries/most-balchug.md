@@ -1,0 +1,26 @@
+---
+slug: most-balchug
+title: Pedestrian bridge to Balchug
+description: Bridge over Vodootvodny Canal — the Balchug spit and the Peter the Great monument to Krymskaya Embankment and Muzeon. Opened 11 July 2024.
+translationKey: gallery-most-balchug
+weight: 5
+images:
+  - src: /images/galleries/most-balchug/2024-07-11-otkrytie.jpg
+    caption: 11 July 2024. Opening day. 58 m long; the stiffening rib is a bench.
+  - src: /images/galleries/most-balchug/2023-11-17-stroyka.jpg
+    caption: November 2023. The span is up, cladding not yet on. View from the Muzeon side.
+  - src: /images/galleries/most-balchug/2026-05-15-s-mosta.jpg
+    caption: May 2026. From the bridge along the canal — Krasny Oktyabr and GES-2.
+  - src: /images/galleries/most-balchug/2024-07-11-mos-ru-mishin.jpg
+    caption: >-
+      Opening, 11 July 2024. Photo: M. Mishin, Press Service of the Mayor and Government of Moscow.
+      Source: mos.ru, CC BY 4.0.
+---
+
+On 11 July 2024 a pedestrian bridge opened across the Vodootvodny Canal: the **Balchug spit** (Bolotnaya Embankment, the Peter the Great monument) to **Krymskaya and Yakimanskaya embankments**, toward Muzeon.
+
+It is 58 m long and 8 m wide. The external stiffening rib is a 36 m bench. Work started in March 2023; the 235-tonne span arrived by barge in September 2023.
+
+This is not Bolotnaya Square and not Luzhkov Bridge. Dates from the [city announcement of 11 July 2024](https://www.mos.ru/mayor/themes/11464050/).
+
+The last frame is from mos.ru. Site materials are available under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) with a link to the source. Photographer: M. Mishin, Press Service of the Mayor and Government of Moscow. This is not the foto.mos.ru photobank, which has a separate licence.

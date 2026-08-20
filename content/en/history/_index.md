@@ -34,6 +34,10 @@ timeline:
   - year: "2011–2012"
     title: The rallies
     text: 10 December 2011 — one of Moscow’s largest rallies since the 1990s. 6 May 2012 — the March of Millions.
+  - year: "2024"
+    title: Pedestrian bridge to Balchug
+    text: On 11 July a bridge opened across Vodootvodny Canal — the island spit (Peter the Great) to Krymskaya Embankment and Muzeon. 58 m. Not the square.
+    image: /images/galleries/most-balchug/2024-07-11-otkrytie.jpg
   - year: "2010s–now"
     title: Festivals and walks
     text: City holidays, a skating rink, Day of the City. Since June 2026 the project cameras are offline — scaffolding on the facade.
@@ -79,5 +83,7 @@ On 10 December 2011 an opposition rally filled the square — one of Moscow’s 
 ## Festivals
 
 Since the 2010s the garden has been a city stage: holidays, a rink, Day of the City, temporary fairs. Not an official culture centre and not a municipal portal — a square people walk into.
+
+On 11 July 2024 a [pedestrian bridge](/en/galleries/most-balchug/) opened across the canal: the Balchug spit (Peter the Great) to Krymskaya Embankment and Muzeon. It is not the square.
 
 Since June 2026 the project cameras have been off: scaffolding on the facade. The repair log is in [Repair and scaffolding 2026](/en/remont-lesa-2026/).
