@@ -16,6 +16,8 @@
       <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
     </div>
 
+    {{ partial "weather-map.html" (dict "id" "cameras") }}
+
     <div class="cameras-grid">
       {{ range .Pages.ByTitle }}
         {{ $ph := "/images/placeholders/camera.svg" }}

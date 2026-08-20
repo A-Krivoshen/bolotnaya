@@ -30,8 +30,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="author" type="text/plain" href="/humans.txt">
 
-<!-- RusMeteo plain widget CSS — only on camera pages -->
-{{- if or (eq .Section "cameras") (eq .Type "cameras") }}
+<!-- RusMeteo plain widget CSS — cameras, home, history, or pages with weather shortcodes -->
+{{- $needWeather := or (eq .Kind "home") (eq .Section "cameras") (eq .Type "cameras") (eq .Section "history") (.HasShortcode "weather") (.HasShortcode "weather-map") }}
+{{- if $needWeather }}
 <link href="https://api.rusmeteo.net/service/informers/css/widget-plain.min.css"
       rel="stylesheet"
       type="text/css"

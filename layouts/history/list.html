@@ -6,6 +6,8 @@
     <p class="page-lead">{{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ if $isRu }}История Болотной площади и Якиманки.{{ else }}History of Bolotnaya Square and Yakimanka.{{ end }}{{ end }}</p>
   </div>
 
+  {{ partial "weather-map.html" (dict "id" "history") }}
+
   <aside class="history-info">
     {{ if $isRu }}
       <strong>Локация:</strong> Москва, Якиманка<br>

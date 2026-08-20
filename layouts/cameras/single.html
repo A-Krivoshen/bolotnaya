@@ -12,19 +12,7 @@
 
     <div class="camera-shell">
 
-    <div class="weather-widget">
-      <!-- Code Weather Forecast rusmeteo.net -->
-      <a href="https://rusmeteo.net/weather/moskva/"
-         class="widget-plain"
-         id="e76467b5337d868231eb8281690870ba"
-         style="width:125px;height:80px;background-color:rgba(0, 0, 0, 0);color:rgb(54, 57, 69);">
-        Погода в Москве
-      </a>
-      <script async
-              src="https://rusmeteo.net/api/informerV2/e76467b5337d868231eb8281690870ba/"
-              type="text/javascript"></script>
-      <!-- End Code Weather Forecast rusmeteo.net -->
-    </div>
+    {{ partial "weather-widget.html" (dict) }}
 
     <div class="camera-container camera-card" data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}">
       <div class="site-alert" role="status">
@@ -49,6 +37,8 @@
     {{ partial "support-partner.html" . }}
 
     </div>
+
+    {{ partial "district-map.html" (dict "id" (printf "cam-%s" (.File.ContentBaseName | default "page"))) }}
   </section>
 
   {{ if .Content }}

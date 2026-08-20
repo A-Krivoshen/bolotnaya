@@ -122,6 +122,14 @@
     </section>
     {{ end }}
 
+    <!-- Weather + map -->
+    <section class="home-section home-place" aria-labelledby="home-place-title">
+      <div class="home-section__header">
+        <h2 id="home-place-title">{{ if $isRu }}Погода и карта{{ else }}Weather and map{{ end }}</h2>
+      </div>
+      {{ partial "weather-map.html" (dict "id" "home") }}
+    </section>
+
     <!-- FAQ — SEO + clarity -->
     <section class="home-section home-faq" aria-labelledby="home-faq-title">
       <div class="home-section__header">

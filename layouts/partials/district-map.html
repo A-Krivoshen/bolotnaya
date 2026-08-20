@@ -1,0 +1,49 @@
+{{- /*
+  Simple OSM/Leaflet map of Bolotnaya / Yakimanka.
+  dict: id (required, unique per page)
+*/ -}}
+{{- $isRu := eq site.Language.Lang "ru" -}}
+{{- $id := .id | default "bolotnaya-map" -}}
+{{- $id = printf "dmap-%s" $id -}}
+
+<div class="district-map" role="region" aria-label="{{ if $isRu }}Карта района{{ else }}District map{{ end }}">
+  <div id="{{ $id }}" class="district-map__canvas"></div>
+  <p class="district-map__note">
+    {{ if $isRu }}Открытая карта OSM. Маркеры: сквер, Лужков мост, Кремль, Дом на набережной.{{ else }}OpenStreetMap. Markers: the garden, Luzhkov Bridge, the Kremlin, House on the Embankment.{{ end }}
+  </p>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function () {
+  function init() {
+    if (typeof L === 'undefined') return;
+    var el = document.getElementById({{ $id | jsonify }});
+    if (!el || el.dataset.ready) return;
+    el.dataset.ready = '1';
+    var map = L.map(el, { scrollWheelZoom: false, attributionControl: true }).setView([55.7464, 37.6162], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var marks = [
+      { lat: 55.74500, lng: 37.61750, label: {{ if $isRu }}"Болотная площадь / сквер"{{ else }}"Bolotnaya Square / garden"{{ end }} },
+      { lat: 55.74417, lng: 37.61861, label: {{ if $isRu }}"Лужков мост"{{ else }}"Luzhkov Bridge"{{ end }} },
+      { lat: 55.75200, lng: 37.61750, label: {{ if $isRu }}"Кремль"{{ else }}"Kremlin"{{ end }} },
+      { lat: 55.74440, lng: 37.61230, label: {{ if $isRu }}"Дом на набережной"{{ else }}"House on the Embankment"{{ end }} }
+    ];
+    var group = L.featureGroup();
+    marks.forEach(function (m) {
+      group.addLayer(L.marker([m.lat, m.lng]).bindPopup(m.label));
+    });
+    group.addTo(map);
+    map.fitBounds(group.getBounds().pad(0.18));
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

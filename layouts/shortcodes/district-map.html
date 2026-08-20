@@ -1,0 +1,3 @@
+{{/* Usage: {{< district-map >}} */}}
+{{ $id := .Get "id" | default (printf "sc-%d" .Ordinal) }}
+{{ partial "district-map.html" (dict "id" $id) }}

@@ -1,0 +1,16 @@
+{{- /*
+  Weather (rusmeteo, same as cameras) + district map.
+  dict: id (unique suffix)
+*/ -}}
+{{- $isRu := eq site.Language.Lang "ru" -}}
+{{- $id := .id | default "place" -}}
+<section class="weather-map" aria-label="{{ if $isRu }}Погода и карта района{{ else }}Weather and district map{{ end }}">
+  <div class="weather-map__weather">
+    <h2 class="weather-map__title">{{ if $isRu }}Погода{{ else }}Weather{{ end }}</h2>
+    {{ partial "weather-widget.html" (dict "extraClass" "weather-widget--block") }}
+  </div>
+  <div class="weather-map__map">
+    <h2 class="weather-map__title">{{ if $isRu }}Карта района{{ else }}District map{{ end }}</h2>
+    {{ partial "district-map.html" (dict "id" $id) }}
+  </div>
+</section>
