@@ -20,18 +20,17 @@ while IFS= read -r -d '' f; do
     skip=$((skip+1)); continue
   fi
   w=$(identify -format '%w' "$f")
-  ps=$(( w / 28 ))
-  if [ "$ps" -lt 14 ]; then ps=14; fi
-  if [ "$ps" -gt 36 ]; then ps=36; fi
+  ps=$(( w / 40 ))
+  if [ "$ps" -lt 12 ]; then ps=12; fi
+  if [ "$ps" -gt 22 ]; then ps=22; fi
   ext="${f##*.}"
   tmp="${f}.wm.$$.${ext}"
   convert "$f" \
     -font "$FONT" -pointsize "$ps" \
     -gravity southeast \
-    -fill 'rgba(255,255,255,0.88)' \
-    -undercolor '#00000099' \
-    -annotate +16+14 "$MARK" \
-    -strip -quality 84 \
+    -fill 'rgba(255,255,255,0.40)' \
+    -annotate +18+14 "$MARK" \
+    -strip -quality 85 \
     "$tmp"
   mv -f "$tmp" "$f"
   # drop stale webp sidecar next to source if any (optimize script regenerates)
