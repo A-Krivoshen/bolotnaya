@@ -37,7 +37,6 @@ timeline:
   - year: "2010s–now"
     title: Festivals and walks
     text: City holidays, a skating rink, Day of the City. Since June 2026 the project cameras are offline — scaffolding on the facade.
-    image: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
 
 reconstructions:
   - year: "c. 1800"
@@ -61,13 +60,11 @@ In the 11th century this was floodplain and marsh; the Volotskaya road ran along
 
 ## Churches
 
-Next to the square stands the **Church of St Nicholas on Bersenevka** (main altar of the Trinity): a stone church of 1656–1657, in one ensemble with the chambers of dyak Averkii Kirillov. Uzorochye, kokoshniki, a working parish again.
-
-An older text on this site mentioned a Church of Peter and Paul (1695), a Tikhvin church (1780) and a “Moscow University clinic” (1804–1828) *on the square itself*. Those do not show up in the summaries for Bolotnaya Square; the university clinics on Devichye Pole / Pirogovskaya are a different address. They are not in this timeline. If a source pins them to this plot, we will correct it.
+Next to the square stands the **Church of St Nicholas on Bersenevka** (main altar of the Trinity): a stone church of 1656–1657, in one ensemble with the chambers of dyak Averkii Kirillov. Uzorochye, kokoshniki, a working parish again. Photographs of the church are in a [separate album](/en/galleries/nikola-bersenevka/).
 
 ## House on the Embankment
 
-In 1927 a commission chose Bersenevka opposite the Kremlin. By **1931** the Government House stood on the Wine and Salt Court — **architect Boris Iofan**, 12 storeys, apartments for the Soviet elite. In the 1920s the square was still a market of warehouses and apple carts. A planned central market tower was never built.
+In 1927 a commission chose Bersenevka opposite the Kremlin. By **1931** the Government House stood on the Wine and Salt Court — **architect Boris Iofan**, 12 storeys, apartments for the Soviet elite. In the 1920s the square was still a market of warehouses and apple carts. A planned central market tower was never built. Photographs and animations of the house are in the [House on the Embankment](/en/galleries/dom-na-naberezhnoy/) album.
 
 ## 800th-anniversary garden and Repin
 

@@ -18,6 +18,12 @@
     {{ end }}
   </aside>
 
+  {{ with .Content }}
+  <div class="prose history-prose">
+    {{ . }}
+  </div>
+  {{ end }}
+
   {{ with .Params.timeline }}
   <ol class="history-timeline">
     {{ range . }}
@@ -57,12 +63,6 @@
   </section>
   {{ end }}
 
-  {{ with .Content }}
-  <div class="prose history-prose">
-    {{ . }}
-  </div>
-  {{ end }}
-
   {{ $photos := slice }}
   {{ if .Params.photos }}        {{ $photos = .Params.photos }}
   {{ else if .Params.images }}
@@ -89,9 +89,36 @@
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
-  <h2 class="history-section-title">{{ if $isRu }}Фото: архив, храм, дом, сквер{{ else }}Photos: archive, church, house, garden{{ end }}</h2>
+  <h2 class="history-section-title">{{ if $isRu }}Архивные фото и оживлённые кадры{{ else }}Archive photographs and animated frames{{ end }}</h2>
   {{ $empty := "" }}
   {{ partial "photo-grid.html" (dict "Page" . "photos" $photos "group" "hist-main" "empty" $empty) }}
   {{ end }}
+
+  <nav class="history-albums" aria-label="{{ if $isRu }}Другие альбомы{{ else }}Other albums{{ end }}">
+    <h2 class="history-section-title">{{ if $isRu }}Другие альбомы{{ else }}Other albums{{ end }}</h2>
+    <div class="history-albums__grid">
+      {{- $church := .Site.GetPage "galleries/nikola-bersenevka" -}}
+      {{- $house := .Site.GetPage "galleries/dom-na-naberezhnoy" -}}
+      {{- $square := .Site.GetPage "galleries/bolotnaya-square" -}}
+      {{- with $church }}
+        <a class="history-albums__card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>{{ if $isRu }}Храм и палаты Кириллова, отдельно от архива площади.{{ else }}The church and Kirillov chambers, apart from the square archive.{{ end }}</span>
+        </a>
+      {{- end }}
+      {{- with $house }}
+        <a class="history-albums__card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>{{ if $isRu }}Живые фото 2018–2024 и ИИ-анимации дома.{{ else }}Photographs 2018–2024 and AI animations of the house.{{ end }}</span>
+        </a>
+      {{- end }}
+      {{- with $square }}
+        <a class="history-albums__card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>{{ if $isRu }}Сквер, фонтан, Лужков мост — как площадь выглядит сейчас.{{ else }}The garden, fountain and Luzhkov Bridge as the square looks now.{{ end }}</span>
+        </a>
+      {{- end }}
+    </div>
+  </nav>
 </div>
 {{ end }}

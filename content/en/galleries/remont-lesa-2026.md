@@ -3,6 +3,7 @@ slug: remont-lesa-2026
 title: Repair and scaffolding 2026
 description: Facade scaffolding at Bolotnaya — a chronicle of the works on Ulitsa Serafimovicha while the cameras are offline.
 translationKey: remont-lesa-2026-gallery
+weight: 5
 images:
   - src: /images/galleries/lesa-2026/2026-06-05-12-46-55.jpg
     caption: 5 June. Scaffolding already up along the Serafimovicha facade

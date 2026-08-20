@@ -1,4 +1,4 @@
 ---
 title: "Photo galleries — Bolotnaya Square"
-description: "Photos of Bolotnaya Square, the House on the Embankment, and historical views of Yakimanka."
+description: "Archive of the square, St Nicholas on Bersenevka, House on the Embankment, the garden, and the 2026 scaffolding chronicle."
 ---

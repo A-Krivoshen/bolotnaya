@@ -2750,6 +2750,43 @@ summary:focus-visible,
   margin: 0 0 0.75rem;
 }
 
+.history-albums {
+  margin: 2.5rem 0 1rem;
+}
+
+.history-albums__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.history-albums__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--entry);
+  text-decoration: none;
+  color: inherit;
+}
+
+.history-albums__card:hover {
+  text-decoration: none;
+  border-color: var(--primary);
+}
+
+.history-albums__card strong {
+  font-size: 1rem;
+}
+
+.history-albums__card span {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--secondary);
+}
+
 @media (max-width: 800px) {
   .history-timeline__item {
     grid-template-columns: 1fr;
@@ -2757,6 +2794,10 @@ summary:focus-visible,
   }
 
   .history-recon__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-albums__grid {
     grid-template-columns: 1fr;
   }
 }

@@ -2,6 +2,7 @@
 slug: bolotnaya-square
 title: Болотная площадь
 description: Болотная площадь и Репинский сквер в Москве
+weight: 4
 images:
   - src: /images/galleries/IMG_0133.JPG
     caption: Памятник Илье Репину в Репинском сквере

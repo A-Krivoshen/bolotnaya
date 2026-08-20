@@ -16,6 +16,7 @@
   {{ $isRu := or (eq .Site.Language.Lang "ru") (eq .Lang "ru") }}
 
   {{ if gt (len $pages) 0 }}
+    {{ $pages = sort $pages "Weight" "asc" }}
     <div class="gallery-grid">
       {{ range $p := $pages }}
         {{/* Collect images from this page or its translations; keep it safe */}}
@@ -32,11 +33,21 @@
           {{- end -}}
         {{- end -}}
         {{ if not $images }}{{ $images = slice }}{{ end }}
-        {{ $cover := index $images 0 }}
+        {{- $cover := false -}}
+        {{- range $images -}}
+          {{- if not $cover -}}
+            {{- $src := .src | default .url | default .image | default . -}}
+            {{- $low := (printf "%v" $src) | lower -}}
+            {{- if and (not (strings.HasSuffix $low ".mp4")) (not (strings.HasSuffix $low ".webm")) (not (strings.HasSuffix $low ".mov")) -}}
+              {{- $cover = . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if not $cover }}{{ $cover = index $images 0 }}{{ end }}
 
         <a class="gallery-card card" href="{{ $p.RelPermalink }}">
           {{ with $cover }}
-            <img src="{{ .src | default . }}" alt="{{ .alt | default $p.Title }}">
+            <img src="{{ .src | default .thumb | default . }}" alt="{{ .alt | default $p.Title }}">
           {{ end }}
           <div class="gallery-meta">
             <h2 class="gallery-title">{{ $p.Title }}</h2>

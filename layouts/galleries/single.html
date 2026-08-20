@@ -5,6 +5,7 @@
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}<p class="muted">{{ . }}</p>{{ end }}
   </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
   {{ $photos := slice }}
   {{ if .Params.photos }}        {{ $photos = .Params.photos }}
