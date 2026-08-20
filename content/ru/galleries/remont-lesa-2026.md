@@ -5,13 +5,11 @@ description: Фасад в лесах у Болотной — хроника р�
 translationKey: remont-lesa-2026-gallery
 weight: 6
 images:
-  - src: /images/galleries/lesa-2026/lesa-2026-timelapse-v2.mp4
-    thumb: /images/galleries/lesa-2026/lesa-2026-timelapse.jpg
-    caption: Таймлапс июня–августа. 17 кадров с датами, 25 секунд.
+  - src: /images/galleries/lesa-2026/lesa-2026-timelapse-v3.mp4
+    thumb: /images/galleries/lesa-2026/lesa-2026-timelapse-poster.jpg
+    caption: Таймлапс июня–августа. 16 кадров с улицы, 24 секунды.
   - src: /images/galleries/lesa-2026/2026-06-05-12-46-55.jpg
     caption: 5 июня. Леса уже стоят вдоль фасада по Серафимовича
-  - src: /images/galleries/lesa-2026/camera-still-mesh.jpg
-    caption: 13 июня. Вид с точки камер — площадь и высотка через сетку лесов
   - src: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
     caption: 13 июня. Сетка ещё не закрыла весь фасад
   - src: /images/galleries/lesa-2026/2026-06-13-09-19-47.jpg
