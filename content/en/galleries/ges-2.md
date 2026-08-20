@@ -36,7 +36,7 @@ images:
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
     caption: 20 June 2026. Facade, stacks and a crane by the river.
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
-    caption: 20 June 2026. Works under Patriarshy Bridge, seen from GES-2.
+    caption: 20 June 2026. Works under Maly Kamenny Bridge, seen from GES-2.
   - src: /images/galleries/ges-2/2026-06-20-vault.jpg
     caption: 20 June 2026. The birch vault in summer.
   - src: /images/galleries/ges-2/2026-06-20-model.jpg

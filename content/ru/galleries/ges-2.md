@@ -36,7 +36,7 @@ images:
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg
     caption: 20 июня 2026. Фасад, трубы и кран у реки.
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
-    caption: 20 июня 2026. Работы под Патриаршим мостом, вид со стороны ГЭС-2.
+    caption: 20 июня 2026. Работы под Малым Каменным мостом, вид со стороны ГЭС-2.
   - src: /images/galleries/ges-2/2026-06-20-vault.jpg
     caption: 20 июня 2026. Берёзовый свод летом.
   - src: /images/galleries/ges-2/2026-06-20-model.jpg
