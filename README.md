@@ -36,6 +36,7 @@ The live cameras may be temporarily offline during facade maintenance. Status no
 
 - Bilingual Hugo site with Russian as the default language under `/ru/`.
 - Dedicated pages for live camera streams, history, galleries, posts, support, terms, and partner info.
+- Temporary 2026 section `remont-lesa-2026` documenting facade scaffolding while cameras are offline.
 - Custom templates and CSS for a more local editorial feel than a stock theme.
 - GitHub Actions deployment using Hugo Extended and `peaceiris/actions-gh-pages`.
 - Working root `404.html` fallback for GitHub Pages.

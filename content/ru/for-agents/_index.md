@@ -38,7 +38,7 @@ outputs: ["HTML"]
 1. Болотная площадь — страница [/ru/cameras/bolotnaya-square/](/ru/cameras/bolotnaya-square/), поток `https://cam.bolotnaya.online/lmost_new/index.m3u8`
 2. ул. Серафимовича — страница [/ru/cameras/ul-serafimovicha/](/ru/cameras/ul-serafimovicha/), поток `https://cam.bolotnaya.online/boloto_new/index.m3u8`
 
-**Статус 2026:** камеры могут быть выключены из-за [ремонта фасада](/ru/posts/cameras-maintenance-2026-06-02/). Не пишите, что эфир идёт, пока не проверили playlist (HTTP 200 и строка `#EXTM3U`).
+**Статус 2026:** камеры выключены из-за ремонта фасада. Пост: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/). Не пишите, что эфир идёт, пока не проверили playlist (HTTP 200 и строка `#EXTM3U`).
 
 ## Как цитировать
 

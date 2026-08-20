@@ -12,8 +12,8 @@
 
     <div class="site-alert" role="status">
       <div class="site-alert__title">{{ if $isRu }}Сейчас offline{{ else }}Currently offline{{ end }}</div>
-      <p>{{ if $isRu }}На фасаде здания идут ремонтные работы. Трансляции могут быть недоступны.{{ else }}Facade maintenance is in progress. Streams may be unavailable.{{ end }}</p>
-      <a href="{{ "posts/cameras-maintenance-2026-06-02/" | relLangURL }}">{{ if $isRu }}Подробности →{{ else }}Details →{{ end }}</a>
+      <p>{{ if $isRu }}На фасаде идут работы, леса закрыли обзор. Трансляции выключены.{{ else }}Facade work is underway and scaffolding blocks the view. Streams are off.{{ end }}</p>
+      <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
     </div>
 
     <div class="cameras-grid">

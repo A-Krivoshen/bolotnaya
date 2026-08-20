@@ -9,4 +9,4 @@ Standards: HTML5, CSS3, Hugo
 Components: PaperMod, hls.js, Yandex Metrika
 Languages: ru, en
 AI: /llms.txt /llms-ru.txt /llms-en.txt /ai/site.json
-Last-update: 2026-08-17
+Last-update: 2026-08-20

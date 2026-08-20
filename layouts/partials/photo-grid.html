@@ -1,0 +1,47 @@
+{{/*
+  Photo / video grid with GLightbox.
+  dict: Page, photos, group, empty
+*/}}
+{{- $page := .Page -}}
+{{- $photos := .photos | default slice -}}
+{{- $group := .group | default "gal" -}}
+{{- $empty := .empty -}}
+{{- $isRu := eq $page.Site.Language.Lang "ru" -}}
+
+{{- if gt (len $photos) 0 }}
+<link rel="stylesheet" href="/css/gallery-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<section class="gallery-grid">
+  {{- range $photos }}
+    {{- $src := .src | default .url | default .image | default . -}}
+    {{- $srcStr := printf "%v" $src -}}
+    {{- $srcLower := $srcStr | lower -}}
+    {{- $isVideo := or (strings.HasSuffix $srcLower ".mp4") (strings.HasSuffix $srcLower ".webm") (strings.HasSuffix $srcLower ".mov") (strings.HasSuffix $srcLower ".m4v") -}}
+    {{- $thumb := .thumb | default $src -}}
+    {{- $cap := .title | default .caption -}}
+    {{- if $isVideo }}
+      <a class="gallery-item gallery-item--video glightbox" href="{{ $srcStr }}" data-type="video" data-gallery="{{ $group }}"{{ with $cap }} data-title="{{ . }}"{{ end }}>
+        {{- if and .thumb (ne .thumb $src) }}
+          {{ partial "responsive-thumb.html" (dict "Page" $page "src" $srcStr "thumb" .thumb "alt" $cap) }}
+        {{- else }}
+          <span class="gallery-video-fallback">{{ if $isRu }}Видео{{ else }}Video{{ end }}</span>
+        {{- end }}
+        <span class="gallery-play" aria-hidden="true"></span>
+      </a>
+    {{- else }}
+      <a class="gallery-item glightbox" href="{{ $srcStr }}" data-gallery="{{ $group }}"{{ with $cap }} data-title="{{ . }}"{{ end }}>
+        {{ partial "responsive-thumb.html" (dict "Page" $page "src" $srcStr "thumb" $thumb "alt" $cap) }}
+      </a>
+    {{- end }}
+  {{- end }}
+</section>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof GLightbox === 'undefined') return;
+    GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, plyr: false });
+  });
+</script>
+{{- else }}
+  {{- with $empty }}<p class="muted">{{ . }}</p>{{ end }}
+{{- end }}

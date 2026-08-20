@@ -1,0 +1,113 @@
+{{ define "main" }}
+{{- $isRu := eq .Site.Language.Lang "ru" -}}
+{{- $gallerySlug := .Params.gallery_slug | default "remont-lesa-2026" -}}
+{{- $g := .Site.GetPage (printf "galleries/%s" $gallerySlug) -}}
+{{- $photos := slice -}}
+{{- with $g }}
+  {{- if .Params.photos }}{{ $photos = .Params.photos }}
+  {{- else if .Params.images }}{{ $photos = .Params.images }}{{ end }}
+{{- end }}
+{{- $tag := .Params.series_tag -}}
+{{- if not $tag }}{{ if $isRu }}{{ $tag = "леса-2026" }}{{ else }}{{ $tag = "scaffolding-2026" }}{{ end }}{{ end -}}
+{{- $posts := where (where .Site.RegularPages "Section" "posts") "Params.tags" "intersect" (slice $tag) -}}
+{{- $posts = $posts.ByDate.Reverse -}}
+{{- $videos := slice -}}
+{{- $stills := slice -}}
+{{- range $photos }}
+  {{- $src := .src | default .url | default .image | default . -}}
+  {{- $low := (printf "%v" $src) | lower -}}
+  {{- if or (strings.HasSuffix $low ".mp4") (strings.HasSuffix $low ".webm") (strings.HasSuffix $low ".mov") }}
+    {{- $videos = $videos | append . }}
+  {{- else }}
+    {{- $stills = $stills | append . }}
+  {{- end }}
+{{- end }}
+
+<div class="container repair-page">
+  <header class="page-header">
+    <p class="repair-kicker">{{ if $isRu }}Якиманка · ул. Серафимовича{{ else }}Yakimanka · Ulitsa Serafimovicha{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="page-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  <div class="repair-status" role="status">
+    <div class="repair-status__item">
+      <span class="repair-status__label">{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}</span>
+      <strong>offline</strong>
+    </div>
+    <div class="repair-status__item">
+      <span class="repair-status__label">{{ if $isRu }}С{{ else }}Since{{ end }}</span>
+      <strong>02.06.2026</strong>
+    </div>
+    <div class="repair-status__item">
+      <span class="repair-status__label">{{ if $isRu }}Альбом{{ else }}Album{{ end }}</span>
+      <strong>{{ len $stills }} {{ if $isRu }}фото{{ else }}photos{{ end }} · {{ len $videos }} {{ if $isRu }}видео{{ else }}videos{{ end }}</strong>
+    </div>
+    <div class="repair-status__item">
+      <span class="repair-status__label">{{ if $isRu }}Ориентир{{ else }}Aim{{ end }}</span>
+      <strong>{{ if $isRu }}осень, если работы позволят{{ else }}autumn, if the works allow{{ end }}</strong>
+    </div>
+  </div>
+
+  <div class="prose repair-prose">
+    {{ .Content }}
+  </div>
+
+  {{- if gt (len $videos) 0 }}
+  <section class="repair-videos" aria-labelledby="repair-videos-title">
+    <h2 id="repair-videos-title">{{ if $isRu }}Видео с телефона{{ else }}Phone video{{ end }}</h2>
+    <div class="repair-videos__grid">
+      {{- range $videos }}
+        {{- $src := .src | default .url -}}
+        {{- $poster := .thumb | default "" -}}
+        {{- $cap := .caption | default .title -}}
+        <figure class="repair-video">
+          <video src="{{ $src }}" {{ with $poster }}poster="{{ . }}"{{ end }} controls playsinline preload="metadata"></video>
+          {{ with $cap }}<figcaption>{{ . }}</figcaption>{{ end }}
+        </figure>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  <section class="repair-album" aria-labelledby="repair-album-title">
+    <div class="repair-section-head">
+      <h2 id="repair-album-title">{{ if $isRu }}Фото по датам{{ else }}Photos by date{{ end }}</h2>
+      {{ with $g }}
+        <a class="home-section__link" href="{{ .RelPermalink }}">{{ if $isRu }}Весь альбом →{{ else }}Full album →{{ end }}</a>
+      {{ end }}
+    </div>
+    {{- $emptyAlbum := "The album is still being assembled — frames will appear here." -}}
+    {{- if $isRu }}{{ $emptyAlbum = "Альбом ещё собираем — кадры появятся здесь." }}{{ end -}}
+    {{ partial "photo-grid.html" (dict
+      "Page" .
+      "photos" $stills
+      "group" "lesa-2026"
+      "empty" $emptyAlbum
+    ) }}
+  </section>
+
+  {{- if $posts }}
+  <section class="repair-log" aria-labelledby="repair-log-title">
+    <h2 id="repair-log-title">{{ if $isRu }}Заметки по ходу работ{{ else }}Notes as work goes on{{ end }}</h2>
+    <div class="blog-list-grid">
+      {{ range $posts }}
+        <a class="blog-card card" href="{{ .RelPermalink }}">
+          <div class="meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+          </div>
+          <h3 class="blog-card__title">{{ .Title }}</h3>
+          <p>{{ .Summary | truncate 140 }}</p>
+          <span class="read">{{ if $isRu }}Читать →{{ else }}Read →{{ end }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+  {{- end }}
+
+  <p class="repair-back">
+    <a href="{{ "cameras/" | relLangURL }}" class="btn btn-secondary">{{ if $isRu }}К камерам{{ else }}Cameras{{ end }}</a>
+    <a href="{{ "galleries/" | relLangURL }}" class="btn btn-secondary">{{ if $isRu }}Все галереи{{ else }}All galleries{{ end }}</a>
+  </p>
+</div>
+{{ end }}

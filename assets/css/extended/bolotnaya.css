@@ -2483,3 +2483,154 @@ summary:focus-visible,
     opacity: 0.28;
   }
 }
+
+/* Repair / scaffolding 2026 */
+.repair-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.repair-status {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+}
+
+.repair-status__item {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--entry);
+}
+
+.repair-status__label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0.2rem;
+}
+
+.repair-status__item strong {
+  font-size: 0.95rem;
+}
+
+.repair-prose {
+  max-width: 62ch;
+  margin-bottom: 2.25rem;
+}
+
+.repair-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.repair-videos {
+  margin: 0 0 2.5rem;
+}
+
+.repair-videos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.repair-video {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.repair-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  background: #111;
+}
+
+.repair-video figcaption {
+  padding: 0.7rem 0.9rem 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--secondary);
+  background: var(--entry);
+}
+
+.repair-album,
+.repair-log {
+  margin: 0 0 2.5rem;
+}
+
+.repair-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+}
+
+.gallery-item--video .gallery-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.gallery-item--video .gallery-play::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 16px;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.gallery-video-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #eee;
+  font-weight: 600;
+}
+
+.explore-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .repair-status,
+  .repair-videos__grid,
+  .explore-grid--3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .repair-status,
+  .repair-videos__grid,
+  .explore-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}

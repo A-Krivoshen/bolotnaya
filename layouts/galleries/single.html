@@ -11,29 +11,14 @@
   {{ else if .Params.images }}   {{ $photos = .Params.images }}
   {{ end }}
 
-  {{ if gt (len $photos) 0 }}
-  <link rel="stylesheet" href="/css/gallery-grid.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-  <section class="gallery-grid">
-    {{ $group := printf "gal-%s" .File.BaseFileName | default "gal" }}
-    {{ range $photos }}
-      {{ $src := .src | default .url | default .image | default . }}
-      {{ $thumb := .thumb | default $src }}
-      {{ $cap := .title | default .caption }}
-      <a class="gallery-item glightbox" href="{{ $src }}" data-gallery="{{ $group }}" {{ with $cap }}data-title="{{ . }}"{{ end }}>
-        {{ partial "responsive-thumb.html" (dict "Page" $ "src" $src "thumb" $thumb "alt" $cap) }}
-      </a>
-    {{ end }}
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded',function(){
-      if (typeof GLightbox==='undefined') return;
-      GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
-    });
-  </script>
-  {{ else }}
-    <p class="muted">В этой галерее пока нет изображений.</p>
-  {{ end }}
+  {{ $group := printf "gal-%s" .File.BaseFileName | default "gal" }}
+  {{ $emptyGal := "This gallery has no images yet." }}
+  {{ if eq .Site.Language.Lang "ru" }}{{ $emptyGal = "В этой галерее пока нет изображений." }}{{ end }}
+  {{ partial "photo-grid.html" (dict
+    "Page" .
+    "photos" $photos
+    "group" $group
+    "empty" $emptyGal
+  ) }}
 </article>
 {{ end }}

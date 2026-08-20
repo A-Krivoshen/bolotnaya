@@ -34,13 +34,15 @@ Bolotnaya Online — личный районный проект жителя Я�
 
 Каталог JSON: https://bolotnaya.online/ai/cameras.json
 
-**Статус (2026):** камеры могут быть выключены из-за ремонта фасада. Пост: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+**Статус (2026):** камеры выключены из-за ремонта фасада. Пост: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+Хроника: https://bolotnaya.online/ru/remont-lesa-2026/  
 Не утверждайте, что трансляция сейчас идёт, если не проверили playlist (HTTP 200 и валидный `#EXTM3U`).
 
 ## Карта сайта (RU)
 
 - Главная: https://bolotnaya.online/ru/
 - Камеры: https://bolotnaya.online/ru/cameras/
+- Ремонт и леса 2026: https://bolotnaya.online/ru/remont-lesa-2026/
 - История: https://bolotnaya.online/ru/history/
 - Фото: https://bolotnaya.online/ru/galleries/
 - Блог: https://bolotnaya.online/ru/posts/

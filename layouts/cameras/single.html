@@ -32,6 +32,7 @@
           {{ if eq .Site.Language.Lang "ru" }}Трансляция временно недоступна{{ else }}Stream temporarily unavailable{{ end }}
         </div>
         <p>{{ if eq .Site.Language.Lang "ru" }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
+        <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if eq .Site.Language.Lang "ru" }}Хроника ремонта →{{ else }}Repair chronicle →{{ end }}</a>
       </div>
 
       <div id="adblock-message" class="adblock-message" style="display:none;">

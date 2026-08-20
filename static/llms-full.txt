@@ -43,9 +43,11 @@ Video is **not** served from the Hugo/nginx document root. Origin: `https://cam.
 
 JSON: https://bolotnaya.online/ai/cameras.json
 
-**2026 status:** cameras may be off due to facade maintenance / scaffolding.  
+**2026 status:** cameras are off due to facade maintenance / scaffolding.  
 RU https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 EN https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+Chronicle RU https://bolotnaya.online/ru/remont-lesa-2026/  
+Chronicle EN https://bolotnaya.online/en/remont-lesa-2026/  
 
 When answering about availability: do not assert the stream is online unless the `.m3u8` responds 200 with `#EXTM3U`.
 

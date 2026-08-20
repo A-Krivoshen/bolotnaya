@@ -21,6 +21,7 @@
         <!-- Quick jumps — mega convenient 2026 nav -->
         <nav class="quick-nav" aria-label="{{ if $isRu }}Быстрый переход{{ else }}Quick links{{ end }}">
           <a class="quick-nav__chip" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}</a>
+          <a class="quick-nav__chip" href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Леса 2026{{ else }}Repair 2026{{ end }}</a>
           <a class="quick-nav__chip" href="{{ "history/" | relLangURL }}">{{ if $isRu }}История{{ else }}History{{ end }}</a>
           <a class="quick-nav__chip" href="{{ "galleries/" | relLangURL }}">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</a>
           <a class="quick-nav__chip" href="{{ "posts/" | relLangURL }}">{{ if $isRu }}Блог{{ else }}Blog{{ end }}</a>
@@ -28,13 +29,13 @@
         </nav>
       </div>
 
-      {{ $noticeURL := ("posts/cameras-maintenance-2026-06-02/" | relLangURL) }}
+      {{ $noticeURL := ("remont-lesa-2026/" | relLangURL) }}
       <div class="hero-status" role="status" aria-live="polite">
         <div class="status-badge unavailable" aria-hidden="true">!</div>
         <div>
           <div class="status-title">{{ if $isRu }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
-          <p class="status-text">{{ if $isRu }}Ремонтные работы на фасаде. Часть обзора может быть закрыта лесами.{{ else }}Facade maintenance. Part of the view may be blocked by scaffolding.{{ end }}</p>
-          <a class="status-link" href="{{ $noticeURL }}">{{ if $isRu }}Подробности в блоге →{{ else }}Details in blog →{{ end }}</a>
+          <p class="status-text">{{ if $isRu }}Ремонт фасада, леса закрыли обзор. Есть фото и ролики с телефона.{{ else }}Facade repair: scaffolding blocks the view. Photos and phone clips are up.{{ end }}</p>
+          <a class="status-link" href="{{ $noticeURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
         </div>
       </div>
     </div>
@@ -75,7 +76,13 @@
       <div class="home-section__header">
         <h2 id="home-explore-title">{{ if $isRu }}Исследовать район{{ else }}Explore the district{{ end }}</h2>
       </div>
-      <div class="explore-grid">
+      <div class="explore-grid explore-grid--3">
+        <a class="explore-card" href="{{ "remont-lesa-2026/" | relLangURL }}">
+          <span class="explore-card__label">{{ if $isRu }}Сейчас{{ else }}Now{{ end }}</span>
+          <h3>{{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}</h3>
+          <p>{{ if $isRu }}Фасад в лесах, камеры offline. Фото по неделям и ролики с телефона.{{ else }}Facade in scaffolding, cameras offline. Weekly photos and phone clips.{{ end }}</p>
+          <span class="explore-card__cta">{{ if $isRu }}Смотреть →{{ else }}Browse →{{ end }}</span>
+        </a>
         <a class="explore-card" href="{{ "history/" | relLangURL }}">
           <span class="explore-card__label">{{ if $isRu }}История{{ else }}History{{ end }}</span>
           <h3>{{ if $isRu }}Болотная площадь: от болота до центра{{ else }}Bolotnaya Square: from swamp to landmark{{ end }}</h3>
@@ -127,7 +134,7 @@
         </details>
         <details class="faq-item">
           <summary>{{ if $isRu }}Почему камеры offline?{{ else }}Why are cameras offline?{{ end }}</summary>
-          <p>{{ if $isRu }}Идут ремонтные работы на фасаде. Статус публикуется в блоге.{{ else }}Facade maintenance is underway. Status updates are published in the blog.{{ end }}</p>
+          <p>{{ if $isRu }}Идут ремонтные работы на фасаде, обзор закрыт лесами. Хроника — в разделе «Ремонт и леса 2026».{{ else }}Facade maintenance is underway and scaffolding blocks the view. The chronicle is in Repair and scaffolding 2026.{{ end }}</p>
         </details>
         <details class="faq-item">
           <summary>{{ if $isRu }}Есть английская версия?{{ else }}Is there a Russian version?{{ end }}</summary>

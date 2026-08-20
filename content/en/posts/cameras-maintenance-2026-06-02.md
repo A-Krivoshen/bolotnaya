@@ -18,4 +18,6 @@ Important details:
 
 As soon as the streams can be safely and reliably restored, the information on the website will be updated.
 
+The repair chronicle is in [Repair and scaffolding 2026](/en/remont-lesa-2026/): photos, phone clips and weekly progress.
+
 Thank you for your understanding.

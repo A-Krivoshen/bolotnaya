@@ -34,13 +34,15 @@ Streams are served by a **different host**: `https://cam.bolotnaya.online/` (not
 
 JSON catalog: https://bolotnaya.online/ai/cameras.json
 
-**Status (2026):** cameras may be offline because of facade maintenance. Post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+**Status (2026):** cameras are offline because of facade maintenance. Post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+Chronicle: https://bolotnaya.online/en/remont-lesa-2026/  
 Do not claim a stream is live unless you have checked the playlist (HTTP 200 and a valid `#EXTM3U`).
 
 ## Site map (EN)
 
 - Home: https://bolotnaya.online/en/
 - Cameras: https://bolotnaya.online/en/cameras/
+- Repair and scaffolding 2026: https://bolotnaya.online/en/remont-lesa-2026/
 - History: https://bolotnaya.online/en/history/
 - Photos: https://bolotnaya.online/en/galleries/
 - Blog: https://bolotnaya.online/en/posts/
