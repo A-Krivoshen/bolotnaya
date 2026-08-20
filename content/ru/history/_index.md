@@ -65,7 +65,7 @@ timeline:
     title: Леса и Малый Каменный
     text: С июня камеры проекта offline — фасад по Серафимовича в лесах. В июне с ГЭС-2 видны работы под Малым Каменным мостом.
     image: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
-    caption: 13 июня 2026. Сетка на лесах, кадр камер закрыт.
+    caption: 13 июня 2026. Леса на Серафимовича, сетка ещё не закрыла весь фасад.
 
 now:
   - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-entrance.jpg
@@ -87,11 +87,11 @@ now:
   - src: /images/galleries/Bolotnya_square/2025-10-20-repin.jpg
     caption: 20 октября 2025. Памятник Репину в сквере.
   - src: /images/galleries/most-balchug/2025-10-20-peter-cranes.jpg
-    caption: 20 октября 2025. Пётр I, мост и краны на стрелке.
+    caption: 20 октября 2025. Малый Каменный; за ним пешеходный мост 2024, Пётр I и краны на стрелке.
   - src: /images/galleries/ges-2/2025-10-20-chimneys-night.jpg
     caption: 20 октября 2025. Трубы ГЭС-2 и купол «Ударника» в сетке.
   - src: /images/galleries/Bolotnya_square/2026-02-21-ice.jpg
-    caption: 21 февраля 2026. Лёд на канале, экскаватор на барже.
+    caption: 21 февраля 2026. Софийская набережная, лёд на Москве-реке, экскаватор на барже.
   - src: /images/galleries/most-balchug/2026-05-15-s-mosta.jpg
     caption: Май 2026. С моста вдоль канала — Красный Октябрь и ГЭС-2.
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg

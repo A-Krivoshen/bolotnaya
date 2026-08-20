@@ -8,7 +8,7 @@ images:
   - src: /images/galleries/IMG_0133.JPG
     caption: Памятник Илье Репину в Репинском сквере
   - src: /images/galleries/Bolotnya_square/20210520_073324-ANIMATION.gif
-    caption: Реконструкция Репинского сквера, вид сверху на фонтан
+    caption: 20 мая 2021. Реконструкция Репинского сквера, вид сверху на фонтан
   - src: /images/galleries/Bolotnya_square/EFFECTS.jpg
     caption: Зимний фонтан без воды
   - src: /images/galleries/Bolotnya_square/IMG_0134.JPG
@@ -22,59 +22,59 @@ images:
   - src: /images/galleries/Bolotnya_square/IMG_0131.JPG
     caption: Цветники сквера и Дом на набережной
   - src: /images/galleries/Bolotnya_square/IMG_20190505_170428.jpg
-    caption: Радуга над Болотной площадью
+    caption: 5 мая 2019. Радуга над Болотной площадью
   - src: /images/galleries/Bolotnya_square/IMG_20190331_182004.jpg
-    caption: Табличка «Болотная улица»
+    caption: 31 марта 2019. Табличка «Болотная улица»
   - src: /images/galleries/Bolotnya_square/IMG_20190503_160646.jpg
-    caption: Клумба и памятник Репину
+    caption: 3 мая 2019. Клумба и памятник Репину
   - src: /images/galleries/Bolotnya_square/IMG_20191219_163928.jpg
-    caption: Вечерняя иллюминация на деревьях
+    caption: 19 декабря 2019. Вечерняя иллюминация на деревьях
   - src: /images/galleries/Bolotnya_square/IMG_20191219_164518.jpg
-    caption: Памятник Репину вечером
+    caption: 19 декабря 2019. Памятник Репину вечером
   - src: /images/galleries/Bolotnya_square/IMG_20191219_165059.jpg
-    caption: Новогодняя инсталляция «2020»
+    caption: 19 декабря 2019. Новогодняя инсталляция «2020»
   - src: /images/galleries/Bolotnya_square/IMG_20200112_133512.jpg
-    caption: Рябина в снегу
+    caption: 12 января 2020. Рябина в снегу
   - src: /images/galleries/Bolotnya_square/IMG_20200112_134304.jpg
-    caption: Заснеженные кусты в сквере
+    caption: 12 января 2020. Заснеженные кусты в сквере
   - src: /images/galleries/Bolotnya_square/IMG_20200112_134311.jpg
-    caption: Зимняя дорожка между кустами
+    caption: 12 января 2020. Зимняя дорожка между кустами
   - src: /images/galleries/Bolotnya_square/IMG_20200112_134740.jpg
-    caption: Репинский сквер зимой
+    caption: 12 января 2020. Репинский сквер зимой
   - src: /images/galleries/Bolotnya_square/IMG_20200112_134851.jpg
-    caption: Заснеженная дорожка
+    caption: 12 января 2020. Заснеженная дорожка
   - src: /images/galleries/Bolotnya_square/IMG_20200112_134956.jpg
-    caption: Памятник Репину и красный автобус
+    caption: 12 января 2020. Памятник Репину и красный автобус
   - src: /images/galleries/Bolotnya_square/IMG_20200112_134959.jpg
-    caption: Болотная площадь зимой, вид на памятник Репину
+    caption: 12 января 2020. Болотная площадь зимой, вид на памятник Репину
   - src: /images/galleries/Bolotnya_square/IMG_20210114_090404.jpg
-    caption: Болотная площадь сверху, январь 2021
+    caption: 14 января 2021. Болотная площадь сверху
   - src: /images/galleries/Bolotnya_square/IMG_20210206_132401.jpg
-    caption: Деревья с замками на Малом Каменном мосту
+    caption: 6 февраля 2021. Деревья с замками на Лужковом мосту, вид на Репинский сквер
   - src: /images/galleries/Bolotnya_square/IMG_20210206_134207.jpg
-    caption: Зимняя аллея сквера
+    caption: 6 февраля 2021. Зимняя аллея сквера
   - src: /images/galleries/Bolotnya_square/IMG_20210327_195423.jpg
-    caption: Вечер в Репинском сквере
+    caption: 27 марта 2021. Вечер в Репинском сквере
   - src: /images/galleries/Bolotnya_square/IMG_20210519_191710.jpg
-    caption: Ремонт аллеи у фонтана
+    caption: 19 мая 2021. Ремонт аллеи у фонтана
   - src: /images/galleries/Bolotnya_square/IMG_20211208_132838.jpg
-    caption: Табличка «Малый Каменный мост»
+    caption: 8 декабря 2021. Табличка «Малый Каменный мост»
   - src: /images/galleries/Bolotnya_square/IMG_20211208_132842.jpg
-    caption: Малый Каменный мост и Водоотводный канал
+    caption: 8 декабря 2021. Малый Каменный мост и Водоотводный канал
   - src: /images/galleries/Bolotnya_square/IMG_20211218_190719-EFFECTS.jpg
-    caption: Памятник Репину и светящиеся деревья
+    caption: 18 декабря 2021. Памятник Репину и светящиеся деревья
   - src: /images/galleries/Bolotnya_square/IMG_20221231_111628.jpg
-    caption: Новогодняя ёлка у канала
+    caption: 31 декабря 2022. Новогодняя ёлка у канала
   - src: /images/galleries/Bolotnya_square/IMG_20230107_153035.jpg
-    caption: Новогодняя инсталляция «2023»
+    caption: 7 января 2023. Новогодняя инсталляция «2023»
   - src: /images/galleries/Bolotnya_square/PANO_20200112_134411.jpg
-    caption: Скульптуры «Дети — жертвы пороков взрослых»
+    caption: 12 января 2020. Скульптуры «Дети — жертвы пороков взрослых»
   - src: /images/galleries/Bolotnya_square/Screenshot_20200727_104931.png
-    caption: Фонтаны на Водоотводном канале и памятник Петру I
+    caption: 27 июля 2020. Фонтаны на Водоотводном канале и памятник Петру I
   - src: /images/galleries/Bolotnya_square/IMG_20251020_174240.jpg
-    caption: Памятник Репину, октябрь 2025
+    caption: 20 октября 2025. Памятник Репину
   - src: /images/galleries/Bolotnya_square/IMG_20251020_174043.jpg
-    caption: Малый Каменный мост вечером
+    caption: 20 октября 2025. Малый Каменный мост вечером
   - src: /images/galleries/Bolotnya_square/gphoto-000-dusk-park.jpg
     caption: Болотная площадь сверху на закате, канал и высотка на Котельнической
   - src: /images/galleries/Bolotnya_square/gphoto-029-spring-aerial.jpg
@@ -118,6 +118,6 @@ images:
   - src: /images/galleries/Bolotnya_square/2025-10-20-repin.jpg
     caption: 20 октября 2025. Памятник Репину в сквере.
   - src: /images/galleries/Bolotnya_square/2026-02-21-ice.jpg
-    caption: 21 февраля 2026. Лёд на канале, экскаватор на барже.
+    caption: 21 февраля 2026. Софийская набережная, лёд на Москве-реке, экскаватор на барже.
 ---
 

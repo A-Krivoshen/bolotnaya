@@ -12,19 +12,19 @@ images:
   - src: /images/galleries/domnanaberzhnoy/2019-04-16-facade.jpg
     caption: Фасад, апрель 2019.
   - src: /images/galleries/domnanaberzhnoy/2018-09-25-iofan-plaque.jpg
-    caption: "Табличка: комплекс Дома правительства, 1928–1931, архитектор Борис Иофан."
+    caption: "Сентябрь 2018. Табличка: комплекс Дома правительства, 1928–1931, архитектор Борис Иофан."
   - src: /images/galleries/domnanaberzhnoy/trifonov-plaque.jpg
     caption: "Юрий Трифонов жил здесь в 1931–1939 и написал роман «Дом на набережной»."
   - src: /images/galleries/domnanaberzhnoy/2019-05-04-badenkov-plaque.jpg
-    caption: Мемориальная доска Петру Баденкову.
+    caption: Май 2019. Мемориальная доска Петру Баденкову.
   - src: /images/galleries/domnanaberzhnoy/2019-05-04-estrada-udarnik.jpg
-    caption: Кинотеатр «Ударник» / Театр эстрады — часть комплекса.
+    caption: Май 2019. Кинотеатр «Ударник» / Театр эстрады — часть комплекса.
   - src: /images/galleries/domnanaberzhnoy/2019-10-11-autumn-facade.jpg
     caption: Двор дома осенью, октябрь 2019.
   - src: /images/galleries/domnanaberzhnoy/2020-04-04-udarnik-repair.jpg
-    caption: Ремонт внутри «Ударника», апрель 2020.
+    caption: Ремонт «Ударника», апрель 2020. Вид с улицы через ворота.
   - src: /images/galleries/domnanaberzhnoy/2020-10-12-from-canal.jpg
-    caption: Дом и «Ударник» с канала, октябрь 2020.
+    caption: Дом и «Ударник» с Москвы-реки, октябрь 2020.
   - src: /images/galleries/domnanaberzhnoy/2022-05-13-from-river.jpg
     caption: Дом с Москвы-реки, май 2022.
   - src: /images/galleries/history/2018-12-29-ice-kremlin.jpg

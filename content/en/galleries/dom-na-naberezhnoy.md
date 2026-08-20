@@ -12,19 +12,19 @@ images:
   - src: /images/galleries/domnanaberzhnoy/2019-04-16-facade.jpg
     caption: Facade, April 2019.
   - src: /images/galleries/domnanaberzhnoy/2018-09-25-iofan-plaque.jpg
-    caption: "Plaque: Government House complex, 1928–1931, architect Boris Iofan."
+    caption: "September 2018. Plaque: Government House complex, 1928–1931, architect Boris Iofan."
   - src: /images/galleries/domnanaberzhnoy/trifonov-plaque.jpg
     caption: "Yury Trifonov lived here in 1931–1939 and wrote the novel House on the Embankment."
   - src: /images/galleries/domnanaberzhnoy/2019-05-04-badenkov-plaque.jpg
-    caption: Memorial plaque for Pyotr Badenkov.
+    caption: May 2019. Memorial plaque for Pyotr Badenkov.
   - src: /images/galleries/domnanaberzhnoy/2019-05-04-estrada-udarnik.jpg
-    caption: Udarnik cinema / Estrada Theatre — part of the complex.
+    caption: May 2019. Udarnik cinema / Estrada Theatre — part of the complex.
   - src: /images/galleries/domnanaberzhnoy/2019-10-11-autumn-facade.jpg
     caption: Courtyard in autumn, October 2019.
   - src: /images/galleries/domnanaberzhnoy/2020-04-04-udarnik-repair.jpg
-    caption: Interior works at Udarnik, April 2020.
+    caption: Udarnik works, April 2020. From the street through the gate.
   - src: /images/galleries/domnanaberzhnoy/2020-10-12-from-canal.jpg
-    caption: The house and Udarnik from the canal, October 2020.
+    caption: The house and Udarnik from the Moskva River, October 2020.
   - src: /images/galleries/domnanaberzhnoy/2022-05-13-from-river.jpg
     caption: The house from the Moskva River, May 2022.
   - src: /images/galleries/history/2018-12-29-ice-kremlin.jpg

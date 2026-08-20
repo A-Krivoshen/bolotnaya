@@ -65,7 +65,7 @@ timeline:
     title: Scaffolding and Maly Kamenny
     text: Since June the project cameras are offline — scaffolding on the Serafimovicha facade. In June, works under Maly Kamenny Bridge are visible from GES-2.
     image: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
-    caption: 13 June 2026. Mesh on the scaffold; the camera frame is blocked.
+    caption: 13 June 2026. Scaffolding on Serafimovicha; mesh has not yet covered the whole facade.
 
 now:
   - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-entrance.jpg
@@ -87,11 +87,11 @@ now:
   - src: /images/galleries/Bolotnya_square/2025-10-20-repin.jpg
     caption: 20 October 2025. The Repin monument in the garden.
   - src: /images/galleries/most-balchug/2025-10-20-peter-cranes.jpg
-    caption: 20 October 2025. Peter the Great, the bridge and cranes on the spit.
+    caption: 20 October 2025. Maly Kamenny; behind it the 2024 pedestrian bridge, Peter the Great and cranes on the spit.
   - src: /images/galleries/ges-2/2025-10-20-chimneys-night.jpg
     caption: 20 October 2025. GES-2 stacks and the Udarnik dome in mesh.
   - src: /images/galleries/Bolotnya_square/2026-02-21-ice.jpg
-    caption: 21 February 2026. Ice on the canal, an excavator on a barge.
+    caption: 21 February 2026. Sofiyskaya Embankment, ice on the Moskva, an excavator on a barge.
   - src: /images/galleries/most-balchug/2026-05-15-s-mosta.jpg
     caption: May 2026. From the bridge along the canal — Krasny Oktyabr and GES-2.
   - src: /images/galleries/ges-2/2026-06-20-river-works.jpg

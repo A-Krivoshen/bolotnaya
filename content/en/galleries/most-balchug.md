@@ -10,7 +10,7 @@ images:
   - src: /images/galleries/most-balchug/2023-11-17-stroyka.jpg
     caption: November 2023. The span is up, cladding not yet on. View from the Muzeon side.
   - src: /images/galleries/most-balchug/2025-10-20-peter-cranes.jpg
-    caption: 20 October 2025. Peter the Great, the bridge and cranes on the spit.
+    caption: 20 October 2025. Maly Kamenny; behind it the 2024 pedestrian bridge, Peter the Great and cranes on the spit.
   - src: /images/galleries/most-balchug/2026-05-15-s-mosta.jpg
     caption: May 2026. From the bridge along the canal — Krasny Oktyabr and GES-2.
 ---
