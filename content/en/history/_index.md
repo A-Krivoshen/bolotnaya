@@ -1,36 +1,84 @@
 ---
-summary: Photo History of Bolotnaya Square
+summary: From swamp to the 800th-anniversary garden — a Bolotnaya Square timeline
 slug: History of Bolotnaya Square — From Moscow Swamp to Cultural Landmark
 title: History
-description: >-
-  Discover the history of Bolotnaya Square in Moscow — from its swampy origins
-  to becoming a vibrant cultural hub with monuments, festivals, and historic
-  significance.
+description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies."
 gallery_slug: bolotnaya-history
+images:
+  - /images/galleries/history/reconstruct-1800.jpg
+timeline:
+  - year: "11th–14th c."
+    title: The swamp
+    text: A floodplain on the right bank of the Moskva. The name Boloto (“marsh”) is recorded from the 14th century.
+  - year: "1657"
+    title: St Nicholas on Bersenevka
+    text: Stone church built for dyak Averkii Kirillov, 17th-century uzorochye. Still standing beside the House on the Embankment.
+    image: /images/galleries/history/bersenevka/church-porch.jpg
+  - year: "1775"
+    title: Last execution
+    text: Yemelyan Pugachev was executed on the square. Stepan Razin’s remains had been displayed here in 1671.
+  - year: "1780s"
+    title: Vodootvodny Canal
+    text: A canal along an old river channel drained the floodplain. People still called the place Boloto.
+  - year: "19th c."
+    title: Market square
+    text: Warehouses, sheds, merchant houses. A riverside market, not a ceremonial plaza.
+  - year: "1927–1931"
+    title: House on the Embankment
+    text: Government House, architect Boris Iofan, on the site of the Wine and Salt Court, opposite the Kremlin.
+    image: /images/galleries/history/9Q_C_Aqel-c.jpg
+  - year: "1947–1958"
+    title: 800th-anniversary garden and Repin
+    text: Autumn 1947 — Vitaly Dolganov’s garden for Moscow’s 800th anniversary. 1948 — the fountain. 29 September 1958 — Repin monument by Matvey Manizer and Igor Rozhin.
+    image: /images/galleries/history/fountain-1948-repin-square.jpg
+  - year: "2011–2012"
+    title: The rallies
+    text: 10 December 2011 — one of Moscow’s largest rallies since the 1990s. 6 May 2012 — the March of Millions.
+  - year: "2010s–now"
+    title: Festivals and walks
+    text: City holidays, a skating rink, Day of the City. Since June 2026 the project cameras are offline — scaffolding on the facade.
+reconstructions:
+  - year: "c. 1800"
+    src: /images/galleries/history/reconstruct-1800.jpg
+    caption: "AI reconstruction. St Nicholas on Bersenevka and the low bank. A hypothesis, not a document."
+  - year: "c. 1930"
+    src: /images/galleries/history/reconstruct-1930.jpg
+    caption: "AI colour of an archival frame. Canal still without granite; the House on the Embankment already up."
+  - year: "c. 1980"
+    src: /images/galleries/history/reconstruct-1980.jpg
+    caption: "AI colour of an archival garden-and-fountain frame. Pedestrian plaza, no cars by the bowl."
 ---
 
-*`History of Bolotnaya Square: From Moscow Swamp to Cultural Heart of the Capital`*
+Bolotnaya Square is the low bank opposite the Kremlin, in Yakimanka. The name is older than the square: there really was a **swamp**.
 
-*Introduction: The Historical Heart of Moscow*
+The timeline below follows sources that can be checked. The three “how it looked” frames are AI: two are colourisations of archival photos, one is a reconstruction around 1800. They are not documents.
 
-*Bolotnaya Square is one of the most famous historic landmarks in the Russian capital, located just steps away from the Kremlin. Once an actual swamp — which gave the square its name — this area has transformed over the centuries into a popular spot for walking, cultural events, and sightseeing.*
+## The swamp
 
-*17th–18th Centuries: From Swamp to City Square*
+In the 11th century this was floodplain and marsh; the Volotskaya road ran along the western edge. Zamoskvorechye was built up later than the Kremlin bank. Floods continued until the 1780s, when the **Vodootvodny Canal** was cut along an old channel.
 
-*The history of Bolotnaya Square dates back to the late 17th century. In 1695, by order of Peter I, the Church of Saints Peter and Paul was built on the future site of the square. Originally, it was part of plans to move the Russian capital to Saint Petersburg, but after the government center returned to Moscow, the church became an important local landmark.*
+## Churches
 
-*During the 18th century, the area began to change. In 1780, a church dedicated to the Tikhvin Icon of the Mother of God was constructed here. Then, in 1804, construction began on the Moscow University Clinic on the former swampy land — a project completed in 1828.*
+Next to the square stands the **Church of St Nicholas on Bersenevka** (main altar of the Trinity): a stone church of 1656–1657, in one ensemble with the chambers of dyak Averkii Kirillov. Uzorochye, kokoshniki, a working parish again.
 
-*A Stage for Public Events and Protests*
+An older text on this site mentioned a Church of Peter and Paul (1695), a Tikhvin church (1780) and a “Moscow University clinic” (1804–1828) *on the square itself*. Those do not show up in the summaries for Bolotnaya Square; the university clinics on Devichye Pole / Pirogovskaya are a different address. They are not in this timeline. If a source pins them to this plot, we will correct it.
 
-*Throughout its history, Bolotnaya Square has been a focal point for public gatherings. The most notable event of the 21st century was the 2011 “Bolotnaya Protests,” a large-scale demonstration sparked by the State Duma elections. These rallies brought thousands of participants and became a landmark moment in modern Russian political history.*
+## House on the Embankment
 
-*Cultural Life and Tourism*
+In 1927 a commission chose Bersenevka opposite the Kremlin. By **1931** the Government House stood on the Wine and Salt Court — **architect Boris Iofan**, 12 storeys, apartments for the Soviet elite. In the 1920s the square was still a market of warehouses and apple carts. A planned central market tower was never built.
 
-*Today, Bolotnaya Square is a vibrant cultural space. A monument to the great painter Ilya Repin stands here, and the area is home to cafes, restaurants, art exhibitions, and live performances.*
+## 800th-anniversary garden and Repin
 
-*One of the most colorful events in recent years was the “Colorful Nights” festival, launched in 2018, which has since attracted thousands of Muscovites and visitors from around the world.*
+In autumn **1947**, for Moscow’s 800th anniversary, **Vitaly Dolganov** laid out the garden. The fountain followed in **1948**; the bowl was cast from melted German guns. On **29 September 1958** the monument to Ilya Repin opened: sculptor **Matvey Manizer**, architect **Igor Rozhin**. From 1962 to 1993/94 the square was officially Repin Square; the name did not stick.
 
-*Conclusion: A Symbol of Old and New Moscow*
+In 2001 Mikhail Shemyakin’s group *Children Are the Victims of Adult Vices* was unveiled in the garden.
 
-*Bolotnaya Square is where the past meets the present. From swampy lowlands to a hub of city life, it remains a vital part of Moscow’s history and a symbol of its cultural diversity.*
+## 2011–2012
+
+On 10 December 2011 an opposition rally filled the square — one of Moscow’s largest since the 1990s (estimates in the tens of thousands). On 6 May 2012 came the March of Millions, then the Bolotnaya case. That is part of the place, not a news flash.
+
+## Festivals
+
+Since the 2010s the garden has been a city stage: holidays, a rink, Day of the City, temporary fairs. Not an official culture centre and not a municipal portal — a square people walk into.
+
+Since June 2026 the project cameras have been off: scaffolding on the facade. The repair log is in [Repair and scaffolding 2026](/en/remont-lesa-2026/).

@@ -1,25 +1,71 @@
-
 {{ define "main" }}
-<div class="container">
+{{- $isRu := eq .Site.Language.Lang "ru" -}}
+<div class="container history-page">
   <div class="page-header">
     <h1>{{ .Title }}</h1>
-    <p class="page-lead">{{ if .Params.summary }}{{ .Params.summary }}{{ else }}История Болотной площади и Якиманки.{{ end }}</p>
+    <p class="page-lead">{{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ if $isRu }}История Болотной площади и Якиманки.{{ else }}History of Bolotnaya Square and Yakimanka.{{ end }}{{ end }}</p>
   </div>
 
-  <div class="history-layout">
-    <aside class="history-info">
+  <aside class="history-info">
+    {{ if $isRu }}
       <strong>Локация:</strong> Москва, Якиманка<br>
-      <strong>Темы:</strong> история, город, культура, Болотная площадь
-    </aside>
+      <strong>Темы:</strong> болото, храм на Берсеневке, Дом на набережной, сквер 800-летия, Репин, 2011–2012
+    {{ else }}
+      <strong>Location:</strong> Moscow, Yakimanka<br>
+      <strong>Themes:</strong> swamp, Bersenevka church, House on the Embankment, 800th-anniversary garden, Repin, 2011–2012
+    {{ end }}
+  </aside>
 
-    <div class="prose">
-      {{ with .Content }}<section>{{ . }}</section>{{ end }}
+  {{ with .Params.timeline }}
+  <ol class="history-timeline">
+    {{ range . }}
+      {{ $item := . }}
+      <li class="history-timeline__item">
+        <div class="history-timeline__year">{{ $item.year }}</div>
+        <div class="history-timeline__body">
+          <h2 class="history-timeline__title">{{ $item.title }}</h2>
+          {{ with $item.text }}<p>{{ . }}</p>{{ end }}
+          {{ with $item.image }}
+            <img src="{{ . }}" alt="{{ $item.title }}" loading="lazy" decoding="async">
+          {{ end }}
+        </div>
+      </li>
+    {{ end }}
+  </ol>
+  {{ end }}
+
+  {{ with .Params.reconstructions }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <section class="history-recon" aria-labelledby="history-recon-title">
+    <h2 id="history-recon-title">{{ if $isRu }}Как выглядело: 1800 / 1930 / 1980{{ else }}How it looked: 1800 / 1930 / 1980{{ end }}</h2>
+    <p class="muted">{{ if $isRu }}ИИ. Два кадра — раскраска архива, один — реконструкция. Не фотографии эпохи.{{ else }}AI. Two frames are colourised archive shots; one is a reconstruction. Not period photographs.{{ end }}</p>
+    <div class="history-recon__grid">
+      {{ range . }}
+        <figure class="history-recon__card">
+          <a class="glightbox" href="{{ .src }}" data-gallery="hist-recon" {{ with .caption }}data-title="{{ . }}"{{ end }}>
+            <img src="{{ .src }}" alt="{{ .year }}" loading="lazy" decoding="async">
+          </a>
+          <figcaption>
+            <strong>{{ .year }}</strong>
+            {{ with .caption }}<span>{{ . }}</span>{{ end }}
+          </figcaption>
+        </figure>
+      {{ end }}
     </div>
+  </section>
+  {{ end }}
+
+  {{ with .Content }}
+  <div class="prose history-prose">
+    {{ . }}
   </div>
+  {{ end }}
 
   {{ $photos := slice }}
   {{ if .Params.photos }}        {{ $photos = .Params.photos }}
-  {{ else if .Params.images }}   {{ $photos = .Params.images }}
+  {{ else if .Params.images }}
+    {{ $first := index .Params.images 0 }}
+    {{ if reflect.IsMap $first }}{{ $photos = .Params.images }}{{ end }}
   {{ end }}
 
   {{ if and (eq (len $photos) 0) .Params.gallery_slug }}
@@ -41,29 +87,9 @@
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
-  <h2 class="history-section-title">Архивные и исторические фото</h2>
-  <link rel="stylesheet" href="/css/gallery-grid.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-  <section class="gallery-grid">
-    {{ $group := printf "hist-%s" .File.BaseFileName | default "hist" }}
-    {{ range $photos }}
-      {{ $src := .src | default .url | default .image | default . }}
-      {{ $thumb := .thumb | default $src }}
-      {{ $cap := .title | default .caption }}
-      <a class="gallery-item glightbox" href="{{ $src }}" data-gallery="{{ $group }}" {{ with $cap }}data-title="{{ . }}"{{ end }}>
-        {{ partial "responsive-thumb.html" (dict "Page" $ "src" $src "thumb" $thumb "alt" $cap) }}
-      </a>
-    {{ end }}
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded',function(){
-      if (typeof GLightbox==='undefined') return;
-      GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
-    });
-  </script>
-  {{ else }}
-    <p class="muted">Нет фотографий для галереи.</p>
+  <h2 class="history-section-title">{{ if $isRu }}Архивные фото, храм, ИИ{{ else }}Archive photos, the church, AI{{ end }}</h2>
+  {{ $empty := "" }}
+  {{ partial "photo-grid.html" (dict "Page" . "photos" $photos "group" "hist-main" "empty" $empty) }}
   {{ end }}
 </div>
 {{ end }}

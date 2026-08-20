@@ -2634,3 +2634,126 @@ summary:focus-visible,
     grid-template-columns: 1fr;
   }
 }
+
+/* History timeline */
+.history-info {
+  margin: 0 0 1.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--entry);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.history-timeline {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  border-left: 2px solid var(--border);
+}
+
+.history-timeline__item {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  padding: 0 0 1.6rem 1.25rem;
+  position: relative;
+}
+
+.history-timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.history-timeline__year {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+}
+
+.history-timeline__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.history-timeline__body p {
+  margin: 0 0 0.6rem;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.history-timeline__body img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.history-recon {
+  margin: 0 0 2.5rem;
+}
+
+.history-recon__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+.history-recon__card {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--entry);
+}
+
+.history-recon__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.history-recon__card figcaption {
+  padding: 0.75rem 0.9rem 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--secondary);
+}
+
+.history-recon__card figcaption strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 0.2rem;
+}
+
+.history-prose {
+  max-width: 66ch;
+  margin-bottom: 2.5rem;
+}
+
+.history-section-title {
+  margin: 0 0 0.75rem;
+}
+
+@media (max-width: 800px) {
+  .history-timeline__item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .history-recon__grid {
+    grid-template-columns: 1fr;
+  }
+}

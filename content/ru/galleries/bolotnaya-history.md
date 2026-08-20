@@ -43,5 +43,35 @@ images:
   - src: >-
       /images/galleries/history/grok-video-9ff9ec50-7f36-47db-8ddc-36a6262ba06f_watermarked.gif
     caption: ИИ-анимация архивного фото — мост, канал и Дом на набережной
+  - src: /images/galleries/history/reconstruct-1800.jpg
+    caption: "ИИ-реконструкция, около 1800. Храм Николы на Берсеневке и низкий берег. Не документ."
+  - src: /images/galleries/history/reconstruct-1930.jpg
+    caption: "ИИ-раскраска архива, около 1930. Канал без гранита, Дом на набережной уже стоит."
+  - src: /images/galleries/history/reconstruct-1980.jpg
+    caption: "ИИ-раскраска архива, около 1980. Сквер и фонтан, пешеходная площадь."
+  - src: /images/galleries/history/bersenevka/church-porch.jpg
+    caption: Храм Николы на Берсеневке, крыльцо и кокошники. XVII век, снимок 2023.
+  - src: /images/galleries/history/bersenevka/church-kokoshniki.jpg
+    caption: Кокошники и главы храма Николы на Берсеневке.
+  - src: /images/galleries/history/bersenevka/church-and-house.jpg
+    caption: Крыльцо храма и за ним торец Дома на набережной.
+  - src: /images/galleries/history/bersenevka/kirillov-chambers.jpg
+    caption: Палаты Аверкия Кириллова, вход с Берсеневской набережной.
+  - src: /images/galleries/history/bersenevka/kirillov-arcade.jpg
+    caption: Аркада палат Кириллова, узорочье XVII века.
+  - src: /images/galleries/history/bersenevka/kirillov-detail.jpg
+    caption: Деталь палат Кириллова — бочка и белокаменные колонки.
+  - src: /images/galleries/history/bersenevka/architecture-plaque.jpg
+    caption: Охранная доска. Памятник архитектуры XVII века.
+  - src: /images/galleries/history/bersenevka/wooden-belfry.jpg
+    caption: Деревянная звонница во дворе храма.
+  - src: /images/galleries/history/bersenevka/saints-fresco.jpg
+    caption: Роспись на стене храмового двора.
+  - src: /images/galleries/history/bersenevka/sign.jpg
+    caption: Табличка «Храм святителя Николы Чудотворца на Берсеневке, XVII в.»
+  - src: /images/galleries/history/bersenevka/memorial-cross.jpg
+    caption: Поклонный крест во дворе храма.
+  - src: /images/galleries/history/bersenevka/gravestone.jpg
+    caption: Старое надгробие у стены храма.
 ---
 

@@ -43,4 +43,34 @@ images:
   - src: >-
       /images/galleries/history/grok-video-9ff9ec50-7f36-47db-8ddc-36a6262ba06f_watermarked.gif
     caption: "AI animation of an archival photo — bridge, canal and the House on the Embankment"
+  - src: /images/galleries/history/reconstruct-1800.jpg
+    caption: "AI reconstruction, c. 1800. St Nicholas on Bersenevka and the low bank. Not a document."
+  - src: /images/galleries/history/reconstruct-1930.jpg
+    caption: "AI colour of an archive frame, c. 1930. Canal without granite; House on the Embankment already up."
+  - src: /images/galleries/history/reconstruct-1980.jpg
+    caption: "AI colour of an archive frame, c. 1980. Garden and fountain, pedestrian square."
+  - src: /images/galleries/history/bersenevka/church-porch.jpg
+    caption: Church of St Nicholas on Bersenevka, porch and kokoshniki. 17th century, photographed 2023.
+  - src: /images/galleries/history/bersenevka/church-kokoshniki.jpg
+    caption: Kokoshniki and domes of St Nicholas on Bersenevka.
+  - src: /images/galleries/history/bersenevka/church-and-house.jpg
+    caption: Church porch with the House on the Embankment behind.
+  - src: /images/galleries/history/bersenevka/kirillov-chambers.jpg
+    caption: Averkii Kirillov chambers, entrance from Bersenevskaya Embankment.
+  - src: /images/galleries/history/bersenevka/kirillov-arcade.jpg
+    caption: Arcade of the Kirillov chambers, 17th-century uzorochye.
+  - src: /images/galleries/history/bersenevka/kirillov-detail.jpg
+    caption: Detail of the Kirillov chambers — barrel vault and white-stone columns.
+  - src: /images/galleries/history/bersenevka/architecture-plaque.jpg
+    caption: Heritage plaque. 17th-century architectural monument.
+  - src: /images/galleries/history/bersenevka/wooden-belfry.jpg
+    caption: Wooden belfry in the churchyard.
+  - src: /images/galleries/history/bersenevka/saints-fresco.jpg
+    caption: Wall painting in the churchyard.
+  - src: /images/galleries/history/bersenevka/sign.jpg
+    caption: Sign for the Church of St Nicholas the Wonderworker on Bersenevka, 17th century.
+  - src: /images/galleries/history/bersenevka/memorial-cross.jpg
+    caption: Memorial cross in the churchyard.
+  - src: /images/galleries/history/bersenevka/gravestone.jpg
+    caption: Old gravestone by the church wall.
 ---
