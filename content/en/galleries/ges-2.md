@@ -1,7 +1,7 @@
 ---
 slug: ges-2
 title: GES-2
-description: The former power station on Bolotnaya Embankment — the 2019–2021 rebuild, Urs Fischer’s Big Clay going up, Piano’s blue stacks.
+description: The former power station on Bolotnaya Embankment — the 2019–2021 rebuild, Fischer’s clay, the vault, and June 2026 stills.
 translationKey: gallery-ges-2
 weight: 5
 images:
@@ -29,6 +29,16 @@ images:
     caption: October 2022. GES-2 at night.
   - src: /images/galleries/ges-2/2023-04-04-windows.jpg
     caption: April 2023. Washing the glass. The house of culture is already open.
+  - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
+    caption: 20 June 2026. The hall from the ramp, brick vaults of the yard.
+  - src: /images/galleries/ges-2/2026-06-20-facade.jpg
+    caption: 20 June 2026. Facade, stacks and a crane by the river.
+  - src: /images/galleries/ges-2/2026-06-20-river-works.jpg
+    caption: 20 June 2026. Works under Patriarshy Bridge, seen from GES-2.
+  - src: /images/galleries/ges-2/2026-06-20-vault.jpg
+    caption: 20 June 2026. The birch vault in summer.
+  - src: /images/galleries/ges-2/2026-06-20-model.jpg
+    caption: 20 June 2026. Model of GES-2 inside the house of culture.
 ---
 
 **GES-2** stands on Bolotnaya Embankment, next to the House on the Embankment — not the square, the neighbouring canal bank.
@@ -37,4 +47,4 @@ A city power station of 1904–1907 (engineer Mikhail Polivanov, facade by Vasil
 
 In August 2021 Urs Fischer’s aluminium **Big Clay No. 4** was assembled on the quay.
 
-Phone stills, 2019–2023. Not all 90 frames from the album: construction, the clay, the view from the canal. The rest can go in later.
+Phone stills, 2019–2026. Not every frame from the albums: the rebuild, the clay, the vault and June 2026. The hall with visitors from behind is not in the set.
