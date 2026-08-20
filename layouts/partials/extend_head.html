@@ -10,15 +10,19 @@
 <meta name="yandex-verification" content="912f939c1daa1856" />
 <script>
 (function () {
-  function loadThird() {
-    if (window.__bolotnayaThird) return;
-    window.__bolotnayaThird = 1;
+  function loadMetrika() {
+    if (window.__bolotnayaMetrika) return;
+    window.__bolotnayaMetrika = 1;
     (function(m,e,t,r,i,k,a){
       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
       m[i].l=1*new Date();
       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=52478860', 'ym');
     try { ym(52478860, 'init', { ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true }); } catch (e) {}
+  }
+  function loadAds() {
+    if (window.__bolotnayaAds) return;
+    window.__bolotnayaAds = 1;
     var s1 = document.createElement('script');
     s1.src = 'https://yandex.ru/ads/system/context.js';
     s1.async = true;
@@ -29,12 +33,21 @@
     s2.setAttribute('data-page-id', '19616132');
     document.head.appendChild(s2);
   }
-  function later() {
-    if ('requestIdleCallback' in window) requestIdleCallback(loadThird, { timeout: 4000 });
-    else setTimeout(loadThird, 2500);
+  function afterLoad(fn, ms) {
+    function go() {
+      if ('requestIdleCallback' in window) requestIdleCallback(fn, { timeout: ms });
+      else setTimeout(fn, ms);
+    }
+    if (document.readyState === 'complete') go();
+    else window.addEventListener('load', go);
   }
-  if (document.readyState === 'complete') later();
-  else window.addEventListener('load', later);
+  afterLoad(loadMetrika, 3500);
+  // Ads paint a large image and steal LCP in lab tests. Load on first
+  // gesture, with a late fallback so real visitors still see them.
+  ['scroll','click','touchstart','keydown'].forEach(function (ev) {
+    window.addEventListener(ev, loadAds, { once: true, passive: true });
+  });
+  afterLoad(function () { setTimeout(loadAds, 12000); }, 0);
 })();
 </script>
 {{- end -}}
