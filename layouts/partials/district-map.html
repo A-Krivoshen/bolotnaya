@@ -1,49 +1,107 @@
 {{- /*
-  Simple OSM/Leaflet map of Bolotnaya / Yakimanka.
-  dict: id (required, unique per page)
+  District map: Yandex widget (works in RU) + tap-to-unlock on mobile
+  so the iframe does not steal page scroll until the user taps it.
+  dict: id (unique per page)
 */ -}}
 {{- $isRu := eq site.Language.Lang "ru" -}}
 {{- $id := .id | default "bolotnaya-map" -}}
 {{- $id = printf "dmap-%s" $id -}}
+{{- $lang := cond $isRu "ru_RU" "en_US" -}}
+{{- $src := printf "https://yandex.ru/map-widget/v1/?ll=37.6154,55.7472&z=14&l=map&lang=%s&scroll=false&pt=37.61750,55.74500,pm2rdm~37.61861,55.74417,pm2blm~37.61750,55.75200,pm2gnm~37.61230,55.74440,pm2orgm" $lang -}}
 
 <div class="district-map" role="region" aria-label="{{ if $isRu }}Карта района{{ else }}District map{{ end }}">
-  <div id="{{ $id }}" class="district-map__canvas"></div>
+  <div class="district-map__viewport">
+    <iframe
+      id="{{ $id }}"
+      class="district-map__canvas"
+      title="{{ if $isRu }}Карта Болотной площади{{ else }}Map of Bolotnaya Square{{ end }}"
+      src="{{ $src }}"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allow="fullscreen"
+      allowfullscreen
+    ></iframe>
+    <div class="district-map__shield" role="button" tabindex="0" aria-pressed="false">
+      <span class="district-map__shield-label">{{ if $isRu }}Нажмите, чтобы двигать карту{{ else }}Tap to move the map{{ end }}</span>
+    </div>
+  </div>
   <p class="district-map__note">
-    {{ if $isRu }}Открытая карта OSM. Маркеры: сквер, Лужков мост, Кремль, Дом на набережной.{{ else }}OpenStreetMap. Markers: the garden, Luzhkov Bridge, the Kremlin, House on the Embankment.{{ end }}
+    {{ if $isRu }}Яндекс.Карты. Маркеры: сквер, Лужков мост, Кремль, Дом на набережной.{{ else }}Yandex Maps. Markers: the garden, Luzhkov Bridge, the Kremlin, House on the Embankment.{{ end }}
   </p>
 </div>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function () {
-  function init() {
-    if (typeof L === 'undefined') return;
-    var el = document.getElementById({{ $id | jsonify }});
-    if (!el || el.dataset.ready) return;
-    el.dataset.ready = '1';
-    var map = L.map(el, { scrollWheelZoom: false, attributionControl: true }).setView([55.7464, 37.6162], 15);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    var marks = [
-      { lat: 55.74500, lng: 37.61750, label: {{ if $isRu }}"Болотная площадь / сквер"{{ else }}"Bolotnaya Square / garden"{{ end }} },
-      { lat: 55.74417, lng: 37.61861, label: {{ if $isRu }}"Лужков мост"{{ else }}"Luzhkov Bridge"{{ end }} },
-      { lat: 55.75200, lng: 37.61750, label: {{ if $isRu }}"Кремль"{{ else }}"Kremlin"{{ end }} },
-      { lat: 55.74440, lng: 37.61230, label: {{ if $isRu }}"Дом на набережной"{{ else }}"House on the Embankment"{{ end }} }
-    ];
-    var group = L.featureGroup();
-    marks.forEach(function (m) {
-      group.addLayer(L.marker([m.lat, m.lng]).bindPopup(m.label));
+  if (window.__bolotnayaMapUnlock) return;
+  window.__bolotnayaMapUnlock = true;
+
+  var MOVE = 12;
+  var touch = { x: 0, y: 0, moved: false };
+
+  function wrapOf(el) {
+    return el && el.closest ? el.closest('.district-map') : null;
+  }
+
+  function lock(wrap) {
+    if (!wrap) return;
+    wrap.classList.remove('is-unlocked');
+    var s = wrap.querySelector('.district-map__shield');
+    if (s) s.setAttribute('aria-pressed', 'false');
+  }
+
+  function unlock(wrap) {
+    if (!wrap) return;
+    wrap.classList.add('is-unlocked');
+    var s = wrap.querySelector('.district-map__shield');
+    if (s) s.setAttribute('aria-pressed', 'true');
+  }
+
+  function lockOthers(keep) {
+    document.querySelectorAll('.district-map.is-unlocked').forEach(function (w) {
+      if (w !== keep) lock(w);
     });
-    group.addTo(map);
-    map.fitBounds(group.getBounds().pad(0.18));
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+
+  document.addEventListener('touchstart', function (e) {
+    var t = e.changedTouches && e.changedTouches[0];
+    if (!t) return;
+    touch.x = t.clientX;
+    touch.y = t.clientY;
+    touch.moved = false;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function (e) {
+    var t = e.changedTouches && e.changedTouches[0];
+    if (!t) return;
+    if (Math.abs(t.clientX - touch.x) > MOVE || Math.abs(t.clientY - touch.y) > MOVE) {
+      touch.moved = true;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchend', function (e) {
+    var shield = e.target.closest && e.target.closest('.district-map__shield');
+    if (shield && !touch.moved) {
+      e.preventDefault();
+      unlock(wrapOf(shield));
+    }
+  }, { passive: false });
+
+  document.addEventListener('click', function (e) {
+    var shield = e.target.closest && e.target.closest('.district-map__shield');
+    if (shield) {
+      e.preventDefault();
+      unlock(wrapOf(shield));
+      return;
+    }
+    lockOthers(wrapOf(e.target));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var shield = e.target.closest && e.target.closest('.district-map__shield');
+    if (!shield) return;
+    e.preventDefault();
+    unlock(wrapOf(shield));
+  });
 })();
 </script>

@@ -2783,13 +2783,50 @@ summary:focus-visible,
   display: inline-block;
 }
 
-.district-map__canvas {
+.district-map__viewport {
+  position: relative;
   width: 100%;
   height: 320px;
   border-radius: 12px;
   border: 1px solid var(--border);
+  overflow: hidden;
   background: var(--entry);
+}
+
+.district-map__canvas {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
   z-index: 0;
+}
+
+.district-map__shield {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(to top, rgba(12, 14, 18, 0.5), transparent 46%);
+  color: #fff;
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.district-map__shield-label {
+  display: inline-block;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(12, 14, 18, 0.78);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  pointer-events: none;
 }
 
 .district-map__note {
@@ -2802,12 +2839,23 @@ summary:focus-visible,
   margin: 1.25rem 0 0;
 }
 
+/* Mobile / touch: cover the map so page scroll is not stolen. Tap unlocks pan/zoom. */
+@media (max-width: 800px), (pointer: coarse) {
+  .district-map:not(.is-unlocked) .district-map__canvas {
+    pointer-events: none;
+  }
+
+  .district-map:not(.is-unlocked) .district-map__shield {
+    display: flex;
+  }
+}
+
 @media (max-width: 800px) {
   .weather-map {
     grid-template-columns: 1fr;
   }
 
-  .district-map__canvas {
+  .district-map__viewport {
     height: 280px;
   }
 }
