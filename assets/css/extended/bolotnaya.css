@@ -1,5 +1,17 @@
 /* Bolotnaya.online custom styles (loaded via PaperMod extended CSS pipeline) */
 
+/* Theme toggle: auto / light / dark (override PaperMod sun/moon hide) */
+button#theme-toggle svg {
+  display: none !important;
+  vertical-align: middle;
+}
+button#theme-toggle[data-mode="light"] #sun,
+button#theme-toggle[data-mode="dark"] #moon,
+button#theme-toggle[data-mode="auto"] #theme-auto {
+  display: inline !important;
+}
+
+
 /* --- Support + Partner block --- */
 .sp-wrap{margin:16px 0}
 .sp-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}

@@ -114,11 +114,12 @@
   to = "/ru/cameras/"
   status = 301
 
-# Apex language home (VPS nginx should 301 this too; see deploy/nginx-canonical.conf)
+# Apex "/" is a JS language gate on the VPS (see deploy/nginx-canonical.conf).
+# Netlify has no localStorage gate; send first-time visitors to Russian.
 [[redirects]]
   from = "/"
   to = "/ru/"
-  status = 301
+  status = 302
   force = true
 
 [[redirects]]

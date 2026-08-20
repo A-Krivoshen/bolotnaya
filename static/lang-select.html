@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Bolotnaya Online</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://bolotnaya.online/ru/">
+  <script>
+  (function () {
+    function dest() {
+      try {
+        var pref = localStorage.getItem('pref-lang');
+        if (pref === 'en' || pref === 'ru') return '/' + pref + '/';
+      } catch (e) {}
+      var raw = '';
+      if (navigator.languages && navigator.languages.length) raw = navigator.languages[0];
+      else raw = navigator.language || navigator.userLanguage || '';
+      return String(raw).toLowerCase().indexOf('ru') === 0 ? '/ru/' : '/en/';
+    }
+    location.replace(dest());
+  })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/ru/">
+  </noscript>
+</head>
+<body>
+  <p><a href="/ru/">Русский</a> · <a href="/en/">English</a></p>
+</body>
+</html>

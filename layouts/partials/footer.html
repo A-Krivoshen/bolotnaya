@@ -105,18 +105,54 @@
 
 {{- if (not site.Params.disableThemeToggle) }}
 <script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
+(function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var ru = (document.documentElement.lang || '').toLowerCase().indexOf('ru') === 0;
+    var labels = ru
+        ? { auto: 'Авто: днём светлая, ночью тёмная', light: 'Светлая тема', dark: 'Тёмная тема' }
+        : { auto: 'Auto: light by day, dark at night', light: 'Light theme', dark: 'Dark theme' };
+    var order = ['auto', 'light', 'dark'];
 
+    function night() {
+        var h = new Date().getHours();
+        return h < 7 || h >= 21;
+    }
+    function readPref() {
+        var p = localStorage.getItem('pref-theme');
+        return (p === 'light' || p === 'dark') ? p : 'auto';
+    }
+    function apply(pref) {
+        var dark = pref === 'dark' || (pref === 'auto' && night());
+        document.body.classList.toggle('dark', dark);
+        btn.setAttribute('data-mode', pref);
+        btn.title = labels[pref] + ' (Alt + T)';
+        btn.setAttribute('aria-label', labels[pref]);
+    }
+    apply(readPref());
+    btn.addEventListener('click', function () {
+        var cur = readPref();
+        var next = order[(order.indexOf(cur) + 1) % order.length];
+        localStorage.setItem('pref-theme', next);
+        apply(next);
+    });
+    setInterval(function () {
+        if (readPref() === 'auto') apply('auto');
+    }, 60000);
+})();
 </script>
 {{- end }}
+<script>
+document.querySelectorAll('.lang-switch a').forEach(function (a) {
+    a.addEventListener('click', function () {
+        var href = a.getAttribute('href') || '';
+        var lang = href.indexOf('/en') !== -1 ? 'en' : 'ru';
+        try { localStorage.setItem('pref-lang', lang); } catch (e) {}
+        document.cookie = 'pref-lang=' + lang + ';path=/;max-age=31536000;samesite=lax';
+    });
+});
+</script>
+
 
 {{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Param "ShowCodeCopyButtons")) }}
 <script>

@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{ $streamURL := .Params.stream_url | default .Params.hls_url }}
+{{ $isRu := eq .Site.Language.Lang "ru" }}
+{{ $offline := site.Params.camerasOffline }}
+{{ $still := .Params.image | default site.Params.camerasOfflineStill | default "/images/placeholders/camera.svg" }}
 <div class="container">
 <article class="post-single camera-page">
   <header class="page-header camera-header">
@@ -14,24 +17,29 @@
 
     {{ partial "weather-widget.html" (dict) }}
 
-    <div class="camera-container camera-card" data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}">
+    <div class="camera-container camera-card" {{ if not $offline }}data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}"{{ end }}>
       <div class="site-alert" role="status">
         <div class="site-alert__title">
-          {{ if eq .Site.Language.Lang "ru" }}Трансляция временно недоступна{{ else }}Stream temporarily unavailable{{ end }}
+          {{ if $isRu }}Трансляция временно недоступна{{ else }}Stream temporarily unavailable{{ end }}
         </div>
-        <p>{{ if eq .Site.Language.Lang "ru" }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
-        <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if eq .Site.Language.Lang "ru" }}Хроника ремонта →{{ else }}Repair chronicle →{{ end }}</a>
+        <p>{{ if $isRu }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
+        <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта →{{ else }}Repair chronicle →{{ end }}</a>
       </div>
 
+      {{ if $offline }}
+      <figure class="tab-pane tab-pane--still">
+        <img src="{{ $still | relURL }}" alt="{{ if $isRu }}Вид с точки камеры через сетку лесов{{ else }}View from the camera point through scaffolding mesh{{ end }}" width="900" height="1600" loading="eager" decoding="async">
+        <figcaption>{{ if $isRu }}13 июня 2026. Точка камер: площадь и высотка только через сетку.{{ else }}13 June 2026. Camera point: the square only through the mesh.{{ end }}</figcaption>
+      </figure>
+      {{ else }}
       <div id="adblock-message" class="adblock-message" style="display:none;">
-        {{ if eq .Site.Language.Lang "ru" }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
+        {{ if $isRu }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
       </div>
-
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
       </div>
-
-      <div class="status">{{ if eq .Site.Language.Lang "ru" }}Подключение…{{ else }}Connecting…{{ end }}</div>
+      <div class="status">{{ if $isRu }}Подключение…{{ else }}Connecting…{{ end }}</div>
+      {{ end }}
     </div>
 
     {{ partial "support-partner.html" . }}
@@ -49,6 +57,8 @@
 </article>
 </div>
 
+{{ if not $offline }}
 <script src="/js/hls.min.js"></script>
 <script src="/js/hls-init.js"></script>
+{{ end }}
 {{ end }}

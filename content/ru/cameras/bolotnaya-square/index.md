@@ -1,7 +1,7 @@
 ---
 title: "Камера: Болотная площадь"
 description: "Онлайн-трансляция Болотной площади в Москве — вид в реальном времени с камеры района Якиманка."
-# image: "/images/cameras/bolotnaya-thumb.jpg"
+image: "/images/galleries/lesa-2026/2026-06-13-09-09-24.jpg"
 stream_url: "https://cam.bolotnaya.online/lmost_new/index.m3u8"
 keywords:
   - Болотная площадь

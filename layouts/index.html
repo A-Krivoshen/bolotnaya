@@ -7,11 +7,11 @@
         <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
         <h1>{{ if $isRu }}Bolotnaya Online — камеры и история Якиманки{{ else }}Bolotnaya Online — Yakimanka live cameras &amp; history{{ end }}</h1>
         <p class="hero-lead">{{ if $isRu }}Онлайн-камеры, история и заметки о Болотной площади{{ else }}Live cameras, history and notes about Bolotnaya Square{{ end }}</p>
-        <p class="hero-desc">{{ if $isRu }}Смотрите прямые трансляции с Болотной площади в реальном времени. Независимый open-source проект района Якиманка.{{ else }}Watch live streams from Bolotnaya Square in real time. An independent open-source district project for Yakimanka.{{ end }}</p>
+        <p class="hero-desc">{{ if $isRu }}Камеры сейчас offline: леса закрыли обзор. Пока эфира нет — хроника ремонта, история и фото района.{{ else }}Cameras are offline: scaffolding blocks the view. Meanwhile — the repair chronicle, history and photos of the district.{{ end }}</p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
-            {{ if $isRu }}Смотреть камеры{{ else }}View cameras{{ end }}
+          <a class="btn btn-primary" href="{{ "remont-lesa-2026/" | relLangURL }}">
+            {{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}
           </a>
           <a class="btn btn-secondary" href="{{ "history/" | relLangURL }}">
             {{ if $isRu }}История площади{{ else }}Square history{{ end }}

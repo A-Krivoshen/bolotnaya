@@ -2,7 +2,7 @@
 title: "Камера: ул. Серафимовича"
 translationKey: "camera-serafimovicha"
 description: "Онлайн-трансляция с ракурсом на улицу Серафимовича у Болотной площади, Москва."
-# image: "/images/cameras/serafimovicha-thumb.jpg"
+image: "/images/galleries/lesa-2026/2026-06-13-09-09-24.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 keywords:
   - Серафимовича

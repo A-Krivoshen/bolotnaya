@@ -5,6 +5,9 @@ description: Facade scaffolding at Bolotnaya — a chronicle of the works on Uli
 translationKey: remont-lesa-2026-gallery
 weight: 6
 images:
+  - src: /images/galleries/lesa-2026/lesa-2026-timelapse.mp4
+    thumb: /images/galleries/lesa-2026/lesa-2026-timelapse.jpg
+    caption: June–August timelapse. 17 dated stills, 25 seconds.
   - src: /images/galleries/lesa-2026/2026-06-05-12-46-55.jpg
     caption: 5 June. Scaffolding already up along the Serafimovicha facade
   - src: /images/galleries/lesa-2026/2026-06-13-09-09-24.jpg

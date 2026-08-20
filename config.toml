@@ -109,8 +109,10 @@ timeout = "60s"
   images = ["/images/placeholders/camera.svg"]
   mainSections = ["cameras", "posts", "history", "galleries"]
   DateFormat = "02.01.2006"
-  defaultTheme = "auto"
+  defaultTheme = "auto" # auto = light 07:00–21:00, dark nights; local clock, not OS
   disableThemeToggle = false
+  camerasOffline = true
+  camerasOfflineStill = "/images/galleries/lesa-2026/2026-06-13-09-09-24.jpg"
   ShowReadingTime = false
   ShowBreadCrumbs = true
   ShowToc = false
