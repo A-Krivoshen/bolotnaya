@@ -30,7 +30,7 @@ images:
   - src: /images/galleries/ges-2/2023-04-04-windows.jpg
     caption: April 2023. Washing the glass. The house of culture is already open.
   - src: /images/galleries/ges-2/2025-10-20-chimneys-night.jpg
-    caption: 20 October 2025. Stacks with red lights, the dome in mesh.
+    caption: 20 October 2025. GES-2 stacks and the Udarnik dome in mesh.
   - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
     caption: 20 June 2026. The hall from the ramp, brick vaults of the yard.
   - src: /images/galleries/ges-2/2026-06-20-facade.jpg

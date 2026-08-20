@@ -2,6 +2,7 @@
 slug: bolotnaya-square
 title: Bolotnaya Square
 description: Bolotnaya Square and Repin Garden in Moscow
+translationKey: gallery-bolotnaya-square
 weight: 4
 images:
   - src: /images/galleries/IMG_0133.JPG

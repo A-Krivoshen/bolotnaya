@@ -91,6 +91,9 @@ images:
       /images/galleries/domnanaberzhnoy/grok-video-8e543f02-6769-43ba-9196-af487da01ae4_watermarked.gif
     caption: AI animation of the house. Not a photograph.
   - src: >-
+      /images/galleries/domnanaberzhnoy/grok-video-8d2acf06-a592-4541-88b5-5a1fc0e3e694_watermarked.gif
+    caption: AI animation of the house. Not a photograph.
+  - src: >-
       /images/galleries/domnanaberzhnoy/grok-video-89aa4673-999b-43c7-87e0-94bc2f744e12_watermarked.gif
     caption: AI animation of the house. Not a photograph.
   - src: >-
