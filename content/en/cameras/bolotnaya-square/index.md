@@ -1,7 +1,7 @@
 ---
 title: "Camera: Bolotnaya Square"
-description: "Live HLS camera stream of Bolotnaya Square in Moscow’s Yakimanka district."
-image: "/images/galleries/lesa-2026/2026-06-13-09-09-24.jpg"
+description: "Bolotnaya Square camera (Yakimanka). Live stream offline since 2 June 2026 — scaffolding blocks the view."
+image: "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"
 stream_url: "https://cam.bolotnaya.online/lmost_new/index.m3u8"
 keywords:
   - Bolotnaya Square
@@ -10,4 +10,4 @@ keywords:
   - Moscow
 ---
 
-Live view of **Bolotnaya Square**. Public stream from the Bolotnaya Online open-source project.
+View toward **Bolotnaya Square**. The public HLS stream is currently offline; this page shows the scaffolding mesh and links to the repair chronicle.

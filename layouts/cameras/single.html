@@ -29,7 +29,7 @@
       {{ if $offline }}
       <figure class="tab-pane tab-pane--still">
         <img src="{{ $still | relURL }}" alt="{{ if $isRu }}Вид с точки камеры через сетку лесов{{ else }}View from the camera point through scaffolding mesh{{ end }}" width="900" height="1600" loading="eager" decoding="async">
-        <figcaption>{{ if $isRu }}13 июня 2026. Точка камер: площадь и высотка только через сетку.{{ else }}13 June 2026. Camera point: the square only through the mesh.{{ end }}</figcaption>
+        <figcaption>{{ if $isRu }}Июнь 2026. Вид с точки камер через сетку лесов.{{ else }}June 2026. View from the camera point through the scaffolding mesh.{{ end }}</figcaption>
       </figure>
       {{ else }}
       <div id="adblock-message" class="adblock-message" style="display:none;">

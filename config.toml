@@ -41,10 +41,10 @@ timeout = "60s"
     weight = 1
     title = "Bolotnaya Online — Болотная: Якиманка"
     [languages.ru.params]
-      description = "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Open-source проект местного жителя."
-      keywords = ["Болотная площадь", "Якиманка", "онлайн камеры", "Москва", "трансляция", "история Москвы", "live camera"]
+      description = "Камеры Болотной сейчас offline (леса с июня 2026). История, фото и хроника ремонта фасада — open-source проект жителя Якиманки."
+      keywords = ["Болотная площадь", "Якиманка", "камеры offline", "леса 2026", "Москва", "история Москвы"]
       homeInfoTitle = "Якиманка: камеры и история"
-      homeInfoDescription = "Онлайн-камеры, фото и рассказы о районе Якиманка"
+      homeInfoDescription = "Пока эфира нет — история, фото и ремонт лесов 2026 у Болотной"
 
     [languages.ru.menu]
       [[languages.ru.menu.main]]
@@ -73,12 +73,12 @@ timeout = "60s"
     locale = "en-US"
     contentDir = "content/en"
     weight = 2
-    title = "Bolotnaya Online — Yakimanka live cameras"
+    title = "Bolotnaya Online — Yakimanka cameras & history"
     [languages.en.params]
-      description = "Live cameras, history and photos of Bolotnaya Square and Yakimanka district in Moscow. Open-source local project."
-      keywords = ["Bolotnaya Square", "Yakimanka", "live cameras", "Moscow", "HLS stream", "Moscow history"]
+      description = "Bolotnaya Square cameras are offline during facade scaffolding (since June 2026). History, photos and a repair chronicle. Open-source local project."
+      keywords = ["Bolotnaya Square", "Yakimanka", "Moscow", "scaffolding 2026", "Moscow history"]
       homeInfoTitle = "Yakimanka: cameras and history"
-      homeInfoDescription = "Live cameras, photos and notes about the Yakimanka district"
+      homeInfoDescription = "Offline cameras for now — history, photos and the 2026 scaffolding chronicle"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -104,15 +104,15 @@ timeout = "60s"
 
 [params]
   author = "Bolotnaya.online"
-  description = "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Live cameras of Bolotnaya Square, Moscow."
-  keywords = ["Болотная площадь", "Якиманка", "онлайн камеры", "Bolotnaya", "Yakimanka", "Moscow live camera"]
-  images = ["/images/placeholders/camera.svg"]
+  description = "Болотная площадь и Якиманка: история, фото и камеры проекта (сейчас offline из-за лесов). Open-source bolotnaya.online."
+  keywords = ["Болотная площадь", "Якиманка", "леса 2026", "Bolotnaya", "Yakimanka", "Moscow"]
+  images = ["/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"]
   mainSections = ["cameras", "posts", "history", "galleries"]
   DateFormat = "02.01.2006"
   defaultTheme = "auto" # auto = light 07:00–21:00, dark nights; local clock, not OS
   disableThemeToggle = false
   camerasOffline = true
-  camerasOfflineStill = "/images/galleries/lesa-2026/2026-06-13-09-09-24.jpg"
+  camerasOfflineStill = "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"
   ShowReadingTime = false
   ShowBreadCrumbs = true
   ShowToc = false

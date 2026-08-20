@@ -13,8 +13,8 @@
   "default_language": "ru",
   "languages": ["ru", "en"],
   "description": {
-    "ru": "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Open-source проект местного жителя.",
-    "en": "Live cameras, history and photos of Bolotnaya Square and Yakimanka, Moscow. Open-source local project."
+    "ru": "Камеры Болотной offline с июня 2026 (леса). История, фото и хроника ремонта. Open-source проект жителя Якиманки.",
+    "en": "Bolotnaya cameras offline since June 2026 (scaffolding). History, photos and repair chronicle. Open-source local project."
   },
   "geo": {
     "name": {

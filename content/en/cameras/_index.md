@@ -1,11 +1,10 @@
 ---
-title: "Live cameras — Bolotnaya Square & Yakimanka"
+title: "Cameras — Bolotnaya Square & Yakimanka (currently offline)"
 date: 2025-05-12
-description: "Public HLS live streams from Bolotnaya Square and Ulitsa Serafimovicha in Moscow’s Yakimanka district."
+description: "Public camera pages for Bolotnaya Square and Ulitsa Serafimovicha. Streams off since 2 June 2026 — scaffolding blocks the view."
 keywords:
-  - live camera
   - Bolotnaya Square
   - Yakimanka
   - Moscow
-  - HLS stream
+  - scaffolding 2026
 ---

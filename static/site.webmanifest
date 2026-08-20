@@ -1,7 +1,7 @@
 {
   "name": "Bolotnaya Online",
   "short_name": "Bolotnaya",
-  "description": "Онлайн-камеры, история и фото Болотной площади и Якиманки",
+  "description": "Болотная и Якиманка: история, фото; камеры offline (леса 2026)",
   "start_url": "/ru/",
   "scope": "/",
   "display": "standalone",

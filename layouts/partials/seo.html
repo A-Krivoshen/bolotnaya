@@ -14,9 +14,9 @@
 {{- if not $desc }}{{ with .Site.Params.description }}{{ $desc = . }}{{ end }}{{ end -}}
 {{- if not $desc -}}
   {{- if $isRu -}}
-    {{- $desc = "Онлайн-камеры, история и фото Болотной площади и района Якиманка. Open-source проект bolotnaya.online." -}}
+    {{- $desc = "Болотная площадь и Якиманка: история, фото и камеры проекта (сейчас offline из-за лесов). Open-source bolotnaya.online." -}}
   {{- else -}}
-    {{- $desc = "Live cameras, history and photos of Bolotnaya Square and Yakimanka, Moscow. Open-source project bolotnaya.online." -}}
+    {{- $desc = "Bolotnaya Square and Yakimanka: history, photos and project cameras (currently offline due to scaffolding). Open-source bolotnaya.online." -}}
   {{- end -}}
 {{- end -}}
 
@@ -42,7 +42,7 @@
     {{- if reflect.IsMap $sf }}{{ $ogImage = $sf.src | default "" }}{{ else }}{{ $ogImage = printf "%v" $sf }}{{ end -}}
   {{- end -}}
 {{- end -}}
-{{- if not $ogImage }}{{ $ogImage = "/images/placeholders/camera.svg" }}{{ end -}}
+{{- if not $ogImage }}{{ $ogImage = "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg" }}{{ end -}}
 {{- $ogImageAbs := $ogImage | absURL -}}
 {{- $siteURL := .Site.BaseURL -}}
 {{- $authorName := "Bolotnaya.online" -}}
@@ -53,7 +53,7 @@
 
 {{/* One robots tag. Admin, 404, and explicit noindex stay out of search. */}}
 {{- $is404 := or (eq .Kind "404") (eq .Layout "404") -}}
-{{- $noIndex := or (eq .Section "admin") (eq .Type "admin") $is404 .Params.robotsNoIndex (eq .Kind "taxonomy") -}}
+{{- $noIndex := or (eq .Section "admin") (eq .Type "admin") $is404 .Params.robotsNoIndex (eq .Kind "taxonomy") (eq .Kind "term") -}}
 {{- if $noIndex -}}
 <meta name="robots" content="noindex, nofollow">
 {{- else -}}
@@ -201,14 +201,14 @@
 <script type="application/ld+json">{{ $pageLd | jsonify | safeJS }}</script>
 {{- end -}}
 
-{{/* Camera: VideoObject */}}
-{{- if and (eq .Section "cameras") (eq .Kind "page") -}}
+{{/* Camera: VideoObject only while the stream is actually on */}}
+{{- if and (eq .Section "cameras") (eq .Kind "page") (not site.Params.camerasOffline) -}}
   {{- $stream := .Params.stream_url | default .Params.hls_url -}}
   {{- if $stream -}}
     {{- $videoLd := dict
       "@context" "https://schema.org"
       "@type" "VideoObject"
-      "name" (printf "%s — live camera" $pageTitle)
+      "name" $pageTitle
       "description" $desc
       "thumbnailUrl" $ogImageAbs
       "uploadDate" ((.Date | default now).Format "2006-01-02T15:04:05Z07:00")
@@ -230,10 +230,16 @@
     "item" .Site.Home.Permalink
   ) -}}
   {{- if .Section -}}
+    {{- $secLabel := .Section | humanize -}}
+    {{- if eq .Section "cameras" }}{{ $secLabel = cond $isRu "Камеры" "Cameras" }}{{ end -}}
+    {{- if eq .Section "galleries" }}{{ $secLabel = cond $isRu "Фото" "Photos" }}{{ end -}}
+    {{- if eq .Section "history" }}{{ $secLabel = cond $isRu "История" "History" }}{{ end -}}
+    {{- if eq .Section "remont-lesa-2026" }}{{ $secLabel = cond $isRu "Ремонт и леса 2026" "Repair 2026" }}{{ end -}}
+    {{- if eq .Section "posts" }}{{ $secLabel = cond $isRu "Блог" "Blog" }}{{ end -}}
     {{- $items = $items | append (dict
       "@type" "ListItem"
       "position" 2
-      "name" (.Section | humanize)
+      "name" $secLabel
       "item" (printf "%s/" .Section | absLangURL)
     ) -}}
   {{- end -}}
@@ -270,15 +276,15 @@
         "name" (cond $isRu "Почему камеры offline?" "Why are cameras offline?")
         "acceptedAnswer" (dict
           "@type" "Answer"
-          "text" (cond $isRu "Идут ремонтные работы на фасаде. Статус публикуется в блоге." "Facade maintenance is underway. Status updates are published in the blog.")
+          "text" (cond $isRu "Идут ремонтные работы на фасаде, леса закрыли обзор. Хроника — в разделе «Ремонт и леса 2026»." "Facade maintenance is underway and scaffolding blocks the view. The chronicle is in Repair and scaffolding 2026.")
         )
       )
       (dict
         "@type" "Question"
-        "name" (cond $isRu "Есть английская версия?" "Is there a Russian version?")
+        "name" (cond $isRu "Есть английская версия?" "Is there an English version?")
         "acceptedAnswer" (dict
           "@type" "Answer"
-          "text" (cond $isRu "Да — переключатель языка в шапке (Ru / En)." "Yes — use the language switch in the header. Default locale is Russian.")
+          "text" (cond $isRu "Да — переключатель языка в шапке (Ru / En). Первый заход смотрит язык браузера." "Yes — use the language switch in the header (Ru / En). First visit follows the browser language.")
         )
       )
     )

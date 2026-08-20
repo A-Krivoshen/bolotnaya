@@ -2,7 +2,7 @@
   translation: "Welcome to Bolotnaya Online"
 
 - id: description
-  translation: "Watch live streams from Bolotnaya Square and other cameras in real-time."
+  translation: "Bolotnaya cameras are offline for now — browse history, photos and the repair chronicle."
 
 - id: live_cameras
   translation: "Live Cameras"

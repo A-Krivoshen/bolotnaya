@@ -5,8 +5,8 @@
     <div class="hero">
       <div class="hero-content">
         <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
-        <h1>{{ if $isRu }}Bolotnaya Online — камеры и история Якиманки{{ else }}Bolotnaya Online — Yakimanka live cameras &amp; history{{ end }}</h1>
-        <p class="hero-lead">{{ if $isRu }}Онлайн-камеры, история и заметки о Болотной площади{{ else }}Live cameras, history and notes about Bolotnaya Square{{ end }}</p>
+        <h1>{{ if $isRu }}Bolotnaya Online — Якиманка: камеры offline, история и ремонт{{ else }}Bolotnaya Online — Yakimanka: cameras offline, history &amp; repair{{ end }}</h1>
+        <p class="hero-lead">{{ if $isRu }}История и фото Болотной; камеры проекта временно выключены{{ else }}History and photos of Bolotnaya; project cameras temporarily offline{{ end }}</p>
         <p class="hero-desc">{{ if $isRu }}Камеры сейчас offline: леса закрыли обзор. Пока эфира нет — хроника ремонта, история и фото района.{{ else }}Cameras are offline: scaffolding blocks the view. Meanwhile — the repair chronicle, history and photos of the district.{{ end }}</p>
 
         <div class="hero-actions">
@@ -43,7 +43,7 @@
     <!-- Cameras -->
     <section class="home-section home-cameras" aria-labelledby="home-cameras-title">
       <div class="home-section__header">
-        <h2 id="home-cameras-title">{{ if $isRu }}Прямые трансляции{{ else }}Live cameras{{ end }}</h2>
+        <h2 id="home-cameras-title">{{ if $isRu }}Камеры (сейчас offline){{ else }}Cameras (currently offline){{ end }}</h2>
         <a class="home-section__link" href="{{ "cameras/" | relLangURL }}">
           {{ if $isRu }}Все камеры →{{ else }}All cameras →{{ end }}
         </a>

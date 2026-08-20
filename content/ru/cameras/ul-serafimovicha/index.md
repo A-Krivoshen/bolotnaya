@@ -1,8 +1,8 @@
 ---
 title: "Камера: ул. Серафимовича"
 translationKey: "camera-serafimovicha"
-description: "Онлайн-трансляция с ракурсом на улицу Серафимовича у Болотной площади, Москва."
-image: "/images/galleries/lesa-2026/2026-06-13-09-09-24.jpg"
+description: "Камера с ракурсом на ул. Серафимовича у Болотной. Трансляция offline с 2 июня 2026 (ремонт фасада)."
+image: "/images/galleries/lesa-2026/2026-06-13-camera-still.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 keywords:
   - Серафимовича
@@ -11,4 +11,4 @@ keywords:
   - Якиманка
 ---
 
-Камера с ракурсом на **ул. Серафимовича** рядом с Болотной площадью. Прямая трансляция Bolotnaya Online.
+Камера на **ул. Серафимовича** у Болотной площади. Прямой эфир временно выключен из‑за строительных лесов.
