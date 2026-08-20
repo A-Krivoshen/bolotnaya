@@ -93,4 +93,15 @@ images:
     caption: New Year installation “2022”
   - src: /images/galleries/Bolotnya_square/gphoto-127-winter-aerial.jpg
     caption: Winter garden from above, fountain and alley
+  - src: /images/galleries/Bolotnya_square/parterre-towards-house.jpg
+    caption: Flower beds of the Repin garden; the House on the Embankment at the end of the alley
+  - src: /images/galleries/Bolotnya_square/2019-11-13-xxs-patriarshy.jpg
+    caption: Cathedral of Christ the Saviour and Patriarshy Bridge from the Bersenevka side, November 2019
+  - src: /images/galleries/Bolotnya_square/2024-07-07-skver-aerial.jpg
+    caption: Repin garden from above, July 2024
+  - src: /images/galleries/Bolotnya_square/2024-07-10-fountain-rebuild.jpg
+    caption: Fountain running, alley under repair, July 2024
+  - src: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
+    caption: Luzhkov Bridge, canal fountains and paddleboards, July 2024
 ---
+

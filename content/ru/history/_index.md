@@ -37,6 +37,8 @@ timeline:
   - year: "2010-е — сейчас"
     title: Фестивали и прогулки
     text: Городские праздники, каток, День города. С июня 2026 камеры проекта offline — на фасаде леса.
+    image: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
+
 reconstructions:
   - year: "ок. 1800"
     src: /images/galleries/history/reconstruct-1800.jpg

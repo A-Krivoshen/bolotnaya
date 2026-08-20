@@ -73,4 +73,17 @@ images:
     caption: Memorial cross in the churchyard.
   - src: /images/galleries/history/bersenevka/gravestone.jpg
     caption: Old gravestone by the church wall.
+  - src: /images/galleries/history/bersenevka/church-winter-2018.jpg
+    caption: St Nicholas on Bersenevka in winter, January 2018. The House on the Embankment behind.
+  - src: /images/galleries/history/bersenevka/churchyard-xxs-winter-2018.jpg
+    caption: Churchyard on Bersenevka, January 2018. Cathedral of Christ the Saviour beyond the trees.
+  - src: /images/galleries/history/2018-12-29-ice-kremlin.jpg
+    caption: Ice on the Moskva, December 2018. Kremlin to the left, House on the Embankment to the right.
+  - src: /images/galleries/domnanaberzhnoy/2023-06-25-bersenevskaya.jpg
+    caption: Bersenevskaya Embankment and the House on the Embankment, June 2023.
+  - src: /images/galleries/Bolotnya_square/2024-07-07-skver-aerial.jpg
+    caption: Repin garden from above, July 2024. Fountain and the alley toward the Kremlin.
+  - src: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
+    caption: Luzhkov Bridge and fountains on Vodootvodny Canal, July 2024.
 ---
+

@@ -89,7 +89,7 @@
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
-  <h2 class="history-section-title">{{ if $isRu }}Архивные фото, храм, ИИ{{ else }}Archive photos, the church, AI{{ end }}</h2>
+  <h2 class="history-section-title">{{ if $isRu }}Фото: архив, храм, дом, сквер{{ else }}Photos: archive, church, house, garden{{ end }}</h2>
   {{ $empty := "" }}
   {{ partial "photo-grid.html" (dict "Page" . "photos" $photos "group" "hist-main" "empty" $empty) }}
   {{ end }}

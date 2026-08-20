@@ -73,5 +73,18 @@ images:
     caption: Поклонный крест во дворе храма.
   - src: /images/galleries/history/bersenevka/gravestone.jpg
     caption: Старое надгробие у стены храма.
+  - src: /images/galleries/history/bersenevka/church-winter-2018.jpg
+    caption: Храм Николы на Берсеневке зимой, январь 2018. За ним торец Дома на набережной.
+  - src: /images/galleries/history/bersenevka/churchyard-xxs-winter-2018.jpg
+    caption: Двор храма на Берсеневке, январь 2018. Вдали Храм Христа Спасителя.
+  - src: /images/galleries/history/2018-12-29-ice-kremlin.jpg
+    caption: Лёд на Москве-реке, декабрь 2018. Кремль слева, Дом на набережной справа.
+  - src: /images/galleries/domnanaberzhnoy/2023-06-25-bersenevskaya.jpg
+    caption: Берсеневская набережная и Дом на набережной, июнь 2023.
+  - src: /images/galleries/Bolotnya_square/2024-07-07-skver-aerial.jpg
+    caption: Репинский сквер сверху, июль 2024. Фонтан и аллея к Кремлю.
+  - src: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
+    caption: Лужков мост и фонтаны на Водоотводном канале, июль 2024.
 ---
+
 

@@ -93,4 +93,15 @@ images:
     caption: Новогодняя инсталляция «2022»
   - src: /images/galleries/Bolotnya_square/gphoto-127-winter-aerial.jpg
     caption: Сквер зимой, вид сверху на фонтан и аллею
+  - src: /images/galleries/Bolotnya_square/parterre-towards-house.jpg
+    caption: Цветники Репинского сквера, в торце аллеи Дом на набережной
+  - src: /images/galleries/Bolotnya_square/2019-11-13-xxs-patriarshy.jpg
+    caption: Храм Христа Спасителя и Патриарший мост, вид со стороны Берсеневки, ноябрь 2019
+  - src: /images/galleries/Bolotnya_square/2024-07-07-skver-aerial.jpg
+    caption: Репинский сквер сверху, июль 2024
+  - src: /images/galleries/Bolotnya_square/2024-07-10-fountain-rebuild.jpg
+    caption: Фонтан работает, аллея в ремонте, июль 2024
+  - src: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
+    caption: Лужков мост, фонтаны на канале и сапборды, июль 2024
 ---
+

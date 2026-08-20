@@ -37,6 +37,8 @@ timeline:
   - year: "2010s–now"
     title: Festivals and walks
     text: City holidays, a skating rink, Day of the City. Since June 2026 the project cameras are offline — scaffolding on the facade.
+    image: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
+
 reconstructions:
   - year: "c. 1800"
     src: /images/galleries/history/reconstruct-1800.jpg
