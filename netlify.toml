@@ -140,6 +140,26 @@
   status = 301
 
 [[redirects]]
+  from = "/ru/galleries/raion-2022-2023"
+  to = "/ru/galleries/"
+  status = 301
+
+[[redirects]]
+  from = "/ru/galleries/raion-2022-2023/"
+  to = "/ru/galleries/"
+  status = 301
+
+[[redirects]]
+  from = "/en/galleries/raion-2022-2023"
+  to = "/en/galleries/"
+  status = 301
+
+[[redirects]]
+  from = "/en/galleries/raion-2022-2023/"
+  to = "/en/galleries/"
+  status = 301
+
+[[redirects]]
   from = "/online-camera/*"
   to = "/ru/cameras/"
   status = 301

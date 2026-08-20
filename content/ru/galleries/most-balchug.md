@@ -9,6 +9,8 @@ images:
     caption: 11 июля 2024. Мост в день открытия. 58 м, ребро жёсткости — скамейка.
   - src: /images/galleries/most-balchug/2023-11-17-stroyka.jpg
     caption: Ноябрь 2023. Пролёт уже стоит, облицовки ещё нет. Вид со стороны Музеона.
+  - src: /images/galleries/most-balchug/2025-10-20-peter-cranes.jpg
+    caption: 20 октября 2025. Пётр I, мост и краны на стрелке.
   - src: /images/galleries/most-balchug/2026-05-15-s-mosta.jpg
     caption: Май 2026. С моста вдоль канала — Красный Октябрь и ГЭС-2.
 ---

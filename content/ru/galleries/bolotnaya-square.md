@@ -105,5 +105,19 @@ images:
     caption: Фонтан работает, аллея в ремонте, июль 2024
   - src: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
     caption: Лужков мост, фонтаны на канале и сапборды, июль 2024
+  - src: /images/galleries/Bolotnya_square/2022-09-30-canal.jpg
+    caption: 30 сентября 2022. Водоотводный канал, сорока на парапете.
+  - src: /images/galleries/Bolotnya_square/2022-10-10-cathedral.jpg
+    caption: 10 октября 2022. Храм Христа Спасителя с канала, Патриарший мост.
+  - src: /images/galleries/Bolotnya_square/2023-01-14-sofiyskaya-ice.jpg
+    caption: 14 января 2023. Софийская набережная, лёд на канале.
+  - src: /images/galleries/Bolotnya_square/2023-02-11-sophia.jpg
+    caption: 11 февраля 2023. Храм Софии в Средних Садовниках.
+  - src: /images/galleries/Bolotnya_square/2025-10-20-fountain.jpg
+    caption: 20 октября 2025. Репинский сквер. Фонтан закрыт на зиму, павильон «Лето в Москве».
+  - src: /images/galleries/Bolotnya_square/2025-10-20-repin.jpg
+    caption: 20 октября 2025. Памятник Репину в сквере.
+  - src: /images/galleries/Bolotnya_square/2026-02-21-ice.jpg
+    caption: 21 февраля 2026. Лёд на канале, экскаватор на барже.
 ---
 

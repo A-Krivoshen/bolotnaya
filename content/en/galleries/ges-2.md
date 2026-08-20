@@ -25,10 +25,26 @@ images:
     caption: May 2022. The clay, blue cubes and people on Bolotnaya Embankment.
   - src: /images/galleries/ges-2/2022-06-17-rowers.jpg
     caption: June 2022. From the canal — stacks, arches and a four on the water.
+  - src: /images/galleries/ges-2/2022-10-11-sofiyskaya.jpg
+    caption: 11 October 2022. Sofiyskaya Embankment from the steps at GES-2.
   - src: /images/galleries/ges-2/2022-10-11-night.jpg
     caption: October 2022. GES-2 at night.
+  - src: /images/galleries/ges-2/2022-10-13-canal.jpg
+    caption: 13 October 2022. GES-2 from the canal.
+  - src: /images/galleries/ges-2/2022-10-17-clay.jpg
+    caption: 17 October 2022. Big Clay and the canal, blue cubes.
+  - src: /images/galleries/ges-2/2022-10-31-night.jpg
+    caption: 31 October 2022. GES-2 at night.
+  - src: /images/galleries/ges-2/2022-12-02-winter.jpg
+    caption: 2 December 2022. GES-2 in winter, from the canal.
+  - src: /images/galleries/ges-2/2023-03-18-sky.jpg
+    caption: 18 March 2023. GES-2, clear sky.
   - src: /images/galleries/ges-2/2023-04-04-windows.jpg
     caption: April 2023. Washing the glass. The house of culture is already open.
+  - src: /images/galleries/ges-2/2023-04-21-mirror.jpg
+    caption: 21 April 2023. GES-2 and its reflection in the canal.
+  - src: /images/galleries/ges-2/2025-10-20-canal.jpg
+    caption: 20 October 2025. Evening on the canal, GES-2 stacks.
   - src: /images/galleries/ges-2/2025-10-20-chimneys-night.jpg
     caption: 20 October 2025. GES-2 stacks and the Udarnik dome in mesh.
   - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
@@ -49,4 +65,4 @@ A city power station of 1904–1907 (engineer Mikhail Polivanov, facade by Vasil
 
 In August 2021 Urs Fischer’s aluminium **Big Clay No. 4** was assembled on the quay.
 
-Phone stills, 2019–2026. Not every frame from the albums: the rebuild, the clay, the vault and June 2026. The hall with visitors from behind is not in the set.
+Phone stills, 2019–2026. Not every frame from the albums: the rebuild, the clay, the vault, the canal. The hall with visitors from behind is not in the set.

@@ -105,5 +105,19 @@ images:
     caption: Fountain running, alley under repair, July 2024
   - src: /images/galleries/Bolotnya_square/2024-07-14-luzhkov-fountains.jpg
     caption: Luzhkov Bridge, canal fountains and paddleboards, July 2024
+  - src: /images/galleries/Bolotnya_square/2022-09-30-canal.jpg
+    caption: 30 September 2022. Vodootvodny Canal, a magpie on the parapet.
+  - src: /images/galleries/Bolotnya_square/2022-10-10-cathedral.jpg
+    caption: 10 October 2022. Cathedral of Christ the Saviour from the canal, Patriarshy Bridge.
+  - src: /images/galleries/Bolotnya_square/2023-01-14-sofiyskaya-ice.jpg
+    caption: 14 January 2023. Sofiyskaya Embankment, ice on the canal.
+  - src: /images/galleries/Bolotnya_square/2023-02-11-sophia.jpg
+    caption: 11 February 2023. Church of St Sophia in Sredniye Sadovniki.
+  - src: /images/galleries/Bolotnya_square/2025-10-20-fountain.jpg
+    caption: 20 October 2025. Repin Garden. Fountain covered for winter, a “Summer in Moscow” pavilion.
+  - src: /images/galleries/Bolotnya_square/2025-10-20-repin.jpg
+    caption: 20 October 2025. The Repin monument in the garden.
+  - src: /images/galleries/Bolotnya_square/2026-02-21-ice.jpg
+    caption: 21 February 2026. Ice on the canal, an excavator on a barge.
 ---
 

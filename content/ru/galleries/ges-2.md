@@ -25,10 +25,26 @@ images:
     caption: Май 2022. Глина, синие кубы и люди на ступенях Болотной набережной.
   - src: /images/galleries/ges-2/2022-06-17-rowers.jpg
     caption: Июнь 2022. С канала — трубы, арки и четвёрка на воде.
+  - src: /images/galleries/ges-2/2022-10-11-sofiyskaya.jpg
+    caption: 11 октября 2022. Софийская набережная со ступеней у ГЭС-2.
   - src: /images/galleries/ges-2/2022-10-11-night.jpg
     caption: Октябрь 2022. ГЭС-2 ночью.
+  - src: /images/galleries/ges-2/2022-10-13-canal.jpg
+    caption: 13 октября 2022. ГЭС-2 с канала.
+  - src: /images/galleries/ges-2/2022-10-17-clay.jpg
+    caption: 17 октября 2022. «Большой кусок глины» и канал, синие кубы.
+  - src: /images/galleries/ges-2/2022-10-31-night.jpg
+    caption: 31 октября 2022. ГЭС-2 ночью.
+  - src: /images/galleries/ges-2/2022-12-02-winter.jpg
+    caption: 2 декабря 2022. ГЭС-2 зимой, с канала.
+  - src: /images/galleries/ges-2/2023-03-18-sky.jpg
+    caption: 18 марта 2023. ГЭС-2, ясное небо.
   - src: /images/galleries/ges-2/2023-04-04-windows.jpg
     caption: Апрель 2023. Моют витражи. Дом культуры уже работает.
+  - src: /images/galleries/ges-2/2023-04-21-mirror.jpg
+    caption: 21 апреля 2023. ГЭС-2 и отражение в канале.
+  - src: /images/galleries/ges-2/2025-10-20-canal.jpg
+    caption: 20 октября 2025. Канал вечером, трубы ГЭС-2.
   - src: /images/galleries/ges-2/2025-10-20-chimneys-night.jpg
     caption: 20 октября 2025. Трубы ГЭС-2 и купол «Ударника» в сетке.
   - src: /images/galleries/ges-2/2026-06-20-ramp.jpg
@@ -49,4 +65,4 @@ images:
 
 В августе 2021 на набережной смонтировали алюминиевую скульптуру Урса Фишера **«Большой кусок глины №4»**.
 
-Кадры — с телефона, 2019–2026. Не все снимки из альбомов: стройка, глина, свод и июнь 2026. Зал с посетителями со спины не клал.
+Кадры — с телефона, 2019–2026. Не все снимки из альбомов: стройка, глина, свод, канал. Зал с посетителями со спины не клал.
