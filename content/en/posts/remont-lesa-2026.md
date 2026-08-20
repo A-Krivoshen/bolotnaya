@@ -5,7 +5,7 @@ draft: false
 tags: ["scaffolding-2026", "repair", "facade", "cameras", "Bolotnaya", "Yakimanka"]
 summary: "Cameras have been off since 2 June: scaffold mesh blocks the view. The new section has photos from June to August and two phone clips."
 images:
-  - /images/galleries/lesa-2026/2026-06-13-09-09-24.jpg
+  - /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
 ---
 
 The Bolotnaya Online cameras have been [offline since 2 June 2026](/en/posts/cameras-maintenance-2026-06-02/). Scaffolding stands on Serafimovicha, and from the camera spot the square is visible only through the mesh. While there is no live stream, this is the moment to record.

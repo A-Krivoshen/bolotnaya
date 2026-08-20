@@ -11,7 +11,7 @@ series_tag: "scaffolding-2026"
 started: "2026-06-02"
 camera_status: "offline"
 images:
-  - /images/galleries/lesa-2026/2026-06-13-09-09-24.jpg
+  - /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
 ---
 
 Since 2 June 2026 the Bolotnaya Online cameras have been off. Scaffolding stands on the Serafimovicha facade: mesh covers the frame the cameras were for — the square, the canal, the Kotelnicheskaya high-rise.
