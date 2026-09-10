@@ -2,6 +2,8 @@
 summary: From swamp to the 800th-anniversary garden — a Bolotnaya timeline and stills, 2019–2026
 slug: History of Bolotnaya Square — From Moscow Swamp to Cultural Landmark
 title: History
+aliases:
+  - /en/news/
 description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, GES-2, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies, scaffolding in 2026."
 gallery_slug: bolotnaya-history
 images:
