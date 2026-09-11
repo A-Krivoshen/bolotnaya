@@ -128,6 +128,7 @@
   <nav class="history-albums" aria-label="{{ if $isRu }}Другие альбомы{{ else }}Other albums{{ end }}">
     <h2 class="history-section-title">{{ if $isRu }}Другие альбомы{{ else }}Other albums{{ end }}</h2>
     <div class="history-albums__grid">
+      {{- $anim := .Site.GetPage "galleries/ozhivlennyj-arhiv" -}}
       {{- $church := .Site.GetPage "galleries/nikola-bersenevka" -}}
       {{- $house := .Site.GetPage "galleries/dom-na-naberezhnoy" -}}
       {{- $square := .Site.GetPage "galleries/bolotnaya-square" -}}
@@ -135,6 +136,12 @@
       {{- $bridge := .Site.GetPage "galleries/most-balchug" -}}
       {{- $lesa := .Site.GetPage "remont-lesa-2026" -}}
       {{- if not $lesa }}{{ $lesa = .Site.GetPage "galleries/remont-lesa-2026" }}{{ end -}}
+      {{- with $anim }}
+        <a class="history-albums__card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>{{ if $isRu }}ИИ-анимации старых чёрно-белых фото и сами исходные кадры.{{ else }}AI animations of old black-and-white photographs, and the source stills.{{ end }}</span>
+        </a>
+      {{- end }}
       {{- with $church }}
         <a class="history-albums__card" href="{{ .RelPermalink }}">
           <strong>{{ .Title }}</strong>

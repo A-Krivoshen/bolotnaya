@@ -43,3 +43,5 @@ images:
   - src: /images/galleries/history/reconstruct-1980.jpg
     caption: "AI colour of an archive frame, c. 1980. Garden and fountain."
 ---
+
+Archival photographs of the square and five animated frames. The full set of animations and the source black-and-white scans is in [Animated archive](/en/galleries/ozhivlennyj-arhiv/).

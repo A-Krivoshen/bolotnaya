@@ -123,7 +123,7 @@ reconstructions:
 
 Bolotnaya Square is the low bank opposite the Kremlin, in Yakimanka. The name is older than the square: there really was a **swamp**.
 
-The timeline below follows sources that can be checked, with stills from 2019–2026. The three “how it looked” frames are AI: two are colourisations of archival photos, one is a reconstruction around 1800. They are not documents.
+The timeline below follows sources that can be checked, with stills from 2019–2026. The three “how it looked” frames are AI: two are colourisations of archival photos, one is a reconstruction around 1800. They are not documents. Animated old photographs and the source black-and-white scans are in [Animated archive](/en/galleries/ozhivlennyj-arhiv/).
 
 ## The swamp
 

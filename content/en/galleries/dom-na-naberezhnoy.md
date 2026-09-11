@@ -177,7 +177,10 @@ images:
   - src: >-
       /images/galleries/domnanaberzhnoy/grok-video-024d34fb-2ddf-4b95-80e7-c140e126ab63_watermarked.gif
     caption: AI animation of the house. Not a photograph.
+  - src: >-
+      /images/galleries/domnanaberzhnoy/grok-video-f868ca3a-57b5-435c-95e7-7cf5b902fb7a_watermarked.gif
+    caption: AI animation of the house. Not a photograph.
 ---
 
-Facade and embankment — stills from 2018–2024. Then the **House on the Embankment museum** in the courtyard, April–December 2019: the model, the 1928–1931 build, reconstructed rooms. The museum is closed now; visitors from behind are not in the set. The AI animations at the end are not photographs.
+Facade and embankment — stills from 2018–2024. Then the **House on the Embankment museum** in the courtyard, April–December 2019: the model, the 1928–1931 build, reconstructed rooms. The museum is closed now; visitors from behind are not in the set. The AI animations at the end are not photographs; they and the source black-and-white frames are gathered in [Animated archive](/en/galleries/ozhivlennyj-arhiv/).
 
