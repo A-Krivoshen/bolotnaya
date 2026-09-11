@@ -46,4 +46,36 @@ images:
   - src: /images/galleries/lesa-2026/2026-08-18-11-42-04.mp4
     thumb: /images/galleries/lesa-2026/2026-08-18-11-42-04.jpg
     caption: 18 August 2026. Cradle on the facade — a 20-second clip from a phone
+  - src: /images/galleries/lesa-2026/2026-08-24-08-05-22.jpg
+    caption: 24 August 2026. Hoist in the middle, mesh still on part of the facade
+  - src: /images/galleries/lesa-2026/2026-08-24-08-05-25.jpg
+    caption: 24 August 2026. Fresh whitewash meeting grey plaster, windows in film
+  - src: /images/galleries/lesa-2026/2026-08-24-10-08-24.jpg
+    caption: 24 August 2026. A wrapped unit coming off the facade
+  - src: /images/galleries/lesa-2026/2026-08-26-11-06-59.jpg
+    caption: 26 August 2026. Cradle on the grey wall, the neighbouring end still in mesh
+  - src: /images/galleries/lesa-2026/2026-08-31-17-57-55.jpg
+    caption: 31 August 2026. White facade from the square, sacks by the scaffold
+  - src: /images/galleries/lesa-2026/2026-08-31-17-57-56.jpg
+    caption: 31 August 2026. Neighbouring house in mesh, the middle bay already white
+  - src: /images/galleries/lesa-2026/2026-09-02-08-33-54.jpg
+    caption: 2 September 2026. White facade, a refuse truck on Serafimovicha
+  - src: /images/galleries/lesa-2026/2026-09-02-08-42-37.jpg
+    caption: 2 September 2026. “Moscow 879” flags by the Udarnik cinema
+  - src: /images/galleries/lesa-2026/2026-09-02-09-59-00.jpg
+    caption: 2 September 2026. White middle bay, scaffold on the roof
+  - src: /images/galleries/lesa-2026/2026-09-04-11-41-18.jpg
+    caption: 4 September 2026. Grey facade from the square, scaffold only at the edges
+  - src: /images/galleries/lesa-2026/2026-09-04-11-41-24.jpg
+    caption: 4 September 2026. From the Serafimovicha stop — the square side still in mesh
+  - src: /images/galleries/lesa-2026/2026-09-04-11-41-40.jpg
+    caption: 4 September 2026. Grey facade and the one-storey shop wing
+  - src: /images/galleries/lesa-2026/2026-09-04-11-41-45.jpg
+    caption: 4 September 2026. Square side still in mesh, an electric bus
+  - src: /images/galleries/most-bolotnaya-2026/2026-09-07-16-43-47.jpg
+    caption: 7 September 2026. New footbridge in the canal, from the GES-2 steps toward Maly Kamenny
+  - src: /images/galleries/lesa-2026/2026-09-09-10-48-32.jpg
+    caption: 9 September 2026. New grey facade, windows already without film
+  - src: /images/galleries/lesa-2026/2026-09-09-10-48-36.jpg
+    caption: "9 September 2026. From the square: the middle is open, the ends still in scaffold"
 ---

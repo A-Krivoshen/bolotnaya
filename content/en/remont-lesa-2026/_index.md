@@ -1,7 +1,7 @@
 ---
 title: "Repair and scaffolding 2026"
 description: "A chronicle of facade repair at Bolotnaya: scaffolding on Serafimovicha, weekly progress and phone clips while the live cameras are offline."
-summary: "Cameras have been offline since 2 June: scaffolding blocks the view. Photos from June to August, two phone clips, and the new paint going on."
+summary: "Cameras have been offline since 2 June: scaffolding blocks the view. Photos from June to 9 September, phone clips, the grey facade and the new canal footbridge."
 translationKey: "remont-lesa-2026"
 aliases:
   - /repair-2026/
@@ -16,7 +16,7 @@ images:
 
 Since 2 June 2026 the Bolotnaya Online cameras have been off. Scaffolding stands on the Serafimovicha facade: mesh covers the frame the cameras were for — the square, the canal, the Kotelnicheskaya high-rise.
 
-While there is no live stream, that is the story. Below is the “Serafimovicha repair” album, June through 18 August: scaffold, old paint coming off, new whitewash, two clips shot on a phone. There are no old-stream screenshots in this set; if they turn up, they go in a separate “before” block.
+While there is no live stream, that is the story. Below is the “Serafimovicha repair” album, June through 9 September: scaffold, old paint coming off, whitewash, the grey facade, two clips shot on a phone. There are no old-stream screenshots in this set; if they turn up, they go in a separate “before” block.
 
 ## What the weeks show
 
@@ -24,7 +24,9 @@ While there is no live stream, that is the story. Below is the “Serafimovicha 
 
 **July.** Old paint is stripped, a hoist hangs on the facade. On 19 July a crane sits by neighbouring works; there is a short clip from the road. By the end of the month the building is fully netted from the square.
 
-**August.** On the 8th a giant hard hat for the 70th Builder's Day floats on the canal — accidental, and on-theme. By the 15th a new white facade is up, windows still in film. On the 18th part of the wall is already grey, people work from a cradle; shot on a phone, no tripod.
+**August.** On the 8th a giant hard hat for the 70th Builder's Day floats on the canal — accidental, and on-theme. By the 15th a new white facade is up, windows still in film. On the 18th part of the wall is already grey, people work from a cradle. On the 24th a wrapped unit comes off the facade; by the 26th the cradle sits on the grey wall.
+
+**September.** By the 4th the middle facade from the square is already grey, scaffold left at the edges. On the 9th the windows are without film. On the 2nd “Moscow 879” flags stand by Udarnik. On the 7th the GES-2 steps look onto a [new footbridge in the canal](/en/galleries/most-bolotnaya-2026/) — toward Maly Kamenny and Repin Garden; that is a different worksite, not the facade.
 
 The section is temporary. When the scaffolding comes down and the stream can return without a hole in the frame, the page stays as an archive. The project has no official deadline; camera pages currently say “autumn”, if the works allow.
 

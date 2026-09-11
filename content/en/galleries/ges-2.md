@@ -1,7 +1,7 @@
 ---
 slug: ges-2
 title: GES-2
-description: The former power station on Bolotnaya Embankment — the 2019–2021 rebuild, Fischer’s clay, the vault, and June 2026 stills.
+description: The former power station on Bolotnaya Embankment — the 2019–2021 rebuild, Fischer’s clay, the vault, and 2026 stills including the canal footbridge.
 translationKey: gallery-ges-2
 weight: 5
 images:
@@ -57,6 +57,8 @@ images:
     caption: 20 June 2026. The birch vault in summer.
   - src: /images/galleries/ges-2/2026-06-20-model.jpg
     caption: 20 June 2026. Model of GES-2 inside the house of culture.
+  - src: /images/galleries/most-bolotnaya-2026/2026-09-07-16-43-47.jpg
+    caption: 7 September 2026. New footbridge in the canal, from the GES-2 steps toward Maly Kamenny.
 ---
 
 **GES-2** stands on Bolotnaya Embankment, next to the House on the Embankment — not the square, the neighbouring canal bank.
@@ -66,3 +68,5 @@ A city power station of 1904–1907 (engineer Mikhail Polivanov, facade by Vasil
 In August 2021 Urs Fischer’s aluminium **Big Clay No. 4** was assembled on the quay.
 
 Phone stills, 2019–2026. Not every frame from the albums: the rebuild, the clay, the vault, the canal. The hall with visitors from behind is not in the set.
+
+In 2026 a [footbridge](/en/galleries/most-bolotnaya-2026/) is going into the canal bed from GES-2 under Maly Kamenny to Repin Garden. It is not the 2024 Balchug bridge.

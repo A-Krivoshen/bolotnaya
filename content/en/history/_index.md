@@ -4,7 +4,7 @@ slug: History of Bolotnaya Square — From Moscow Swamp to Cultural Landmark
 title: History
 aliases:
   - /en/news/
-description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, GES-2, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies, scaffolding in 2026."
+description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, GES-2, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies, scaffolding and the 2026 canal footbridge."
 gallery_slug: bolotnaya-history
 images:
   - /images/galleries/history/reconstruct-1800.jpg
@@ -64,10 +64,10 @@ timeline:
     image: /images/galleries/Bolotnya_square/2025-10-20-fountain.jpg
     caption: 20 October 2025. Fountain covered for winter, a “Summer in Moscow” pavilion.
   - year: "2026"
-    title: Scaffolding and Maly Kamenny
-    text: Since June the project cameras are offline — scaffolding on the Serafimovicha facade. In June, works under Maly Kamenny Bridge are visible from GES-2.
-    image: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
-    caption: 13 June 2026. Scaffolding on Serafimovicha; mesh has not yet covered the whole facade.
+    title: Scaffolding and the canal footbridge
+    text: Since June the project cameras are offline — scaffolding on the Serafimovicha facade. By September the middle of the house is grey. In the canal bed a footbridge is going in from GES-2 under Maly Kamenny to Repin Garden.
+    image: /images/galleries/most-bolotnaya-2026/2026-09-07-16-43-47.jpg
+    caption: 7 September 2026. The new footbridge in the canal, from the GES-2 steps.
 
 now:
   - src: /images/galleries/domnanaberzhnoy/museum/2019-04-16-entrance.jpg
@@ -104,6 +104,10 @@ now:
     caption: 20 June 2026. The birch vault in summer.
   - src: /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
     caption: 13 June 2026. Scaffolding on Serafimovicha, cameras offline.
+  - src: /images/galleries/most-bolotnaya-2026/2026-09-07-16-43-47.jpg
+    caption: 7 September 2026. The new footbridge in the canal, from the GES-2 steps.
+  - src: /images/galleries/lesa-2026/2026-09-09-10-48-36.jpg
+    caption: 9 September 2026. Grey facade from the square, the ends still in scaffold.
 
 reconstructions:
   - year: "c. 1800"
@@ -153,6 +157,6 @@ Along Bolotnaya Embankment, by the House on the Embankment, stands the old **GES
 
 On 11 July 2024 a [pedestrian bridge](/en/galleries/most-balchug/) opened across the canal: the Balchug spit (Peter the Great) to Krymskaya Embankment and Muzeon. It is not the square.
 
-On **20 June 2026** works **under Maly Kamenny Bridge** are visible from the GES-2 ramp.
+On **20 June 2026** works **under Maly Kamenny Bridge** are visible from the GES-2 ramp. On **7 September** the steps already look onto a [new footbridge](/en/galleries/most-bolotnaya-2026/) in the canal — toward Repin Garden. It is not the 2024 Balchug bridge.
 
-Since June 2026 the project cameras have been off: scaffolding on the Serafimovicha facade. The repair log is in [Repair and scaffolding 2026](/en/remont-lesa-2026/).
+Since June 2026 the project cameras have been off: scaffolding on the Serafimovicha facade. By September the middle of the house is grey, windows without film. The repair log is in [Repair and scaffolding 2026](/en/remont-lesa-2026/).

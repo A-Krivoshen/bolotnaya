@@ -19,4 +19,4 @@ On 11 July 2024 a pedestrian bridge opened across the Vodootvodny Canal: the **B
 
 It is 58 m long and 8 m wide. The external stiffening rib is a 36 m bench. Work started in March 2023; the 235-tonne span arrived by barge in September 2023.
 
-This is not Bolotnaya Square and not Luzhkov Bridge. Dates from the [city announcement of 11 July 2024](https://www.mos.ru/mayor/themes/11464050/).
+This is not Bolotnaya Square and not Luzhkov Bridge. Dates from the [city announcement of 11 July 2024](https://www.mos.ru/mayor/themes/11464050/). The 2026 walkway in the canal bed, from GES-2 under Maly Kamenny to Repin Garden, has a [separate album](/en/galleries/most-bolotnaya-2026/).
