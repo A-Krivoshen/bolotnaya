@@ -1,4 +1,4 @@
 ---
 title: "Photo galleries — Bolotnaya Square"
-description: "Archive of the square, animated old photographs, St Nicholas on Bersenevka, House on the Embankment, GES-2, the bridges, and the scaffolding chronicle."
+description: "Archive of the square, House on the Embankment, animated old photographs of the house and Yakimanka, St Nicholas on Bersenevka, GES-2, the bridges, and the scaffolding chronicle."
 ---

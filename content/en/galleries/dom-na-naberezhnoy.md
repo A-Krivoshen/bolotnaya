@@ -182,5 +182,5 @@ images:
     caption: AI animation of the house. Not a photograph.
 ---
 
-Facade and embankment — stills from 2018–2024. Then the **House on the Embankment museum** in the courtyard, April–December 2019: the model, the 1928–1931 build, reconstructed rooms. The museum is closed now; visitors from behind are not in the set. The AI animations at the end are not photographs; they and the source black-and-white frames are gathered in [Animated archive](/en/galleries/ozhivlennyj-arhiv/).
+Facade and embankment — stills from 2018–2024. Then the **House on the Embankment museum** in the courtyard, April–December 2019: the model, the 1928–1931 build, reconstructed rooms. The museum is closed now; visitors from behind are not in the set. The AI animations at the end are not photographs; the house, the build and a little of the district are gathered in [House on the Embankment — archive](/en/galleries/ozhivlennyj-arhiv/).
 

@@ -1,10 +1,12 @@
 ---
 slug: ozhivlennyj-arhiv
-title: Оживлённый архив
-description: ИИ-анимации старых чёрно-белых фото Болотной, фонтана, ГЭС и Дома на набережной — и сами исходные кадры. Не хроника эпохи.
+title: Дом на набережной — архив
+description: ИИ-анимации старых чёрно-белых фото Дома на набережной и чуть района Якиманка — и сами исходные кадры. Не хроника эпохи.
 translationKey: gallery-ozhivlennyj-arhiv
-weight: 2
+weight: 3
 images:
+  - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
+    caption: "ИИ-анимация архивного кадра — фасад Дома на набережной, улица. Не фотография эпохи."
   - src: /images/galleries/Bolotnya_square/20210520_073324-ANIMATION.gif
     caption: "ИИ-анимация. Реконструкция Репинского сквера, вид сверху на фонтан. Не фотография эпохи."
   - src: /images/galleries/history/grok-video-c6840f57-0a36-4f4d-9965-f6d04850028e_watermarked.gif
@@ -23,8 +25,6 @@ images:
     caption: "ИИ-анимация архивного кадра — трубы ГЭС и лодка на Москве-реке. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f00c245e-d88f-41ae-aad1-9eca993e5e3e_watermarked.gif
     caption: "ИИ-анимация архивного кадра — дом в лесах, трубы ГЭС. Не фотография эпохи."
-  - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
-    caption: "ИИ-анимация архивного кадра — фасад Дома на набережной, улица. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-dd09a832-7b99-4746-8e28-1aa7ea89c8f2_watermarked.gif
     caption: "ИИ-анимация архивного кадра — дом с канала. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-d41423ea-7ad7-45d8-bdff-afd96947d849_watermarked.gif
@@ -217,6 +217,6 @@ images:
     caption: "Архив. Двор дома, леса."
 ---
 
-Это **не кинохроника**. Сначала — ИИ-анимации старых фото (площадь, фонтан, канал, стройка Дома на набережной, трубы ГЭС). Дальше в том же альбоме — **сами чёрно-белые кадры**: сканы архива и схемы.
+Это **не кинохроника**. Альбом про **Дом на набережной** и чуть района Якиманка: стройка 1928–1931, «Ударник», трубы ГЭС, Берсеневка, паводки, вид с реки. Сначала ИИ-анимации старых фото, дальше — **сами чёрно-белые кадры**.
 
-Те же анимации по-прежнему лежат в [истории площади](/ru/galleries/bolotnaya-history/) и в альбоме [Дома на набережной](/ru/galleries/dom-na-naberezhnoy/). Здесь они собраны одним списком, чтобы GIF были видны сразу.
+Живые снимки дома 2018–2024 — в альбоме [Дом на набережной](/ru/galleries/dom-na-naberezhnoy/). Те же GIF там тоже остаются.

@@ -1,10 +1,12 @@
 ---
 slug: ozhivlennyj-arhiv
-title: Animated archive
-description: AI animations of old black-and-white photographs of Bolotnaya, the fountain, GES and the House on the Embankment — and the source stills. Not period newsreel.
+title: House on the Embankment — archive
+description: AI animations of old black-and-white photographs of the House on the Embankment and a little of Yakimanka — and the source stills. Not period newsreel.
 translationKey: gallery-ozhivlennyj-arhiv
-weight: 2
+weight: 3
 images:
+  - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
+    caption: "AI animation of an archive frame — House on the Embankment facade, the street. Not period footage."
   - src: /images/galleries/Bolotnya_square/20210520_073324-ANIMATION.gif
     caption: "AI animation. Reconstruction of Repin Garden, aerial view of the fountain. Not period footage."
   - src: /images/galleries/history/grok-video-c6840f57-0a36-4f4d-9965-f6d04850028e_watermarked.gif
@@ -23,8 +25,6 @@ images:
     caption: "AI animation of an archive frame — GES stacks and a boat on the Moskva. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f00c245e-d88f-41ae-aad1-9eca993e5e3e_watermarked.gif
     caption: "AI animation of an archive frame — the house in scaffold, GES stacks. Not period footage."
-  - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
-    caption: "AI animation of an archive frame — House on the Embankment facade, the street. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-dd09a832-7b99-4746-8e28-1aa7ea89c8f2_watermarked.gif
     caption: "AI animation of an archive frame — the house from the canal. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-d41423ea-7ad7-45d8-bdff-afd96947d849_watermarked.gif
@@ -217,6 +217,6 @@ images:
     caption: "Archive. The house courtyard, scaffolding."
 ---
 
-This is **not newsreel**. First come AI animations of old photographs (the square, the fountain, the canal, the House on the Embankment going up, the GES stacks). Then, in the same album, the **black-and-white frames themselves**: archive scans and maps.
+This is **not newsreel**. The album is the **House on the Embankment** and a little of Yakimanka: the 1928–1931 build, Udarnik, the GES stacks, Bersenevka, floods, the view from the river. AI animations of old photographs first, then the **black-and-white frames themselves**.
 
-The same animations still sit in the [square history](/en/galleries/bolotnaya-history/) album and in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/). Here they are one list, so the GIFs are visible at once.
+Photographs of the house from 2018–2024 are in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/). The same GIFs stay there too.

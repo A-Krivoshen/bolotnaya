@@ -38,7 +38,7 @@ The live cameras may be temporarily offline during facade maintenance. Status no
 - Dedicated pages for live camera streams, history, galleries, posts, support, terms, and partner info.
 - Temporary 2026 section `remont-lesa-2026` documenting facade scaffolding while cameras are offline.
 - Gallery `most-bolotnaya-2026` for the new canal footbridge from GES-2 under Maly Kamenny to Repin Garden.
-- Gallery `ozhivlennyj-arhiv` for AI animations of old black-and-white photographs plus the source stills.
+- Gallery `ozhivlennyj-arhiv` for AI animations of old House on the Embankment / Yakimanka photographs plus the source stills.
 - Custom templates and CSS for a more local editorial feel than a stock theme.
 - GitHub Actions deployment using Hugo Extended and `peaceiris/actions-gh-pages`.
 - Working root `404.html` fallback for GitHub Pages.
