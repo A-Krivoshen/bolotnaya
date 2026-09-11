@@ -1,132 +1,89 @@
 {{- /*
-  District map: Yandex widget (works in RU) + tap-to-unlock on mobile
-  so the iframe does not steal page scroll until the user taps it.
-  dict: id (unique per page)
+  District map: Yandex JS API, labeled clickable pins,
+  page scroll never stolen until the user unlocks the map on touch.
 */ -}}
 {{- $isRu := eq site.Language.Lang "ru" -}}
-{{- $id := .id | default "bolotnaya-map" -}}
-{{- $id = printf "dmap-%s" $id -}}
+{{- $id := printf "dmap-%s" (.id | default "bolotnaya-map") -}}
 {{- $lang := cond $isRu "ru_RU" "en_US" -}}
-{{- $src := printf "https://yandex.ru/map-widget/v1/?ll=37.6128,55.7435&z=14&l=map&lang=%s&scroll=false&pt=37.61750,55.74500,pm2rdm~37.61861,55.74417,pm2blm~37.61750,55.75200,pm2gnm~37.61230,55.74440,pm2orgm~37.6086,55.7385,pm2ywm~37.6097,55.7419,pm2pmm~37.6097,55.7442,pm2grm~37.6169,55.7446,pm2lbm" $lang -}}
+{{- $open := cond $isRu "Открыть" "Open" -}}
 
-<div class="district-map" role="region" aria-label="{{ if $isRu }}Карта района{{ else }}District map{{ end }}">
+{{- $hrefSquare := "galleries/bolotnaya-square/" | relLangURL -}}
+{{- $hrefHouse := "galleries/dom-na-naberezhnoy/" | relLangURL -}}
+{{- $hrefGes := "galleries/ges-2/" | relLangURL -}}
+{{- $hrefChurch := "galleries/nikola-bersenevka/" | relLangURL -}}
+{{- $hrefBalchug := "galleries/most-balchug/" | relLangURL -}}
+{{- $hrefBridge := "galleries/most-bolotnaya-2026/" | relLangURL -}}
+{{- $hrefHistory := "history/" | relLangURL -}}
+{{- $hrefLesa := "remont-lesa-2026/" | relLangURL -}}
+{{- $hrefCamSq := "cameras/bolotnaya-square/" | relLangURL -}}
+{{- $hrefCamSer := cond $isRu ("cameras/ul-serafimovicha/" | relLangURL) ("cameras/serafimovich/" | relLangURL) -}}
+
+{{- $points := slice -}}
+{{- if $isRu -}}
+  {{- $points = slice
+    (dict "id" "square" "lat" 55.74500 "lon" 37.61750 "color" "#ed4543" "preset" "islands#redDotIconWithCaption" "caption" "Репинский сквер" "title" "Репинский сквер" "text" "Болотная площадь, фонтан, канал." "href" $hrefSquare "cta" "Альбом площади")
+    (dict "id" "luzhkov" "lat" 55.74417 "lon" 37.61861 "color" "#1e98ff" "preset" "islands#blueDotIconWithCaption" "caption" "Лужков мост" "title" "Лужков мост" "text" "Пешеходный мост через Водоотводный канал. Не Малый Каменный." "href" $hrefSquare "cta" "Альбом площади")
+    (dict "id" "kremlin" "lat" 55.75200 "lon" 37.61750 "color" "#1bad03" "preset" "islands#darkGreenDotIconWithCaption" "caption" "Кремль" "title" "Кремль" "text" "Вид с юга, с низкого берега Болота." "href" $hrefHistory "cta" "История")
+    (dict "id" "house" "lat" 55.74440 "lon" 37.61230 "color" "#e6761b" "preset" "islands#darkOrangeDotIconWithCaption" "caption" "Дом на набережной" "title" "Дом на набережной" "text" "Дом правительства, 1928-1931. Живые фото и архив." "href" $hrefHouse "cta" "Альбом дома")
+    (dict "id" "balchug" "lat" 55.73850 "lon" 37.60860 "color" "#ffd21e" "preset" "islands#yellowDotIconWithCaption" "caption" "Мост на Балчуг" "title" "Пешеходный мост на Балчуг" "text" "Стрелка острова к Музеону, открыт в 2024." "href" $hrefBalchug "cta" "Альбом моста")
+    (dict "id" "ges2" "lat" 55.74190 "lon" 37.60970 "color" "#b51eff" "preset" "islands#violetDotIconWithCaption" "caption" "ГЭС-2" "title" "ГЭС-2" "text" "Дом культуры на Болотной набережной." "href" $hrefGes "cta" "Альбом ГЭС-2")
+    (dict "id" "church" "lat" 55.74420 "lon" 37.60970 "color" "#7d7d7d" "preset" "islands#grayDotIconWithCaption" "caption" "Берсеневка" "title" "Храм Николы на Берсеневке" "text" "Узорочье XVII века у Дома на набережной." "href" $hrefChurch "cta" "Альбом храма")
+    (dict "id" "repin" "lat" 55.74460 "lon" 37.61690 "color" "#82cdff" "preset" "islands#lightBlueDotIconWithCaption" "caption" "Репин" "title" "Памятник Репину" "text" "В сквере 800-летия Москвы." "href" $hrefSquare "cta" "Альбом площади")
+    (dict "id" "footbridge" "lat" 55.74620 "lon" 37.61380 "color" "#0e4779" "preset" "islands#nightDotIconWithCaption" "caption" "Мостик 2026" "title" "Мостик под Малым Каменным" "text" "Пешеходный проход в русле канала, от ГЭС-2 к скверу." "href" $hrefBridge "cta" "Альбом мостика")
+    (dict "id" "cam-square" "lat" 55.74485 "lon" 37.61590 "color" "#f371d1" "preset" "islands#pinkDotIconWithCaption" "caption" "Камера площади" "title" "Камера: Болотная площадь" "text" "Эфир offline с июня 2026, леса закрыли обзор." "href" $hrefCamSq "cta" "Страница камеры")
+    (dict "id" "cam-sera" "lat" 55.74435 "lon" 37.61420 "color" "#669e01" "preset" "islands#oliveDotIconWithCaption" "caption" "Камера Серафимовича" "title" "Камера: ул. Серафимовича" "text" "Ракурс на улицу у дома в лесах. Offline." "href" $hrefCamSer "cta" "Страница камеры")
+  -}}
+{{- else -}}
+  {{- $points = slice
+    (dict "id" "square" "lat" 55.74500 "lon" 37.61750 "color" "#ed4543" "preset" "islands#redDotIconWithCaption" "caption" "Repin Garden" "title" "Repin Garden" "text" "Bolotnaya Square, the fountain, the canal." "href" $hrefSquare "cta" "Square album")
+    (dict "id" "luzhkov" "lat" 55.74417 "lon" 37.61861 "color" "#1e98ff" "preset" "islands#blueDotIconWithCaption" "caption" "Luzhkov Bridge" "title" "Luzhkov Bridge" "text" "Pedestrian bridge over Vodootvodny Canal. Not Maly Kamenny." "href" $hrefSquare "cta" "Square album")
+    (dict "id" "kremlin" "lat" 55.75200 "lon" 37.61750 "color" "#1bad03" "preset" "islands#darkGreenDotIconWithCaption" "caption" "Kremlin" "title" "The Kremlin" "text" "Seen from the south, from the low bank of Boloto." "href" $hrefHistory "cta" "History")
+    (dict "id" "house" "lat" 55.74440 "lon" 37.61230 "color" "#e6761b" "preset" "islands#darkOrangeDotIconWithCaption" "caption" "House on the Embankment" "title" "House on the Embankment" "text" "Government House, 1928-1931. Photographs and archive." "href" $hrefHouse "cta" "House album")
+    (dict "id" "balchug" "lat" 55.73850 "lon" 37.60860 "color" "#ffd21e" "preset" "islands#yellowDotIconWithCaption" "caption" "Balchug bridge" "title" "Pedestrian bridge to Balchug" "text" "Island spit to Muzeon, opened in 2024." "href" $hrefBalchug "cta" "Bridge album")
+    (dict "id" "ges2" "lat" 55.74190 "lon" 37.60970 "color" "#b51eff" "preset" "islands#violetDotIconWithCaption" "caption" "GES-2" "title" "GES-2" "text" "House of culture on Bolotnaya Embankment." "href" $hrefGes "cta" "GES-2 album")
+    (dict "id" "church" "lat" 55.74420 "lon" 37.60970 "color" "#7d7d7d" "preset" "islands#grayDotIconWithCaption" "caption" "Bersenevka" "title" "St Nicholas on Bersenevka" "text" "17th-century church beside the House on the Embankment." "href" $hrefChurch "cta" "Church album")
+    (dict "id" "repin" "lat" 55.74460 "lon" 37.61690 "color" "#82cdff" "preset" "islands#lightBlueDotIconWithCaption" "caption" "Repin" "title" "Repin monument" "text" "In the 800th-anniversary garden." "href" $hrefSquare "cta" "Square album")
+    (dict "id" "footbridge" "lat" 55.74620 "lon" 37.61380 "color" "#0e4779" "preset" "islands#nightDotIconWithCaption" "caption" "Footbridge 2026" "title" "Footbridge under Maly Kamenny" "text" "Walkway in the canal bed, from GES-2 to the garden." "href" $hrefBridge "cta" "Footbridge album")
+    (dict "id" "cam-square" "lat" 55.74485 "lon" 37.61590 "color" "#f371d1" "preset" "islands#pinkDotIconWithCaption" "caption" "Square camera" "title" "Camera: Bolotnaya Square" "text" "Offline since June 2026: scaffolding blocks the view." "href" $hrefCamSq "cta" "Camera page")
+    (dict "id" "cam-sera" "lat" 55.74435 "lon" 37.61420 "color" "#669e01" "preset" "islands#oliveDotIconWithCaption" "caption" "Serafimovicha camera" "title" "Camera: Ulitsa Serafimovicha" "text" "View of the street by the scaffolded house. Offline." "href" $hrefCamSer "cta" "Camera page")
+  -}}
+{{- end -}}
+
+{{- $cfg := dict
+  "lang" $lang
+  "open" $open
+  "center" (slice 55.7435 37.6128)
+  "zoom" 14
+  "points" $points
+-}}
+
+<div class="district-map" role="region" aria-label="{{ if $isRu }}Карта района{{ else }}District map{{ end }}" data-map-id="{{ $id }}">
   <div class="district-map__viewport">
-    <iframe
+    <div
       id="{{ $id }}"
       class="district-map__canvas"
-      title="{{ if $isRu }}Карта Болотной площади{{ else }}Map of Bolotnaya Square{{ end }}"
-      src="about:blank"
-      data-src="{{ $src }}"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      allow="fullscreen"
-      allowfullscreen
-    ></iframe>
-    <div class="district-map__shield" role="button" tabindex="0" aria-pressed="false">
+      role="application"
+      aria-label="{{ if $isRu }}Яндекс.Карты, Болотная и Якиманка{{ else }}Yandex Maps, Bolotnaya and Yakimanka{{ end }}"
+    ></div>
+    <button type="button" class="district-map__shield" aria-pressed="false">
       <span class="district-map__shield-label">{{ if $isRu }}Нажмите, чтобы двигать карту{{ else }}Tap to move the map{{ end }}</span>
-    </div>
+    </button>
   </div>
-  <p class="district-map__note">
-    {{ if $isRu }}Яндекс.Карты. Маркеры: сквер, Лужков мост, Кремль, Дом на набережной, мост на Балчуг, ГЭС-2, храм на Берсеневке, Репин.{{ else }}Yandex Maps. Markers: the garden, Luzhkov Bridge, the Kremlin, House on the Embankment, Balchug bridge, GES-2, St Nicholas on Bersenevka, Repin.{{ end }}
-  </p>
+  <ul class="district-map__legend" aria-label="{{ if $isRu }}Точки на карте{{ else }}Places on the map{{ end }}">
+    {{- range $points }}
+    <li>
+      <a class="district-map__legend-item" href="{{ .href }}" data-pin="{{ .id }}">
+        <span class="district-map__dot" style="background:{{ .color }}" aria-hidden="true"></span>
+        <span>{{ .caption }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+  <p class="district-map__note">{{ if $isRu }}Яндекс.Карты. Метка открывает карточку, название ведёт на страницу. На телефоне карта не перехватывает прокрутку, пока её не нажать.{{ else }}Yandex Maps. A pin opens a card; the name goes to the page. On a phone the map does not steal scroll until you tap it.{{ end }}</p>
+  <script type="application/json" class="district-map__cfg">{{ $cfg | jsonify | safeHTML }}</script>
 </div>
 
-<script>
-(function () {
-  if (window.__bolotnayaMapUnlock) return;
-  window.__bolotnayaMapUnlock = true;
-
-  var MOVE = 12;
-  var touch = { x: 0, y: 0, moved: false };
-
-  function wrapOf(el) {
-    return el && el.closest ? el.closest('.district-map') : null;
-  }
-
-  function lock(wrap) {
-    if (!wrap) return;
-    wrap.classList.remove('is-unlocked');
-    var s = wrap.querySelector('.district-map__shield');
-    if (s) s.setAttribute('aria-pressed', 'false');
-  }
-
-  function loadFrame(wrap) {
-    if (!wrap) return;
-    var f = wrap.querySelector('iframe[data-src]');
-    if (!f) return;
-    var u = f.getAttribute('data-src');
-    if (u && f.getAttribute('src') !== u) f.setAttribute('src', u);
-  }
-  function unlock(wrap) {
-    if (!wrap) return;
-    loadFrame(wrap);
-    wrap.classList.add('is-unlocked');
-    var s = wrap.querySelector('.district-map__shield');
-    if (s) s.setAttribute('aria-pressed', 'true');
-  }
-
-  function lockOthers(keep) {
-    document.querySelectorAll('.district-map.is-unlocked').forEach(function (w) {
-      if (w !== keep) lock(w);
-    });
-  }
-
-  document.addEventListener('touchstart', function (e) {
-    var t = e.changedTouches && e.changedTouches[0];
-    if (!t) return;
-    touch.x = t.clientX;
-    touch.y = t.clientY;
-    touch.moved = false;
-  }, { passive: true });
-
-  document.addEventListener('touchmove', function (e) {
-    var t = e.changedTouches && e.changedTouches[0];
-    if (!t) return;
-    if (Math.abs(t.clientX - touch.x) > MOVE || Math.abs(t.clientY - touch.y) > MOVE) {
-      touch.moved = true;
-    }
-  }, { passive: true });
-
-  document.addEventListener('touchend', function (e) {
-    var shield = e.target.closest && e.target.closest('.district-map__shield');
-    if (shield && !touch.moved) {
-      e.preventDefault();
-      unlock(wrapOf(shield));
-    }
-  }, { passive: false });
-
-  document.addEventListener('click', function (e) {
-    var shield = e.target.closest && e.target.closest('.district-map__shield');
-    if (shield) {
-      e.preventDefault();
-      unlock(wrapOf(shield));
-      return;
-    }
-    lockOthers(wrapOf(e.target));
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    var shield = e.target.closest && e.target.closest('.district-map__shield');
-    if (!shield) return;
-    e.preventDefault();
-    unlock(wrapOf(shield));
-  });
-
-  document.querySelectorAll('.district-map').forEach(function (wrap) {
-    if (!('IntersectionObserver' in window)) {
-      loadFrame(wrap);
-      return;
-    }
-    var io = new IntersectionObserver(function (ents) {
-      ents.forEach(function (ent) {
-        if (ent.isIntersecting) {
-          loadFrame(wrap);
-          io.disconnect();
-        }
-      });
-    }, { rootMargin: '240px' });
-    io.observe(wrap);
-  });
-})();
-</script>
+{{- if not (page.Scratch.Get "districtMapJS") -}}
+  {{- page.Scratch.Set "districtMapJS" true -}}
+  <script src="/js/district-map.js" defer></script>
+{{- end -}}
