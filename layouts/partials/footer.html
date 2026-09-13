@@ -143,14 +143,29 @@
 </script>
 {{- end }}
 <script>
-document.querySelectorAll('.lang-switch a').forEach(function (a) {
-    a.addEventListener('click', function () {
-        var href = a.getAttribute('href') || '';
-        var lang = href.indexOf('/en') !== -1 ? 'en' : 'ru';
-        try { localStorage.setItem('pref-lang', lang); } catch (e) {}
-        document.cookie = 'pref-lang=' + lang + ';path=/;max-age=31536000;samesite=lax';
+(function () {
+    var path = location.pathname;
+    if (path === '/' || path === '/index.html') {
+        var pref = '';
+        try { pref = localStorage.getItem('pref-lang') || ''; } catch (e) {}
+        if (!pref) {
+            var m = document.cookie.match(/(?:^|;\s*)pref-lang=(en|ru)/);
+            if (m) pref = m[1];
+        }
+        if (pref === 'en') {
+            location.replace('/en/');
+            return;
+        }
+    }
+    document.querySelectorAll('.lang-switch a').forEach(function (a) {
+        a.addEventListener('click', function () {
+            var href = a.getAttribute('href') || '';
+            var lang = href.indexOf('/en') !== -1 ? 'en' : 'ru';
+            try { localStorage.setItem('pref-lang', lang); } catch (e) {}
+            document.cookie = 'pref-lang=' + lang + ';path=/;max-age=31536000;samesite=lax';
+        });
     });
-});
+})();
 </script>
 
 
