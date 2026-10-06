@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-20",
+  "updated": "2026-10-06",
   "name": "Bolotnaya Online",
   "url": "https://bolotnaya.online/",
   "canonical_host": "bolotnaya.online",
@@ -11,7 +11,10 @@
     "newsroom"
   ],
   "default_language": "ru",
-  "languages": ["ru", "en"],
+  "languages": [
+    "ru",
+    "en"
+  ],
   "description": {
     "ru": "Камеры Болотной offline с июня 2026 (леса). История, фото и хроника ремонта. Open-source проект жителя Якиманки.",
     "en": "Bolotnaya cameras offline since June 2026 (scaffolding). History, photos and repair chronicle. Open-source local project."
@@ -44,7 +47,12 @@
     "ai_txt": "https://bolotnaya.online/ai.txt",
     "cameras": "https://bolotnaya.online/ai/cameras.json",
     "page_ru": "https://bolotnaya.online/ru/for-agents/",
-    "page_en": "https://bolotnaya.online/en/for-agents/"
+    "page_en": "https://bolotnaya.online/en/for-agents/",
+    "agents_md": "https://bolotnaya.online/AGENTS.md",
+    "openapi": "https://bolotnaya.online/openapi.yaml",
+    "api_catalog": "https://bolotnaya.online/.well-known/api-catalog.json",
+    "agent_json": "https://bolotnaya.online/.well-known/agent.json",
+    "policy": "search=yes, ai-input=yes, ai-train=no"
   },
   "sitemaps": [
     "https://bolotnaya.online/sitemap.xml",

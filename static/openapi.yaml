@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Bolotnaya Online — public pages and JSON cards
+  version: "2026-10-06"
+  summary: Static bilingual district site. Cameras offline since June 2026. No write API.
+  contact:
+    email: info@bolotnaya.online
+servers:
+  - url: https://bolotnaya.online
+paths:
+  /llms.txt:
+    get:
+      summary: Agent index
+      responses:
+        "200":
+          description: Plain text / Markdown
+  /ai/site.json:
+    get:
+      summary: Machine-readable site card
+      responses:
+        "200":
+          description: JSON
+          content:
+            application/json:
+              schema:
+                type: object
+  /ai/cameras.json:
+    get:
+      summary: Camera catalog and offline status
+      responses:
+        "200":
+          description: JSON
+  /ru/:
+    get:
+      summary: Russian homepage
+      responses:
+        "200":
+          description: HTML
+  /en/:
+    get:
+      summary: English homepage
+      responses:
+        "200":
+          description: HTML
+  /sitemap.xml:
+    get:
+      summary: Sitemap index
+      responses:
+        "200":
+          description: XML

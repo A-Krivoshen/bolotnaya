@@ -8,5 +8,11 @@ site-json: https://bolotnaya.online/ai/site.json
 cameras-json: https://bolotnaya.online/ai/cameras.json
 ru: https://bolotnaya.online/ru/for-agents/
 en: https://bolotnaya.online/en/for-agents/
+agents: https://bolotnaya.online/AGENTS.md
+openapi: https://bolotnaya.online/openapi.yaml
+api-catalog: https://bolotnaya.online/.well-known/api-catalog.json
+agent-card: https://bolotnaya.online/.well-known/agent.json
+security: https://bolotnaya.online/.well-known/security.txt
 contact: info@bolotnaya.online
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 source: https://github.com/A-Krivoshen/bolotnaya

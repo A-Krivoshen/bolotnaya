@@ -15,7 +15,11 @@ Allow: /llms-en.txt
 Allow: /llms-full.txt
 Allow: /ai.txt
 Allow: /ai/
-Allow: /.well-known/llms.txt
+Allow: /AGENTS.md
+Allow: /openapi.yaml
+Allow: /humans.txt
+Allow: /security.txt
+Allow: /.well-known/
 Disallow: /admin/
 Disallow: /ru/admin/
 Disallow: /en/admin/
@@ -65,10 +69,10 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 User-agent: CCBot
-Allow: /
+Disallow: /
 
 User-agent: cohere-ai
 Allow: /
@@ -113,4 +117,6 @@ User-agent: xAI
 Allow: /
 
 # Sitemaps (Hugo multilingual index → /ru/sitemap.xml + /en/sitemap.xml)
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 Sitemap: https://bolotnaya.online/sitemap.xml

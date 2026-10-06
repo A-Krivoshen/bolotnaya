@@ -1,0 +1,65 @@
+{
+  "title": "Bolotnaya Online agent API catalog",
+  "description": "Static pages plus two JSON cards. Cameras offline.",
+  "version": "2026-10-06",
+  "policy": {
+    "search": true,
+    "ai_input": true,
+    "ai_train": false,
+    "attribution_required": true
+  },
+  "resources": [
+    {
+      "rel": "describedby",
+      "href": "https://bolotnaya.online/llms.txt",
+      "type": "text/markdown",
+      "title": "llms.txt"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://bolotnaya.online/llms-ru.txt",
+      "type": "text/plain",
+      "title": "llms-ru.txt"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://bolotnaya.online/llms-en.txt",
+      "type": "text/plain",
+      "title": "llms-en.txt"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://bolotnaya.online/llms-full.txt",
+      "type": "text/plain",
+      "title": "llms-full.txt"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://bolotnaya.online/AGENTS.md",
+      "type": "text/markdown",
+      "title": "AGENTS.md"
+    },
+    {
+      "rel": "service-desc",
+      "href": "https://bolotnaya.online/openapi.yaml",
+      "type": "application/yaml"
+    },
+    {
+      "rel": "alternate",
+      "href": "https://bolotnaya.online/ai/site.json",
+      "type": "application/json",
+      "title": "site.json"
+    },
+    {
+      "rel": "alternate",
+      "href": "https://bolotnaya.online/ai/cameras.json",
+      "type": "application/json",
+      "title": "cameras.json"
+    },
+    {
+      "rel": "sitemap",
+      "href": "https://bolotnaya.online/sitemap.xml",
+      "type": "application/xml"
+    }
+  ]
+}

@@ -1,12 +1,19 @@
 # Bolotnaya Online
 
-> Independent bilingual (RU/EN) open-source district site about Bolotnaya Square and Yakimanka, Moscow.
+> Independent bilingual (RU/EN) open-source district site about Bolotnaya Square and Yakimanka, Moscow. Cameras are offline (scaffolding since June 2026).
 
-Canonical AI index: https://bolotnaya.online/llms.txt  
-Russian: https://bolotnaya.online/llms-ru.txt  
-English: https://bolotnaya.online/llms-en.txt  
-Full: https://bolotnaya.online/llms-full.txt  
-JSON: https://bolotnaya.online/ai/site.json  
-Cameras JSON: https://bolotnaya.online/ai/cameras.json  
-RU page: https://bolotnaya.online/ru/for-agents/  
+Canonical AI index: https://bolotnaya.online/llms.txt
+Russian: https://bolotnaya.online/llms-ru.txt
+English: https://bolotnaya.online/llms-en.txt
+Full: https://bolotnaya.online/llms-full.txt
+AGENTS.md: https://bolotnaya.online/AGENTS.md
+OpenAPI: https://bolotnaya.online/openapi.yaml
+JSON: https://bolotnaya.online/ai/site.json
+Cameras JSON: https://bolotnaya.online/ai/cameras.json
+API catalog: https://bolotnaya.online/.well-known/api-catalog.json
+Agent card: https://bolotnaya.online/.well-known/agent.json
+RU page: https://bolotnaya.online/ru/for-agents/
 EN page: https://bolotnaya.online/en/for-agents/
+
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Video host https://cam.bolotnaya.online/ is HLS only and is not a website.

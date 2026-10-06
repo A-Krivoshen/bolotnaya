@@ -1,0 +1,26 @@
+{
+  "name": "Bolotnaya Online",
+  "description": "Bilingual open-source site about Bolotnaya Square and Yakimanka. Cameras offline since June 2026. Not a city website.",
+  "url": "https://bolotnaya.online/ru/",
+  "primary_locale": "ru",
+  "locales": [
+    "ru",
+    "en"
+  ],
+  "llms": "https://bolotnaya.online/llms.txt",
+  "llms_full": "https://bolotnaya.online/llms-full.txt",
+  "ai_policy": "https://bolotnaya.online/ai.txt",
+  "api_catalog": "https://bolotnaya.online/.well-known/api-catalog.json",
+  "openapi": "https://bolotnaya.online/openapi.yaml",
+  "agents_md": "https://bolotnaya.online/AGENTS.md",
+  "sitemap": "https://bolotnaya.online/sitemap.xml",
+  "contact": "mailto:info@bolotnaya.online",
+  "policy": {
+    "search": true,
+    "ai_input": true,
+    "ai_train": false,
+    "attribution_required": true,
+    "public_json_api": true,
+    "note": "JSON is /ai/site.json and /ai/cameras.json only. Do not claim the cameras are live."
+  }
+}
