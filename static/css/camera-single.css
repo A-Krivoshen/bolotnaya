@@ -120,7 +120,7 @@
 .cam-ad-countdown {
   position: absolute;
   right: 0.7rem;
-  bottom: 0.7rem;
+  top: 0.7rem;
   z-index: 6;
   margin: 0;
   max-width: calc(100% - 1.4rem);
@@ -199,6 +199,35 @@
 
 .cam-ad-resume:active {
   transform: translateY(1px);
+}
+
+/* Phone player is shorter than a banner. Yandex skips a clipped slot. */
+@media (max-width: 700px) {
+  .tab-pane:has(.cam-ad-layer.is-open) {
+    overflow: visible;
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .tab-pane:has(.cam-ad-layer.is-open) > video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .cam-ad-layer.is-open {
+    position: relative;
+    inset: auto;
+    min-height: 250px;
+  }
+
+  .cam-ad-layer.is-open .cam-ad-slot,
+  .cam-ad-layer.is-open .cam-ad-render {
+    width: 100%;
+    max-width: 400px;
+    min-width: 0;
+    min-height: 250px;
+  }
 }
 
 .camera-page .camera-bottom-text p {

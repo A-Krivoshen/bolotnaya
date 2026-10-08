@@ -83,6 +83,9 @@
         window.clearTimeout(emptyTimer);
         layer.classList.add('is-filled');
         resume.hidden = false;
+        if (window.innerWidth <= 700) {
+          box.scrollIntoView({ block: 'center', inline: 'nearest' });
+        }
         hideTimer = window.setTimeout(finish, adVisibleMs);
       }
 
