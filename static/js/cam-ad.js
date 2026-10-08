@@ -1,8 +1,11 @@
 (function(){
   const playBeforeAd = 18;
   const countdownFrom = 5;
+  const watchBetweenAds = 5 * 60;
+  const adVisibleMs = 30000;
   const adBlockId = 'R-A-19616132-12';
   const lang = (document.documentElement.getAttribute('lang') || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru';
+  let showIndex = 0;
 
   function label(seconds){
     if (lang === 'en') return 'Ad starts in ' + seconds + ' seconds';
@@ -10,13 +13,25 @@
   }
 
   function loadSlot(slot){
+    showIndex += 1;
+    let renderTo = slot.id;
+    if (showIndex > 1) {
+      slot.replaceChildren();
+      renderTo = slot.id + '-' + showIndex;
+      const box = document.createElement('div');
+      box.id = renderTo;
+      slot.appendChild(box);
+    }
+    const page = showIndex;
     window.yaContextCb = window.yaContextCb || [];
     window.yaContextCb.push(function(){
       if (!window.Ya || !window.Ya.Context || !window.Ya.Context.AdvManager) return;
-      window.Ya.Context.AdvManager.render({
+      const opts = {
         blockId: adBlockId,
-        renderTo: slot.id
-      });
+        renderTo: renderTo
+      };
+      if (page > 1) opts.pageNumber = page;
+      window.Ya.Context.AdvManager.render(opts);
     });
     if (document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) return;
     const script = document.createElement('script');
@@ -36,15 +51,19 @@
     if (!badge || !layer || !slot || !resume) return;
 
     let played = 0;
+    let nextAt = playBeforeAd;
     let phase = 'watch';
     let hideTimer = 0;
 
     function finish(){
-      if (phase === 'done') return;
-      phase = 'done';
+      if (phase === 'watch') return;
+      phase = 'watch';
       window.clearTimeout(hideTimer);
       badge.hidden = true;
       layer.hidden = true;
+      slot.replaceChildren();
+      played = 0;
+      nextAt = watchBetweenAds;
     }
 
     function showAd(){
@@ -57,7 +76,7 @@
           loadSlot(slot);
         });
       });
-      hideTimer = window.setTimeout(finish, 30000);
+      hideTimer = window.setTimeout(finish, adVisibleMs);
     }
 
     function startCountdown(){
@@ -78,16 +97,13 @@
     }
 
     // Live HLS jumps currentTime by several seconds, so media deltas
-    // never add up to 18. Count wall-clock seconds while a frame is showing.
-    const timer = window.setInterval(function(){
-      if (phase !== 'watch') {
-        window.clearInterval(timer);
-        return;
-      }
+    // never add up. Count wall-clock seconds while a frame is showing.
+    window.setInterval(function(){
+      if (phase !== 'watch') return;
       if (video.paused || video.ended || document.hidden) return;
       if (video.readyState < 2) return;
       played += 1;
-      if (played >= playBeforeAd) startCountdown();
+      if (played >= nextAt) startCountdown();
     }, 1000);
 
     resume.addEventListener('click', finish);
