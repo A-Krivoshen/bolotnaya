@@ -65,6 +65,8 @@
       window.clearTimeout(emptyTimer);
       badge.hidden = true;
       layer.hidden = true;
+      layer.classList.remove('is-filled');
+      resume.hidden = true;
       slot.replaceChildren();
       played = 0;
       creativeShown = false;
@@ -76,10 +78,10 @@
     }
 
     function hasCreative(){
-      const nodes = slot.querySelectorAll('iframe, img, a');
+      const nodes = slot.querySelectorAll('iframe, img');
       for (let i = 0; i < nodes.length; i += 1) {
         const box = nodes[i].getBoundingClientRect();
-        if (box.height > 8 && box.width > 30) return true;
+        if (box.height >= 50 && box.width >= 200) return true;
       }
       return false;
     }
@@ -87,14 +89,18 @@
     function showAd(){
       phase = 'ad';
       badge.hidden = true;
-      // Yandex measures the slot, so the layer has to be visible.
-      // If no creative arrives, drop the veil instead of covering the picture.
+      // The slot has to be on screen for Yandex to paint. The dark veil
+      // and the resume button stay off until a real banner is there.
+      layer.classList.remove('is-filled');
+      resume.hidden = true;
       layer.hidden = false;
       let filled = false;
       function arm(){
-        if (filled || phase !== 'ad') return;
+        if (filled || phase !== 'ad' || !hasCreative()) return;
         filled = true;
         creativeShown = true;
+        layer.classList.add('is-filled');
+        resume.hidden = false;
         window.clearTimeout(emptyTimer);
         hideTimer = window.setTimeout(finish, adVisibleMs);
       }

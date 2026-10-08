@@ -36,6 +36,9 @@
   function loadAds() {
     if (window.__bolotnayaAds) return;
     window.__bolotnayaAds = 1;
+    // The camera page paints block 12 itself. The auto loader would
+    // render that block while it is still hidden, and the banner never appears.
+    if (document.getElementById('yandex_rtb_R-A-19616132-12')) return;
     window.yaContextCb = window.yaContextCb || [];
     if (!document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) {
       var s1 = document.createElement('script');

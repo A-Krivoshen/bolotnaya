@@ -145,16 +145,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.65rem;
   padding: 0.85rem;
-  background: rgba(10, 10, 10, 0.9);
+  background: transparent;
+  pointer-events: none;
   overflow: auto;
 }
 
+.cam-ad-layer.is-filled {
+  background: rgba(10, 10, 10, 0.82);
+  pointer-events: auto;
+}
+
 .cam-ad-slot {
-  width: 100%;
+  width: min(100%, 640px);
+  min-height: 0;
+}
+
+.cam-ad-layer.is-filled .cam-ad-slot {
   min-height: 90px;
+}
+
+.cam-ad-layer:not(.is-filled) .cam-ad-resume {
+  display: none !important;
 }
 
 .cam-ad-resume {
@@ -210,20 +224,35 @@
   }
 }
 
-/* Weather widget — compact, non-blocking */
+/* Weather widget — light chip so the dark-gray informer stays readable */
 .camera-page .weather-widget {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin: 0.35rem 0 0.65rem;
-  opacity: 0.7;
 }
 
-.camera-page .weather-widget .widget-plain {
-  display: inline-block;
-  pointer-events: none;
-  cursor: default;
+.camera-page .weather-widget #e76467b5337d868231eb8281690870ba {
+  display: block;
+  width: 125px;
+  min-height: 80px;
+  box-sizing: border-box;
+  padding: 0.2rem 0.35rem;
+  border-radius: 10px;
+  background: #f6f4ef;
+  color: #363945;
   text-decoration: none;
   font-size: 12px;
-  max-width: 100%;
+  line-height: 1.3;
+  overflow: hidden;
+}
+
+.camera-page .weather-widget #e76467b5337d868231eb8281690870ba .widget-plain {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  color: #363945;
 }
 
 /* Adblock notice — readable on small screens */
