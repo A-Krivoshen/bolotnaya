@@ -551,7 +551,8 @@ p, .home-lead, body {
 /* Camera previews on home - more polished cards */
 .camera-preview-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 40rem);
+  justify-content: center;
   gap: 1.75rem;
 }
 
@@ -1460,7 +1461,8 @@ article.container {
   }
 
   .camera-preview-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 40rem);
+    justify-content: center;
   }
 }
 
@@ -1977,19 +1979,18 @@ body {
 
 /* Hero 2026 */
 .hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin: 0 0 0.65rem;
-  padding: 0.2rem 0.7rem;
-  border-radius: var(--b-radius-pill);
-  border: 1px solid var(--border);
-  background: var(--entry);
+  display: block;
+  margin: 0 0 0.55rem;
+  padding: 0;
+  border: 0;
+  background: none;
   color: var(--secondary);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", "Liberation Serif", Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
 .home--2026 .hero {
@@ -2090,11 +2091,17 @@ body {
 }
 
 .explore-card__label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", "Liberation Serif", Georgia, serif;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--secondary);
+}
+
+.explore-card__cta {
+  margin-top: auto;
 }
 
 .explore-card h3 {
@@ -2631,7 +2638,11 @@ summary:focus-visible,
 }
 
 .explore-grid--3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
+}
+
+.explore-grid--3 .explore-card:first-child {
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 900px) {
@@ -3200,4 +3211,37 @@ body:has(.page-cameras) .main {
   .camera-stage:hover .camera-stage__media img {
     transform: none;
   }
+}
+
+/* One camera, centered. Editorial serif on titles across the site. */
+body:has(.home--2026) .main {
+  max-width: min(960px, calc(100vw - 2rem));
+}
+
+h1,
+h2,
+.post-title,
+.page-header h1,
+.camera-stage__meta h2 {
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", "Liberation Serif", Georgia, serif;
+  text-wrap: balance;
+}
+
+.hero-status .status-badge.live {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.45rem;
+  border-radius: 50%;
+  background: #3f6b4c;
+  border: 0;
+  flex-shrink: 0;
+  font-size: 0;
+}
+
+.dark .hero-status .status-badge.live {
+  background: #c5d4c4;
+}
+
+.btn:active {
+  transform: translateY(1px);
 }

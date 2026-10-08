@@ -7,7 +7,7 @@
         <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
         <h1>{{ if $isRu }}Bolotnaya Online — Якиманка: камера, история и ремонт{{ else }}Bolotnaya Online — Yakimanka: camera, history &amp; repair{{ end }}</h1>
         <p class="hero-lead">{{ if $isRu }}История и фото Болотной, одна камера на Серафимовича{{ else }}History and photos of Bolotnaya, one camera on Serafimovicha{{ end }}</p>
-        <p class="hero-desc">{{ if $isRu }}Эфир открывается на странице камеры. Прямая ссылка без подписи не работает. Рядом — хроника ремонта и фото района.{{ else }}The stream opens on the camera page. A direct link without a signature does not work. The repair chronicle and district photos sit beside it.{{ end }}</p>
+        <p class="hero-desc">{{ if $isRu }}Одна камера на улице Серафимовича. В кадре площадь, канал и новый мостик под Малым Каменным. Рядом — хроника ремонта и фото района.{{ else }}One camera on Ulitsa Serafimovicha. The frame holds the square, the canal, and the new footbridge under Maly Kamenny. The repair chronicle and district photos sit beside it.{{ end }}</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
@@ -28,13 +28,12 @@
         </nav>
       </div>
 
-      {{ $noticeURL := ("remont-lesa-2026/" | relLangURL) }}
       <div class="hero-status" role="status" aria-live="polite">
-        <div class="status-badge unavailable" aria-hidden="true">!</div>
+        <div class="status-badge live" aria-hidden="true"></div>
         <div>
           <div class="status-title">{{ if $isRu }}Камера в эфире{{ else }}Camera is live{{ end }}</div>
-          <p class="status-text">{{ if $isRu }}Смотреть можно со страницы камеры. Голая ссылка на поток закрыта подписью.{{ else }}Watch it from the camera page. The bare stream link is closed with a signature.{{ end }}</p>
-          <a class="status-link" href="{{ $noticeURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
+          <p class="status-text">{{ if $isRu }}Улица Серафимовича. В кадре ещё новый мостик под Малым Каменным.{{ else }}Ulitsa Serafimovicha. The new footbridge under Maly Kamenny is in the frame too.{{ end }}</p>
+          <a class="status-link" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Смотреть камеру →{{ else }}Watch the camera →{{ end }}</a>
         </div>
       </div>
     </div>
