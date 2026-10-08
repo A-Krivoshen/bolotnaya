@@ -59,7 +59,7 @@
             {{ end }}
             <div class="camera-preview__media">
               <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-              <div class="camera-preview__badge">LIVE</div>
+              <div class="camera-preview__badge">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</div>
             </div>
             <div class="camera-preview__meta">
               <h3>{{ $p.Title }}</h3>
@@ -79,7 +79,7 @@
         <a class="explore-card" href="{{ "remont-lesa-2026/" | relLangURL }}">
           <span class="explore-card__label">{{ if $isRu }}Сейчас{{ else }}Now{{ end }}</span>
           <h3>{{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}</h3>
-          <p>{{ if $isRu }}Фасад в лесах. Фото по неделям, в том числе 2–3 октября, и ролики с телефона.{{ else }}Facade in scaffolding. Weekly photos, including 2–3 October, and phone clips.{{ end }}</p>
+          <p>{{ if $isRu }}8 октября сняли часть лесов. Камера снова в эфире, фото в хронике.{{ else }}On 8 October part of the scaffold came down. The camera is live again; the photos are in the chronicle.{{ end }}</p>
           <span class="explore-card__cta">{{ if $isRu }}Смотреть →{{ else }}Browse →{{ end }}</span>
         </a>
         <a class="explore-card" href="{{ "history/" | relLangURL }}">

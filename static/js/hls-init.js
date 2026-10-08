@@ -101,17 +101,9 @@
 
     video.addEventListener('error', () => {
       const key = videoKey(video);
+      if (hlsInstances.has(key)) return;
       const container = video.closest('.camera-container') || document;
       const status = container.querySelector('.status');
-      destroyHls(key);
-      scheduleReconnect(key, video, status);
-    });
-
-    video.addEventListener('stalled', () => {
-      const key = videoKey(video);
-      const container = video.closest('.camera-container') || document;
-      const status = container.querySelector('.status');
-      destroyHls(key);
       scheduleReconnect(key, video, status);
     });
 
@@ -232,19 +224,17 @@
       });
 
       hls.on(window.Hls.Events.ERROR, function(event, data){
-        scheduleReconnect(key, video, status);
-        if (data && data.fatal){
-          switch (data.type){
-            case window.Hls.ErrorTypes.NETWORK_ERROR:
-              destroyHls(key);
-              break;
-            case window.Hls.ErrorTypes.MEDIA_ERROR:
-              try{ hls.recoverMediaError(); }catch(e){}
-              break;
-            default:
-              destroyHls(key);
-          }
+        if (!data || !data.fatal) return;
+        if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR && !video.dataset.hlsMediaRetried) {
+          video.dataset.hlsMediaRetried = '1';
+          try { hls.recoverMediaError(); return; } catch (e) {}
         }
+        if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR && !video.dataset.hlsNetRetried) {
+          video.dataset.hlsNetRetried = '1';
+          try { hls.startLoad(); return; } catch (e) {}
+        }
+        destroyHls(key);
+        scheduleReconnect(key, video, status);
       });
 
       hlsInstances.set(key, hls);
@@ -260,56 +250,8 @@
     }
   }
 
-  function detectAdBlockerAsync(url){
-    return new Promise(resolve => {
-      let settled = false;
-      const script = document.createElement('script');
-      const timer = setTimeout(() => finish(false), 1500);
-
-      function finish(blocked){
-        if (settled) return;
-        settled = true;
-        clearTimeout(timer);
-        script.onerror = null;
-        script.onload = null;
-        script.remove();
-        resolve(blocked);
-      }
-
-      script.onerror = () => finish(true);
-      script.onload  = () => finish(false);
-      script.src = url;
-      document.body.appendChild(script);
-    });
-  }
-
   document.addEventListener('DOMContentLoaded', function(){
-    detectAdBlockerAsync('https://ads.pubmatic.com/AdServer/js/gshowad.js').then(isBlock => {
-      videos.forEach(video => {
-        const container = video.closest('.camera-container') || document;
-        const adBox = container.querySelector('#adblock-message');
-
-        if (isBlock){
-          if (adBox){
-            if (!adBox.textContent.trim()) adBox.textContent = msg('adblock');
-            adBox.style.display = 'block';
-          }
-
-          const pane = video.closest('.tab-pane');
-          if (pane) pane.style.display = 'none';
-
-          const status = container.querySelector('.status');
-          setStatus(status, msg('adblock'), 'error');
-          return;
-        }
-
-        if (adBox) {
-          adBox.style.display = 'none';
-        }
-
-        setup(video);
-      });
-    });
+    videos.forEach(video => setup(video));
   });
 
   document.addEventListener('visibilitychange', () => {

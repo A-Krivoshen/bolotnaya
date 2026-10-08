@@ -17,6 +17,15 @@
 
     {{ partial "weather-widget.html" (dict) }}
 
+    {{ if not $offline }}
+    <ul class="camera-facts">
+      <li>{{ if $isRu }}Видео, 1440p{{ else }}Video, 1440p{{ end }}</li>
+      <li>20 fps</li>
+      <li>MSK</li>
+      <li class="camera-facts__live">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</li>
+    </ul>
+    {{ end }}
+
     <div class="camera-container camera-card" {{ if not $offline }}data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}"{{ end }}>
       {{ if $offline }}
       <div class="site-alert" role="status">
@@ -34,11 +43,13 @@
         <figcaption>{{ if $isRu }}Июнь 2026. Вид с точки камер через сетку лесов.{{ else }}June 2026. View from the camera point through the scaffolding mesh.{{ end }}</figcaption>
       </figure>
       {{ else }}
-      <div id="adblock-message" class="adblock-message" style="display:none;">
-        {{ if $isRu }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
-      </div>
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
+        <p class="cam-ad-countdown" hidden></p>
+        <div class="cam-ad-layer" hidden>
+          <div id="yandex_rtb_R-A-19616132-1" class="cam-ad-slot"></div>
+          <button type="button" class="cam-ad-resume">{{ if $isRu }}Продолжить эфир{{ else }}Resume the stream{{ end }}</button>
+        </div>
       </div>
       <div class="status">{{ if $isRu }}Подключение…{{ else }}Connecting…{{ end }}</div>
       {{ end }}
@@ -62,5 +73,6 @@
 {{ if not $offline }}
 <script src="/js/hls.min.js"></script>
 <script src="/js/hls-init.js"></script>
+<script src="/js/cam-ad.js"></script>
 {{ end }}
 {{ end }}

@@ -33,7 +33,7 @@
   <div class="repair-status" role="status">
     <div class="repair-status__item">
       <span class="repair-status__label">{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}</span>
-      <strong>offline</strong>
+      <strong>{{ if $isRu }}в эфире{{ else }}live{{ end }}</strong>
     </div>
     <div class="repair-status__item">
       <span class="repair-status__label">{{ if $isRu }}С{{ else }}Since{{ end }}</span>
@@ -45,7 +45,7 @@
     </div>
     <div class="repair-status__item">
       <span class="repair-status__label">{{ if $isRu }}Ориентир{{ else }}Aim{{ end }}</span>
-      <strong>{{ if $isRu }}осень, если работы позволят{{ else }}autumn, if the works allow{{ end }}</strong>
+      <strong>{{ if $isRu }}следующий год{{ else }}next year{{ end }}</strong>
     </div>
   </div>
 

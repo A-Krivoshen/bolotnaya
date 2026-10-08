@@ -1,7 +1,7 @@
 ---
 title: "Repair and scaffolding 2026"
-description: "A chronicle of facade repair at Bolotnaya: scaffolding on Serafimovicha, weekly progress and phone clips while the live cameras are offline."
-summary: "Cameras have been offline since 2 June: scaffolding blocks the view. Photos from June to 3 October, phone clips, the grey facade and the new canal footbridge."
+description: "A chronicle of facade repair at Bolotnaya: scaffolding on Serafimovicha, weekly photos. On 8 October part of the scaffold came down and the camera is live again."
+summary: "The camera was off from 2 June because scaffolding blocked the view. On 8 October part of the scaffold came down and the grey facade is visible. Capital repair is planned to finish next year."
 translationKey: "remont-lesa-2026"
 aliases:
   - /repair-2026/
@@ -9,14 +9,16 @@ aliases:
 gallery_slug: "remont-lesa-2026"
 series_tag: "scaffolding-2026"
 started: "2026-06-02"
-camera_status: "offline"
+camera_status: "live"
 images:
   - /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
 ---
 
-Since 2 June 2026 the Bolotnaya Online cameras have been off. Scaffolding stands on the Serafimovicha facade: mesh covers the frame the cameras were for — the square, the canal, the Kotelnicheskaya high-rise.
+From 2 June 2026 the camera was off. Scaffolding stood on the Serafimovicha facade: mesh covered the frame the camera was for — the square, the canal, the Kotelnicheskaya high-rise.
 
-While there is no live stream, that is the story. Below is the “Serafimovicha repair” album, June through 3 October: scaffold, old paint coming off, whitewash, the grey facade, two clips shot on a phone. There are no old-stream screenshots in this set; if they turn up, they go in a separate “before” block.
+On 8 October part of the scaffolding came off the House on the Embankment. After the facade renovation, some of the scaffold was taken down. The result of the work is visible now. Capital repair of the building is planned to finish next year. The Serafimovicha camera is live again.
+
+Below is the “Serafimovicha repair” album, June through 8 October: scaffold, old paint coming off, whitewash, the grey facade, two clips shot on a phone. There are no old-stream screenshots in this set; if they turn up, they go in a separate “before” block.
 
 ## What the weeks show
 
@@ -28,8 +30,8 @@ While there is no live stream, that is the story. Below is the “Serafimovicha 
 
 **September.** By the 4th the middle facade from the square is already grey, scaffold left at the edges. On the 9th the windows are without film. On the 2nd “Moscow 879” flags stand by Udarnik. On the 7th the GES-2 steps look onto a [new footbridge in the canal](/en/galleries/most-bolotnaya-2026/) — toward Maly Kamenny and Repin Garden; that is a different worksite, not the facade.
 
-**October.** On the 2nd a hoist stands on the grey facade, part of the scaffold still in mesh. On the 3rd a crane is by the house: a cradle on the boom above the roof, and a dome in mesh beside it.
+**October.** On the 2nd a hoist stands on the grey facade, part of the scaffold still in mesh. On the 3rd a crane is by the house: a cradle on the boom above the roof, and a dome in mesh beside it. On the 8th part of the scaffold came down: the grey facade is open, and the camera shows the street again.
 
-The section is temporary. When the scaffolding comes down and the stream can return without a hole in the frame, the page stays as an archive. The project has no official deadline; camera pages currently say “autumn”, if the works allow.
+The page stays as the chronicle. Capital repair of the building is planned to finish next year.
 
 This is not a municipal report and not a mos.ru construction diary. A personal view from Yakimanka.

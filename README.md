@@ -36,7 +36,7 @@ The live cameras may be temporarily offline during facade maintenance. Status no
 
 - Bilingual Hugo site with Russian as the default language under `/ru/`.
 - Dedicated pages for live camera streams, history, galleries, posts, support, terms, and partner info.
-- Temporary 2026 section `remont-lesa-2026` documenting facade scaffolding while cameras are offline.
+- Temporary 2026 section `remont-lesa-2026` documenting facade scaffolding. On 8 October 2026 part of the scaffold came down and the Serafimovicha camera is live again.
 - Gallery `most-bolotnaya-2026` for the new canal footbridge from GES-2 under Maly Kamenny to Repin Garden.
 - Gallery `ozhivlennyj-arhiv` for AI animations of old House on the Embankment / Yakimanka photographs plus the source stills.
 - Custom templates and CSS for a more local editorial feel than a stock theme.

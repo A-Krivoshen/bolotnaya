@@ -1,7 +1,7 @@
 ---
 slug: remont-lesa-2026
 title: Repair and scaffolding 2026
-description: Facade scaffolding at Bolotnaya — a chronicle of the works on Ulitsa Serafimovicha while the cameras are offline.
+description: Chronicle of the works on Ulitsa Serafimovicha. On 8 October part of the scaffold came down and the camera is live again.
 translationKey: remont-lesa-2026-gallery
 weight: 6
 images:
@@ -86,4 +86,6 @@ images:
     caption: 3 October 2026. Grey facade and a crane, a dome in mesh to the left
   - src: /images/galleries/lesa-2026/2026-10-03-11-12-28.jpg
     caption: 3 October 2026. A cradle on the crane boom above the roof
+  - src: /images/galleries/lesa-2026/2026-10-08-facade-open.jpg
+    caption: 8 October 2026. Part of the scaffold is down, and the grey facade of the House on the Embankment is open
 ---
