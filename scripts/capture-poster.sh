@@ -1,11 +1,30 @@
 #!/usr/bin/env bash
-# Every two hours: one frame from the local MediaMTX HLS, neo-punk still, push that slot.
+# One day only: every two hours, one frame from local MediaMTX, neo-punk still, push that slot.
 # Runs on the VPS as drslon. The clock band is chopped off before the grade.
+# ${HOME}/bolotnaya-poster-until holds the unix deadline. After it, the cron line is removed.
 set -euo pipefail
 
 REPO="${POSTER_REPO:-/home/drslon/bolotnaya-poster}"
 KEY="${POSTER_KEY:-${HOME}/.ssh/id_ed25519_bolotnaya_poster}"
+UNTIL_FILE="${HOME}/bolotnaya-poster-until"
 export GIT_SSH_COMMAND="ssh -i ${KEY} -o IdentitiesOnly=yes -o BatchMode=yes"
+
+finish_poster_day() {
+  tmp="$(mktemp)"
+  crontab -l 2>/dev/null | grep -v 'capture-poster.sh' | grep -v '^CRON_TZ=Europe/Moscow$' > "${tmp}" || true
+  crontab "${tmp}" || true
+  rm -f "${tmp}"
+  echo "poster day finished"
+  exit 0
+}
+
+if [[ -f "${UNTIL_FILE}" ]]; then
+  now="$(date +%s)"
+  end="$(tr -cd '0-9' < "${UNTIL_FILE}")"
+  if [[ -n "${end}" && "${now}" -ge "${end}" ]]; then
+    finish_poster_day
+  fi
+fi
 
 exec 9>/tmp/bolotnaya-poster.lock
 flock -n 9 || exit 0
