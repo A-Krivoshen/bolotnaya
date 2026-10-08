@@ -6,8 +6,8 @@
   "protocol": "HLS",
   "status": "live",
   "status_note": {
-    "ru": "Одна камера, ул. Серафимовича, в эфире. Голый HLS без подписи отвечает 403. Смотреть нужно со страницы сайта: плеер сам берёт подпись примерно на 10 минут. Не публикуйте прямую ссылку как рабочую.",
-    "en": "One camera, Ulitsa Serafimovicha, is live. The bare HLS URL returns 403 without a signature. Watch from the site page: the player fetches a signature that lasts about 10 minutes. Do not publish the direct playlist as a working link."
+    "ru": "Одна камера, ул. Серафимовича, в эфире. В кадре площадь, канал и новый мостик под Малым Каменным.",
+    "en": "One camera, Ulitsa Serafimovicha, is live. The square, the canal, and the new footbridge under Maly Kamenny are in the frame."
   },
   "status_posts": {
     "ru": "https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/",
@@ -30,7 +30,7 @@
   "retired": [
     {
       "id": "bolotnaya-square",
-      "note": "Second camera is not in use. Old pages redirect to the Serafimovicha camera.",
+      "note": "Second camera is not in use.",
       "redirect": {
         "ru": "https://bolotnaya.online/ru/cameras/ul-serafimovicha/",
         "en": "https://bolotnaya.online/en/cameras/serafimovich/"

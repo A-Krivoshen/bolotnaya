@@ -37,9 +37,7 @@ outputs: ["HTML"]
 
 Одна камера: ул. Серафимовича — страница [/ru/cameras/ul-serafimovicha/](/ru/cameras/ul-serafimovicha/), поток `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-Старая страница площади [/ru/cameras/bolotnaya-square/](/ru/cameras/bolotnaya-square/) перенаправляет сюда. Второй камеры сейчас нет.
-
-**Статус:** эфир идёт со страницы камеры. Прямой `index.m3u8` без подписи отвечает 403. Подпись короткая, её выдаёт только плеер сайта. Не давайте голый URL как рабочую ссылку. Пост про июньское отключение: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника ремонта, включая 2–3 октября: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/).
+Второй камеры сейчас нет. Эфир идёт со страницы камеры. Пост про июньское отключение: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника ремонта: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/).
 
 ## Как цитировать
 

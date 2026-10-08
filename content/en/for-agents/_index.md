@@ -37,9 +37,7 @@ Video is served by a **different host**: `https://cam.bolotnaya.online/`. This h
 
 One camera: Ulitsa Serafimovicha — page [/en/cameras/serafimovich/](/en/cameras/serafimovich/), stream `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-The old square page [/en/cameras/bolotnaya-square/](/en/cameras/bolotnaya-square/) redirects here. There is no second camera for now.
-
-**Status:** the stream plays from the camera page. The bare `index.m3u8` returns 403 without a signature. The signature is short-lived and only the site player receives it. Do not hand out the naked URL as a working link. June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Repair chronicle, including 2–3 October: [/en/remont-lesa-2026/](/en/remont-lesa-2026/).
+There is no second camera for now. The stream plays from the camera page. June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Repair chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/).
 
 ## How to cite
 

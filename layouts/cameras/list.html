@@ -5,7 +5,7 @@
       <h1>{{ with .Title }}{{ . }}{{ else }}{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}{{ end }}</h1>
       <p class="page-lead">
         {{ with .Description }}{{ . }}{{ else }}
-          {{ if $isRu }}Одна камера на ул. Серафимовича. Эфир со страницы, старый адрес площади открывает её же.{{ else }}One camera on Ulitsa Serafimovicha. It plays on the page. The old square address opens the same camera.{{ end }}
+          {{ if $isRu }}Одна камера на ул. Серафимовича. В кадре площадь, канал и новый мостик под Малым Каменным.{{ else }}One camera on Ulitsa Serafimovicha. The square, the canal, and the new footbridge under Maly Kamenny are in the frame.{{ end }}
         {{ end }}
       </p>
     </header>
@@ -40,7 +40,6 @@
     </div>
 
     <p class="camera-note">
-      {{ if $isRu }}Прямая ссылка на плейлист без подписи не открывается. Старый адрес площади ведёт на эту камеру.{{ else }}A direct playlist link does not open without a signature. The old square address leads to this camera.{{ end }}
       <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта{{ else }}Repair chronicle{{ end }}</a>
     </p>
 
