@@ -57,7 +57,7 @@
               {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
             {{ end }}
             <div class="camera-preview__media">
-              <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+              <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
               <div class="camera-preview__badge">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</div>
             </div>
             <div class="camera-preview__meta">
@@ -67,6 +67,7 @@
           </a>
         {{ end }}
       </div>
+      <script src="/js/poster-pool.js" defer></script>
     </section>
 
     <!-- Explore grid: history + photos -->

@@ -22,7 +22,7 @@
 
         <a class="camera-stage" href="{{ $p.RelPermalink }}">
           <div class="camera-stage__media">
-            <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+            <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
             <span class="camera-stage__badge">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</span>
           </div>
           <div class="camera-stage__meta">
@@ -38,6 +38,7 @@
         </a>
       {{ end }}
     </div>
+    <script src="/js/poster-pool.js" defer></script>
 
     <p class="camera-note">
       <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта{{ else }}Repair chronicle{{ end }}</a>
