@@ -227,6 +227,10 @@
 }
 
 /* Adblock notice — readable on small screens */
+#adblock-message[hidden] {
+  display: none !important;
+}
+
 #adblock-message {
   border-radius: 10px !important;
   line-height: 1.4;

@@ -43,6 +43,9 @@
         <figcaption>{{ if $isRu }}Июнь 2026. Вид с точки камер через сетку лесов.{{ else }}June 2026. View from the camera point through the scaffolding mesh.{{ end }}</figcaption>
       </figure>
       {{ else }}
+      <div id="adblock-message" class="adblock-message" hidden>
+        {{ if $isRu }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
+      </div>
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
         <p class="cam-ad-countdown" hidden></p>

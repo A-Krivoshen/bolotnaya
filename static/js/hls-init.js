@@ -250,8 +250,49 @@
     }
   }
 
+  function detectAdBlockerAsync(url){
+    return new Promise(resolve => {
+      let settled = false;
+      const script = document.createElement('script');
+      const timer = setTimeout(() => finish(false), 1500);
+
+      function finish(blocked){
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        script.onerror = null;
+        script.onload = null;
+        script.remove();
+        resolve(blocked);
+      }
+
+      script.onerror = () => finish(true);
+      script.onload = () => finish(false);
+      script.src = url;
+      document.body.appendChild(script);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
-    videos.forEach(video => setup(video));
+    detectAdBlockerAsync('https://ads.pubmatic.com/AdServer/js/gshowad.js').then(isBlock => {
+      videos.forEach(video => {
+        const container = video.closest('.camera-container') || document;
+        const adBox = container.querySelector('#adblock-message');
+        if (!isBlock) {
+          if (adBox) adBox.hidden = true;
+          setup(video);
+          return;
+        }
+        if (adBox) {
+          if (!adBox.textContent.trim()) adBox.textContent = msg('adblock');
+          adBox.hidden = false;
+        }
+        const pane = video.closest('.tab-pane');
+        if (pane) pane.hidden = true;
+        const status = container.querySelector('.status');
+        setStatus(status, msg('adblock'), 'error');
+      });
+    });
   });
 
   document.addEventListener('visibilitychange', () => {
