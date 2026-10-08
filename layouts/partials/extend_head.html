@@ -18,7 +18,7 @@
 {{- /* Official RSA loader, once, in head. Camera page only: the player renders block 12. */ -}}
 {{- if and (eq .Section "cameras") (eq .Kind "page") (or .Params.stream_url .Params.hls_url) }}
 <!-- Yandex.RTB -->
-<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script>window.yaContextCb=window.yaContextCb||[];window.__bolotnayaCamAd=1</script>
 <script src="https://yandex.ru/ads/system/context.js" async></script>
 {{- end }}
 <script>
@@ -34,11 +34,8 @@
     try { ym(52478860, 'init', { ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true }); } catch (e) {}
   }
   function loadAds() {
-    if (window.__bolotnayaAds) return;
+    if (window.__bolotnayaCamAd || window.__bolotnayaAds) return;
     window.__bolotnayaAds = 1;
-    // The camera page paints block 12 itself. The auto loader would
-    // render that block while it is still hidden, and the banner never appears.
-    if (document.getElementById('yandex_rtb_R-A-19616132-12')) return;
     window.yaContextCb = window.yaContextCb || [];
     if (!document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) {
       var s1 = document.createElement('script');

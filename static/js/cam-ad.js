@@ -12,28 +12,7 @@
     return 'Реклама начнётся через ' + seconds + ' секунд';
   }
 
-  function loadSlot(slot, onRender){
-    showIndex += 1;
-    let renderTo = slot.id;
-    if (showIndex > 1) {
-      slot.replaceChildren();
-      renderTo = slot.id + '-' + showIndex;
-      const box = document.createElement('div');
-      box.id = renderTo;
-      slot.appendChild(box);
-    }
-    const page = showIndex;
-    window.yaContextCb = window.yaContextCb || [];
-    window.yaContextCb.push(function(){
-      if (!window.Ya || !window.Ya.Context || !window.Ya.Context.AdvManager) return;
-      const opts = {
-        blockId: adBlockId,
-        renderTo: renderTo
-      };
-      if (page > 1) opts.pageNumber = page;
-      if (onRender) opts.onRender = onRender;
-      window.Ya.Context.AdvManager.render(opts);
-    });
+  function ensureContext(){
     if (document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) return;
     const script = document.createElement('script');
     script.src = 'https://yandex.ru/ads/system/context.js';
@@ -66,6 +45,7 @@
       badge.hidden = true;
       layer.hidden = true;
       layer.classList.remove('is-filled');
+      layer.classList.remove('is-open');
       resume.hidden = true;
       slot.replaceChildren();
       played = 0;
@@ -77,49 +57,67 @@
       closeLayer(watchBetweenAds);
     }
 
-    function hasCreative(){
-      const nodes = slot.querySelectorAll('iframe, img');
-      for (let i = 0; i < nodes.length; i += 1) {
-        const box = nodes[i].getBoundingClientRect();
-        if (box.height >= 50 && box.width >= 200) return true;
-      }
-      return false;
-    }
-
     function showAd(){
       phase = 'ad';
       badge.hidden = true;
-      // The slot has to be on screen for Yandex to paint. The dark veil
-      // and the resume button stay off until a real banner is there.
-      layer.classList.remove('is-filled');
       resume.hidden = true;
+      layer.classList.remove('is-filled');
+      layer.classList.add('is-open');
       layer.hidden = false;
-      let filled = false;
+      showIndex += 1;
+      const generation = showIndex;
+      const renderTo = slot.id + '-' + generation;
+      const box = document.createElement('div');
+      box.id = renderTo;
+      box.className = 'cam-ad-render';
+      slot.replaceChildren(box);
+      ensureContext();
+
+      function stillThis(){
+        return phase === 'ad' && generation === showIndex;
+      }
+
       function arm(){
-        if (filled || phase !== 'ad' || !hasCreative()) return;
-        filled = true;
+        if (!stillThis() || creativeShown) return;
         creativeShown = true;
+        window.clearTimeout(emptyTimer);
         layer.classList.add('is-filled');
         resume.hidden = false;
-        window.clearTimeout(emptyTimer);
         hideTimer = window.setTimeout(finish, adVisibleMs);
       }
-      const obs = new MutationObserver(function(){
-        if (!hasCreative()) return;
-        obs.disconnect();
-        arm();
-      });
+
+      function miss(){
+        if (!stillThis() || creativeShown) return;
+        closeLayer(60);
+      }
+
+      // Yandex measures the node at the render() call. A hidden or
+      // zero-size box gets no banner, so wait until layout has a real box.
       window.requestAnimationFrame(function(){
         window.requestAnimationFrame(function(){
-          obs.observe(slot, { childList: true, subtree: true, attributes: true });
-          loadSlot(slot, function(){
-            if (hasCreative()) arm();
+          if (!stillThis()) return;
+          if (box.offsetWidth < 300 || box.offsetHeight < 200) {
+            miss();
+            return;
+          }
+          window.yaContextCb = window.yaContextCb || [];
+          window.yaContextCb.push(function(){
+            if (!stillThis()) return;
+            if (!window.Ya || !window.Ya.Context || !window.Ya.Context.AdvManager) {
+              miss();
+              return;
+            }
+            window.Ya.Context.AdvManager.render({
+              blockId: adBlockId,
+              renderTo: renderTo,
+              onRender: arm,
+              onError: function(data){
+                if (data && data.type === 'warning') return;
+                miss();
+              }
+            }, miss);
           });
-          emptyTimer = window.setTimeout(function(){
-            obs.disconnect();
-            if (hasCreative()) arm();
-            else if (phase === 'ad') closeLayer(60);
-          }, 3500);
+          emptyTimer = window.setTimeout(miss, 12000);
         });
       });
     }
