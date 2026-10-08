@@ -8,6 +8,12 @@
 
 {{- if hugo.IsProduction -}}
 <meta name="yandex-verification" content="912f939c1daa1856" />
+{{- /* Official RSA loader, once, in head. Camera page only: the player renders block 12. */ -}}
+{{- if and (eq .Section "cameras") (eq .Kind "page") (or .Params.stream_url .Params.hls_url) }}
+<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+{{- end }}
 <script>
 (function () {
   function loadMetrika() {
@@ -24,10 +30,12 @@
     if (window.__bolotnayaAds) return;
     window.__bolotnayaAds = 1;
     window.yaContextCb = window.yaContextCb || [];
-    var s1 = document.createElement('script');
-    s1.src = 'https://yandex.ru/ads/system/context.js';
-    s1.async = true;
-    document.head.appendChild(s1);
+    if (!document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) {
+      var s1 = document.createElement('script');
+      s1.src = 'https://yandex.ru/ads/system/context.js';
+      s1.async = true;
+      document.head.appendChild(s1);
+    }
     var s2 = document.createElement('script');
     s2.src = 'https://yandex.ru/ads/system/ap-loader.js';
     s2.async = true;

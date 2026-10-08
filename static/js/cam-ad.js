@@ -36,7 +36,6 @@
     if (!badge || !layer || !slot || !resume) return;
 
     let played = 0;
-    let last = 0;
     let phase = 'watch';
     let hideTimer = 0;
 
@@ -52,7 +51,12 @@
       phase = 'ad';
       badge.hidden = true;
       layer.hidden = false;
-      loadSlot(slot);
+      // The slot must have a box before Yandex measures it.
+      window.requestAnimationFrame(function(){
+        window.requestAnimationFrame(function(){
+          loadSlot(slot);
+        });
+      });
       hideTimer = window.setTimeout(finish, 30000);
     }
 
@@ -73,16 +77,18 @@
       tick();
     }
 
-    video.addEventListener('timeupdate', function(){
-      if (phase !== 'watch' || video.paused) {
-        last = video.currentTime;
+    // Live HLS jumps currentTime by several seconds, so media deltas
+    // never add up to 18. Count wall-clock seconds while a frame is showing.
+    const timer = window.setInterval(function(){
+      if (phase !== 'watch') {
+        window.clearInterval(timer);
         return;
       }
-      const now = video.currentTime;
-      if (last && now > last && now - last < 1.5) played += now - last;
-      last = now;
+      if (video.paused || video.ended || document.hidden) return;
+      if (video.readyState < 2) return;
+      played += 1;
       if (played >= playBeforeAd) startCountdown();
-    });
+    }, 1000);
 
     resume.addEventListener('click', finish);
   }
