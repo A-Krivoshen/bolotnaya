@@ -1,7 +1,7 @@
 (function(){
   const playBeforeAd = 18;
   const countdownFrom = 5;
-  const adBlockId = 'R-A-19616132-1';
+  const adBlockId = 'R-A-19616132-12';
   const lang = (document.documentElement.getAttribute('lang') || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru';
 
   function label(seconds){
@@ -11,23 +11,18 @@
 
   function loadSlot(slot){
     window.yaContextCb = window.yaContextCb || [];
-    function render(){
+    window.yaContextCb.push(function(){
       if (!window.Ya || !window.Ya.Context || !window.Ya.Context.AdvManager) return;
       window.Ya.Context.AdvManager.render({
         blockId: adBlockId,
         renderTo: slot.id
       });
-    }
-    if (window.Ya && window.Ya.Context) {
-      window.yaContextCb.push(render);
-      return;
-    }
+    });
+    if (document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) return;
     const script = document.createElement('script');
     script.src = 'https://yandex.ru/ads/system/context.js';
     script.async = true;
-    script.onerror = function(){};
     document.head.appendChild(script);
-    window.yaContextCb.push(render);
   }
 
   function attach(video){

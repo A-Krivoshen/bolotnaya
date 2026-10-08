@@ -153,8 +153,8 @@
 }
 
 .cam-ad-slot {
-  width: min(100%, 440px);
-  min-height: 4rem;
+  width: 100%;
+  min-height: 90px;
 }
 
 .cam-ad-resume {

@@ -23,6 +23,7 @@
   function loadAds() {
     if (window.__bolotnayaAds) return;
     window.__bolotnayaAds = 1;
+    window.yaContextCb = window.yaContextCb || [];
     var s1 = document.createElement('script');
     s1.src = 'https://yandex.ru/ads/system/context.js';
     s1.async = true;
