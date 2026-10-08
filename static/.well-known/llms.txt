@@ -1,6 +1,6 @@
 # Bolotnaya Online
 
-> Independent bilingual (RU/EN) open-source district site about Bolotnaya Square and Yakimanka, Moscow. Cameras are offline (scaffolding since June 2026).
+> Independent bilingual (RU/EN) open-source district site about Bolotnaya Square and Yakimanka, Moscow. One camera on Ulitsa Serafimovicha is live.
 
 Canonical AI index: https://bolotnaya.online/llms.txt
 Russian: https://bolotnaya.online/llms-ru.txt

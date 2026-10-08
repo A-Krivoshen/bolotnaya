@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-06",
+  "updated": "2026-10-08",
   "name": "Bolotnaya Online",
   "url": "https://bolotnaya.online/",
   "canonical_host": "bolotnaya.online",
@@ -16,8 +16,8 @@
     "en"
   ],
   "description": {
-    "ru": "Камеры Болотной offline с июня 2026 (леса). История, фото и хроника ремонта. Open-source проект жителя Якиманки.",
-    "en": "Bolotnaya cameras offline since June 2026 (scaffolding). History, photos and repair chronicle. Open-source local project."
+    "ru": "Одна камера на ул. Серафимовича, с 8 октября 2026 снова в эфире. История, фото и хроника ремонта. Open-source проект жителя Якиманки.",
+    "en": "One camera on Ulitsa Serafimovicha, live again since 8 October 2026. History, photos and repair chronicle. Open-source local project."
   },
   "geo": {
     "name": {

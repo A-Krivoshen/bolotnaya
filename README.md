@@ -18,9 +18,9 @@
 
 # Bolotnaya Online
 
-Independent open-source district site about **Bolotnaya Square** and **Yakimanka** in Moscow. It combines public HLS camera pages, local history, photo galleries, blog notes, and a bilingual Hugo build published to GitHub Pages.
+Independent open-source district site about **Bolotnaya Square** and **Yakimanka** in Moscow. It combines one public HLS camera page, local history, photo galleries, blog notes, and a bilingual Hugo build. A push to `main` is published on the VPS.
 
-The live cameras may be temporarily offline during facade maintenance. Status notes live in the blog so the site does not pretend streams are always available.
+The Serafimovicha camera is live. It can go offline during facade work. Status notes stay in the blog and the repair chronicle.
 
 ## What Is Inside
 

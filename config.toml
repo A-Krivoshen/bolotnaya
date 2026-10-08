@@ -41,10 +41,10 @@ timeout = "60s"
     weight = 1
     title = "Bolotnaya Online — Болотная: Якиманка"
     [languages.ru.params]
-      description = "Одна камера у Болотной, сейчас offline. История, фото и хроника ремонта фасада — open-source проект жителя Якиманки."
-      keywords = ["Болотная площадь", "Якиманка", "камера offline", "леса 2026", "Москва", "история Москвы"]
+      description = "Одна камера у ул. Серафимовича, сейчас в эфире. История, фото и хроника ремонта фасада — open-source проект жителя Якиманки."
+      keywords = ["Болотная площадь", "Якиманка", "камера Болотная", "леса 2026", "Москва", "история Москвы"]
       homeInfoTitle = "Якиманка: камера и история"
-      homeInfoDescription = "Пока эфира нет — история, фото и ремонт лесов 2026 у Болотной"
+      homeInfoDescription = "Эфир с ул. Серафимовича: площадь, канал и новый мостик. Рядом история и фото."
 
     [languages.ru.menu]
       [[languages.ru.menu.main]]
@@ -71,10 +71,10 @@ timeout = "60s"
     weight = 2
     title = "Bolotnaya Online — Yakimanka camera & history"
     [languages.en.params]
-      description = "One Bolotnaya camera, currently offline. History, photos and a repair chronicle. Open-source local project."
-      keywords = ["Bolotnaya Square", "Yakimanka", "Moscow", "scaffolding 2026", "Moscow history"]
+      description = "One camera on Ulitsa Serafimovicha, live now. History, photos and a repair chronicle. Open-source local project."
+      keywords = ["Bolotnaya Square", "Yakimanka", "Moscow", "live camera", "scaffolding 2026", "Moscow history"]
       homeInfoTitle = "Yakimanka: camera and history"
-      homeInfoDescription = "The camera is offline for now — history, photos and the 2026 scaffolding chronicle"
+      homeInfoDescription = "Live from Ulitsa Serafimovicha: the square, the canal and the new footbridge, plus history and photos."
 
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -96,7 +96,7 @@ timeout = "60s"
 
 [params]
   author = "Bolotnaya.online"
-  description = "Болотная площадь и Якиманка: история, фото и камеры проекта (сейчас offline из-за лесов). Open-source bolotnaya.online."
+  description = "Болотная площадь и Якиманка: одна камера в эфире, история и фото. Open-source bolotnaya.online."
   keywords = ["Болотная площадь", "Якиманка", "леса 2026", "Bolotnaya", "Yakimanka", "Moscow"]
   images = ["/images/galleries/lesa-2026/camera-still-mesh.jpg"]
   mainSections = ["cameras", "posts", "history", "galleries"]

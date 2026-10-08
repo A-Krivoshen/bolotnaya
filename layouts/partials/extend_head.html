@@ -50,7 +50,10 @@
     if (document.readyState === 'complete') go();
     else window.addEventListener('load', go);
   }
-  afterLoad(loadMetrika, 3500);
+  // Count the visit as soon as the tag can run. Waiting for window
+  // load dropped short visits, and a hung third-party asset never
+  // fired load at all.
+  loadMetrika();
   // Ads paint a large image and steal LCP in lab tests. Load on first
   // gesture, with a late fallback so real visitors still see them.
   ['scroll','click','touchstart','keydown'].forEach(function (ev) {

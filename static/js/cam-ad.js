@@ -12,7 +12,7 @@
     return 'Реклама начнётся через ' + seconds + ' секунд';
   }
 
-  function loadSlot(slot){
+  function loadSlot(slot, onRender){
     showIndex += 1;
     let renderTo = slot.id;
     if (showIndex > 1) {
@@ -31,6 +31,7 @@
         renderTo: renderTo
       };
       if (page > 1) opts.pageNumber = page;
+      if (onRender) opts.onRender = onRender;
       window.Ya.Context.AdvManager.render(opts);
     });
     if (document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) return;
@@ -54,11 +55,13 @@
     let nextAt = playBeforeAd;
     let phase = 'watch';
     let hideTimer = 0;
+    let emptyTimer = 0;
 
     function finish(){
       if (phase === 'watch') return;
       phase = 'watch';
       window.clearTimeout(hideTimer);
+      window.clearTimeout(emptyTimer);
       badge.hidden = true;
       layer.hidden = true;
       slot.replaceChildren();
@@ -66,17 +69,46 @@
       nextAt = watchBetweenAds;
     }
 
+    function hasCreative(){
+      const nodes = slot.querySelectorAll('iframe, img, a');
+      for (let i = 0; i < nodes.length; i += 1) {
+        const box = nodes[i].getBoundingClientRect();
+        if (box.height > 8 && box.width > 30) return true;
+      }
+      return false;
+    }
+
     function showAd(){
       phase = 'ad';
       badge.hidden = true;
+      // Yandex measures the slot, so the layer has to be visible.
+      // If no creative arrives, drop the veil instead of covering the picture.
       layer.hidden = false;
-      // The slot must have a box before Yandex measures it.
+      let filled = false;
+      function arm(){
+        if (filled || phase !== 'ad') return;
+        filled = true;
+        window.clearTimeout(emptyTimer);
+        hideTimer = window.setTimeout(finish, adVisibleMs);
+      }
+      const obs = new MutationObserver(function(){
+        if (!hasCreative()) return;
+        obs.disconnect();
+        arm();
+      });
       window.requestAnimationFrame(function(){
         window.requestAnimationFrame(function(){
-          loadSlot(slot);
+          obs.observe(slot, { childList: true, subtree: true });
+          loadSlot(slot, function(){
+            if (hasCreative()) arm();
+          });
+          emptyTimer = window.setTimeout(function(){
+            obs.disconnect();
+            if (hasCreative()) arm();
+            else if (phase === 'ad') finish();
+          }, 3500);
         });
       });
-      hideTimer = window.setTimeout(finish, adVisibleMs);
     }
 
     function startCountdown(){

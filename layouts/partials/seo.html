@@ -14,9 +14,9 @@
 {{- if not $desc }}{{ with .Site.Params.description }}{{ $desc = . }}{{ end }}{{ end -}}
 {{- if not $desc -}}
   {{- if $isRu -}}
-    {{- $desc = "Болотная площадь и Якиманка: история, фото и камеры проекта (сейчас offline из-за лесов). Open-source bolotnaya.online." -}}
+    {{- $desc = "Болотная площадь и Якиманка: одна камера в эфире, история и фото. Open-source bolotnaya.online." -}}
   {{- else -}}
-    {{- $desc = "Bolotnaya Square and Yakimanka: history, photos and project cameras (currently offline due to scaffolding). Open-source bolotnaya.online." -}}
+    {{- $desc = "Bolotnaya Square and Yakimanka: one live camera, history and photos. Open-source bolotnaya.online." -}}
   {{- end -}}
 {{- end -}}
 
@@ -277,10 +277,10 @@
       )
       (dict
         "@type" "Question"
-        "name" (cond $isRu "Почему камеры offline?" "Why are cameras offline?")
+        "name" (cond $isRu "Камера сейчас в эфире?" "Is the camera live?")
         "acceptedAnswer" (dict
           "@type" "Answer"
-          "text" (cond $isRu "Идут ремонтные работы на фасаде, леса закрыли обзор. Хроника — в разделе «Ремонт и леса 2026»." "Facade maintenance is underway and scaffolding blocks the view. The chronicle is in Repair and scaffolding 2026.")
+          "text" (cond $isRu "Да. Одна камера на ул. Серафимовича. С 8 октября 2026 часть лесов снята, картинка снова идёт со страницы камеры. Хроника ремонта остаётся в разделе «Ремонт и леса 2026»." "Yes. One camera on Ulitsa Serafimovicha. On 8 October 2026 part of the scaffolding came down and the picture plays from the camera page again. The repair chronicle stays in Repair and scaffolding 2026.")
         )
       )
       (dict

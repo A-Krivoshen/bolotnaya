@@ -1,7 +1,7 @@
 {
   "name": "Bolotnaya Online",
   "short_name": "Bolotnaya",
-  "description": "Болотная и Якиманка: история, фото; камеры offline (леса 2026)",
+  "description": "Болотная и Якиманка: одна камера в эфире, история и фото",
   "start_url": "/ru/",
   "scope": "/",
   "display": "standalone",

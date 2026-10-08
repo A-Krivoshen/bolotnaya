@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: Bolotnaya Online — public pages and JSON cards
-  version: "2026-10-06"
-  summary: Static bilingual district site. Cameras offline since June 2026. No write API.
+  version: "2026-10-08"
+  summary: Static bilingual district site. One Serafimovicha camera is live. No write API.
   contact:
     email: info@bolotnaya.online
 servers:
@@ -26,7 +26,7 @@ paths:
                 type: object
   /ai/cameras.json:
     get:
-      summary: Camera catalog and offline status
+      summary: Camera catalog and live status
       responses:
         "200":
           description: JSON

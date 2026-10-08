@@ -8,7 +8,7 @@ images:
   - /images/galleries/most-bolotnaya-2026/2026-09-07-16-43-47.jpg
 ---
 
-The phone album for **24 August – 9 September** is in [Repair and scaffolding 2026](/en/remont-lesa-2026/). Still no live stream: the cameras stay offline. In three weeks the middle of the Serafimovicha facade went grey, the scaffold moved to the ends, and by the 9th the windows were without film.
+The phone album for **24 August – 9 September** is in [Repair and scaffolding 2026](/en/remont-lesa-2026/). On 11 September there was still no stream. Since 8 October the Ulitsa Serafimovicha camera is live again. In those three weeks the middle of the facade went grey, the scaffold moved to the ends, and by the 9th the windows were without film.
 
 Separately — the [footbridge under Maly Kamenny](/en/galleries/most-bolotnaya-2026/). On 7 September the GES-2 steps look onto a white deck in Vodootvodny Canal: from the house of culture under the road bridge toward Repin Garden. It is not the 2024 Balchug bridge. City figures are about 170 m, aim fourth quarter of 2026; the stills are personal.
 

@@ -3,7 +3,7 @@ summary: From swamp to the 800th-anniversary garden — a Bolotnaya timeline and
 slug: History of Bolotnaya Square — From Moscow Swamp to Cultural Landmark
 title: History
 aliases:
-  - /en/news/
+  - /news/
 description: "History of Bolotnaya Square: the swamp, St Nicholas on Bersenevka, the canal, House on the Embankment, GES-2, the 800th-anniversary garden, the Repin monument, the 2011–2012 rallies, scaffolding and the 2026 canal footbridge."
 gallery_slug: bolotnaya-history
 images:
@@ -65,7 +65,7 @@ timeline:
     caption: 20 October 2025. Fountain covered for winter, a “Summer in Moscow” pavilion.
   - year: "2026"
     title: Scaffolding and the canal footbridge
-    text: Since June the project cameras are offline — scaffolding on the Serafimovicha facade. By September the middle of the house is grey. In the canal bed a footbridge is going in from GES-2 under Maly Kamenny to Repin Garden.
+    text: "From June until 8 October the camera was off: scaffolding covered the Serafimovicha facade. That day part of the scaffold came down and the Ulitsa Serafimovicha stream is live again. By September the middle of the house was grey. In the canal bed a footbridge is going in from GES-2 under Maly Kamenny to Repin Garden."
     image: /images/galleries/most-bolotnaya-2026/2026-09-07-16-43-47.jpg
     caption: 7 September 2026. The new footbridge in the canal, from the GES-2 steps.
 
@@ -159,4 +159,4 @@ On 11 July 2024 a [pedestrian bridge](/en/galleries/most-balchug/) opened across
 
 On **20 June 2026** works **under Maly Kamenny Bridge** are visible from the GES-2 ramp. On **7 September** the steps already look onto a [new footbridge](/en/galleries/most-bolotnaya-2026/) in the canal — toward Repin Garden. It is not the 2024 Balchug bridge.
 
-Since June 2026 the project cameras have been off: scaffolding on the Serafimovicha facade. By September the middle of the house is grey, windows without film. The repair log is in [Repair and scaffolding 2026](/en/remont-lesa-2026/).
+From June until 8 October 2026 the camera was off: scaffolding on the Serafimovicha facade. On 8 October part of the scaffold came down and the picture plays again from the [camera page](/en/cameras/serafimovich/). By September the middle of the house was grey, windows without film. The repair log is in [Repair and scaffolding 2026](/en/remont-lesa-2026/).

@@ -1,14 +1,16 @@
 ---
-title: "Repair and scaffolding 2026: a chronicle while the cameras are off"
+title: "Repair and scaffolding 2026: opening the facade chronicle"
 date: 2026-08-20T09:00:00+03:00
 draft: false
 tags: ["scaffolding-2026", "repair", "facade", "cameras", "Bolotnaya", "Yakimanka"]
-summary: "Cameras have been off since 2 June: scaffold mesh blocks the view. The new section has photos from June to August and two phone clips."
+summary: "Note from 20 August: the cameras had been off since 2 June. Since 8 October the Ulitsa Serafimovicha camera is live again."
 images:
   - /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
 ---
 
-The Bolotnaya Online cameras have been [offline since 2 June 2026](/en/posts/cameras-maintenance-2026-06-02/). Scaffolding stands on Serafimovicha, and from the camera spot the square is visible only through the mesh. While there is no live stream, this is the moment to record.
+**On 8 October 2026** the Ulitsa Serafimovicha camera is live again. The note below is how it stood on 20 August.
+
+The Bolotnaya Online cameras had been [offline since 2 June 2026](/en/posts/cameras-maintenance-2026-06-02/). Scaffolding stood on Serafimovicha, and from the camera spot the square was visible only through the mesh.
 
 I am opening **[Repair and scaffolding 2026](/en/remont-lesa-2026/)**. The album already has frames from 5 June to 18 August:
 
