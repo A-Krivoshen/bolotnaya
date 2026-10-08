@@ -2,12 +2,12 @@
   translation: "Welcome to Bolotnaya Online"
 
 - id: description
-  translation: "Bolotnaya cameras are offline for now — browse history, photos and the repair chronicle."
+  translation: "The Bolotnaya camera is offline for now — browse history, photos and the repair chronicle."
 
 - id: live_cameras
   translation: "Live Cameras"
 
 - id: cameras
-  translation: "Cameras"
+  translation: "Camera"
 - id: mail_us
   translation: "Mail us"

@@ -41,20 +41,16 @@ timeout = "60s"
     weight = 1
     title = "Bolotnaya Online — Болотная: Якиманка"
     [languages.ru.params]
-      description = "Камеры Болотной сейчас offline (леса с июня 2026). История, фото и хроника ремонта фасада — open-source проект жителя Якиманки."
-      keywords = ["Болотная площадь", "Якиманка", "камеры offline", "леса 2026", "Москва", "история Москвы"]
-      homeInfoTitle = "Якиманка: камеры и история"
+      description = "Одна камера у Болотной, сейчас offline. История, фото и хроника ремонта фасада — open-source проект жителя Якиманки."
+      keywords = ["Болотная площадь", "Якиманка", "камера offline", "леса 2026", "Москва", "история Москвы"]
+      homeInfoTitle = "Якиманка: камера и история"
       homeInfoDescription = "Пока эфира нет — история, фото и ремонт лесов 2026 у Болотной"
 
     [languages.ru.menu]
       [[languages.ru.menu.main]]
-        name   = "Камеры"
+        name   = "Камера"
         url    = "/ru/cameras/"
         weight = 1
-      [[languages.ru.menu.main]]
-        name   = "Леса 2026"
-        url    = "/ru/remont-lesa-2026/"
-        weight = 2
       [[languages.ru.menu.main]]
         name   = "История"
         url    = "/ru/history/"
@@ -73,22 +69,18 @@ timeout = "60s"
     locale = "en-US"
     contentDir = "content/en"
     weight = 2
-    title = "Bolotnaya Online — Yakimanka cameras & history"
+    title = "Bolotnaya Online — Yakimanka camera & history"
     [languages.en.params]
-      description = "Bolotnaya Square cameras are offline during facade scaffolding (since June 2026). History, photos and a repair chronicle. Open-source local project."
+      description = "One Bolotnaya camera, currently offline. History, photos and a repair chronicle. Open-source local project."
       keywords = ["Bolotnaya Square", "Yakimanka", "Moscow", "scaffolding 2026", "Moscow history"]
-      homeInfoTitle = "Yakimanka: cameras and history"
-      homeInfoDescription = "Offline cameras for now — history, photos and the 2026 scaffolding chronicle"
+      homeInfoTitle = "Yakimanka: camera and history"
+      homeInfoDescription = "The camera is offline for now — history, photos and the 2026 scaffolding chronicle"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        name   = "Cameras"
+        name   = "Camera"
         url    = "/en/cameras/"
         weight = 1
-      [[languages.en.menu.main]]
-        name   = "Repair 2026"
-        url    = "/en/remont-lesa-2026/"
-        weight = 2
       [[languages.en.menu.main]]
         name   = "History"
         url    = "/en/history/"

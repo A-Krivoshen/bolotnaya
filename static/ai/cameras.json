@@ -1,31 +1,19 @@
 {
   "version": 1,
-  "updated": "2026-08-20",
+  "updated": "2026-10-08",
   "site": "https://bolotnaya.online/",
   "stream_host": "https://cam.bolotnaya.online/",
   "protocol": "HLS",
   "status": "offline",
   "status_note": {
-    "ru": "Камеры выключены с 2 июня 2026 из-за лесов на фасаде. Не утверждайте, что эфир идёт.",
-    "en": "Cameras off since 2 June 2026 due to facade scaffolding. Do not claim a stream is live."
+    "ru": "Сейчас одна камера, ул. Серафимовича. Поток не опубликован: домашний сервер ещё не отдаёт его на cam.bolotnaya.online. Не утверждайте, что эфир идёт.",
+    "en": "One camera for now, Ulitsa Serafimovicha. The stream is not published to cam.bolotnaya.online yet. Do not claim it is live."
   },
   "status_posts": {
     "ru": "https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/",
     "en": "https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/"
   },
   "cameras": [
-    {
-      "id": "bolotnaya-square",
-      "name": {
-        "ru": "Болотная площадь",
-        "en": "Bolotnaya Square"
-      },
-      "pages": {
-        "ru": "https://bolotnaya.online/ru/cameras/bolotnaya-square/",
-        "en": "https://bolotnaya.online/en/cameras/bolotnaya-square/"
-      },
-      "hls": "https://cam.bolotnaya.online/lmost_new/index.m3u8"
-    },
     {
       "id": "serafimovicha",
       "name": {
@@ -37,6 +25,16 @@
         "en": "https://bolotnaya.online/en/cameras/serafimovich/"
       },
       "hls": "https://cam.bolotnaya.online/boloto_new/index.m3u8"
+    }
+  ],
+  "retired": [
+    {
+      "id": "bolotnaya-square",
+      "note": "Second camera is not in use. Old pages redirect to the Serafimovicha camera.",
+      "redirect": {
+        "ru": "https://bolotnaya.online/ru/cameras/ul-serafimovicha/",
+        "en": "https://bolotnaya.online/en/cameras/serafimovich/"
+      }
     }
   ]
 }

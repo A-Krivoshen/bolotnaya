@@ -5,9 +5,9 @@
     <div class="hero">
       <div class="hero-content">
         <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
-        <h1>{{ if $isRu }}Bolotnaya Online — Якиманка: камеры offline, история и ремонт{{ else }}Bolotnaya Online — Yakimanka: cameras offline, history &amp; repair{{ end }}</h1>
-        <p class="hero-lead">{{ if $isRu }}История и фото Болотной; камеры проекта временно выключены{{ else }}History and photos of Bolotnaya; project cameras temporarily offline{{ end }}</p>
-        <p class="hero-desc">{{ if $isRu }}Камеры сейчас offline: леса закрыли обзор. Пока эфира нет — хроника ремонта, история и фото района.{{ else }}Cameras are offline: scaffolding blocks the view. Meanwhile — the repair chronicle, history and photos of the district.{{ end }}</p>
+        <h1>{{ if $isRu }}Bolotnaya Online — Якиманка: камера offline, история и ремонт{{ else }}Bolotnaya Online — Yakimanka: camera offline, history &amp; repair{{ end }}</h1>
+        <p class="hero-lead">{{ if $isRu }}История и фото Болотной; камера проекта пока не в эфире{{ else }}History and photos of Bolotnaya; the project camera is not on air yet{{ end }}</p>
+        <p class="hero-desc">{{ if $isRu }}Одна камера, ул. Серафимовича. Поток ещё не опубликован на cam.bolotnaya.online. Пока эфира нет — хроника ремонта, история и фото района.{{ else }}One camera, Ulitsa Serafimovicha. The stream is not published on cam.bolotnaya.online yet. Meanwhile — the repair chronicle, history and photos of the district.{{ end }}</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ "remont-lesa-2026/" | relLangURL }}">
@@ -20,8 +20,7 @@
 
         <!-- Quick jumps — mega convenient 2026 nav -->
         <nav class="quick-nav" aria-label="{{ if $isRu }}Быстрый переход{{ else }}Quick links{{ end }}">
-          <a class="quick-nav__chip" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Камеры{{ else }}Cameras{{ end }}</a>
-          <a class="quick-nav__chip" href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Леса 2026{{ else }}Repair 2026{{ end }}</a>
+          <a class="quick-nav__chip" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Камера{{ else }}Camera{{ end }}</a>
           <a class="quick-nav__chip" href="{{ "history/" | relLangURL }}">{{ if $isRu }}История{{ else }}History{{ end }}</a>
           <a class="quick-nav__chip" href="{{ "galleries/" | relLangURL }}">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</a>
           <a class="quick-nav__chip" href="{{ "posts/" | relLangURL }}">{{ if $isRu }}Блог{{ else }}Blog{{ end }}</a>
@@ -33,7 +32,7 @@
       <div class="hero-status" role="status" aria-live="polite">
         <div class="status-badge unavailable" aria-hidden="true">!</div>
         <div>
-          <div class="status-title">{{ if $isRu }}Камеры временно недоступны{{ else }}Cameras temporarily unavailable{{ end }}</div>
+          <div class="status-title">{{ if $isRu }}Камера пока не в эфире{{ else }}Camera is not on air yet{{ end }}</div>
           <p class="status-text">{{ if $isRu }}Ремонт фасада, леса закрыли обзор. Есть фото и ролики с телефона.{{ else }}Facade repair: scaffolding blocks the view. Photos and phone clips are up.{{ end }}</p>
           <a class="status-link" href="{{ $noticeURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
         </div>
@@ -43,9 +42,9 @@
     <!-- Cameras -->
     <section class="home-section home-cameras" aria-labelledby="home-cameras-title">
       <div class="home-section__header">
-        <h2 id="home-cameras-title">{{ if $isRu }}Камеры (сейчас offline){{ else }}Cameras (currently offline){{ end }}</h2>
+        <h2 id="home-cameras-title">{{ if $isRu }}Камера (сейчас offline){{ else }}Camera (currently offline){{ end }}</h2>
         <a class="home-section__link" href="{{ "cameras/" | relLangURL }}">
-          {{ if $isRu }}Все камеры →{{ else }}All cameras →{{ end }}
+          {{ if $isRu }}Страница камеры →{{ else }}Camera page →{{ end }}
         </a>
       </div>
       <div class="camera-preview-grid">

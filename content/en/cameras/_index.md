@@ -1,7 +1,7 @@
 ---
-title: "Cameras — Bolotnaya Square & Yakimanka (currently offline)"
+title: "Camera — Bolotnaya (currently offline)"
 date: 2025-05-12
-description: "Public camera pages for Bolotnaya Square and Ulitsa Serafimovicha. Streams off since 2 June 2026 — scaffolding blocks the view."
+description: "One camera, toward Ulitsa Serafimovicha. The stream stays off until the home server publishes it again. The old square page redirects here."
 keywords:
   - Bolotnaya Square
   - Yakimanka

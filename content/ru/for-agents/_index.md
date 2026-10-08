@@ -35,16 +35,17 @@ outputs: ["HTML"]
 
 Видео отдаёт **другой сервер**: `https://cam.bolotnaya.online/`. Этот хост (`bolotnaya.online`) — только статика Hugo.
 
-1. Болотная площадь — страница [/ru/cameras/bolotnaya-square/](/ru/cameras/bolotnaya-square/), поток `https://cam.bolotnaya.online/lmost_new/index.m3u8`
-2. ул. Серафимовича — страница [/ru/cameras/ul-serafimovicha/](/ru/cameras/ul-serafimovicha/), поток `https://cam.bolotnaya.online/boloto_new/index.m3u8`
+Одна камера: ул. Серафимовича — страница [/ru/cameras/ul-serafimovicha/](/ru/cameras/ul-serafimovicha/), поток `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-**Статус 2026:** камеры выключены из-за ремонта фасада. Пост: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/). Не пишите, что эфир идёт, пока не проверили playlist (HTTP 200 и строка `#EXTM3U`).
+Старая страница площади [/ru/cameras/bolotnaya-square/](/ru/cameras/bolotnaya-square/) перенаправляет сюда. Второй камеры сейчас нет.
+
+**Статус:** поток не опубликован. Пост про отключение в июне: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/). Не пишите, что эфир идёт, пока не проверили playlist (HTTP 200 и строка `#EXTM3U`).
 
 ## Как цитировать
 
 - Название: Bolotnaya Online
 - URL: `https://bolotnaya.online/` или конкретная страница с `/ru/`
-- Если речь о видео — уточните, что это камеры проекта и они бывают offline
+- Если речь о видео — уточните, что это одна камера проекта и она бывает offline
 - Контакт: [info@bolotnaya.online](mailto:info@bolotnaya.online)
 - Код: [github.com/A-Krivoshen/bolotnaya](https://github.com/A-Krivoshen/bolotnaya)
 

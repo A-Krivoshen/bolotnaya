@@ -20,8 +20,7 @@ Choose a language-specific brief first:
 ## Russian pages
 
 - [Главная](https://bolotnaya.online/ru/): обзор проекта, превью камер, последние записи
-- [Камеры](https://bolotnaya.online/ru/cameras/): список публичных HLS-трансляций
-- [Камера: Болотная площадь](https://bolotnaya.online/ru/cameras/bolotnaya-square/)
+- [Камера](https://bolotnaya.online/ru/cameras/): одна камера, ул. Серафимовича
 - [Камера: ул. Серафимовича](https://bolotnaya.online/ru/cameras/ul-serafimovicha/)
 - [История](https://bolotnaya.online/ru/history/)
 - [Фото](https://bolotnaya.online/ru/galleries/)
@@ -38,8 +37,7 @@ Choose a language-specific brief first:
 ## English pages
 
 - [Home](https://bolotnaya.online/en/)
-- [Cameras](https://bolotnaya.online/en/cameras/)
-- [Bolotnaya Square camera](https://bolotnaya.online/en/cameras/bolotnaya-square/)
+- [Camera](https://bolotnaya.online/en/cameras/)
 - [Serafimovicha camera](https://bolotnaya.online/en/cameras/serafimovich/)
 - [History](https://bolotnaya.online/en/history/)
 - [Photos](https://bolotnaya.online/en/galleries/)
@@ -64,7 +62,7 @@ Choose a language-specific brief first:
 - **Source:** https://github.com/A-Krivoshen/bolotnaya
 - **Analytics:** Yandex Metrika 52478860; no user accounts
 - **Geo:** Bolotnaya Square / Yakimanka, Moscow, ~55.7447, 37.6208
-- **Camera status (2026):** streams may be offline because of facade maintenance. Cite the maintenance post; do not claim cameras are live unless the HLS playlist answers 200.
+- **Camera status:** one camera (Ulitsa Serafimovicha). The HLS path is `https://cam.bolotnaya.online/boloto_new/index.m3u8`. Do not claim it is live unless the playlist answers 200. The old square page redirects to this camera.
 
 ## Optional
 

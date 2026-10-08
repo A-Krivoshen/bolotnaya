@@ -15,7 +15,7 @@ Bolotnaya Online — личный районный проект жителя Я�
 
 ## Что можно делать на сайте
 
-1. Смотреть публичные HLS-трансляции улиц (когда камеры включены).
+1. Смотреть публичную HLS-трансляцию (когда камера включена).
 2. Читать историю Болотной площади.
 3. Смотреть фотогалереи (площадь, Дом на набережной, исторические снимки).
 4. Читать блог о районе и инфраструктуре.
@@ -29,19 +29,20 @@ Bolotnaya Online — личный районный проект жителя Я�
 
 | id | Название | Страница | HLS |
 |---|---|---|---|
-| bolotnaya-square | Болотная площадь | https://bolotnaya.online/ru/cameras/bolotnaya-square/ | https://cam.bolotnaya.online/lmost_new/index.m3u8 |
 | serafimovicha | ул. Серафимовича | https://bolotnaya.online/ru/cameras/ul-serafimovicha/ | https://cam.bolotnaya.online/boloto_new/index.m3u8 |
 
 Каталог JSON: https://bolotnaya.online/ai/cameras.json
 
-**Статус (2026):** камеры выключены из-за ремонта фасада. Пост: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+Вторая камера (Болотная площадь, `lmost_new`) снята. Старый URL https://bolotnaya.online/ru/cameras/bolotnaya-square/ ведёт на камеру Серафимовича.
+
+**Статус:** поток на `cam.bolotnaya.online` сейчас не опубликован. Пост про июньское отключение: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 Хроника: https://bolotnaya.online/ru/remont-lesa-2026/  
 Не утверждайте, что трансляция сейчас идёт, если не проверили playlist (HTTP 200 и валидный `#EXTM3U`).
 
 ## Карта сайта (RU)
 
 - Главная: https://bolotnaya.online/ru/
-- Камеры: https://bolotnaya.online/ru/cameras/
+- Камера: https://bolotnaya.online/ru/cameras/
 - Ремонт и леса 2026: https://bolotnaya.online/ru/remont-lesa-2026/
 - История: https://bolotnaya.online/ru/history/
 - Фото: https://bolotnaya.online/ru/galleries/

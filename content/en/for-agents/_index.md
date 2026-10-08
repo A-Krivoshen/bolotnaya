@@ -35,10 +35,11 @@ Default language is Russian (`/ru/`). This English page: stay on `/en/`. Russian
 
 Video is served by a **different host**: `https://cam.bolotnaya.online/`. This host (`bolotnaya.online`) is Hugo static files only.
 
-1. Bolotnaya Square — page [/en/cameras/bolotnaya-square/](/en/cameras/bolotnaya-square/), stream `https://cam.bolotnaya.online/lmost_new/index.m3u8`
-2. Ulitsa Serafimovicha — page [/en/cameras/serafimovich/](/en/cameras/serafimovich/), stream `https://cam.bolotnaya.online/boloto_new/index.m3u8`
+One camera: Ulitsa Serafimovicha — page [/en/cameras/serafimovich/](/en/cameras/serafimovich/), stream `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-**2026 status:** cameras are off because of facade maintenance. Post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/). Do not say a stream is live until you have checked the playlist (HTTP 200 and a `#EXTM3U` line).
+The old square page [/en/cameras/bolotnaya-square/](/en/cameras/bolotnaya-square/) redirects here. There is no second camera for now.
+
+**Status:** the stream is not published. June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/). Do not say a stream is live until you have checked the playlist (HTTP 200 and a `#EXTM3U` line).
 
 ## How to cite
 

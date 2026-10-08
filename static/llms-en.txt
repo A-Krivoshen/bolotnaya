@@ -15,7 +15,7 @@ Russian is the default locale (`/ru/`). English is a full parallel section (`/en
 
 ## What people can do
 
-1. Watch public HLS street streams (when cameras are on).
+1. Watch the public HLS stream (when the camera is on).
 2. Read the history of Bolotnaya Square.
 3. Browse photo galleries (the square, House on the Embankment, historical images).
 4. Read the blog about the neighbourhood and the infrastructure.
@@ -29,19 +29,20 @@ Streams are served by a **different host**: `https://cam.bolotnaya.online/` (not
 
 | id | Name | Page | HLS |
 |---|---|---|---|
-| bolotnaya-square | Bolotnaya Square | https://bolotnaya.online/en/cameras/bolotnaya-square/ | https://cam.bolotnaya.online/lmost_new/index.m3u8 |
 | serafimovicha | Ulitsa Serafimovicha | https://bolotnaya.online/en/cameras/serafimovich/ | https://cam.bolotnaya.online/boloto_new/index.m3u8 |
 
 JSON catalog: https://bolotnaya.online/ai/cameras.json
 
-**Status (2026):** cameras are offline because of facade maintenance. Post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+The second camera (Bolotnaya Square, `lmost_new`) is retired. https://bolotnaya.online/en/cameras/bolotnaya-square/ redirects to the Serafimovicha camera.
+
+**Status:** nothing is published on `cam.bolotnaya.online` yet. June outage post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle: https://bolotnaya.online/en/remont-lesa-2026/  
 Do not claim a stream is live unless you have checked the playlist (HTTP 200 and a valid `#EXTM3U`).
 
 ## Site map (EN)
 
 - Home: https://bolotnaya.online/en/
-- Cameras: https://bolotnaya.online/en/cameras/
+- Camera: https://bolotnaya.online/en/cameras/
 - Repair and scaffolding 2026: https://bolotnaya.online/en/remont-lesa-2026/
 - History: https://bolotnaya.online/en/history/
 - Photos: https://bolotnaya.online/en/galleries/
