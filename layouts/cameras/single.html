@@ -11,7 +11,7 @@
   </header>
 
   <section class="post-content">
-    <link rel="stylesheet" href="/css/camera-single.css?v=4">
+    <link rel="stylesheet" href="/css/camera-single.css?v=5">
 
     <div class="camera-shell">
 
@@ -48,11 +48,9 @@
       </div>
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
-        <p class="cam-ad-countdown" hidden></p>
-        <div class="cam-ad-layer" hidden>
-          <div id="yandex_rtb_R-A-19616132-12" class="cam-ad-slot"></div>
-          <button type="button" class="cam-ad-resume">{{ if $isRu }}Продолжить эфир{{ else }}Resume the stream{{ end }}</button>
-        </div>
+      </div>
+      <div class="cam-ad" hidden>
+        <div id="yandex_rtb_R-A-19616132-12"></div>
       </div>
       <div class="status">{{ if $isRu }}Подключение…{{ else }}Connecting…{{ end }}</div>
       {{ end }}
@@ -76,6 +74,6 @@
 {{ if not $offline }}
 <script src="/js/hls.min.js"></script>
 <script src="/js/hls-init.js"></script>
-<script src="/js/cam-ad.js?v=4"></script>
+<script src="/js/cam-ad.js?v=5"></script>
 {{ end }}
 {{ end }}
