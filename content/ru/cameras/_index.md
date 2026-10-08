@@ -4,6 +4,7 @@ aliases:
 title: "Камера Болотной"
 date: 2025-05-12
 description: "Одна камера у ул. Серафимовича. В кадре площадь, канал и новый мостик под Малым Каменным."
+image: "/images/cameras/serafimovicha-neopunk.jpg"
 keywords:
   - камера Болотная
   - Якиманка

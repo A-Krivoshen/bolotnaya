@@ -1,10 +1,16 @@
 {{- /* SEO / Open Graph / JSON-LD / AI discovery */ -}}
 {{- partial "seo.html" . -}}
-{{- $preloadStill := or (eq .Kind "home") (and (eq .Section "cameras") (or (ne .Kind "page") site.Params.camerasOffline)) -}}
-{{- if $preloadStill -}}
-{{- with site.Params.camerasOfflineStill }}
+{{- $preloadHref := "" -}}
+{{- $showCard := or (eq .Kind "home") (and (eq .Section "cameras") (ne .Kind "page")) -}}
+{{- if $showCard -}}
+  {{- range first 1 (where .Site.RegularPages "Section" "cameras") -}}
+    {{- with .Params.image }}{{ $preloadHref = . }}{{ end -}}
+  {{- end -}}
+{{- else if and (eq .Section "cameras") (eq .Kind "page") site.Params.camerasOffline -}}
+  {{- $preloadHref = .Params.image | default site.Params.camerasOfflineStill -}}
+{{- end -}}
+{{- with $preloadHref }}
 <link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high">
-{{- end }}
 {{- end }}
 
 {{- if hugo.IsProduction -}}

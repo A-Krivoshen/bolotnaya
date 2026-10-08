@@ -2,7 +2,7 @@
 title: "Камера: ул. Серафимовича"
 translationKey: "camera-serafimovicha"
 description: "Единственная камера проекта, ракурс на ул. Серафимовича у Болотной. В кадре ещё новый мостик под Малым Каменным."
-image: "/images/galleries/lesa-2026/camera-still-mesh.jpg"
+image: "/images/cameras/serafimovicha-neopunk.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 aliases:
   - /cameras/bolotnaya-square/
