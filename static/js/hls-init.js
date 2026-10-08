@@ -109,11 +109,11 @@
 
     video.addEventListener('waiting', () => {
       const key = videoKey(video);
+      if (timers.has(key)) return;
+      if (window.Hls && window.Hls.isSupported() && !hlsInstances.has(key)) return;
       const container = video.closest('.camera-container') || document;
       const status = container.querySelector('.status');
       setStatus(status, msg('buffering'), 'buffering');
-      clearTimer(key);
-      errorStart.delete(key);
     });
 
     video.addEventListener('playing', () => {
@@ -143,24 +143,34 @@
     return u.toString();
   }
 
+  let signFlight = null;
+
   async function ensureToken(streamUrl){
     const path = streamPath(streamUrl);
     if (!path) return false;
     if (camToken.sig && camToken.exp * 1000 - Date.now() > 120000) return true;
-    const endpoint = new URL(streamUrl, window.location.href);
-    endpoint.pathname = '/sign/' + path;
-    endpoint.search = '';
-    const res = await fetch(endpoint.toString(), {
-      credentials: 'include',
-      mode: 'cors',
-      cache: 'no-store'
-    });
-    if (!res.ok) return false;
-    const data = await res.json();
-    if (!data || !data.sig || !data.exp) return false;
-    camToken.exp = data.exp;
-    camToken.sig = data.sig;
-    return true;
+    if (signFlight) return signFlight;
+    signFlight = (async function(){
+      const endpoint = new URL(streamUrl, window.location.href);
+      endpoint.pathname = '/sign/' + path;
+      endpoint.search = '';
+      const res = await fetch(endpoint.toString(), {
+        credentials: 'include',
+        mode: 'cors',
+        cache: 'no-store'
+      });
+      if (!res.ok) return false;
+      const data = await res.json();
+      if (!data || !data.sig || !data.exp) return false;
+      camToken.exp = data.exp;
+      camToken.sig = data.sig;
+      return true;
+    })();
+    try {
+      return await signFlight;
+    } finally {
+      signFlight = null;
+    }
   }
 
   function signedLoader(){
@@ -168,8 +178,17 @@
     if (!Base) return undefined;
     return class extends Base {
       load(context, config, callbacks){
-        if (context && context.url) context.url = withSig(context.url);
-        super.load(context, config, callbacks);
+        const run = () => {
+          if (context && context.url) context.url = withSig(context.url);
+          super.load(context, config, callbacks);
+        };
+        const left = camToken.exp * 1000 - Date.now();
+        if (camToken.sig && left > 120000) {
+          run();
+          return;
+        }
+        const src = (context && context.url) || '';
+        ensureToken(src).then(run).catch(run);
       }
     };
   }
@@ -188,6 +207,8 @@
 
     cleanup(key);
     bindVideoEvents(video);
+    delete video.dataset.hlsMediaRetried;
+    delete video.dataset.hlsNetRetried;
     setStatus(status, msg('connecting'), '');
 
     const signed = await ensureToken(url);
@@ -240,11 +261,25 @@
       hlsInstances.set(key, hls);
 
     } else if (video.canPlayType('application/vnd.apple.mpegurl')){
+      if (!video.dataset.hlsMetaBound) {
+        video.dataset.hlsMetaBound = '1';
+        video.addEventListener('loadedmetadata', function(){
+          video.play().catch(()=>{});
+          markConnected(videoKey(video), pane, status);
+        });
+      }
+      if (!video.dataset.hlsSafariRefresh) {
+        video.dataset.hlsSafariRefresh = '1';
+        window.setInterval(function(){
+          if (video.paused || document.hidden) return;
+          if (camToken.sig && camToken.exp * 1000 - Date.now() > 120000) return;
+          ensureToken(url).then(function(ok){
+            if (!ok) return;
+            video.src = withSig(url);
+          }).catch(function(){});
+        }, 60000);
+      }
       video.src = withSig(url);
-      video.addEventListener('loadedmetadata', function(){
-        video.play().catch(()=>{});
-        markConnected(key, pane, status);
-      });
     } else {
       setStatus(status, msg('unsupported'), 'error');
     }

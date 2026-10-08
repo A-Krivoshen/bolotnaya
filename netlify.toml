@@ -3,12 +3,14 @@
   command = "hugo --gc --minify"
 
 [context.production.environment]
-  HUGO_VERSION = "0.147.3"
+  HUGO_VERSION = "0.163.3"
+  HUGO_EXTENDED = "true"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "false"
 
 [context.deploy-preview.environment]
-  HUGO_VERSION = "0.147.3"
+  HUGO_VERSION = "0.163.3"
+  HUGO_EXTENDED = "true"
   HUGO_ENV = "development"
 
 # Security + caching headers (SEO-friendly static delivery)
@@ -91,12 +93,12 @@
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=604800, immutable"
+    Cache-Control = "public, max-age=300"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=604800, immutable"
+    Cache-Control = "public, max-age=300"
 
 [[headers]]
   for = "/images/*"
@@ -173,7 +175,9 @@
   force = true
 
 [[redirects]]
-  from = "https://www.bolotnaya.online/*"
+  from = "/*"
   to = "https://bolotnaya.online/:splat"
   status = 301
   force = true
+  [redirects.conditions]
+    Host = ["www.bolotnaya.online"]

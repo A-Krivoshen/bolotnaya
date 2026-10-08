@@ -56,8 +56,9 @@
     let phase = 'watch';
     let hideTimer = 0;
     let emptyTimer = 0;
+    let creativeShown = false;
 
-    function finish(){
+    function closeLayer(nextGap){
       if (phase === 'watch') return;
       phase = 'watch';
       window.clearTimeout(hideTimer);
@@ -66,7 +67,12 @@
       layer.hidden = true;
       slot.replaceChildren();
       played = 0;
-      nextAt = watchBetweenAds;
+      creativeShown = false;
+      nextAt = nextGap;
+    }
+
+    function finish(){
+      closeLayer(watchBetweenAds);
     }
 
     function hasCreative(){
@@ -88,6 +94,7 @@
       function arm(){
         if (filled || phase !== 'ad') return;
         filled = true;
+        creativeShown = true;
         window.clearTimeout(emptyTimer);
         hideTimer = window.setTimeout(finish, adVisibleMs);
       }
@@ -98,14 +105,14 @@
       });
       window.requestAnimationFrame(function(){
         window.requestAnimationFrame(function(){
-          obs.observe(slot, { childList: true, subtree: true });
+          obs.observe(slot, { childList: true, subtree: true, attributes: true });
           loadSlot(slot, function(){
             if (hasCreative()) arm();
           });
           emptyTimer = window.setTimeout(function(){
             obs.disconnect();
             if (hasCreative()) arm();
-            else if (phase === 'ad') finish();
+            else if (phase === 'ad') closeLayer(60);
           }, 3500);
         });
       });
@@ -138,7 +145,9 @@
       if (played >= nextAt) startCountdown();
     }, 1000);
 
-    resume.addEventListener('click', finish);
+    resume.addEventListener('click', function(){
+      closeLayer(creativeShown ? watchBetweenAds : 60);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function(){

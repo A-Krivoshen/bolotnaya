@@ -6,14 +6,14 @@
   <a href="https://bolotnaya.online/">Site</a> ·
   <a href="https://bolotnaya.online/ru/cameras/">Cameras</a> ·
   <a href="https://bolotnaya.online/ru/history/">History</a> ·
-  <a href="https://github.com/A-Krivoshen/bolotnaya/actions/workflows/hugo-build-archive.yml">Deploy workflow</a>
+  <a href="https://github.com/A-Krivoshen/bolotnaya/actions/workflows/deploy-vps.yml">Deploy workflow</a>
 </p>
 
 <p align="center">
   <img alt="Hugo" src="https://img.shields.io/badge/Hugo-0.163.3-ff4088?logo=hugo&logoColor=white">
   <img alt="Theme" src="https://img.shields.io/badge/theme-PaperMod-2b3440">
   <img alt="Languages" src="https://img.shields.io/badge/content-RU%20%2F%20EN-2f7d70">
-  <img alt="Deploy" src="https://github.com/A-Krivoshen/bolotnaya/actions/workflows/hugo-build-archive.yml/badge.svg">
+  <img alt="Deploy" src="https://github.com/A-Krivoshen/bolotnaya/actions/workflows/deploy-vps.yml/badge.svg">
 </p>
 
 # Bolotnaya Online
@@ -30,7 +30,8 @@ The Serafimovicha camera is live. It can go offline during facade work. Status n
 | `layouts/` | Project-specific Hugo templates on top of PaperMod |
 | `assets/css/extended/` | Extended theme styles and responsive polish |
 | `static/` | Public static files, root 404 fallback, icons, robots, camera placeholders, AI briefs |
-| `.github/workflows/hugo-build-archive.yml` | Hugo build, artifact upload, and deploy to `gh-pages` |
+| `.github/workflows/deploy-vps.yml` | Production deploy after a push to `main` |
+| `.github/workflows/hugo-build-archive.yml` | Hugo build check and artifact only |
 
 ## Highlights
 
@@ -40,8 +41,8 @@ The Serafimovicha camera is live. It can go offline during facade work. Status n
 - Gallery `most-bolotnaya-2026` for the new canal footbridge from GES-2 under Maly Kamenny to Repin Garden.
 - Gallery `ozhivlennyj-arhiv` for AI animations of old House on the Embankment / Yakimanka photographs plus the source stills.
 - Custom templates and CSS for a more local editorial feel than a stock theme.
-- GitHub Actions deployment using Hugo Extended and `peaceiris/actions-gh-pages`.
-- Working root `404.html` fallback for GitHub Pages.
+- Production publish is the VPS deploy workflow, not GitHub Pages.
+- Root `404.html` is the static fallback nginx serves.
 
 ## Local Development
 

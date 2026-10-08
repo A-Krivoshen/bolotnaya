@@ -1,6 +1,7 @@
 {{- /* SEO / Open Graph / JSON-LD / AI discovery */ -}}
 {{- partial "seo.html" . -}}
-{{- if or (eq .Kind "home") (eq .Section "cameras") -}}
+{{- $preloadStill := or (eq .Kind "home") (and (eq .Section "cameras") (or (ne .Kind "page") site.Params.camerasOffline)) -}}
+{{- if $preloadStill -}}
 {{- with site.Params.camerasOfflineStill }}
 <link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high">
 {{- end }}
