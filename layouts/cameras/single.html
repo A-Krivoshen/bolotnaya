@@ -2,7 +2,7 @@
 {{ $streamURL := .Params.stream_url | default .Params.hls_url }}
 {{ $isRu := eq .Site.Language.Lang "ru" }}
 {{ $offline := site.Params.camerasOffline }}
-{{ $still := .Params.image | default site.Params.camerasOfflineStill | default "/images/placeholders/camera.svg" }}
+{{ $still := site.Params.camerasOfflineStill | default .Params.image | default "/images/placeholders/camera.svg" }}
 <div class="container">
 <article class="post-single camera-page">
   <header class="page-header camera-header">
@@ -32,7 +32,7 @@
         <div class="site-alert__title">
           {{ if $isRu }}Трансляция временно недоступна{{ else }}Stream temporarily unavailable{{ end }}
         </div>
-        <p>{{ if $isRu }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
+        <p>{{ if $isRu }}Камера временно выключена. Хроника ремонта остаётся на сайте.{{ else }}The camera is temporarily off. The repair chronicle stays on the site.{{ end }}</p>
         <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта →{{ else }}Repair chronicle →{{ end }}</a>
       </div>
       {{ end }}

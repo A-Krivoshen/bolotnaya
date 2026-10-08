@@ -21,4 +21,4 @@ I am opening **[Repair and scaffolding 2026](/en/remont-lesa-2026/)**. The album
 
 There are no old-stream screenshots in this batch. If they turn up, they go in a separate “before” block.
 
-We will still post separately when the stream can return. Camera pages currently say autumn, if the works allow.
+On 20 August the return date was still unknown, and the camera pages then said autumn if the works allowed.

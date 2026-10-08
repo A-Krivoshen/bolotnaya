@@ -3,7 +3,7 @@ title: "Terms of Use"
 description: "What the site collects and how analytics works"
 ---
 
-Bolotnaya Online is a set of public pages with live cameras and an archive of frames. There are no contact forms, user accounts, dashboards, or comments.
+Bolotnaya Online is a set of public pages with one live camera and an archive of frames. There are no contact forms, user accounts, dashboards, or comments.
 
 ## Personal data
 

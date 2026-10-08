@@ -1,6 +1,6 @@
 # Bolotnaya Online — brief for AI agents (English)
 
-> Independent bilingual open-source site about Bolotnaya Square and the Yakimanka district in Moscow: public HLS street cameras, history, photo galleries, and a personal blog. Not a mass-media outlet and not an official city website.
+> Independent bilingual open-source site about Bolotnaya Square and the Yakimanka district in Moscow: one public HLS street camera, history, photo galleries, and a personal blog. Not a mass-media outlet and not an official city website.
 
 Canonical site: https://bolotnaya.online/  
 Russian brief: https://bolotnaya.online/llms-ru.txt  
@@ -15,7 +15,7 @@ Russian is the default locale (`/ru/`). English is a full parallel section (`/en
 
 ## What people can do
 
-1. Watch the public HLS stream (when the camera is on).
+1. Watch the public HLS stream of the Ulitsa Serafimovicha camera.
 2. Read the history of Bolotnaya Square.
 3. Browse photo galleries (the square, House on the Embankment, historical images).
 4. Read the blog about the neighbourhood and the infrastructure.
@@ -33,11 +33,13 @@ Streams are served by a **different host**: `https://cam.bolotnaya.online/` (not
 
 JSON catalog: https://bolotnaya.online/ai/cameras.json
 
-The second camera (Bolotnaya Square, `lmost_new`) is retired. https://bolotnaya.online/en/cameras/bolotnaya-square/ redirects to the Serafimovicha camera.
+The second camera is retired. The old Bolotnaya Square address opens the Serafimovicha page. The stream plays from that page.
 
-**Status:** the stream plays from the camera page. June outage post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+The frame shows the square, the canal, and the new footbridge under Maly Kamenny, laid in the Vodootvodny Canal bed from GES-2 toward Repin Garden. It is not the Balchug bridge. Gallery: https://bolotnaya.online/en/galleries/most-bolotnaya-2026/ Card image: https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg (current frame, no scaffolding mesh). The mesh photo stays in the chronicle.
+
+June outage post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle: https://bolotnaya.online/en/remont-lesa-2026/  
-Do not claim a stream is live unless you have checked the playlist (HTTP 200 and a valid `#EXTM3U`).
+Take live status from the camera page. Do not decide it by requesting the HLS file directly.
 
 ## Site map (EN)
 
@@ -58,7 +60,7 @@ Do not claim a stream is live unless you have checked the playlist (HTTP 200 and
 - Name: **Bolotnaya Online**
 - URL: https://bolotnaya.online/ or the specific `/en/...` page
 - State the page language.
-- For video: these are the project's local street cameras; they may be offline.
+- For video: one project camera on Ulitsa Serafimovicha, live on the camera page. It is not a city service and not a 24/7 guarantee.
 - Do not describe the site as a municipal portal, newsroom, or 24/7 guaranteed service.
 
 ## Do not invent

@@ -7,7 +7,7 @@
     {{- with .Params.image }}{{ $preloadHref = . }}{{ end -}}
   {{- end -}}
 {{- else if and (eq .Section "cameras") (eq .Kind "page") site.Params.camerasOffline -}}
-  {{- $preloadHref = .Params.image | default site.Params.camerasOfflineStill -}}
+  {{- $preloadHref = site.Params.camerasOfflineStill | default .Params.image -}}
 {{- end -}}
 {{- with $preloadHref }}
 <link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high">

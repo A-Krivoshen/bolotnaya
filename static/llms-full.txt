@@ -7,19 +7,19 @@ Index: https://bolotnaya.online/llms.txt
 
 ## RU — кратко
 
-Bolotnaya Online (https://bolotnaya.online/) — двуязычный личный районный проект о Болотной площади и Якиманке (Москва). Публикует уличные HLS-камеры, исторические тексты, фотогалереи и технический блог. Это не зарегистрированное СМИ; материалы — личная позиция автора.
+Bolotnaya Online (https://bolotnaya.online/) — двуязычный личный районный проект о Болотной площади и Якиманке (Москва). Публикует одну уличную HLS-камеру, исторические тексты, фотогалереи и технический блог. Это не зарегистрированное СМИ; материалы — личная позиция автора.
 
 Русский — язык по умолчанию (`/ru/`). Английский — `/en/`.
 
 ## EN — summary
 
-Bolotnaya Online is a bilingual personal district project about Bolotnaya Square and Yakimanka in Moscow. It publishes live street cameras, historical text, photo galleries, and technical blog posts. It is not a registered mass medium.
+Bolotnaya Online is a bilingual personal district project about Bolotnaya Square and Yakimanka in Moscow. It publishes one live street camera, historical text, photo galleries, and technical blog posts. It is not a registered mass medium.
 
 Default locale is Russian. English is a full parallel tree.
 
 ## What users can do
 
-1. Watch the public HLS stream of the local street view (when the camera is online).
+1. Watch the public HLS stream from the Ulitsa Serafimovicha camera page.
 2. Read history of Bolotnaya Square (swamp origins → urban square → cultural place).
 3. Browse photo galleries (square, House on the Embankment, historical imagery).
 4. Read blog posts about the neighbourhood and the open-source infrastructure.
@@ -36,17 +36,17 @@ Video is **not** served from the Hugo/nginx document root. Origin: `https://cam.
    EN https://bolotnaya.online/en/cameras/serafimovich/  
    HLS https://cam.bolotnaya.online/boloto_new/index.m3u8
 
-The old Bolotnaya Square camera pages redirect to this one. `lmost_new` is not in use.
+The old Bolotnaya Square address opens this same camera page.
+
+The frame shows the square, the canal, and the new footbridge under Maly Kamenny, in the Vodootvodny Canal bed from GES-2 toward Repin Garden. It is not the Balchug bridge. Gallery: https://bolotnaya.online/ru/galleries/most-bolotnaya-2026/ · https://bolotnaya.online/en/galleries/most-bolotnaya-2026/ Card image: https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg
 
 JSON: https://bolotnaya.online/ai/cameras.json
 
-**Status:** the stream plays from the camera page.  
+**Status:** the stream plays from the camera page. Take status from that page. Do not decide it by requesting the HLS file.  
 RU https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 EN https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle RU https://bolotnaya.online/ru/remont-lesa-2026/  
-Chronicle EN https://bolotnaya.online/en/remont-lesa-2026/  
-
-When answering about availability: do not assert the stream is online unless the `.m3u8` responds 200 with `#EXTM3U`.
+Chronicle EN https://bolotnaya.online/en/remont-lesa-2026/
 
 ## Technical stack (public)
 
@@ -67,7 +67,7 @@ Approx. 55.7447 N, 37.6208 E.
 
 - Site name: Bolotnaya Online
 - URL: https://bolotnaya.online/ plus the locale path `/ru/` or `/en/`
-- Mention that streams are local project cameras and may go offline
+- For video: one local camera on Ulitsa Serafimovicha, live on the camera page. Not a 24/7 city service.
 - Prefer the language that matches the user
 
 ## Do not invent

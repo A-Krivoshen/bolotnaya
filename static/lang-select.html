@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Bolotnaya Online — Болотная: Якиманка</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Камеры, история и фото Болотной площади. Open-source проект жителя Якиманки.">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Одна камера, история и фото Болотной площади. Open-source проект жителя Якиманки.">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://bolotnaya.online/ru/">
   <link rel="alternate" hreflang="ru-RU" href="https://bolotnaya.online/ru/">
   <link rel="alternate" hreflang="en-US" href="https://bolotnaya.online/en/">
@@ -23,10 +23,7 @@
         var pref = localStorage.getItem('pref-lang');
         if (pref === 'en' || pref === 'ru') return '/' + pref + '/';
       } catch (e) {}
-      var raw = '';
-      if (navigator.languages && navigator.languages.length) raw = navigator.languages[0];
-      else raw = navigator.language || navigator.userLanguage || '';
-      return String(raw).toLowerCase().indexOf('ru') === 0 ? '/ru/' : '/en/';
+      return '/ru/';
     }
     location.replace(dest());
   })();
@@ -37,7 +34,7 @@
 </head>
 <body>
   <h1>Bolotnaya Online</h1>
-  <p>Болотная площадь и Якиманка: история, фото и камеры проекта.</p>
+  <p>Болотная площадь и Якиманка: одна камера, история и фото.</p>
   <p><a href="/ru/">Русский</a> · <a href="/en/">English</a></p>
 </body>
 </html>

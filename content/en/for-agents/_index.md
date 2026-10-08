@@ -9,7 +9,7 @@ This page is the entry point for language models and autonomous agents. English 
 
 ## What this site is
 
-**Bolotnaya Online** is an independent open-source project by a Yakimanka resident about [Bolotnaya Square](/en/history/) and the district. It has [public cameras](/en/cameras/), [history](/en/history/), [photos](/en/galleries/) and a [blog](/en/posts/).
+**Bolotnaya Online** is an independent open-source project by a Yakimanka resident about [Bolotnaya Square](/en/history/) and the district. It has [one public camera](/en/cameras/), [history](/en/history/), [photos](/en/galleries/) and a [blog](/en/posts/).
 
 It is **not** a mass-media outlet, **not** an official Moscow website, and **not** a municipal portal. Texts are the author's personal view.
 
@@ -37,13 +37,15 @@ Video is served by a **different host**: `https://cam.bolotnaya.online/`. This h
 
 One camera: Ulitsa Serafimovicha — page [/en/cameras/serafimovich/](/en/cameras/serafimovich/), stream `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-There is no second camera for now. The stream plays from the camera page. June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Repair chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/).
+There is no second camera. The old square address opens this page. The stream plays from the camera page. The frame shows the square, the canal, and the new footbridge under Maly Kamenny (Vodootvodny Canal bed, from GES-2 toward Repin Garden; not the Balchug bridge). Footbridge gallery: [/en/galleries/most-bolotnaya-2026/](/en/galleries/most-bolotnaya-2026/). Card: [/images/cameras/serafimovicha-neopunk.jpg](/images/cameras/serafimovicha-neopunk.jpg).
+
+June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Repair chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/). Take live status from the camera page, not from a direct request to the HLS file.
 
 ## How to cite
 
 - Name: Bolotnaya Online
 - URL: `https://bolotnaya.online/` or the specific `/en/` page
-- For video, say these are the project's street cameras and they may be offline
+- For video, one project camera on Ulitsa Serafimovicha, live on the camera page. Not a 24/7 city service
 - Contact: [info@bolotnaya.online](mailto:info@bolotnaya.online)
 - Source: [github.com/A-Krivoshen/bolotnaya](https://github.com/A-Krivoshen/bolotnaya)
 

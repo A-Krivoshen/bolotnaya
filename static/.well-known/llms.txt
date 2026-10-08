@@ -16,4 +16,4 @@ RU page: https://bolotnaya.online/ru/for-agents/
 EN page: https://bolotnaya.online/en/for-agents/
 
 Content-Signal: search=yes, ai-input=yes, ai-train=no
-Video host https://cam.bolotnaya.online/ is HLS only and is not a website.
+Video host https://cam.bolotnaya.online/ is HLS only and is not a website. Live status is the camera page, not a direct request to the HLS file.

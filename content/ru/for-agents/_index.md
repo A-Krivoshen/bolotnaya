@@ -9,7 +9,7 @@ outputs: ["HTML"]
 
 ## Что это за сайт
 
-**Bolotnaya Online** — независимый open-source проект жителя Якиманки о [Болотной площади](/ru/history/) и районе. На сайте есть [публичные камеры](/ru/cameras/), [история](/ru/history/), [фото](/ru/galleries/) и [блог](/ru/posts/).
+**Bolotnaya Online** — независимый open-source проект жителя Якиманки о [Болотной площади](/ru/history/) и районе. На сайте есть [одна публичная камера](/ru/cameras/), [история](/ru/history/), [фото](/ru/galleries/) и [блог](/ru/posts/).
 
 Это **не** СМИ, **не** официальный сайт Москвы и **не** портал управы. Тексты — личная позиция автора.
 
@@ -37,13 +37,15 @@ outputs: ["HTML"]
 
 Одна камера: ул. Серафимовича — страница [/ru/cameras/ul-serafimovicha/](/ru/cameras/ul-serafimovicha/), поток `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-Второй камеры сейчас нет. Эфир идёт со страницы камеры. Пост про июньское отключение: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника ремонта: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/).
+Второй камеры сейчас нет. Старый адрес площади открывает эту страницу. Эфир идёт со страницы камеры. В кадре площадь, канал и новый мостик под Малым Каменным (русло Водоотводного канала, от ГЭС-2 к Репинскому скверу; это не мост на Балчуг). Галерея мостика: [/ru/galleries/most-bolotnaya-2026/](/ru/galleries/most-bolotnaya-2026/). Карточка: [/images/cameras/serafimovicha-neopunk.jpg](/images/cameras/serafimovicha-neopunk.jpg).
+
+Пост про июньское отключение: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника ремонта: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/). Статус эфира берите со страницы камеры, не по прямому запросу к файлу HLS.
 
 ## Как цитировать
 
 - Название: Bolotnaya Online
 - URL: `https://bolotnaya.online/` или конкретная страница с `/ru/`
-- Если речь о видео — уточните, что это одна камера проекта и она бывает offline
+- Если речь о видео — одна камера проекта на ул. Серафимовича, эфир на странице камеры. Это не городская служба 24/7
 - Контакт: [info@bolotnaya.online](mailto:info@bolotnaya.online)
 - Код: [github.com/A-Krivoshen/bolotnaya](https://github.com/A-Krivoshen/bolotnaya)
 

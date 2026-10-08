@@ -38,6 +38,7 @@
     "id": "52478860"
   },
   "video_origin": "https://cam.bolotnaya.online/",
+  "poster": "https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg",
   "ai": {
     "llms": "https://bolotnaya.online/llms.txt",
     "llms_ru": "https://bolotnaya.online/llms-ru.txt",

@@ -98,7 +98,7 @@ timeout = "60s"
   author = "Bolotnaya.online"
   description = "Болотная площадь и Якиманка: одна камера в эфире, история и фото. Open-source bolotnaya.online."
   keywords = ["Болотная площадь", "Якиманка", "леса 2026", "Bolotnaya", "Yakimanka", "Moscow"]
-  images = ["/images/galleries/lesa-2026/camera-still-mesh.jpg"]
+  images = ["/images/cameras/serafimovicha-neopunk.jpg"]
   mainSections = ["cameras", "posts", "history", "galleries"]
   DateFormat = "02.01.2006"
   defaultTheme = "auto" # auto = light 07:00–21:00, dark nights; local clock, not OS

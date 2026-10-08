@@ -24,7 +24,17 @@
         "ru": "https://bolotnaya.online/ru/cameras/ul-serafimovicha/",
         "en": "https://bolotnaya.online/en/cameras/serafimovich/"
       },
-      "hls": "https://cam.bolotnaya.online/boloto_new/index.m3u8"
+      "hls": "https://cam.bolotnaya.online/boloto_new/index.m3u8",
+      "poster": "https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg",
+      "watch_on_page": true,
+      "footbridge_gallery": {
+        "ru": "https://bolotnaya.online/ru/galleries/most-bolotnaya-2026/",
+        "en": "https://bolotnaya.online/en/galleries/most-bolotnaya-2026/"
+      },
+      "frame": {
+        "ru": "Площадь без сетки лесов, канал и пешеходный мостик под Малым Каменным: русло Водоотводного канала, от ГЭС-2 к Репинскому скверу. Это не мост на Балчуг.",
+        "en": "The square without scaffolding mesh, the canal, and the footbridge under Maly Kamenny: Vodootvodny Canal bed, from GES-2 toward Repin Garden. Not the Balchug bridge."
+      }
     }
   ],
   "retired": [

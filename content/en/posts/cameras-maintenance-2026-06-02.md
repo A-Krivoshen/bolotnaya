@@ -1,5 +1,5 @@
 ---
-title: "Live cameras are temporarily unavailable due to facade maintenance"
+title: "2 June 2026: cameras went off for facade scaffolding"
 date: 2026-06-02T08:00:00+03:00
 draft: false
 tags: ["cameras", "maintenance", "facade", "Bolotnaya", "Yakimanka"]
@@ -8,17 +8,17 @@ summary: "On 2 June 2026 the cameras went off for facade scaffolding. Since 8 Oc
 
 **8 October 2026.** The camera on [Ulitsa Serafimovicha](/en/cameras/serafimovich/) is live again: part of the scaffold came down. Below is the 2 June outage note.
 
-> The live cameras on Bolotnaya.online are temporarily unavailable.
+> Original notice of 2 June 2026: the live cameras were temporarily unavailable.
 
-Due to facade maintenance work on the building, the camera streams will be temporarily unavailable.
+That notice said the streams would be off during facade work.
 
-Important details:
+What the notice said:
 
 - reason: facade maintenance work;
-- status: cameras are temporarily offline;
-- we will announce when the streams are back online.
+- status then: cameras were offline;
+- a return would be announced later.
 
-As soon as the streams can be safely and reliably restored, the information on the website will be updated.
+The 2 June note said the site would be updated when the streams could return. They did, on 8 October 2026.
 
 The repair chronicle is in [Repair and scaffolding 2026](/en/remont-lesa-2026/): photos, phone clips and weekly progress.
 

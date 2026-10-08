@@ -5,7 +5,7 @@
 #           https://bolotnaya.online/llms-en.txt
 
 # Preferred host (Yandex)
-Host: https://bolotnaya.online
+Host: bolotnaya.online
 
 User-agent: *
 Allow: /
@@ -24,6 +24,7 @@ Disallow: /admin/
 Disallow: /ru/admin/
 Disallow: /en/admin/
 Disallow: /static/admin/
+Disallow: /lang-select.html
 
 # Yandex
 User-agent: Yandex

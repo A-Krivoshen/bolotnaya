@@ -42,7 +42,7 @@
     {{- if reflect.IsMap $sf }}{{ $ogImage = $sf.src | default "" }}{{ else }}{{ $ogImage = printf "%v" $sf }}{{ end -}}
   {{- end -}}
 {{- end -}}
-{{- if not $ogImage }}{{ $ogImage = "/images/galleries/lesa-2026/camera-still-mesh.jpg" }}{{ end -}}
+{{- if not $ogImage }}{{ $ogImage = "/images/cameras/serafimovicha-neopunk.jpg" }}{{ end -}}
 {{- $ogImageAbs := $ogImage | absURL -}}
 {{- $siteURL := .Site.BaseURL -}}
 {{- $authorName := "Bolotnaya.online" -}}
@@ -116,11 +116,7 @@
 <link rel="alternate" type="application/json" href="{{ ".well-known/agent.json" | absURL }}" title="agent.json">
 <link rel="service-desc" type="application/yaml" href="{{ "openapi.yaml" | absURL }}" title="openapi.yaml">
 <link rel="alternate" type="application/json" href="{{ "ai/site.json" | absURL }}" title="site.json">
-{{- if $isRu }}
 <link rel="help" href="{{ "for-agents/" | absLangURL }}">
-{{- else }}
-<link rel="help" href="{{ "for-agents/" | absLangURL }}">
-{{- end }}
 <meta name="ai-content-declaration" content="human-authored local district project; open-source; not mass media">
 
 {{/* Theme / PWA hints */}}
@@ -215,8 +211,7 @@
       "name" $pageTitle
       "description" $desc
       "thumbnailUrl" $ogImageAbs
-      "uploadDate" ((.Date | default now).Format "2006-01-02T15:04:05Z07:00")
-      "contentUrl" $stream
+      "uploadDate" "2026-10-08T00:00:00+03:00"
       "embedUrl" .Permalink
       "isFamilyFriendly" true
       "publisher" (dict "@type" "Organization" "name" "Bolotnaya Online" "url" $siteURL)
@@ -235,7 +230,7 @@
   ) -}}
   {{- if .Section -}}
     {{- $secLabel := .Section | humanize -}}
-    {{- if eq .Section "cameras" }}{{ $secLabel = cond $isRu "Камеры" "Cameras" }}{{ end -}}
+    {{- if eq .Section "cameras" }}{{ $secLabel = cond $isRu "Камера" "Camera" }}{{ end -}}
     {{- if eq .Section "galleries" }}{{ $secLabel = cond $isRu "Фото" "Photos" }}{{ end -}}
     {{- if eq .Section "history" }}{{ $secLabel = cond $isRu "История" "History" }}{{ end -}}
     {{- if eq .Section "remont-lesa-2026" }}{{ $secLabel = cond $isRu "Ремонт и леса 2026" "Repair 2026" }}{{ end -}}
@@ -272,7 +267,7 @@
         "name" (cond $isRu "Что такое Bolotnaya Online?" "What is Bolotnaya Online?")
         "acceptedAnswer" (dict
           "@type" "Answer"
-          "text" (cond $isRu "Независимый open-source проект жителя Якиманки: камеры, история и фото Болотной площади. Это не СМИ и не официальный сайт города." "An independent open-source project by a Yakimanka resident: cameras, history and photos of Bolotnaya Square. Not mass media or an official city site.")
+          "text" (cond $isRu "Независимый open-source проект жителя Якиманки: одна камера, история и фото Болотной площади. Это не СМИ и не официальный сайт города." "An independent open-source project by a Yakimanka resident: one camera, history and photos of Bolotnaya Square. Not mass media or an official city site.")
         )
       )
       (dict
