@@ -4,10 +4,10 @@
   "site": "https://bolotnaya.online/",
   "stream_host": "https://cam.bolotnaya.online/",
   "protocol": "HLS",
-  "status": "offline",
+  "status": "live",
   "status_note": {
-    "ru": "Сейчас одна камера, ул. Серафимовича. Поток не опубликован: домашний сервер ещё не отдаёт его на cam.bolotnaya.online. Не утверждайте, что эфир идёт.",
-    "en": "One camera for now, Ulitsa Serafimovicha. The stream is not published to cam.bolotnaya.online yet. Do not claim it is live."
+    "ru": "Одна камера, ул. Серафимовича, в эфире. Голый HLS без подписи отвечает 403. Смотреть нужно со страницы сайта: плеер сам берёт подпись примерно на 10 минут. Не публикуйте прямую ссылку как рабочую.",
+    "en": "One camera, Ulitsa Serafimovicha, is live. The bare HLS URL returns 403 without a signature. Watch from the site page: the player fetches a signature that lasts about 10 minutes. Do not publish the direct playlist as a working link."
   },
   "status_posts": {
     "ru": "https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/",

@@ -35,7 +35,7 @@ Bolotnaya Online — личный районный проект жителя Я�
 
 Вторая камера (Болотная площадь, `lmost_new`) снята. Старый URL https://bolotnaya.online/ru/cameras/bolotnaya-square/ ведёт на камеру Серафимовича.
 
-**Статус:** поток на `cam.bolotnaya.online` сейчас не опубликован. Пост про июньское отключение: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+**Статус:** эфир идёт со страницы камеры. Голый плейлист без подписи отвечает 403. Пост про июньское отключение: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 Хроника: https://bolotnaya.online/ru/remont-lesa-2026/  
 Не утверждайте, что трансляция сейчас идёт, если не проверили playlist (HTTP 200 и валидный `#EXTM3U`).
 

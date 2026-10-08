@@ -40,7 +40,7 @@ The old Bolotnaya Square camera pages redirect to this one. `lmost_new` is not i
 
 JSON: https://bolotnaya.online/ai/cameras.json
 
-**Status:** the stream is not published to cam.bolotnaya.online yet.  
+**Status:** the stream plays from the camera page. The bare playlist returns 403 without a short-lived signature.  
 RU https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 EN https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle RU https://bolotnaya.online/ru/remont-lesa-2026/  

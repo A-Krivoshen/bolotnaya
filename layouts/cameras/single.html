@@ -18,6 +18,7 @@
     {{ partial "weather-widget.html" (dict) }}
 
     <div class="camera-container camera-card" {{ if not $offline }}data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}"{{ end }}>
+      {{ if $offline }}
       <div class="site-alert" role="status">
         <div class="site-alert__title">
           {{ if $isRu }}Трансляция временно недоступна{{ else }}Stream temporarily unavailable{{ end }}
@@ -25,6 +26,7 @@
         <p>{{ if $isRu }}Камера отключена из-за ремонтных работ на фасаде. Ожидаем возобновления по осени.{{ else }}The camera is offline due to facade maintenance. We expect to resume in the fall.{{ end }}</p>
         <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта →{{ else }}Repair chronicle →{{ end }}</a>
       </div>
+      {{ end }}
 
       {{ if $offline }}
       <figure class="tab-pane tab-pane--still">

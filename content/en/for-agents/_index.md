@@ -39,7 +39,7 @@ One camera: Ulitsa Serafimovicha — page [/en/cameras/serafimovich/](/en/camera
 
 The old square page [/en/cameras/bolotnaya-square/](/en/cameras/bolotnaya-square/) redirects here. There is no second camera for now.
 
-**Status:** the stream is not published. June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/). Do not say a stream is live until you have checked the playlist (HTTP 200 and a `#EXTM3U` line).
+**Status:** the stream plays from the camera page. The bare `index.m3u8` returns 403 without a signature. The signature is short-lived and only the site player receives it. Do not hand out the naked URL as a working link. June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Repair chronicle, including 2–3 October: [/en/remont-lesa-2026/](/en/remont-lesa-2026/).
 
 ## How to cite
 

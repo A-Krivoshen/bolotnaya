@@ -5,16 +5,16 @@
     <div class="hero">
       <div class="hero-content">
         <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
-        <h1>{{ if $isRu }}Bolotnaya Online — Якиманка: камера offline, история и ремонт{{ else }}Bolotnaya Online — Yakimanka: camera offline, history &amp; repair{{ end }}</h1>
-        <p class="hero-lead">{{ if $isRu }}История и фото Болотной; камера проекта пока не в эфире{{ else }}History and photos of Bolotnaya; the project camera is not on air yet{{ end }}</p>
-        <p class="hero-desc">{{ if $isRu }}Одна камера, ул. Серафимовича. Поток ещё не опубликован на cam.bolotnaya.online. Пока эфира нет — хроника ремонта, история и фото района.{{ else }}One camera, Ulitsa Serafimovicha. The stream is not published on cam.bolotnaya.online yet. Meanwhile — the repair chronicle, history and photos of the district.{{ end }}</p>
+        <h1>{{ if $isRu }}Bolotnaya Online — Якиманка: камера, история и ремонт{{ else }}Bolotnaya Online — Yakimanka: camera, history &amp; repair{{ end }}</h1>
+        <p class="hero-lead">{{ if $isRu }}История и фото Болотной, одна камера на Серафимовича{{ else }}History and photos of Bolotnaya, one camera on Serafimovicha{{ end }}</p>
+        <p class="hero-desc">{{ if $isRu }}Эфир открывается на странице камеры. Прямая ссылка без подписи не работает. Рядом — хроника ремонта и фото района.{{ else }}The stream opens on the camera page. A direct link without a signature does not work. The repair chronicle and district photos sit beside it.{{ end }}</p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{{ "remont-lesa-2026/" | relLangURL }}">
-            {{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}
+          <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
+            {{ if $isRu }}Смотреть камеру{{ else }}Watch the camera{{ end }}
           </a>
-          <a class="btn btn-secondary" href="{{ "history/" | relLangURL }}">
-            {{ if $isRu }}История площади{{ else }}Square history{{ end }}
+          <a class="btn btn-secondary" href="{{ "remont-lesa-2026/" | relLangURL }}">
+            {{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}
           </a>
         </div>
 
@@ -32,8 +32,8 @@
       <div class="hero-status" role="status" aria-live="polite">
         <div class="status-badge unavailable" aria-hidden="true">!</div>
         <div>
-          <div class="status-title">{{ if $isRu }}Камера пока не в эфире{{ else }}Camera is not on air yet{{ end }}</div>
-          <p class="status-text">{{ if $isRu }}Ремонт фасада, леса закрыли обзор. Есть фото и ролики с телефона.{{ else }}Facade repair: scaffolding blocks the view. Photos and phone clips are up.{{ end }}</p>
+          <div class="status-title">{{ if $isRu }}Камера в эфире{{ else }}Camera is live{{ end }}</div>
+          <p class="status-text">{{ if $isRu }}Смотреть можно со страницы камеры. Голая ссылка на поток закрыта подписью.{{ else }}Watch it from the camera page. The bare stream link is closed with a signature.{{ end }}</p>
           <a class="status-link" href="{{ $noticeURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
         </div>
       </div>
@@ -42,7 +42,7 @@
     <!-- Cameras -->
     <section class="home-section home-cameras" aria-labelledby="home-cameras-title">
       <div class="home-section__header">
-        <h2 id="home-cameras-title">{{ if $isRu }}Камера (сейчас offline){{ else }}Camera (currently offline){{ end }}</h2>
+        <h2 id="home-cameras-title">{{ if $isRu }}Камера{{ else }}Camera{{ end }}</h2>
         <a class="home-section__link" href="{{ "cameras/" | relLangURL }}">
           {{ if $isRu }}Страница камеры →{{ else }}Camera page →{{ end }}
         </a>
@@ -59,7 +59,7 @@
             {{ end }}
             <div class="camera-preview__media">
               <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-              <div class="camera-preview__badge camera-preview__badge--offline">{{ if $isRu }}OFFLINE{{ else }}OFFLINE{{ end }}</div>
+              <div class="camera-preview__badge">LIVE</div>
             </div>
             <div class="camera-preview__meta">
               <h3>{{ $p.Title }}</h3>
@@ -79,7 +79,7 @@
         <a class="explore-card" href="{{ "remont-lesa-2026/" | relLangURL }}">
           <span class="explore-card__label">{{ if $isRu }}Сейчас{{ else }}Now{{ end }}</span>
           <h3>{{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}</h3>
-          <p>{{ if $isRu }}Фасад в лесах, камеры offline. Фото по неделям и ролики с телефона.{{ else }}Facade in scaffolding, cameras offline. Weekly photos and phone clips.{{ end }}</p>
+          <p>{{ if $isRu }}Фасад в лесах. Фото по неделям, в том числе 2–3 октября, и ролики с телефона.{{ else }}Facade in scaffolding. Weekly photos, including 2–3 October, and phone clips.{{ end }}</p>
           <span class="explore-card__cta">{{ if $isRu }}Смотреть →{{ else }}Browse →{{ end }}</span>
         </a>
         <a class="explore-card" href="{{ "history/" | relLangURL }}">
@@ -140,8 +140,8 @@
           <p>{{ if $isRu }}Независимый open-source проект жителя Якиманки: камеры, история и фото Болотной площади. Это не СМИ и не официальный сайт города.{{ else }}An independent open-source project by a Yakimanka resident: cameras, history and photos of Bolotnaya Square. Not mass media or an official city site.{{ end }}</p>
         </details>
         <details class="faq-item">
-          <summary>{{ if $isRu }}Почему камеры offline?{{ else }}Why are cameras offline?{{ end }}</summary>
-          <p>{{ if $isRu }}Идут ремонтные работы на фасаде, обзор закрыт лесами. Хроника — в разделе «Ремонт и леса 2026».{{ else }}Facade maintenance is underway and scaffolding blocks the view. The chronicle is in Repair and scaffolding 2026.{{ end }}</p>
+          <summary>{{ if $isRu }}Почему прямая ссылка на поток не открывается?{{ else }}Why does the direct stream link not open?{{ end }}</summary>
+          <p>{{ if $isRu }}Плеер на странице камеры получает короткую подпись. Без неё плейлист отвечает 403. Хроника ремонта — в разделе «Ремонт и леса 2026».{{ else }}The player on the camera page receives a short-lived signature. Without it the playlist returns 403. The repair chronicle is in Repair and scaffolding 2026.{{ end }}</p>
         </details>
         <details class="faq-item">
           <summary>{{ if $isRu }}Есть английская версия?{{ else }}Is there a Russian version?{{ end }}</summary>

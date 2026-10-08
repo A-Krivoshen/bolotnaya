@@ -1,7 +1,7 @@
 ---
-title: "Camera — Bolotnaya (currently offline)"
+title: "Camera — Bolotnaya"
 date: 2025-05-12
-description: "One camera, toward Ulitsa Serafimovicha. The stream stays off until the home server publishes it again. The old square page redirects here."
+description: "One camera, toward Ulitsa Serafimovicha. It plays on the page. A direct link without a signature does not work. The old square page redirects here."
 keywords:
   - Bolotnaya Square
   - Yakimanka

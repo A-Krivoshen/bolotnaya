@@ -11,8 +11,8 @@
     </header>
 
     <div class="site-alert" role="status">
-      <div class="site-alert__title">{{ if $isRu }}Сейчас offline{{ else }}Currently offline{{ end }}</div>
-      <p>{{ if $isRu }}На фасаде идут работы, леса закрыли обзор. Трансляции выключены.{{ else }}Facade work is underway and scaffolding blocks the view. Streams are off.{{ end }}</p>
+      <div class="site-alert__title">{{ if $isRu }}Одна камера в эфире{{ else }}One camera is live{{ end }}</div>
+      <p>{{ if $isRu }}Смотреть можно здесь. Прямой адрес плейлиста без подписи не открывается.{{ else }}Watch it here. The bare playlist address does not open without a signature.{{ end }}</p>
       <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Ремонт и леса 2026 →{{ else }}Repair and scaffolding 2026 →{{ end }}</a>
     </div>
 
@@ -31,7 +31,7 @@
         <a class="camera-card card" href="{{ $p.RelPermalink }}">
           <div class="media">
             <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-            <div class="badge badge--offline">OFFLINE</div>
+            <div class="badge">LIVE</div>
           </div>
           <div class="meta">
             <h2 class="camera-card__title">{{ $p.Title }}</h2>

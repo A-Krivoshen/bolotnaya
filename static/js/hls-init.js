@@ -133,7 +133,56 @@
     });
   }
 
-  function setup(video){
+  const camToken = { exp: 0, sig: '' };
+
+  function streamPath(url){
+    try {
+      return new URL(url, window.location.href).pathname.split('/').filter(Boolean)[0] || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function withSig(url){
+    if (!camToken.sig) return url;
+    const u = new URL(url, window.location.href);
+    u.searchParams.set('exp', String(camToken.exp));
+    u.searchParams.set('sig', camToken.sig);
+    return u.toString();
+  }
+
+  async function ensureToken(streamUrl){
+    const path = streamPath(streamUrl);
+    if (!path) return false;
+    if (camToken.sig && camToken.exp * 1000 - Date.now() > 120000) return true;
+    const endpoint = new URL(streamUrl, window.location.href);
+    endpoint.pathname = '/sign/' + path;
+    endpoint.search = '';
+    const res = await fetch(endpoint.toString(), {
+      credentials: 'include',
+      mode: 'cors',
+      cache: 'no-store'
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    if (!data || !data.sig || !data.exp) return false;
+    camToken.exp = data.exp;
+    camToken.sig = data.sig;
+    return true;
+  }
+
+  function signedLoader(){
+    const Base = window.Hls && window.Hls.DefaultConfig && window.Hls.DefaultConfig.loader;
+    if (!Base) return undefined;
+    return class extends Base {
+      load(context, config, callbacks){
+        if (context && context.url) context.url = withSig(context.url);
+        super.load(context, config, callbacks);
+      }
+    };
+  }
+
+  async function setup(video){
     const url = video.getAttribute('data-hls');
     const container = video.closest('.camera-container') || document;
     const status = container.querySelector('.status');
@@ -149,6 +198,13 @@
     bindVideoEvents(video);
     setStatus(status, msg('connecting'), '');
 
+    const signed = await ensureToken(url);
+    if (!signed){
+      setStatus(status, msg('streamUnavailable'), 'error');
+      scheduleReconnect(key, video, status);
+      return;
+    }
+
     if (window.Hls && window.Hls.isSupported()){
       const hls = new window.Hls({
         liveSyncDuration: 2,
@@ -163,9 +219,11 @@
         backBufferLength: 90,
         fragLoadingTimeOut: 5000,
         manifestLoadingTimeOut: 5000,
-        levelLoadingTimeOut: 5000
+        levelLoadingTimeOut: 5000,
+        xhrSetup: function(xhr){ xhr.withCredentials = true; },
+        loader: signedLoader()
       });
-      hls.loadSource(url);
+      hls.loadSource(withSig(url));
       hls.attachMedia(video);
 
       hls.on(window.Hls.Events.MANIFEST_PARSED, function(){
@@ -192,7 +250,7 @@
       hlsInstances.set(key, hls);
 
     } else if (video.canPlayType('application/vnd.apple.mpegurl')){
-      video.src = url;
+      video.src = withSig(url);
       video.addEventListener('loadedmetadata', function(){
         video.play().catch(()=>{});
         markConnected(key, pane, status);

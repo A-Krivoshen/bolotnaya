@@ -35,7 +35,7 @@ JSON catalog: https://bolotnaya.online/ai/cameras.json
 
 The second camera (Bolotnaya Square, `lmost_new`) is retired. https://bolotnaya.online/en/cameras/bolotnaya-square/ redirects to the Serafimovicha camera.
 
-**Status:** nothing is published on `cam.bolotnaya.online` yet. June outage post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+**Status:** the stream plays from the camera page. The bare playlist returns 403 without a signature. June outage post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle: https://bolotnaya.online/en/remont-lesa-2026/  
 Do not claim a stream is live unless you have checked the playlist (HTTP 200 and a valid `#EXTM3U`).
 

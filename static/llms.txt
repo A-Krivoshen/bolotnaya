@@ -62,7 +62,7 @@ Choose a language-specific brief first:
 - **Source:** https://github.com/A-Krivoshen/bolotnaya
 - **Analytics:** Yandex Metrika 52478860; no user accounts
 - **Geo:** Bolotnaya Square / Yakimanka, Moscow, ~55.7447, 37.6208
-- **Camera status:** one camera (Ulitsa Serafimovicha). The HLS path is `https://cam.bolotnaya.online/boloto_new/index.m3u8`. Do not claim it is live unless the playlist answers 200. The old square page redirects to this camera.
+- **Camera status:** one camera (Ulitsa Serafimovicha) is live on its page. The bare HLS URL returns 403 without a short-lived signature issued to the site player. Do not publish that URL as a working link. The old square page redirects to this camera.
 
 ## Optional
 

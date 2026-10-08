@@ -103,7 +103,7 @@ timeout = "60s"
   DateFormat = "02.01.2006"
   defaultTheme = "auto" # auto = light 07:00–21:00, dark nights; local clock, not OS
   disableThemeToggle = false
-  camerasOffline = true
+  camerasOffline = false
   camerasOfflineStill = "/images/galleries/lesa-2026/camera-still-mesh.jpg"
   ShowReadingTime = false
   ShowBreadCrumbs = true

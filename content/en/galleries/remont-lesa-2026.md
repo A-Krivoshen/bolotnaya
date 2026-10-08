@@ -78,4 +78,12 @@ images:
     caption: 9 September 2026. New grey facade, windows already without film
   - src: /images/galleries/lesa-2026/2026-09-09-10-48-36.jpg
     caption: "9 September 2026. From the square: the middle is open, the ends still in scaffold"
+  - src: /images/galleries/lesa-2026/2026-10-02-12-24-54.jpg
+    caption: 2 October 2026. Grey facade, a mast hoist and scaffold in mesh
+  - src: /images/galleries/lesa-2026/2026-10-02-13-52-01.jpg
+    caption: 2 October 2026. Hoist platform at the grey wall, scaffold in mesh to the right
+  - src: /images/galleries/lesa-2026/2026-10-03-11-12-23.jpg
+    caption: 3 October 2026. Grey facade and a crane, a dome in mesh to the left
+  - src: /images/galleries/lesa-2026/2026-10-03-11-12-28.jpg
+    caption: 3 October 2026. A cradle on the crane boom above the roof
 ---
