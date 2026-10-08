@@ -99,7 +99,7 @@
       window.requestAnimationFrame(function(){
         window.requestAnimationFrame(function(){
           if (!stillThis()) return;
-          if (box.offsetWidth < 300 || box.offsetHeight < 200) {
+          if (box.offsetWidth < 200 || box.offsetHeight < 220) {
             miss();
             return;
           }

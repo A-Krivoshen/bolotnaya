@@ -218,13 +218,16 @@
   .cam-ad-layer.is-open {
     position: relative;
     inset: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.35rem 0 0.5rem;
     min-height: 250px;
   }
 
   .cam-ad-layer.is-open .cam-ad-slot,
   .cam-ad-layer.is-open .cam-ad-render {
     width: 100%;
-    max-width: 400px;
+    max-width: none;
     min-width: 0;
     min-height: 250px;
   }
