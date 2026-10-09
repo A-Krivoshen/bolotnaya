@@ -23,10 +23,11 @@
         <a class="camera-stage" href="{{ $p.RelPermalink }}">
           <div class="camera-stage__media">
             <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-            <span class="camera-stage__badge">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</span>
+            <span class="camera-stage__badge">{{ if $isRu }}Кадр, не эфир{{ else }}Still, not live{{ end }}</span>
           </div>
           <div class="camera-stage__meta">
             <h2>{{ $p.Title }}</h2>
+            <p class="camera-still-note">{{ if $isRu }}Стилизованный кадр. Прямой эфир открывается по этой карточке.{{ else }}Stylized still. The live picture opens from this card.{{ end }}</p>
             <ul class="camera-facts">
               <li>{{ if $isRu }}Видео, 1440p{{ else }}Video, 1440p{{ end }}</li>
               <li>20 fps</li>

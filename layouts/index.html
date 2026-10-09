@@ -6,8 +6,7 @@
       <div class="hero-content">
         <p class="hero-kicker">{{ if $isRu }}Якиманка · Москва{{ else }}Yakimanka · Moscow{{ end }}</p>
         <h1>{{ if $isRu }}Вебкамера Болотной площади{{ else }}Live webcam of Bolotnaya Square{{ end }}</h1>
-        <p class="hero-lead">{{ if $isRu }}Онлайн с улицы Серафимовича. Рядом история и фото Якиманки.{{ else }}Live from Ulitsa Serafimovicha, with the history and photos of Yakimanka.{{ end }}</p>
-        <p class="hero-desc">{{ if $isRu }}Одна камера на улице Серафимовича. В кадре площадь, канал и новый мостик под Малым Каменным. Рядом — хроника ремонта и фото района.{{ else }}One camera on Ulitsa Serafimovicha. The frame holds the square, the canal, and the new footbridge under Maly Kamenny. The repair chronicle and district photos sit beside it.{{ end }}</p>
+        <p class="hero-lead">{{ if $isRu }}Онлайн с улицы Серафимовича: площадь, канал и новый мостик под Малым Каменным.{{ else }}Live from Ulitsa Serafimovicha: the square, the canal, and the new footbridge under Maly Kamenny.{{ end }}</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
@@ -17,15 +16,6 @@
             {{ if $isRu }}Ремонт и леса 2026{{ else }}Repair and scaffolding 2026{{ end }}
           </a>
         </div>
-
-        <!-- Quick jumps — mega convenient 2026 nav -->
-        <nav class="quick-nav" aria-label="{{ if $isRu }}Быстрый переход{{ else }}Quick links{{ end }}">
-          <a class="quick-nav__chip" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Камера{{ else }}Camera{{ end }}</a>
-          <a class="quick-nav__chip" href="{{ "history/" | relLangURL }}">{{ if $isRu }}История{{ else }}History{{ end }}</a>
-          <a class="quick-nav__chip" href="{{ "galleries/" | relLangURL }}">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</a>
-          <a class="quick-nav__chip" href="{{ "posts/" | relLangURL }}">{{ if $isRu }}Блог{{ else }}Blog{{ end }}</a>
-          <a class="quick-nav__chip" href="{{ "support/" | relLangURL }}">{{ if $isRu }}Поддержать{{ else }}Support{{ end }}</a>
-        </nav>
       </div>
 
       <div class="hero-status" role="status" aria-live="polite">
@@ -33,7 +23,6 @@
         <div>
           <div class="status-title">{{ if $isRu }}Камера в эфире{{ else }}Camera is live{{ end }}</div>
           <p class="status-text">{{ if $isRu }}Улица Серафимовича. В кадре ещё новый мостик под Малым Каменным.{{ else }}Ulitsa Serafimovicha. The new footbridge under Maly Kamenny is in the frame too.{{ end }}</p>
-          <a class="status-link" href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Смотреть камеру →{{ else }}Watch the camera →{{ end }}</a>
         </div>
       </div>
     </div>
@@ -58,10 +47,11 @@
             {{ end }}
             <div class="camera-preview__media">
               <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-              <div class="camera-preview__badge">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</div>
+              <div class="camera-preview__badge">{{ if $isRu }}Кадр, не эфир{{ else }}Still, not live{{ end }}</div>
             </div>
             <div class="camera-preview__meta">
               <h3>{{ $p.Title }}</h3>
+              <p class="camera-still-note">{{ if $isRu }}Стилизованный кадр. Прямой эфир открывается по этой карточке.{{ else }}Stylized still. The live picture opens from this card.{{ end }}</p>
               {{ with $p.Params.description }}<p>{{ . | truncate 80 }}</p>{{ end }}
             </div>
           </a>

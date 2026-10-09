@@ -11,10 +11,11 @@
   </header>
 
   <section class="post-content">
-    <link rel="stylesheet" href="/css/camera-single.css?v=7">
+    <link rel="stylesheet" href="/css/camera-single.css?v=8">
 
     <div class="camera-shell">
 
+    <div class="camera-toolbar">
     {{ partial "weather-widget.html" (dict) }}
 
     {{ if not $offline }}
@@ -25,6 +26,7 @@
       <li class="camera-facts__live">{{ if $isRu }}В эфире{{ else }}Live{{ end }}</li>
     </ul>
     {{ end }}
+    </div>
 
     <div class="camera-container camera-card" {{ if not $offline }}data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}"{{ end }}>
       {{ if $offline }}
@@ -46,13 +48,13 @@
       <div id="adblock-message" class="adblock-message" hidden>
         {{ if $isRu }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
       </div>
-      <div class="cam-ad">
-        <div id="yandex_rtb_R-A-19616132-12"></div>
-      </div>
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
       </div>
       <div class="status">{{ if $isRu }}Подключение…{{ else }}Connecting…{{ end }}</div>
+      <div class="cam-ad">
+        <div id="yandex_rtb_R-A-19616132-12"></div>
+      </div>
       {{ end }}
     </div>
 

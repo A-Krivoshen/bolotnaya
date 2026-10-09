@@ -133,13 +133,11 @@
       var pm = new ymaps.Placemark(
         [p.lat, p.lon],
         {
-          iconCaption: p.caption,
           hintContent: p.title,
           balloonContent: balloonHtml(p, cfg.open)
         },
         {
-          preset: p.preset || "islands#redDotIconWithCaption",
-          iconCaptionMaxWidth: 160,
+          preset: String(p.preset || "islands#redDotIcon").replace("WithCaption", ""),
           hideIconOnBalloonOpen: false,
           openBalloonOnClick: true,
           hasBalloon: true,

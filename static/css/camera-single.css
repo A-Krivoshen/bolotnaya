@@ -17,6 +17,8 @@
   margin-bottom: 0.65rem;
   border: 1px solid #111;
   aspect-ratio: 16 / 9;
+  min-height: 168px;
+  width: 100%;
 }
 
 .tab-pane > video {
@@ -96,16 +98,25 @@
   max-width: 62ch;
 }
 
+.camera-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem 1rem;
+  margin: 0 0 0.75rem;
+}
+
 .camera-facts {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0.85rem;
-  margin: 0 0 0.75rem;
+  margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   line-height: 1.4;
-  color: var(--secondary);
+  color: color-mix(in srgb, var(--primary) 78%, var(--secondary));
   font-variant-numeric: tabular-nums;
 }
 
@@ -123,7 +134,8 @@
 
 .cam-ad {
   width: 100%;
-  margin: 0.75rem 0;
+  max-width: 100%;
+  margin: 0.85rem 0 0;
 }
 
 .cam-ad #yandex_rtb_R-A-19616132-12 {
@@ -161,8 +173,9 @@
 /* Weather widget — light chip so the dark-gray informer stays readable */
 .camera-page .weather-widget {
   display: flex;
-  justify-content: center;
-  margin: 0.35rem 0 0.65rem;
+  justify-content: flex-start;
+  margin: 0;
+  max-width: 100%;
 }
 
 .camera-page .weather-widget #e76467b5337d868231eb8281690870ba {

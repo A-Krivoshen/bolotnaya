@@ -1,7 +1,7 @@
 ---
 slug: ozhivlennyj-arhiv
 title: House on the Embankment — archive
-description: AI animations of old black-and-white photographs of the House on the Embankment and a little of Yakimanka — and the source stills. Not period newsreel.
+description: This is not newsreel. AI animations of old photographs of the House on the Embankment and Yakimanka, then the frames themselves.
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
@@ -225,8 +225,4 @@ images:
     caption: "Archive. The house courtyard, scaffolding."
 ---
 
-This is **not newsreel**. The album is the **House on the Embankment** and a little of Yakimanka: the 1928–1931 build, Udarnik, the GES stacks, Bersenevka, floods, the view from the river. AI animations of old photographs first, then the **black-and-white frames themselves**.
-
-Two more frames: Ulitsa Serafimovicha about 1960, photograph by E. Matveev, and Bolshaya Polyanka in the early 1960s.
-
-Photographs of the house from 2018–2024 are in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/). The same GIFs stay there too.
+Two more frames: Ulitsa Serafimovicha about 1960, photograph by E. Matveev, and Bolshaya Polyanka in the early 1960s. Photographs of the house from 2018–2024 are in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/).

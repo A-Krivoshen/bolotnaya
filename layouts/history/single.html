@@ -32,7 +32,7 @@
   {{ end }}
 
   {{ if gt (len $photos) 0 }}
-  <link rel="stylesheet" href="/css/gallery-grid.css">
+  <link rel="stylesheet" href="/css/gallery-grid.css?v=2">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <section class="gallery-grid">
     {{ $group := printf "hist-%s" .File.BaseFileName | default "hist" }}

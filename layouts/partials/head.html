@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
 {{- /* Home title matches the query people type. Inner pages keep their own title. */}}
 <title>{{ if .IsHome }}{{ if eq site.Language.Lang "ru" }}Вебкамера Болотной площади | Bolotnaya Online{{ else }}Bolotnaya Square live webcam | Bolotnaya Online{{ end }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}{{ end }}</title>
