@@ -5,9 +5,9 @@ description: AI animations of old black-and-white photographs of the House on th
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
-  - src: /images/galleries/history/serafimovicha-1960-matveev.gif
+  - src: /images/galleries/history/serafimovicha-1960-matveev-watermarked.gif
     caption: "AI animation of an archive frame — Ulitsa Serafimovicha, about 1960, photograph by E. Matveev. Not period footage."
-  - src: /images/galleries/history/polyanka-early-1960s.gif
+  - src: /images/galleries/history/polyanka-early-1960s-watermarked.gif
     caption: "AI animation of an archive frame — Bolshaya Polyanka, early 1960s. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
     caption: "AI animation of an archive frame — House on the Embankment facade, the street. Not period footage."

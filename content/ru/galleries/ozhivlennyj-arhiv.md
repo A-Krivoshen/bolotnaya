@@ -5,9 +5,9 @@ description: ИИ-анимации старых чёрно-белых фото �
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
-  - src: /images/galleries/history/serafimovicha-1960-matveev.gif
+  - src: /images/galleries/history/serafimovicha-1960-matveev-watermarked.gif
     caption: "ИИ-анимация архивного кадра — ул. Серафимовича, около 1960, фото Е. Матвеева. Не фотография эпохи."
-  - src: /images/galleries/history/polyanka-early-1960s.gif
+  - src: /images/galleries/history/polyanka-early-1960s-watermarked.gif
     caption: "ИИ-анимация архивного кадра — Большая Полянка, начало 1960-х. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
     caption: "ИИ-анимация архивного кадра — фасад Дома на набережной, улица. Не фотография эпохи."
