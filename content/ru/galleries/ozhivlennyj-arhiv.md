@@ -5,6 +5,10 @@ description: ИИ-анимации старых чёрно-белых фото �
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
+  - src: /images/galleries/history/serafimovicha-1960-matveev.gif
+    caption: "ИИ-анимация архивного кадра — ул. Серафимовича, около 1960, фото Е. Матвеева. Не фотография эпохи."
+  - src: /images/galleries/history/polyanka-early-1960s.gif
+    caption: "ИИ-анимация архивного кадра — Большая Полянка, начало 1960-х. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
     caption: "ИИ-анимация архивного кадра — фасад Дома на набережной, улица. Не фотография эпохи."
   - src: /images/galleries/Bolotnya_square/20210520_073324-ANIMATION.gif
@@ -107,6 +111,10 @@ images:
     caption: "ИИ-анимация архивного кадра — паводок у храма. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f868ca3a-57b5-435c-95e7-7cf5b902fb7a_watermarked.gif
     caption: "ИИ-анимация архивного кадра — улица вдоль дома. Не фотография эпохи."
+  - src: /images/galleries/history/serafimovicha-1960-matveev.jpg
+    caption: "Архив. Ул. Серафимовича, около 1960. Фото Е. Матвеева."
+  - src: /images/galleries/history/polyanka-early-1960s.jpg
+    caption: "Архив. Большая Полянка, начало 1960-х."
   - src: /images/galleries/history/ENZA5rkQqmlGVulk2gX9KBzFrFUbBuTyEbXsjL8gZdtYJBPxuSAjPbP4mKLvMz80BXp_uRzDnsvgHmroF75_kNw6u6kkZB1N7KUuO669hf8S-u1e379to8T_P6H8JGmNSP2LPtQi2jCcqOjPqplKimFa6p7DXNh1UeSeQKXYkFx1kNVtA1-k4ELaK0iTd5QcI61KOKaU36VS3Tls2RDLIQ.jpeg
     caption: "Архив. Фонтан 1948 года. Чаша отлита из переплавленных немецких орудий."
   - src: /images/galleries/history/fountain-1948-repin-square.jpg
@@ -218,5 +226,7 @@ images:
 ---
 
 Это **не кинохроника**. Альбом про **Дом на набережной** и чуть района Якиманка: стройка 1928–1931, «Ударник», трубы ГЭС, Берсеневка, паводки, вид с реки. Сначала ИИ-анимации старых фото, дальше — **сами чёрно-белые кадры**.
+
+Ещё два кадра: ул. Серафимовича около 1960 года, фото Е. Матвеева, и Большая Полянка начала 1960-х.
 
 Живые снимки дома 2018–2024 — в альбоме [Дом на набережной](/ru/galleries/dom-na-naberezhnoy/). Те же GIF там тоже остаются.

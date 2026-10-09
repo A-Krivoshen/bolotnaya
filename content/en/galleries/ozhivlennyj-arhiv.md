@@ -5,6 +5,10 @@ description: AI animations of old black-and-white photographs of the House on th
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
+  - src: /images/galleries/history/serafimovicha-1960-matveev.gif
+    caption: "AI animation of an archive frame — Ulitsa Serafimovicha, about 1960, photograph by E. Matveev. Not period footage."
+  - src: /images/galleries/history/polyanka-early-1960s.gif
+    caption: "AI animation of an archive frame — Bolshaya Polyanka, early 1960s. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-e549a4ea-6946-4f89-b685-20e08c4647df_watermarked.gif
     caption: "AI animation of an archive frame — House on the Embankment facade, the street. Not period footage."
   - src: /images/galleries/Bolotnya_square/20210520_073324-ANIMATION.gif
@@ -107,6 +111,10 @@ images:
     caption: "AI animation of an archive frame — a flood by the church. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f868ca3a-57b5-435c-95e7-7cf5b902fb7a_watermarked.gif
     caption: "AI animation of an archive frame — the street along the house. Not period footage."
+  - src: /images/galleries/history/serafimovicha-1960-matveev.jpg
+    caption: "Archive. Ulitsa Serafimovicha, about 1960. Photograph by E. Matveev."
+  - src: /images/galleries/history/polyanka-early-1960s.jpg
+    caption: "Archive. Bolshaya Polyanka, early 1960s."
   - src: /images/galleries/history/ENZA5rkQqmlGVulk2gX9KBzFrFUbBuTyEbXsjL8gZdtYJBPxuSAjPbP4mKLvMz80BXp_uRzDnsvgHmroF75_kNw6u6kkZB1N7KUuO669hf8S-u1e379to8T_P6H8JGmNSP2LPtQi2jCcqOjPqplKimFa6p7DXNh1UeSeQKXYkFx1kNVtA1-k4ELaK0iTd5QcI61KOKaU36VS3Tls2RDLIQ.jpeg
     caption: "Archive. Fountain of 1948. The bowl was cast from melted German guns."
   - src: /images/galleries/history/fountain-1948-repin-square.jpg
@@ -218,5 +226,7 @@ images:
 ---
 
 This is **not newsreel**. The album is the **House on the Embankment** and a little of Yakimanka: the 1928–1931 build, Udarnik, the GES stacks, Bersenevka, floods, the view from the river. AI animations of old photographs first, then the **black-and-white frames themselves**.
+
+Two more frames: Ulitsa Serafimovicha about 1960, photograph by E. Matveev, and Bolshaya Polyanka in the early 1960s.
 
 Photographs of the house from 2018–2024 are in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/). The same GIFs stay there too.
