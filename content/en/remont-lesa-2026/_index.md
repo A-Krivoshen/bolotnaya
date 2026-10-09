@@ -1,7 +1,7 @@
 ---
 title: "Repair and scaffolding 2026"
-description: "A chronicle of facade repair at Bolotnaya: scaffolding on Serafimovicha, weekly photos. On 8 October part of the scaffold came down and the camera is live again."
-summary: "The camera was off from 2 June because scaffolding blocked the view. On 8 October part of the scaffold came down and the grey facade is visible. Capital repair is planned to finish next year."
+description: "Since 8 October 2026 the Ulitsa Serafimovicha camera is live again. A week-by-week photo chronicle of the facade scaffold at Bolotnaya, from 2 June."
+summary: "Since 8 October 2026 the Ulitsa Serafimovicha camera is live again: part of the scaffold came down. From 2 June until that day the mesh blocked the view. Capital repair is planned to finish next year."
 translationKey: "remont-lesa-2026"
 aliases:
   - /repair-2026/
@@ -14,7 +14,7 @@ images:
   - /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
 ---
 
-From 2 June 2026 the camera was off. Scaffolding stood on the Serafimovicha facade: mesh covered the frame the camera was for — the square, the canal, the Kotelnicheskaya high-rise.
+Since 8 October 2026 the Ulitsa Serafimovicha camera is live again. Until then, from 2 June, it was off: scaffolding stood on the facade, and mesh covered the square, the canal and the Kotelnicheskaya high-rise.
 
 On 8 October part of the scaffolding came off the House on the Embankment. After the facade renovation, some of the scaffold was taken down. The result of the work is visible now. Capital repair of the building is planned to finish next year. The Serafimovicha camera is live again.
 
