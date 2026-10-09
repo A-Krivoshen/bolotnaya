@@ -41,8 +41,8 @@ timeout = "60s"
     weight = 1
     title = "Bolotnaya Online — Болотная: Якиманка"
     [languages.ru.params]
-      description = "Одна камера у ул. Серафимовича, сейчас в эфире. История, фото и хроника ремонта фасада — open-source проект жителя Якиманки."
-      keywords = ["Болотная площадь", "Якиманка", "камера Болотная", "леса 2026", "Москва", "история Москвы"]
+      description = "Вебкамера Болотной площади онлайн с ул. Серафимовича. В эфире с 8 октября 2026: площадь, канал и мостик. История и фото Якиманки."
+      keywords = ["Болотная площадь", "вебкамера Болотной площади", "онлайн камера Болотная", "Якиманка", "камера Болотная", "Серафимовича", "Москва"]
       homeInfoTitle = "Якиманка: камера и история"
       homeInfoDescription = "Эфир с ул. Серафимовича: площадь, канал и новый мостик. Рядом история и фото."
 
@@ -71,8 +71,8 @@ timeout = "60s"
     weight = 2
     title = "Bolotnaya Online — Yakimanka camera & history"
     [languages.en.params]
-      description = "One camera on Ulitsa Serafimovicha, live now. History, photos and a repair chronicle. Open-source local project."
-      keywords = ["Bolotnaya Square", "Yakimanka", "Moscow", "live camera", "scaffolding 2026", "Moscow history"]
+      description = "Live webcam of Bolotnaya Square from Ulitsa Serafimovicha. On air since 8 October 2026: the square, the canal and the footbridge. History and photos of Yakimanka."
+      keywords = ["Bolotnaya Square", "Bolotnaya Square webcam", "live camera Bolotnaya", "Yakimanka", "Moscow", "Serafimovicha"]
       homeInfoTitle = "Yakimanka: camera and history"
       homeInfoDescription = "Live from Ulitsa Serafimovicha: the square, the canal and the new footbridge, plus history and photos."
 

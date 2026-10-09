@@ -1,11 +1,14 @@
 ---
-title: "Camera — Bolotnaya"
+title: "Bolotnaya Square webcam online"
 date: 2025-05-12
-description: "One camera toward Ulitsa Serafimovicha. The square, the canal, and the new footbridge under Maly Kamenny are in the frame."
+description: "The Bolotnaya Square webcam from Ulitsa Serafimovicha. On air since 8 October 2026: the square, the canal and the footbridge. The camera on the square itself stays off."
 image: "/images/cameras/serafimovicha-neopunk.jpg"
 keywords:
-  - Bolotnaya Square
+  - Bolotnaya Square webcam
+  - live camera Bolotnaya
   - Yakimanka
   - Moscow
-  - scaffolding 2026
+sitemap:
+  priority: 0.8
+  changefreq: daily
 ---

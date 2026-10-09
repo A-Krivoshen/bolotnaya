@@ -37,7 +37,8 @@ The second camera is retired. The old Bolotnaya Square address opens the Serafim
 
 The frame shows the square, the canal, and the new footbridge under Maly Kamenny, laid in the Vodootvodny Canal bed from GES-2 toward Repin Garden. It is not the Balchug bridge. Gallery: https://bolotnaya.online/en/galleries/most-bolotnaya-2026/ Card image: https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg (current frame, no scaffolding mesh). The mesh photo stays in the chronicle.
 
-June outage post: https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
+Live again, 8 October 2026: https://bolotnaya.online/en/posts/camera-live-2026-10-08/  
+June outage post (not current status): https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle: https://bolotnaya.online/en/remont-lesa-2026/  
 Take live status from the camera page. Do not decide it by requesting the HLS file directly.
 

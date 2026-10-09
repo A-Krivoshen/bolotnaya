@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "site": "https://bolotnaya.online/",
   "stream_host": "https://cam.bolotnaya.online/",
   "protocol": "HLS",
   "status": "live",
   "status_note": {
-    "ru": "Одна камера, ул. Серафимовича, в эфире. В кадре площадь, канал и новый мостик под Малым Каменным.",
-    "en": "One camera, Ulitsa Serafimovicha, is live. The square, the canal, and the new footbridge under Maly Kamenny are in the frame."
+    "ru": "С 8 октября 2026 одна камера, ул. Серафимовича, в эфире. В кадре площадь, канал и мостик. Камера на самой площади не работает.",
+    "en": "Since 8 October 2026 one camera, Ulitsa Serafimovicha, is live. The square, the canal and the footbridge are in the frame. The camera on the square itself stays off."
   },
   "status_posts": {
-    "ru": "https://bolotnaya.online/ru/remont-lesa-2026/",
-    "en": "https://bolotnaya.online/en/remont-lesa-2026/"
+    "ru": "https://bolotnaya.online/ru/posts/camera-live-2026-10-08/",
+    "en": "https://bolotnaya.online/en/posts/camera-live-2026-10-08/"
   },
   "cameras": [
     {

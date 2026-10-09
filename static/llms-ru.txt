@@ -37,7 +37,8 @@ Bolotnaya Online — личный районный проект жителя Я�
 
 В кадре площадь, канал и новый пешеходный мостик под Малым Каменным: его кладут в русле Водоотводного канала, от ГЭС-2 к Репинскому скверу. Это не мост на Балчуг. Галерея: https://bolotnaya.online/ru/galleries/most-bolotnaya-2026/ Карточка: https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg (кадр без сетки лесов). Снимок через сетку остаётся в хронике.
 
-Пост про июньское отключение: https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
+Эфир с 8 октября 2026: https://bolotnaya.online/ru/posts/camera-live-2026-10-08/  
+Пост про июньское отключение (не текущий статус): https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 Хроника: https://bolotnaya.online/ru/remont-lesa-2026/  
 Статус эфира берите со страницы камеры. Не решайте его по прямому запросу к файлу HLS.
 

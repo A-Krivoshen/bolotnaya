@@ -3,7 +3,8 @@ title: "Repair and scaffolding 2026: opening the facade chronicle"
 date: 2026-08-20T09:00:00+03:00
 draft: false
 tags: ["scaffolding-2026", "repair", "facade", "cameras", "Bolotnaya", "Yakimanka"]
-summary: "Note from 20 August: the cameras had been off since 2 June. Since 8 October the Ulitsa Serafimovicha camera is live again."
+description: "Since 8 October 2026 the Ulitsa Serafimovicha camera is live again. Below is the 20 August note, when the stream was still off for scaffolding."
+summary: "Since 8 October 2026 the Ulitsa Serafimovicha camera is live again. Below is the 20 August note, when the stream was still off for scaffolding."
 images:
   - /images/galleries/lesa-2026/2026-06-13-09-19-44.jpg
 ---

@@ -89,7 +89,15 @@
 {{/* Open Graph */}}
 <meta property="og:site_name" content="{{ $siteTitle }}">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else if eq .Section "posts" }}article{{ else }}website{{ end }}">
-<meta property="og:title" content="{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ $pageTitle }}{{ end }}">
+{{- $shareTitle := $pageTitle -}}
+{{- if .IsHome -}}
+  {{- if $isRu -}}
+    {{- $shareTitle = "Вебкамера Болотной площади | Bolotnaya Online" -}}
+  {{- else -}}
+    {{- $shareTitle = "Bolotnaya Square live webcam | Bolotnaya Online" -}}
+  {{- end -}}
+{{- end -}}
+<meta property="og:title" content="{{ $shareTitle }}">
 <meta property="og:description" content="{{ $desc | plainify | htmlUnescape | truncate 300 }}">
 <meta property="og:url" content="{{ $canonical }}">
 <meta property="og:locale" content="{{ if $isRu }}ru_RU{{ else }}en_US{{ end }}">
@@ -101,7 +109,7 @@
 
 {{/* Twitter / X cards */}}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ $pageTitle }}{{ end }}">
+<meta name="twitter:title" content="{{ $shareTitle }}">
 <meta name="twitter:description" content="{{ $desc | plainify | htmlUnescape | truncate 200 }}">
 <meta name="twitter:image" content="{{ $ogImageAbs }}">
 
@@ -166,7 +174,7 @@
     "@type" "WebPage"
     "@id" (printf "%s#webpage" .Permalink)
     "url" .Permalink
-    "name" $siteTitle
+    "name" $shareTitle
     "description" $desc
     "isPartOf" (dict "@id" $webID)
     "about" $place
@@ -213,6 +221,11 @@
       "thumbnailUrl" $ogImageAbs
       "uploadDate" "2026-10-08T00:00:00+03:00"
       "embedUrl" .Permalink
+      "publication" (slice (dict
+        "@type" "BroadcastEvent"
+        "isLiveBroadcast" true
+        "startDate" "2026-10-08T12:00:00+03:00"
+      ))
       "isFamilyFriendly" true
       "publisher" (dict "@type" "Organization" "name" "Bolotnaya Online" "url" $siteURL)
     -}}
@@ -276,6 +289,14 @@
         "acceptedAnswer" (dict
           "@type" "Answer"
           "text" (cond $isRu "Да. Одна камера на ул. Серафимовича. С 8 октября 2026 часть лесов снята, картинка снова идёт со страницы камеры. Хроника ремонта остаётся в разделе «Ремонт и леса 2026»." "Yes. One camera on Ulitsa Serafimovicha. On 8 October 2026 part of the scaffolding came down and the picture plays from the camera page again. The repair chronicle stays in Repair and scaffolding 2026.")
+        )
+      )
+      (dict
+        "@type" "Question"
+        "name" (cond $isRu "Где смотреть вебкамеру Болотной площади?" "Where can I watch the Bolotnaya Square webcam?")
+        "acceptedAnswer" (dict
+          "@type" "Answer"
+          "text" (cond $isRu "На странице камеры с улицы Серафимовича: в кадре площадь, канал и мостик. Камера на самой площади не работает." "On the Ulitsa Serafimovicha camera page: the square, the canal and the footbridge are in the frame. The camera on the square itself stays off.")
         )
       )
       (dict

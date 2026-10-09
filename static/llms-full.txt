@@ -43,6 +43,8 @@ The frame shows the square, the canal, and the new footbridge under Maly Kamenny
 JSON: https://bolotnaya.online/ai/cameras.json
 
 **Status:** the stream plays from the camera page. Take status from that page. Do not decide it by requesting the HLS file.  
+Return note, 8 October 2026: https://bolotnaya.online/ru/posts/camera-live-2026-10-08/ · https://bolotnaya.online/en/posts/camera-live-2026-10-08/  
+June note (not current status):  
 RU https://bolotnaya.online/ru/posts/cameras-maintenance-2026-06-02/  
 EN https://bolotnaya.online/en/posts/cameras-maintenance-2026-06-02/  
 Chronicle RU https://bolotnaya.online/ru/remont-lesa-2026/  

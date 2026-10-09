@@ -1,9 +1,10 @@
 ---
-title: "2 June 2026: cameras went off for facade scaffolding"
+title: "Camera live again from 8 October 2026. The 2 June note"
 date: 2026-06-02T08:00:00+03:00
 draft: false
 tags: ["cameras", "maintenance", "facade", "Bolotnaya", "Yakimanka"]
-summary: "On 2 June 2026 the cameras went off for facade scaffolding. Since 8 October the Ulitsa Serafimovicha camera is live again."
+description: "Since 8 October 2026 the Ulitsa Serafimovicha camera is live again. Below is the 2 June note, when the streams went off for scaffolding."
+summary: "Since 8 October 2026 the Ulitsa Serafimovicha camera is live again. Below is the 2 June note, when the streams went off for scaffolding."
 ---
 
 **8 October 2026.** The camera on [Ulitsa Serafimovicha](/en/cameras/serafimovich/) is live again: part of the scaffold came down. Below is the 2 June outage note.
