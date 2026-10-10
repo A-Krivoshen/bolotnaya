@@ -41,7 +41,12 @@
           <a class="camera-preview" href="{{ $p.RelPermalink }}">
             <div class="camera-preview__media">
               <img src="{{ "/images/cameras/pool/day.gif?v=1791625837" | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="640" height="360"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-              <div class="camera-preview__badge">{{ if $isRu }}Сутки, не эфир{{ else }}A day, not live{{ end }}</div>
+              <div class="camera-preview__badge">
+                <span class="cam-status is-checking" data-cam-status data-stream-url="{{ $p.Params.stream_url }}" role="status">
+                  <span class="cam-status__dot" aria-hidden="true"></span>
+                  <span class="cam-status__text">{{ if $isRu }}Проверка…{{ else }}Checking…{{ end }}</span>
+                </span>
+              </div>
             </div>
             <div class="camera-preview__meta">
               <h3>{{ $p.Title }}</h3>
@@ -52,6 +57,7 @@
         {{ end }}
       </div>
       <script src="/js/poster-pool.js?v=2" defer></script>
+      <script src="/js/cam-status.js?v=1" defer></script>
     </section>
 
     <!-- Explore grid: history + photos -->

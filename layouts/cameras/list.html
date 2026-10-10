@@ -15,7 +15,12 @@
         <a class="camera-stage" href="{{ $p.RelPermalink }}">
           <div class="camera-stage__media">
             <img src="{{ "/images/cameras/pool/day.gif?v=1791625837" | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="640" height="360"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-            <span class="camera-stage__badge">{{ if $isRu }}Сутки, не эфир{{ else }}A day, not live{{ end }}</span>
+            <span class="camera-stage__badge">
+              <span class="cam-status is-checking" data-cam-status data-stream-url="{{ $p.Params.stream_url }}" role="status">
+                <span class="cam-status__dot" aria-hidden="true"></span>
+                <span class="cam-status__text">{{ if $isRu }}Проверка…{{ else }}Checking…{{ end }}</span>
+              </span>
+            </span>
           </div>
           <div class="camera-stage__meta">
             <h2>{{ $p.Title }}</h2>
@@ -32,6 +37,7 @@
       {{ end }}
     </div>
     <script src="/js/poster-pool.js?v=2" defer></script>
+    <script src="/js/cam-status.js?v=1" defer></script>
 
     <p class="camera-note">
       <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта{{ else }}Repair chronicle{{ end }}</a>
