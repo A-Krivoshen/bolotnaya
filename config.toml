@@ -49,7 +49,7 @@ timeout = "60s"
     [languages.ru.menu]
       [[languages.ru.menu.main]]
         name   = "Камера"
-        url    = "/ru/cameras/"
+        url    = "/ru/cameras/ul-serafimovicha/"
         weight = 1
       [[languages.ru.menu.main]]
         name   = "История"
@@ -79,7 +79,7 @@ timeout = "60s"
     [languages.en.menu]
       [[languages.en.menu.main]]
         name   = "Camera"
-        url    = "/en/cameras/"
+        url    = "/en/cameras/serafimovich/"
         weight = 1
       [[languages.en.menu.main]]
         name   = "History"

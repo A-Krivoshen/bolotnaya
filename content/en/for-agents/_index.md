@@ -9,7 +9,7 @@ This page is the entry point for language models and autonomous agents. English 
 
 ## What this site is
 
-**Bolotnaya Online** is an independent open-source project by a Yakimanka resident about [Bolotnaya Square](/en/history/) and the district. It has [one public camera](/en/cameras/), [history](/en/history/), [photos](/en/galleries/) and a [blog](/en/posts/).
+**Bolotnaya Online** is an independent open-source project by a Yakimanka resident about [Bolotnaya Square](/en/history/) and the district. It has [one public camera](/en/cameras/serafimovich/), [history](/en/history/), [photos](/en/galleries/) and a [blog](/en/posts/).
 
 It is **not** a mass-media outlet, **not** an official Moscow website, and **not** a municipal portal. Texts are the author's personal view.
 

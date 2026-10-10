@@ -45,7 +45,8 @@ Bolotnaya Online — личный районный проект жителя Я�
 ## Карта сайта (RU)
 
 - Главная: https://bolotnaya.online/ru/
-- Камера: https://bolotnaya.online/ru/cameras/
+- Камера: https://bolotnaya.online/ru/cameras/ul-serafimovicha/
+- Каталог: https://bolotnaya.online/ru/cameras/
 - Ремонт и леса 2026: https://bolotnaya.online/ru/remont-lesa-2026/
 - История: https://bolotnaya.online/ru/history/
 - Фото: https://bolotnaya.online/ru/galleries/

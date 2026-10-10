@@ -12,15 +12,15 @@
       <h1 id="not-found-title">{{ if eq .Site.Language.Lang "ru" }}Страница потерялась у Болотной{{ else }}This page drifted away from Bolotnaya{{ end }}</h1>
       <p>
         {{ if eq .Site.Language.Lang "ru" }}
-          Возможно, ссылка устарела или раздел был перенесён. Вернитесь на главную, откройте камеры или посмотрите историю района.
+          Возможно, ссылка устарела или раздел был перенесён. Вернитесь на главную, откройте камеру или посмотрите историю района.
         {{ else }}
-          The link may be outdated or the page may have moved. Return home, open the cameras, or browse the district history.
+          The link may be outdated or the page may have moved. Return home, open the camera, or browse the district history.
         {{ end }}
       </p>
 
       <div class="not-found-page__actions" aria-label="{{ if eq .Site.Language.Lang "ru" }}Навигация по сайту{{ else }}Site navigation{{ end }}">
         <a class="not-found-page__button not-found-page__button--primary" href="{{ "/ru/" | relURL }}">{{ if eq .Site.Language.Lang "ru" }}На главную{{ else }}Russian home{{ end }}</a>
-        <a class="not-found-page__button" href="{{ "/ru/cameras/" | relURL }}">{{ if eq .Site.Language.Lang "ru" }}Камеры{{ else }}Cameras{{ end }}</a>
+        <a class="not-found-page__button" href="{{ if eq .Site.Language.Lang "ru" }}{{ "/ru/cameras/ul-serafimovicha/" | relURL }}{{ else }}{{ "/en/cameras/serafimovich/" | relURL }}{{ end }}">{{ if eq .Site.Language.Lang "ru" }}Камера{{ else }}Camera{{ end }}</a>
         <a class="not-found-page__button" href="{{ "/ru/history/" | relURL }}">{{ if eq .Site.Language.Lang "ru" }}История{{ else }}History{{ end }}</a>
       </div>
 

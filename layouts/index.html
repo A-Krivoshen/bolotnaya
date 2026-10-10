@@ -1,5 +1,6 @@
 {{ define "main" }}
   {{- $isRu := eq .Site.Language.Lang "ru" -}}
+  {{- $cam := cond $isRu ("cameras/ul-serafimovicha/" | relLangURL) ("cameras/serafimovich/" | relLangURL) -}}
   <section class="home home--2026">
     <!-- Hero -->
     <div class="hero">
@@ -9,7 +10,7 @@
         <p class="hero-lead">{{ if $isRu }}Онлайн с улицы Серафимовича: площадь, канал и новый мостик под Малым Каменным.{{ else }}Live from Ulitsa Serafimovicha: the square, the canal, and the new footbridge under Maly Kamenny.{{ end }}</p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{{ "cameras/" | relLangURL }}">
+          <a class="btn btn-primary" href="{{ $cam }}">
             {{ if $isRu }}Смотреть камеру{{ else }}Watch the camera{{ end }}
           </a>
           <a class="btn btn-secondary" href="{{ "remont-lesa-2026/" | relLangURL }}">
@@ -31,33 +32,26 @@
     <section class="home-section home-cameras" aria-labelledby="home-cameras-title">
       <div class="home-section__header">
         <h2 id="home-cameras-title">{{ if $isRu }}Камера{{ else }}Camera{{ end }}</h2>
-        <a class="home-section__link" href="{{ "cameras/" | relLangURL }}">
+        <a class="home-section__link" href="{{ $cam }}">
           {{ if $isRu }}Страница камеры →{{ else }}Camera page →{{ end }}
         </a>
       </div>
       <div class="camera-preview-grid">
         {{ range $i, $p := first 4 (where .Site.RegularPages "Section" "cameras") }}
           <a class="camera-preview" href="{{ $p.RelPermalink }}">
-            {{ $ph := "/images/placeholders/camera.svg" }}
-            {{ $img := $p.Params.image | default $ph }}
-            {{ if $img }}
-              {{ $trim := (strings.TrimPrefix "/" $img) }}
-              {{ $staticPath := (printf "static/%s" $trim) }}
-              {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
-            {{ end }}
             <div class="camera-preview__media">
-              <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-              <div class="camera-preview__badge">{{ if $isRu }}Кадр, не эфир{{ else }}Still, not live{{ end }}</div>
+              <img src="{{ "/images/cameras/pool/day.gif?v=1791625837" | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="640" height="360"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+              <div class="camera-preview__badge">{{ if $isRu }}Сутки, не эфир{{ else }}A day, not live{{ end }}</div>
             </div>
             <div class="camera-preview__meta">
               <h3>{{ $p.Title }}</h3>
-              <p class="camera-still-note">{{ if $isRu }}Стилизованный кадр. Прямой эфир открывается по этой карточке.{{ else }}Stylized still. The live picture opens from this card.{{ end }}</p>
+              <p class="camera-still-note">{{ if $isRu }}Кадр каждые два часа, с полуночи до 22. Это не прямой эфир — он открывается по карточке.{{ else }}One frame every two hours, midnight to 22:00. Not the live picture — the stream opens from this card.{{ end }}</p>
               {{ with $p.Params.description }}<p>{{ . | truncate 80 }}</p>{{ end }}
             </div>
           </a>
         {{ end }}
       </div>
-      <script src="/js/poster-pool.js" defer></script>
+      <script src="/js/poster-pool.js?v=2" defer></script>
     </section>
 
     <!-- Explore grid: history + photos -->
@@ -135,7 +129,7 @@
         </details>
         <details class="faq-item">
           <summary>{{ if $isRu }}Где смотреть вебкамеру Болотной площади?{{ else }}Where can I watch the Bolotnaya Square webcam?{{ end }}</summary>
-          <p>{{ if $isRu }}На странице камеры с улицы Серафимовича: в кадре площадь, канал и мостик. Камера на самой площади не работает.{{ else }}On the Ulitsa Serafimovicha camera page: the square, the canal and the footbridge are in the frame. The camera on the square itself stays off.{{ end }} <a href="{{ "cameras/" | relLangURL }}">{{ if $isRu }}Открыть эфир{{ else }}Open the stream{{ end }}</a></p>
+          <p>{{ if $isRu }}На странице камеры с улицы Серафимовича: в кадре площадь, канал и мостик. Камера на самой площади не работает.{{ else }}On the Ulitsa Serafimovicha camera page: the square, the canal and the footbridge are in the frame. The camera on the square itself stays off.{{ end }} <a href="{{ $cam }}">{{ if $isRu }}Открыть эфир{{ else }}Open the stream{{ end }}</a></p>
         </details>
         <details class="faq-item">
           <summary>{{ if $isRu }}Есть английская версия?{{ else }}Is there a Russian version?{{ end }}</summary>

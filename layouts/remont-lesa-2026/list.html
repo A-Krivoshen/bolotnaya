@@ -106,7 +106,7 @@
   {{- end }}
 
   <p class="repair-back">
-    <a href="{{ "cameras/" | relLangURL }}" class="btn btn-secondary">{{ if $isRu }}К камерам{{ else }}Cameras{{ end }}</a>
+    <a href="{{ if $isRu }}{{ "cameras/ul-serafimovicha/" | relLangURL }}{{ else }}{{ "cameras/serafimovich/" | relLangURL }}{{ end }}" class="btn btn-secondary">{{ if $isRu }}К камере{{ else }}The camera{{ end }}</a>
     <a href="{{ "galleries/" | relLangURL }}" class="btn btn-secondary">{{ if $isRu }}Все галереи{{ else }}All galleries{{ end }}</a>
   </p>
 </div>

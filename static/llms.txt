@@ -20,8 +20,8 @@ Choose a language-specific brief first:
 ## Russian pages
 
 - [Главная](https://bolotnaya.online/ru/): обзор проекта, карточка камеры, последние записи
-- [Камера](https://bolotnaya.online/ru/cameras/): одна камера, ул. Серафимовича
-- [Камера: ул. Серафимовича](https://bolotnaya.online/ru/cameras/ul-serafimovicha/)
+- [Камера: ул. Серафимовича](https://bolotnaya.online/ru/cameras/ul-serafimovicha/): единственный эфир
+- [Каталог камеры](https://bolotnaya.online/ru/cameras/)
 - [Эфир с 8 октября 2026](https://bolotnaya.online/ru/posts/camera-live-2026-10-08/)
 - [История](https://bolotnaya.online/ru/history/)
 - [Фото](https://bolotnaya.online/ru/galleries/)
@@ -38,8 +38,8 @@ Choose a language-specific brief first:
 ## English pages
 
 - [Home](https://bolotnaya.online/en/)
-- [Camera](https://bolotnaya.online/en/cameras/)
-- [Serafimovicha camera](https://bolotnaya.online/en/cameras/serafimovich/)
+- [Serafimovicha camera](https://bolotnaya.online/en/cameras/serafimovich/): the only live picture
+- [Camera catalog](https://bolotnaya.online/en/cameras/)
 - [Live again from 8 October 2026](https://bolotnaya.online/en/posts/camera-live-2026-10-08/)
 - [History](https://bolotnaya.online/en/history/)
 - [Photos](https://bolotnaya.online/en/galleries/)

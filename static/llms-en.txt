@@ -45,7 +45,8 @@ Take live status from the camera page. Do not decide it by requesting the HLS fi
 ## Site map (EN)
 
 - Home: https://bolotnaya.online/en/
-- Camera: https://bolotnaya.online/en/cameras/
+- Camera: https://bolotnaya.online/en/cameras/serafimovich/
+- Catalog: https://bolotnaya.online/en/cameras/
 - Repair and scaffolding 2026: https://bolotnaya.online/en/remont-lesa-2026/
 - History: https://bolotnaya.online/en/history/
 - Photos: https://bolotnaya.online/en/galleries/

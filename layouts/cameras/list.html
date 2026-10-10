@@ -12,22 +12,14 @@
 
     <div class="camera-stage-list">
       {{ range $i, $p := .Pages.ByTitle }}
-        {{ $ph := "/images/placeholders/camera.svg" }}
-        {{ $img := $p.Params.image | default $ph }}
-        {{ if $img }}
-          {{ $trim := (strings.TrimPrefix "/" $img) }}
-          {{ $staticPath := (printf "static/%s" $trim) }}
-          {{ if not (fileExists $staticPath) }}{{ $img = $ph }}{{ end }}
-        {{ end }}
-
         <a class="camera-stage" href="{{ $p.RelPermalink }}">
           <div class="camera-stage__media">
-            <img src="{{ $img | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="960" height="540"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
-            <span class="camera-stage__badge">{{ if $isRu }}Кадр, не эфир{{ else }}Still, not live{{ end }}</span>
+            <img src="{{ "/images/cameras/pool/day.gif?v=1791625837" | relURL }}" alt="{{ $p.Title }}" data-poster-pool decoding="async" width="640" height="360"{{ if eq $i 0 }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+            <span class="camera-stage__badge">{{ if $isRu }}Сутки, не эфир{{ else }}A day, not live{{ end }}</span>
           </div>
           <div class="camera-stage__meta">
             <h2>{{ $p.Title }}</h2>
-            <p class="camera-still-note">{{ if $isRu }}Стилизованный кадр. Прямой эфир открывается по этой карточке.{{ else }}Stylized still. The live picture opens from this card.{{ end }}</p>
+            <p class="camera-still-note">{{ if $isRu }}Кадр каждые два часа, с полуночи до 22. Это не прямой эфир — он открывается по карточке.{{ else }}One frame every two hours, midnight to 22:00. Not the live picture — the stream opens from this card.{{ end }}</p>
             <ul class="camera-facts">
               <li>{{ if $isRu }}Видео, 1440p{{ else }}Video, 1440p{{ end }}</li>
               <li>20 fps</li>
@@ -39,7 +31,7 @@
         </a>
       {{ end }}
     </div>
-    <script src="/js/poster-pool.js" defer></script>
+    <script src="/js/poster-pool.js?v=2" defer></script>
 
     <p class="camera-note">
       <a href="{{ "remont-lesa-2026/" | relLangURL }}">{{ if $isRu }}Хроника ремонта{{ else }}Repair chronicle{{ end }}</a>

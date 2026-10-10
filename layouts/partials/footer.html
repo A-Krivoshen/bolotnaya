@@ -1,6 +1,7 @@
 {{- if not (.Param "hideFooter") }}
 {{- $email := site.Params.contact.email | default "info@bolotnaya.online" -}}
 {{- $isRu := eq .Site.Language.Lang "ru" -}}
+{{- $cam := cond $isRu ("cameras/ul-serafimovicha/" | relLangURL) ("cameras/serafimovich/" | relLangURL) -}}
 <footer class="footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -17,7 +18,7 @@
     <nav class="footer-nav" aria-label="{{ if $isRu }}Ссылки в подвале{{ else }}Footer{{ end }}">
       <div class="footer-col">
         <div class="footer-col__title">{{ if $isRu }}Разделы{{ else }}Sections{{ end }}</div>
-        <a href="{{ "/cameras/" | relLangURL }}">{{ if $isRu }}Камера{{ else }}Camera{{ end }}</a>
+        <a href="{{ $cam }}">{{ if $isRu }}Камера{{ else }}Camera{{ end }}</a>
         <a href="{{ "/history/" | relLangURL }}">{{ if $isRu }}История{{ else }}History{{ end }}</a>
         <a href="{{ "/galleries/" | relLangURL }}">{{ if $isRu }}Фото{{ else }}Photos{{ end }}</a>
         <a href="{{ "/posts/" | relLangURL }}">{{ if $isRu }}Блог{{ else }}Blog{{ end }}</a>

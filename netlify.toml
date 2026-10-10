@@ -108,7 +108,7 @@
 # Legacy camera URL
 [[redirects]]
   from = "/online-camera"
-  to = "/ru/cameras/"
+  to = "/ru/cameras/ul-serafimovicha/"
   status = 301
 
 [[redirects]]
@@ -163,7 +163,7 @@
 
 [[redirects]]
   from = "/online-camera/*"
-  to = "/ru/cameras/"
+  to = "/ru/cameras/ul-serafimovicha/"
   status = 301
 
 # Apex "/" is a JS language gate on the VPS (see deploy/nginx-canonical.conf).

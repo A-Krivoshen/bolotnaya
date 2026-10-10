@@ -1,7 +1,9 @@
 {
   "slot_hours": 2,
   "timezone": "Europe/Moscow",
-  "updated": "2026-10-09T17:21:34+0300",
+  "updated": "2026-10-10T12:50:37+0300",
+  "loop": "/images/cameras/pool/day.gif",
+  "loop_v": "1791625837",
   "images": [
     {
       "src": "/images/cameras/pool/seed.jpg",

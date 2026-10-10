@@ -6,6 +6,7 @@ image: "/images/cameras/serafimovicha-neopunk.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 aliases:
   - /cameras/bolotnaya-square/
+  - /online-camera/
 keywords:
   - вебкамера Болотной площади
   - онлайн камера Болотная

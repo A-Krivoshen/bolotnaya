@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://bolotnaya.online/">Site</a> ·
-  <a href="https://bolotnaya.online/ru/cameras/">Cameras</a> ·
+  <a href="https://bolotnaya.online/ru/cameras/ul-serafimovicha/">Camera</a> ·
   <a href="https://bolotnaya.online/ru/history/">History</a> ·
   <a href="https://github.com/A-Krivoshen/bolotnaya/actions/workflows/deploy-vps.yml">Deploy workflow</a>
 </p>
