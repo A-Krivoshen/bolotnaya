@@ -1,8 +1,10 @@
 (function () {
   "use strict";
 
-  var TIMEOUT_MS = 7000;
+  var TIMEOUT_MS = 15000;
   var INTERVAL_MS = 60000;
+  var RETRY_MS = 12000;
+  var FAIL_LIMIT = 3;
   var lang = (document.documentElement.getAttribute("lang") || "ru").toLowerCase();
   var labels = lang.indexOf("en") === 0
     ? { checking: "Checking…", online: "Online", offline: "Offline" }
@@ -74,6 +76,22 @@
   }
 
   var inflight = Object.create(null);
+  var fails = Object.create(null);
+  var retryTimer = null;
+
+  // The page player is the best proof: if the video is really playing, the stream is online.
+  function playerPlaying() {
+    var v = document.querySelector("video.hls-player, video[data-hls]");
+    return !!v && !v.paused && !v.ended && v.readyState >= 3 && v.currentTime > 0;
+  }
+
+  function scheduleRetry() {
+    if (retryTimer) return;
+    retryTimer = setTimeout(function () {
+      retryTimer = null;
+      checkAll();
+    }, RETRY_MS);
+  }
 
   function checkAll() {
     if (document.hidden) return;
@@ -90,12 +108,26 @@
         return;
       }
       if (inflight[url]) return;
+
+      if (playerPlaying()) {
+        fails[url] = 0;
+        group.forEach(function (node) { apply(node, "online"); });
+        return;
+      }
+
       var ctrl = new AbortController();
       var timer = setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS);
       inflight[url] = checkStream(url, ctrl.signal).then(function () {
+        fails[url] = 0;
         group.forEach(function (node) { apply(node, "online"); });
       }, function () {
-        group.forEach(function (node) { apply(node, "offline"); });
+        fails[url] = (fails[url] || 0) + 1;
+        if (fails[url] >= FAIL_LIMIT) {
+          group.forEach(function (node) { apply(node, "offline"); });
+        } else {
+          // One failed check is not proof: keep the previous state, re-check soon.
+          scheduleRetry();
+        }
       });
       inflight[url].then(function () {
         clearTimeout(timer);
