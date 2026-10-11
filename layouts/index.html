@@ -50,7 +50,6 @@
             </div>
             <div class="camera-preview__meta">
               <h3>{{ $p.Title }}</h3>
-              <p class="camera-still-note">{{ if $isRu }}Кадр каждые два часа, с полуночи до 22. Это не прямой эфир — он открывается по карточке.{{ else }}One frame every two hours, midnight to 22:00. Not the live picture — the stream opens from this card.{{ end }}</p>
               {{ with $p.Params.description }}<p>{{ . | truncate 80 }}</p>{{ end }}
             </div>
           </a>
