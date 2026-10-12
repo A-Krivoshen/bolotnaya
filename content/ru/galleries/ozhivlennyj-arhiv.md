@@ -5,6 +5,38 @@ description: Это не кинохроника. ИИ-анимации стар�
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
+  - src: /images/galleries/history/bolotny-rynok-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — Болотный рынок, открытка. Не фотография эпохи."
+  - src: /images/galleries/history/ges2-four-stacks-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — ГЭС-2, четыре трубы, извозчик. Не фотография эпохи."
+  - src: /images/galleries/history/river-construction-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — стройка у Москвы-реки, Кремль. Не фотография эпохи."
+  - src: /images/galleries/history/house-scaffold-cathedral-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — стройка дома, храм Христа Спасителя ещё стоит. Не фотография эпохи."
+  - src: /images/galleries/history/house-river-trams-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — Дом на набережной с реки, трамваи. Не фотография эпохи."
+  - src: /images/galleries/history/bolshoy-kamenny-trams-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — Большой Каменный мост, трамваи, Дом на набережной. Не фотография эпохи."
+  - src: /images/galleries/history/udarnik-pier-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — пристань «Дом правительства», «Ударник». Не фотография эпохи."
+  - src: /images/galleries/history/udarnik-courtyard-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — двор у кинотеатра «Ударник». Не фотография эпохи."
+  - src: /images/galleries/history/serafimovicha-azs-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — заправка у Дома на набережной. Не фотография эпохи."
+  - src: /images/galleries/history/udarnik-fountain-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — фонтан перед «Ударником». Не фотография эпохи."
+  - src: /images/galleries/history/udarnik-flowerbeds-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — клумбы перед «Ударником». Не фотография эпохи."
+  - src: /images/galleries/history/kamenny-bridge-house-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — Дом на набережной и «Ударник» с Каменного моста. Не фотография эпохи."
+  - src: /images/galleries/history/bolotnaya-1940s-square-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — Болотная площадь, 1940-е, молодые посадки. Не фотография эпохи."
+  - src: /images/galleries/history/repin-fountain-1950s-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — фонтан на Болотной, 1950-е. Не фотография эпохи."
+  - src: /images/galleries/history/raketa-maly-kamenny-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — «Ракета» у Малого Каменного моста. Не фотография эпохи."
+  - src: /images/galleries/history/canal-fishermen-watermarked.gif
+    caption: "ИИ-анимация архивного кадра — рыбаки на Водоотводном канале. Не фотография эпохи."
   - src: /images/galleries/history/serafimovicha-1960-matveev-watermarked.gif
     caption: "ИИ-анимация архивного кадра — ул. Серафимовича, около 1960, фото Е. Матвеева. Не фотография эпохи."
   - src: /images/galleries/history/polyanka-early-1960s-watermarked.gif
@@ -111,6 +143,38 @@ images:
     caption: "ИИ-анимация архивного кадра — паводок у храма. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f868ca3a-57b5-435c-95e7-7cf5b902fb7a_watermarked.gif
     caption: "ИИ-анимация архивного кадра — улица вдоль дома. Не фотография эпохи."
+  - src: /images/galleries/history/bolotny-rynok.jpg
+    caption: "Архив. Болотный рынок, открытка."
+  - src: /images/galleries/history/ges2-four-stacks.jpg
+    caption: "Архив. ГЭС-2, четыре трубы, извозчик."
+  - src: /images/galleries/history/river-construction.jpg
+    caption: "Архив. Стройка у Москвы-реки, Кремль."
+  - src: /images/galleries/history/house-scaffold-cathedral.jpg
+    caption: "Архив. Стройка дома, храм Христа Спасителя ещё стоит."
+  - src: /images/galleries/history/house-river-trams.jpg
+    caption: "Архив. Дом на набережной с реки, трамваи."
+  - src: /images/galleries/history/bolshoy-kamenny-trams.jpg
+    caption: "Архив. Большой Каменный мост, трамваи, Дом на набережной."
+  - src: /images/galleries/history/udarnik-pier.jpg
+    caption: "Архив. Пристань «Дом правительства», «Ударник»."
+  - src: /images/galleries/history/udarnik-courtyard.jpg
+    caption: "Архив. Двор у кинотеатра «Ударник»."
+  - src: /images/galleries/history/serafimovicha-azs.jpg
+    caption: "Архив. Заправка у Дома на набережной."
+  - src: /images/galleries/history/udarnik-fountain.jpg
+    caption: "Архив. Фонтан перед «Ударником»."
+  - src: /images/galleries/history/udarnik-flowerbeds.jpg
+    caption: "Архив. Клумбы перед «Ударником»."
+  - src: /images/galleries/history/kamenny-bridge-house.jpg
+    caption: "Архив. Дом на набережной и «Ударник» с Каменного моста."
+  - src: /images/galleries/history/bolotnaya-1940s-square.jpg
+    caption: "Архив. Болотная площадь, 1940-е, молодые посадки."
+  - src: /images/galleries/history/repin-fountain-1950s.jpg
+    caption: "Архив. Фонтан на Болотной, 1950-е."
+  - src: /images/galleries/history/raketa-maly-kamenny.jpg
+    caption: "Архив. «Ракета» у Малого Каменного моста."
+  - src: /images/galleries/history/canal-fishermen.jpg
+    caption: "Архив. Рыбаки на Водоотводном канале."
   - src: /images/galleries/history/serafimovicha-1960-matveev.jpg
     caption: "Архив. Ул. Серафимовича, около 1960. Фото Е. Матвеева."
   - src: /images/galleries/history/polyanka-early-1960s.jpg
@@ -225,4 +289,4 @@ images:
     caption: "Архив. Двор дома, леса."
 ---
 
-Ещё два кадра: ул. Серафимовича около 1960 года, фото Е. Матвеева, и Большая Полянка начала 1960-х. Живые снимки дома 2018–2024 — в альбоме [Дом на набережной](/ru/galleries/dom-na-naberezhnoy/).
+Новые архивные кадры: Болотный рынок, площадь в 1940-е, дом и «Ударник», канал, стройка. Движение нарисовано, это не хроника. Ул. Серафимовича около 1960 года, фото Е. Матвеева, и Большая Полянка начала 1960-х. Живые снимки дома 2018–2024 — в альбоме [Дом на набережной](/ru/galleries/dom-na-naberezhnoy/).

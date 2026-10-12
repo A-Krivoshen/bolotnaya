@@ -5,6 +5,38 @@ description: This is not newsreel. AI animations of old photographs of the House
 translationKey: gallery-ozhivlennyj-arhiv
 weight: 3
 images:
+  - src: /images/galleries/history/bolotny-rynok-watermarked.gif
+    caption: "AI animation of an archive frame — Bolotny market, a postcard. Not period footage."
+  - src: /images/galleries/history/ges2-four-stacks-watermarked.gif
+    caption: "AI animation of an archive frame — GES-2, four stacks, a horse cab. Not period footage."
+  - src: /images/galleries/history/river-construction-watermarked.gif
+    caption: "AI animation of an archive frame — works by the Moskva, the Kremlin. Not period footage."
+  - src: /images/galleries/history/house-scaffold-cathedral-watermarked.gif
+    caption: "AI animation of an archive frame — the house going up, Cathedral of Christ the Saviour still standing. Not period footage."
+  - src: /images/galleries/history/house-river-trams-watermarked.gif
+    caption: "AI animation of an archive frame — House on the Embankment from the river, trams. Not period footage."
+  - src: /images/galleries/history/bolshoy-kamenny-trams-watermarked.gif
+    caption: "AI animation of an archive frame — Bolshoy Kamenny Bridge, trams, House on the Embankment. Not period footage."
+  - src: /images/galleries/history/udarnik-pier-watermarked.gif
+    caption: "AI animation of an archive frame — the Government House landing, Udarnik. Not period footage."
+  - src: /images/galleries/history/udarnik-courtyard-watermarked.gif
+    caption: "AI animation of an archive frame — the courtyard by the Udarnik cinema. Not period footage."
+  - src: /images/galleries/history/serafimovicha-azs-watermarked.gif
+    caption: "AI animation of an archive frame — a filling station by the House on the Embankment. Not period footage."
+  - src: /images/galleries/history/udarnik-fountain-watermarked.gif
+    caption: "AI animation of an archive frame — the fountain in front of Udarnik. Not period footage."
+  - src: /images/galleries/history/udarnik-flowerbeds-watermarked.gif
+    caption: "AI animation of an archive frame — flower beds in front of Udarnik. Not period footage."
+  - src: /images/galleries/history/kamenny-bridge-house-watermarked.gif
+    caption: "AI animation of an archive frame — the House on the Embankment and Udarnik from Kamenny Bridge. Not period footage."
+  - src: /images/galleries/history/bolotnaya-1940s-square-watermarked.gif
+    caption: "AI animation of an archive frame — Bolotnaya Square in the 1940s, young trees. Not period footage."
+  - src: /images/galleries/history/repin-fountain-1950s-watermarked.gif
+    caption: "AI animation of an archive frame — the fountain on Bolotnaya, 1950s. Not period footage."
+  - src: /images/galleries/history/raketa-maly-kamenny-watermarked.gif
+    caption: "AI animation of an archive frame — a Raketa hydrofoil by Maly Kamenny Bridge. Not period footage."
+  - src: /images/galleries/history/canal-fishermen-watermarked.gif
+    caption: "AI animation of an archive frame — fishermen on the Vodootvodny Canal. Not period footage."
   - src: /images/galleries/history/serafimovicha-1960-matveev-watermarked.gif
     caption: "AI animation of an archive frame — Ulitsa Serafimovicha, about 1960, photograph by E. Matveev. Not period footage."
   - src: /images/galleries/history/polyanka-early-1960s-watermarked.gif
@@ -111,6 +143,38 @@ images:
     caption: "AI animation of an archive frame — a flood by the church. Not period footage."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f868ca3a-57b5-435c-95e7-7cf5b902fb7a_watermarked.gif
     caption: "AI animation of an archive frame — the street along the house. Not period footage."
+  - src: /images/galleries/history/bolotny-rynok.jpg
+    caption: "Archive. Bolotny market, a postcard."
+  - src: /images/galleries/history/ges2-four-stacks.jpg
+    caption: "Archive. GES-2, four stacks, a horse cab."
+  - src: /images/galleries/history/river-construction.jpg
+    caption: "Archive. Works by the Moskva, the Kremlin."
+  - src: /images/galleries/history/house-scaffold-cathedral.jpg
+    caption: "Archive. The house going up, Cathedral of Christ the Saviour still standing."
+  - src: /images/galleries/history/house-river-trams.jpg
+    caption: "Archive. House on the Embankment from the river, trams."
+  - src: /images/galleries/history/bolshoy-kamenny-trams.jpg
+    caption: "Archive. Bolshoy Kamenny Bridge, trams, House on the Embankment."
+  - src: /images/galleries/history/udarnik-pier.jpg
+    caption: "Archive. The Government House landing, Udarnik."
+  - src: /images/galleries/history/udarnik-courtyard.jpg
+    caption: "Archive. The courtyard by the Udarnik cinema."
+  - src: /images/galleries/history/serafimovicha-azs.jpg
+    caption: "Archive. A filling station by the House on the Embankment."
+  - src: /images/galleries/history/udarnik-fountain.jpg
+    caption: "Archive. The fountain in front of Udarnik."
+  - src: /images/galleries/history/udarnik-flowerbeds.jpg
+    caption: "Archive. Flower beds in front of Udarnik."
+  - src: /images/galleries/history/kamenny-bridge-house.jpg
+    caption: "Archive. The House on the Embankment and Udarnik from Kamenny Bridge."
+  - src: /images/galleries/history/bolotnaya-1940s-square.jpg
+    caption: "Archive. Bolotnaya Square in the 1940s, young trees."
+  - src: /images/galleries/history/repin-fountain-1950s.jpg
+    caption: "Archive. The fountain on Bolotnaya, 1950s."
+  - src: /images/galleries/history/raketa-maly-kamenny.jpg
+    caption: "Archive. A Raketa hydrofoil by Maly Kamenny Bridge."
+  - src: /images/galleries/history/canal-fishermen.jpg
+    caption: "Archive. Fishermen on the Vodootvodny Canal."
   - src: /images/galleries/history/serafimovicha-1960-matveev.jpg
     caption: "Archive. Ulitsa Serafimovicha, about 1960. Photograph by E. Matveev."
   - src: /images/galleries/history/polyanka-early-1960s.jpg
@@ -225,4 +289,4 @@ images:
     caption: "Archive. The house courtyard, scaffolding."
 ---
 
-Two more frames: Ulitsa Serafimovicha about 1960, photograph by E. Matveev, and Bolshaya Polyanka in the early 1960s. Photographs of the house from 2018–2024 are in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/).
+New archive frames: Bolotny market, the square in the 1940s, the house and Udarnik, the canal, the building site. The motion is drawn, not newsreel. Ulitsa Serafimovicha about 1960, photograph by E. Matveev, and Bolshaya Polyanka in the early 1960s. Photographs of the house from 2018–2024 are in [House on the Embankment](/en/galleries/dom-na-naberezhnoy/).
