@@ -37,6 +37,66 @@ images:
     caption: "ИИ-анимация архивного кадра — «Ракета» у Малого Каменного моста. Не фотография эпохи."
   - src: /images/galleries/history/canal-fishermen-watermarked.gif
     caption: "ИИ-анимация архивного кадра — рыбаки на Водоотводном канале. Не фотография эпохи."
+  - src: /images/galleries/history/bolotny-rynok.jpg
+    caption: "Архив. Болотный рынок, открытка."
+  - src: /images/galleries/history/ges2-four-stacks.jpg
+    caption: "Архив. ГЭС-2, четыре трубы, извозчик."
+  - src: /images/galleries/history/river-construction.jpg
+    caption: "Архив. Стройка у Москвы-реки, Кремль."
+  - src: /images/galleries/history/house-scaffold-cathedral.jpg
+    caption: "Архив. Стройка дома, храм Христа Спасителя ещё стоит."
+  - src: /images/galleries/history/house-river-trams.jpg
+    caption: "Архив. Дом на набережной с реки, трамваи."
+  - src: /images/galleries/history/bolshoy-kamenny-trams.jpg
+    caption: "Архив. Большой Каменный мост, трамваи, Дом на набережной."
+  - src: /images/galleries/history/udarnik-pier.jpg
+    caption: "Архив. Пристань «Дом правительства», «Ударник»."
+  - src: /images/galleries/history/udarnik-courtyard.jpg
+    caption: "Архив. Двор у кинотеатра «Ударник»."
+  - src: /images/galleries/history/serafimovicha-azs.jpg
+    caption: "Архив. Заправка у Дома на набережной."
+  - src: /images/galleries/history/udarnik-fountain.jpg
+    caption: "Архив. Фонтан перед «Ударником»."
+  - src: /images/galleries/history/udarnik-flowerbeds.jpg
+    caption: "Архив. Клумбы перед «Ударником»."
+  - src: /images/galleries/history/kamenny-bridge-house.jpg
+    caption: "Архив. Дом на набережной и «Ударник» с Каменного моста."
+  - src: /images/galleries/history/bolotnaya-1940s-square.jpg
+    caption: "Архив. Болотная площадь, 1940-е, молодые посадки."
+  - src: /images/galleries/history/repin-fountain-1950s.jpg
+    caption: "Архив. Фонтан на Болотной, 1950-е."
+  - src: /images/galleries/history/raketa-maly-kamenny.jpg
+    caption: "Архив. «Ракета» у Малого Каменного моста."
+  - src: /images/galleries/history/canal-fishermen.jpg
+    caption: "Архив. Рыбаки на Водоотводном канале."
+  - src: /images/galleries/history/fountain-children.jpg
+    caption: "Архив. Дети у фонтана."
+  - src: /images/galleries/history/embankment-bench.jpg
+    caption: "Архив. Трое на скамейке у набережной."
+  - src: /images/galleries/history/udarnik-courtyard-film.jpg
+    caption: "Архив. Двор у «Ударника»."
+  - src: /images/galleries/history/iofan-book-spread.jpg
+    caption: "Архив. Разворот о доме на Серафимовича, Борис Иофан."
+  - src: /images/galleries/history/plan-kvartira.jpg
+    caption: "Архив. План типовой жилой ячейки Дома ЦИК и СНК."
+  - src: /images/galleries/history/plan-doma.jpg
+    caption: "Архив. Общий план Дома правительства."
+  - src: /images/galleries/history/october-illumination.jpg
+    caption: "Архив. Ночная иллюминация, портреты на здании у реки."
+  - src: /images/galleries/history/house-portrait-collage.jpg
+    caption: "Архив. Дом с моста и портрет."
+  - src: /images/galleries/history/house-aerial.jpg
+    caption: "Позже. Дом и «Ударник» сверху."
+  - src: /images/galleries/history/house-mercedes.jpg
+    caption: "Позже. Башня со звездой Mercedes."
+  - src: /images/galleries/history/udarnik-winter-roofs.jpg
+    caption: "Позже. Крыша «Ударника» зимой, храм Христа Спасителя."
+  - src: /images/galleries/history/house-from-bridge.jpg
+    caption: "Позже. Дом с моста."
+  - src: /images/galleries/history/house-memorial.jpg
+    caption: "Позже. Сбор у дома."
+  - src: /images/galleries/history/udarnik-from-river-modern.jpg
+    caption: "Позже. «Ударник» и Малый Каменный мост с реки."
   - src: /images/galleries/history/serafimovicha-1960-matveev-watermarked.gif
     caption: "ИИ-анимация архивного кадра — ул. Серафимовича, около 1960, фото Е. Матвеева. Не фотография эпохи."
   - src: /images/galleries/history/polyanka-early-1960s-watermarked.gif
@@ -143,38 +203,6 @@ images:
     caption: "ИИ-анимация архивного кадра — паводок у храма. Не фотография эпохи."
   - src: /images/galleries/domnanaberzhnoy/grok-video-f868ca3a-57b5-435c-95e7-7cf5b902fb7a_watermarked.gif
     caption: "ИИ-анимация архивного кадра — улица вдоль дома. Не фотография эпохи."
-  - src: /images/galleries/history/bolotny-rynok.jpg
-    caption: "Архив. Болотный рынок, открытка."
-  - src: /images/galleries/history/ges2-four-stacks.jpg
-    caption: "Архив. ГЭС-2, четыре трубы, извозчик."
-  - src: /images/galleries/history/river-construction.jpg
-    caption: "Архив. Стройка у Москвы-реки, Кремль."
-  - src: /images/galleries/history/house-scaffold-cathedral.jpg
-    caption: "Архив. Стройка дома, храм Христа Спасителя ещё стоит."
-  - src: /images/galleries/history/house-river-trams.jpg
-    caption: "Архив. Дом на набережной с реки, трамваи."
-  - src: /images/galleries/history/bolshoy-kamenny-trams.jpg
-    caption: "Архив. Большой Каменный мост, трамваи, Дом на набережной."
-  - src: /images/galleries/history/udarnik-pier.jpg
-    caption: "Архив. Пристань «Дом правительства», «Ударник»."
-  - src: /images/galleries/history/udarnik-courtyard.jpg
-    caption: "Архив. Двор у кинотеатра «Ударник»."
-  - src: /images/galleries/history/serafimovicha-azs.jpg
-    caption: "Архив. Заправка у Дома на набережной."
-  - src: /images/galleries/history/udarnik-fountain.jpg
-    caption: "Архив. Фонтан перед «Ударником»."
-  - src: /images/galleries/history/udarnik-flowerbeds.jpg
-    caption: "Архив. Клумбы перед «Ударником»."
-  - src: /images/galleries/history/kamenny-bridge-house.jpg
-    caption: "Архив. Дом на набережной и «Ударник» с Каменного моста."
-  - src: /images/galleries/history/bolotnaya-1940s-square.jpg
-    caption: "Архив. Болотная площадь, 1940-е, молодые посадки."
-  - src: /images/galleries/history/repin-fountain-1950s.jpg
-    caption: "Архив. Фонтан на Болотной, 1950-е."
-  - src: /images/galleries/history/raketa-maly-kamenny.jpg
-    caption: "Архив. «Ракета» у Малого Каменного моста."
-  - src: /images/galleries/history/canal-fishermen.jpg
-    caption: "Архив. Рыбаки на Водоотводном канале."
   - src: /images/galleries/history/serafimovicha-1960-matveev.jpg
     caption: "Архив. Ул. Серафимовича, около 1960. Фото Е. Матвеева."
   - src: /images/galleries/history/polyanka-early-1960s.jpg
