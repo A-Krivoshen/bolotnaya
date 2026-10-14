@@ -74,16 +74,4 @@
 {{- if hugo.IsProduction -}}
 <link rel="author" type="text/plain" href="/humans.txt">
 
-<!-- RusMeteo plain widget CSS — cameras, home, history, or pages with weather shortcodes -->
-{{- $needWeather := or (eq .Kind "home") (eq .Section "cameras") (eq .Type "cameras") (eq .Section "history") (.HasShortcode "weather") (.HasShortcode "weather-map") }}
-{{- if $needWeather }}
-<link href="https://api.rusmeteo.net/service/informers/css/widget-plain.min.css"
-      rel="stylesheet"
-      type="text/css"
-      media="print"
-      onload="this.media='all'">
-<noscript>
-<link href="https://api.rusmeteo.net/service/informers/css/widget-plain.min.css" rel="stylesheet" type="text/css">
-</noscript>
-{{- end }}
 {{- end -}}

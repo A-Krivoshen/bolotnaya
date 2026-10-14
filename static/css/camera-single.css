@@ -220,36 +220,10 @@
   }
 }
 
-/* Weather widget — light chip so the dark-gray informer stays readable */
+/* Weather widget — styles in /css/weather.css */
 .camera-page .weather-widget {
-  display: flex;
-  justify-content: flex-start;
   margin: 0;
   max-width: 100%;
-}
-
-.camera-page .weather-widget #e76467b5337d868231eb8281690870ba {
-  display: block;
-  width: 125px;
-  min-height: 80px;
-  box-sizing: border-box;
-  padding: 0.2rem 0.35rem;
-  border-radius: 10px;
-  background: #f6f4ef;
-  color: #363945;
-  text-decoration: none;
-  font-size: 12px;
-  line-height: 1.3;
-  overflow: hidden;
-}
-
-.camera-page .weather-widget #e76467b5337d868231eb8281690870ba .widget-plain {
-  display: block;
-  width: 100%;
-  min-height: 0;
-  padding: 0;
-  background: transparent;
-  color: #363945;
 }
 
 /* Adblock notice — readable on small screens */
