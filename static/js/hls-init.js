@@ -220,19 +220,21 @@
 
     if (window.Hls && window.Hls.isSupported()){
       const hls = new window.Hls({
-        liveSyncDuration: 2,
-        maxBufferLength: 15,
-        maxMaxBufferLength: 30,
-        liveBackBufferLength: 5,
-        maxFragLookUpTolerance: 0.2,
-        highBufferWatchdogPeriod: 2,
+        // Three finished segments behind the edge. A 2s target sat inside
+        // the 5s GOP and the picture waited on a segment that was not ready.
+        liveSyncDurationCount: 3,
+        maxBufferLength: 60,
+        maxMaxBufferLength: 120,
+        liveBackBufferLength: 30,
+        maxFragLookUpTolerance: 0.5,
+        highBufferWatchdogPeriod: 3,
         lowBufferWatchdogPeriod: 1,
         enableWorker: true,
         startFragPrefetch: true,
-        backBufferLength: 90,
-        fragLoadingTimeOut: 5000,
-        manifestLoadingTimeOut: 5000,
-        levelLoadingTimeOut: 5000,
+        backBufferLength: 60,
+        fragLoadingTimeOut: 20000,
+        manifestLoadingTimeOut: 10000,
+        levelLoadingTimeOut: 10000,
         xhrSetup: function(xhr){ xhr.withCredentials = true; },
         loader: signedLoader()
       });
