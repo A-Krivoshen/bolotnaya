@@ -226,12 +226,22 @@
 
   let signFlight = null;
 
+  async function ensureSiteTicket(){
+    const res = await fetch('/cam-ticket', {
+      credentials: 'include',
+      cache: 'no-store'
+    });
+    return res.ok;
+  }
+
   async function ensureToken(streamUrl){
     const path = streamPath(streamUrl);
     if (!path) return false;
     if (camToken.sig && camToken.exp * 1000 - Date.now() > 120000) return true;
     if (signFlight) return signFlight;
     signFlight = (async function(){
+      const ticket = await ensureSiteTicket();
+      if (!ticket) return false;
       const endpoint = new URL(streamUrl, window.location.href);
       endpoint.pathname = '/sign/' + path;
       endpoint.search = '';
