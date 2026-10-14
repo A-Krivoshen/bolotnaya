@@ -1,5 +1,5 @@
 {{- /*
-  Own weather widget (Open-Meteo, no external links). JS: /js/weather.js
+  Own weather widget (Open-Meteo, met.no fallback, no external links). JS: /js/weather.js
   Optional dict: extraClass
 */ -}}
 {{- $isRu := eq site.Language.Lang "ru" -}}
@@ -20,4 +20,4 @@
   <div class="bw__days"></div>
 </div>
 <link rel="stylesheet" href="/css/weather.css?v=1">
-<script src="/js/weather.js?v=1" defer></script>
+<script src="/js/weather.js?v=2" defer></script>
