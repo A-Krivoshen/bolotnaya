@@ -11,6 +11,7 @@
       connecting: 'Подключение…',
       connected: 'Подключено',
       buffering: 'Буферизация…',
+      bufferingShort: 'Буферизация',
       streamUnavailable: 'Поток недоступен',
       unsupported: 'HLS не поддерживается в этом браузере',
       adblock: 'Отключите блокировщик рекламы для просмотра трансляции.',
@@ -20,6 +21,7 @@
       connecting: 'Connecting…',
       connected: 'Connected',
       buffering: 'Buffering…',
+      bufferingShort: 'Buffering',
       streamUnavailable: 'Stream unavailable',
       unsupported: 'HLS is not supported in this browser',
       adblock: 'Disable your ad blocker to view the stream.',
@@ -73,6 +75,7 @@
   }
 
   function scheduleReconnect(key, video, status){
+    if (video) disarmBuffer(video);
     if (!errorStart.has(key)) errorStart.set(key, Date.now());
     setStatus(status, msg('connectionError', Math.ceil(updateCountdown(key))), 'error reconnecting');
     if (timers.has(key)) return;
@@ -90,9 +93,75 @@
 
   function markConnected(key, pane, status){
     pane && pane.classList.add('loaded');
+    const video = pane && pane.querySelector('video');
+    if (video) disarmBuffer(video);
     setStatus(status, msg('connected'), 'connected');
     clearTimer(key);
     errorStart.delete(key);
+  }
+
+  function bufferMeter(video){
+    const pane = video.closest('.tab-pane');
+    if (!pane) return null;
+    let box = pane.querySelector('.buffer-meter');
+    if (box) return box;
+    box = document.createElement('div');
+    box.className = 'buffer-meter';
+    box.hidden = true;
+    box.innerHTML = '<span class="buffer-meter__pct">0%</span><span class="buffer-meter__bar"><span></span></span><span class="buffer-meter__label"></span>';
+    pane.appendChild(box);
+    return box;
+  }
+
+  function showMeter(video, pct){
+    const box = bufferMeter(video);
+    if (!box) return;
+    const next = Math.max(0, Math.min(99, Math.round(pct)));
+    const num = box.querySelector('.buffer-meter__pct');
+    const bar = box.querySelector('.buffer-meter__bar span');
+    const label = box.querySelector('.buffer-meter__label');
+    if (num) num.textContent = next + '%';
+    if (bar) bar.style.width = next + '%';
+    if (label) label.textContent = msg('bufferingShort');
+    box.hidden = false;
+    const pane = video.closest('.tab-pane');
+    if (pane) pane.classList.add('is-buffering');
+  }
+
+  function noteBuffer(video, pct){
+    if (video.dataset.buffering !== '1') return;
+    const prev = Number(video.dataset.bufferPct || 0);
+    const next = Math.max(prev, Math.max(0, Math.min(99, pct)));
+    video.dataset.bufferPct = String(next);
+    showMeter(video, next);
+  }
+
+  function armBuffer(video){
+    const fresh = video.dataset.buffering !== '1';
+    video.dataset.buffering = '1';
+    if (fresh) video.dataset.bufferPct = '0';
+    showMeter(video, Number(video.dataset.bufferPct || 0));
+  }
+
+  function disarmBuffer(video){
+    video.dataset.buffering = '0';
+    video.dataset.bufferPct = '0';
+    const pane = video.closest('.tab-pane');
+    if (pane) pane.classList.remove('is-buffering');
+    const box = pane && pane.querySelector('.buffer-meter');
+    if (box) box.hidden = true;
+  }
+
+  function bufferAhead(video){
+    const t = video.currentTime || 0;
+    const ranges = video.buffered;
+    if (!ranges) return 0;
+    for (let i = 0; i < ranges.length; i++){
+      if (ranges.start(i) - 0.35 <= t && t <= ranges.end(i)) {
+        return Math.max(0, ranges.end(i) - t);
+      }
+    }
+    return 0;
   }
 
   function bindVideoEvents(video){
@@ -114,6 +183,13 @@
       const container = video.closest('.camera-container') || document;
       const status = container.querySelector('.status');
       setStatus(status, msg('buffering'), 'buffering');
+      armBuffer(video);
+      noteBuffer(video, bufferAhead(video) / 2 * 100);
+    });
+
+    video.addEventListener('progress', () => {
+      if (video.dataset.buffering !== '1') return;
+      noteBuffer(video, bufferAhead(video) / 2 * 100);
     });
 
     video.addEventListener('playing', () => {
@@ -126,6 +202,11 @@
   }
 
   const camToken = { exp: 0, sig: '' };
+
+  function dropToken(){
+    camToken.exp = 0;
+    camToken.sig = '';
+  }
 
   function streamPath(url){
     try {
@@ -210,9 +291,11 @@
     delete video.dataset.hlsMediaRetried;
     delete video.dataset.hlsNetRetried;
     setStatus(status, msg('connecting'), '');
+    armBuffer(video);
 
     const signed = await ensureToken(url);
     if (!signed){
+      disarmBuffer(video);
       setStatus(status, msg('streamUnavailable'), 'error');
       scheduleReconnect(key, video, status);
       return;
@@ -235,7 +318,14 @@
         fragLoadingTimeOut: 20000,
         manifestLoadingTimeOut: 10000,
         levelLoadingTimeOut: 10000,
-        xhrSetup: function(xhr){ xhr.withCredentials = true; },
+        xhrSetup: function(xhr, url){
+          xhr.withCredentials = true;
+          if (!url || !/\.ts(?:\?|$)/.test(url)) return;
+          xhr.addEventListener('progress', function(ev){
+            if (!ev.lengthComputable || !ev.total) return;
+            noteBuffer(video, ev.loaded / ev.total * 100);
+          });
+        },
         loader: signedLoader()
       });
       hls.loadSource(withSig(url));
@@ -248,6 +338,7 @@
 
       hls.on(window.Hls.Events.ERROR, function(event, data){
         if (!data || !data.fatal) return;
+        if (data.response && (data.response.code === 401 || data.response.code === 403)) dropToken();
         if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR && !video.dataset.hlsMediaRetried) {
           video.dataset.hlsMediaRetried = '1';
           try { hls.recoverMediaError(); return; } catch (e) {}
