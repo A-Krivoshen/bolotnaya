@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Bolotnaya Online">
-  <rect width="120" height="120" fill="#121622"/>
-  <circle cx="60" cy="60" r="36.5" fill="none" stroke="#39AFF9" stroke-width="10"/>
-  <rect x="51" y="36" width="18" height="48" rx="7" fill="#39AFF9"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A6A6B"/><stop offset="1" stop-color="#173F44"/></linearGradient></defs><rect x="18" y="18" width="72" height="72" rx="12.959999999999999" fill="url(#g)"/><path d="M54,22 L59,34 L49,34 Z" fill="#D9A441"/><path d="M49.5,34 H58.5 V40 H49.5 Z" fill="#D9A441"/><path d="M47,40 H61 V56 H47 Z" fill="#D9A441"/><path d="M29,57 H79 V75 H69 A15,12 0 0 0 39,75 H29 Z" fill="#B4553A"/><path d="M26,53 H82 V58 H26 Z" fill="#F3E7CF"/><path d="M36,80 q4.5,-3.5 9,0 t9,0 t9,0 t9,0 v3 q-4.5,3.5 -9,0 t-9,0 t-9,0 t-9,0 Z" fill="#F3E7CF"/></svg>
