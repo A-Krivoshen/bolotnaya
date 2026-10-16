@@ -35,6 +35,9 @@ images:
     caption: "AI animation of an archive frame — the fountain on Bolotnaya, 1950s. Not period footage."
   - src: /images/galleries/history/raketa-maly-kamenny-watermarked.gif
     caption: "AI animation of an archive frame — a Raketa hydrofoil by Maly Kamenny Bridge. Not period footage."
+  - src: /images/galleries/history/kater-430-watermarked.gif
+    thumb: /images/galleries/history/kater-430-watermarked-poster.jpg
+    caption: "Animated archive frame (slow zoom) — a boat with hull number 430 by the embankment. Camera move added; the frame itself is unchanged."
   - src: /images/galleries/history/canal-fishermen-watermarked.gif
     caption: "AI animation of an archive frame — fishermen on the Vodootvodny Canal. Not period footage."
   - src: /images/galleries/history/bolotny-rynok.jpg
@@ -67,6 +70,8 @@ images:
     caption: "Archive. The fountain on Bolotnaya, 1950s."
   - src: /images/galleries/history/raketa-maly-kamenny.jpg
     caption: "Archive. A Raketa hydrofoil by Maly Kamenny Bridge."
+  - src: /images/galleries/history/kater-430.jpg
+    caption: "Archive. A boat with hull number 430 on the river by the embankment."
   - src: /images/galleries/history/canal-fishermen.jpg
     caption: "Archive. Fishermen on the Vodootvodny Canal."
   - src: /images/galleries/history/fountain-children.jpg
