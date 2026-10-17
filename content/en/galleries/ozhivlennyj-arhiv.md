@@ -38,6 +38,9 @@ images:
   - src: /images/galleries/history/kater-430-watermarked.gif
     thumb: /images/galleries/history/kater-430-watermarked-poster.jpg
     caption: "Animated archive frame (slow zoom) — a boat with hull number 430 by the embankment. Camera move added; the frame itself is unchanged."
+  - src: /images/galleries/history/gosstrakh-reklama-watermarked.gif
+    thumb: /images/galleries/history/gosstrakh-reklama-watermarked-poster.jpg
+    caption: "Animated archive frame (slow zoom) — a building with a Gosstrakh advert on its blank wall, cast-iron railing, a street lamp. Camera move added; the frame itself is unchanged."
   - src: /images/galleries/history/canal-fishermen-watermarked.gif
     caption: "AI animation of an archive frame — fishermen on the Vodootvodny Canal. Not period footage."
   - src: /images/galleries/history/bolotny-rynok.jpg
@@ -72,6 +75,8 @@ images:
     caption: "Archive. A Raketa hydrofoil by Maly Kamenny Bridge."
   - src: /images/galleries/history/kater-430.jpg
     caption: "Archive. A boat with hull number 430 on the river by the embankment."
+  - src: /images/galleries/history/gosstrakh-reklama.jpg
+    caption: "Archive. A building with the advert “Life insurance at Gosstrakh is available to everyone”, cast-iron railing, passers-by."
   - src: /images/galleries/history/canal-fishermen.jpg
     caption: "Archive. Fishermen on the Vodootvodny Canal."
   - src: /images/galleries/history/fountain-children.jpg

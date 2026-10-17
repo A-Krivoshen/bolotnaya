@@ -38,6 +38,9 @@ images:
   - src: /images/galleries/history/kater-430-watermarked.gif
     thumb: /images/galleries/history/kater-430-watermarked-poster.jpg
     caption: "Анимация архивного кадра (медленный наезд) — катер с бортовым номером 430 у набережной. Движение камеры добавлено, кадр не менялся."
+  - src: /images/galleries/history/gosstrakh-reklama-watermarked.gif
+    thumb: /images/galleries/history/gosstrakh-reklama-watermarked-poster.jpg
+    caption: "Анимация архивного кадра (медленный наезд) — дом с рекламой Госстраха на брандмауэре, чугунная ограда, фонарь. Движение камеры добавлено, кадр не менялся."
   - src: /images/galleries/history/canal-fishermen-watermarked.gif
     caption: "ИИ-анимация архивного кадра — рыбаки на Водоотводном канале. Не фотография эпохи."
   - src: /images/galleries/history/bolotny-rynok.jpg
@@ -72,6 +75,8 @@ images:
     caption: "Архив. «Ракета» у Малого Каменного моста."
   - src: /images/galleries/history/kater-430.jpg
     caption: "Архив. Катер с бортовым номером 430 на реке у набережной."
+  - src: /images/galleries/history/gosstrakh-reklama.jpg
+    caption: "Архив. Дом с рекламой «Страхование жизни в Госстрахе доступно каждому», чугунная ограда, прохожие."
   - src: /images/galleries/history/canal-fishermen.jpg
     caption: "Архив. Рыбаки на Водоотводном канале."
   - src: /images/galleries/history/fountain-children.jpg
