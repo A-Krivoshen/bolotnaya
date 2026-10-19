@@ -325,3 +325,32 @@
 .camera-page .page-faq p {
   margin-top: 0;
 }
+
+/* ---- Wide camera page (2026-10): same frame as history / blog ----
+   Before: .main capped at 1080px (bolotnaya.css "Camera catalog"), the whole
+   player block sat inside .post-content (820px), header 720px, text 62ch (~580px).
+   Now: main 1200px like other sections, player + map use the full container,
+   text under the player is 820px — the same column as .history-page .prose. */
+body:has(.camera-page) .main {
+  max-width: 1200px;
+}
+.camera-page > .post-content:not(.camera-bottom-text) {
+  max-width: none;
+}
+.camera-page .camera-shell {
+  max-width: none;
+}
+.camera-page .page-header,
+.camera-page .camera-header {
+  max-width: none;
+  text-align: left;
+}
+.camera-page .page-lead {
+  max-width: 820px;
+}
+.camera-page .camera-bottom-text {
+  max-width: 820px;
+}
+.camera-page .camera-text-col {
+  max-width: none;
+}
