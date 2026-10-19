@@ -1,7 +1,7 @@
 ---
 title: "What the Bolotnaya Square webcam shows"
 date: 2026-10-19T12:00:00+03:00
-draft: true
+draft: false
 translationKey: chto-vidno-s-vebkamery-bolotnaya
 tags: ["cameras", "footbridge", "Bolotnaya", "Yakimanka"]
 description: "A guide to the Bolotnaya Square webcam frame: Repin Garden and its fountain, the Vodootvodny Canal, Maly Kamenny Bridge with the new 2026 footbridge, Luzhkov Bridge and the Kotelnicheskaya tower. What is nearby and when to watch."
