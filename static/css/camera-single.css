@@ -337,28 +337,25 @@ body:has(.camera-page) .main {
 .camera-page > .post-content:not(.camera-bottom-text) {
   max-width: none;
 }
-/* Player block narrower than the page (owner, 2026-10-19): up to 980px, centered
-   in the wide page (owner disliked left alignment). On short screens it shrinks so the
-   video and its controls fit the first screen (~435px above the video, 32px card
-   padding); never below 640px. Header, lead and text column are centered too. */
+/* Full-width camera page (owner, 2026-10-19): every section uses the same container
+   width as /history/ (~1136px), left-aligned; no 820px column, no player cap. */
 .camera-page .camera-shell {
-  max-width: 980px;
-  max-width: clamp(640px, calc((100vh - 435px) * 1.7778 + 32px), 980px);
-  margin-inline: auto;
+  max-width: none;
+  margin-inline: 0;
 }
 .camera-page .page-header,
 .camera-page .camera-header {
   max-width: none;
-  text-align: center;
+  text-align: left;
 }
-.camera-page .page-lead {
-  max-width: 820px;
-  margin-inline: auto;
-}
-.camera-page .camera-bottom-text {
-  max-width: 820px;
-  margin-inline: auto;
-}
-.camera-page .camera-text-col {
+.camera-page .page-lead,
+.camera-page .camera-bottom-text,
+.camera-page .camera-bottom-text p,
+.camera-page .camera-text-col,
+.camera-page .page-faq,
+.camera-page .sp-wrap,
+.camera-page .district-map {
   max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
