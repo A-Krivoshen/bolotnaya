@@ -15,10 +15,12 @@
 
 {{- if hugo.IsProduction -}}
 <meta name="yandex-verification" content="912f939c1daa1856" />
-{{- /* Official RSA loader, once, in head. Camera page only: the player renders block 12. */ -}}
+{{- /* Official RSA loader, once, in head, on camera pages: the player renders block 12.
+     Autoplacement (ap-loader, page 19616132) is added by loadAds() below on every page,
+     camera pages included; loadAds() reuses this context.js instead of adding a second one. */ -}}
 {{- if and (eq .Section "cameras") (eq .Kind "page") (or .Params.stream_url .Params.hls_url) }}
 <!-- Yandex.RTB -->
-<script>window.yaContextCb=window.yaContextCb||[];window.__bolotnayaCamAd=1</script>
+<script>window.yaContextCb=window.yaContextCb||[]</script>
 <script src="https://yandex.ru/ads/system/context.js" async></script>
 {{- end }}
 <script>
@@ -34,7 +36,7 @@
     try { ym(52478860, 'init', { ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true }); } catch (e) {}
   }
   function loadAds() {
-    if (window.__bolotnayaCamAd || window.__bolotnayaAds) return;
+    if (window.__bolotnayaAds) return;
     window.__bolotnayaAds = 1;
     window.yaContextCb = window.yaContextCb || [];
     if (!document.querySelector('script[src*="yandex.ru/ads/system/context.js"]')) {
