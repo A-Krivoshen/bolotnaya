@@ -337,8 +337,14 @@ body:has(.camera-page) .main {
 .camera-page > .post-content:not(.camera-bottom-text) {
   max-width: none;
 }
+/* Player block narrower than the page (owner, 2026-10-19): up to 980px, left-aligned
+   with the H1. On short screens it shrinks so the video and its controls fit the
+   first screen (~435px above the video, 32px card padding); never below 640px. */
 .camera-page .camera-shell {
-  max-width: none;
+  max-width: 980px;
+  max-width: clamp(640px, calc((100vh - 435px) * 1.7778 + 32px), 980px);
+  margin-left: 0;
+  margin-right: auto;
 }
 .camera-page .page-header,
 .camera-page .camera-header {
