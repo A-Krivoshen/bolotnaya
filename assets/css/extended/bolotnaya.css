@@ -3385,3 +3385,39 @@ h2,
     animation: none;
   }
 }
+
+/* Footer alignment fix (2026-10-19). PaperMod's footer.css sets text-align:center and
+   border-bottom on every .footer a, so the brand block and column titles were centred
+   while links were left-aligned and underlined — the footer looked crooked. The footer
+   box (1180px) also did not match the 1200px content container (1136px inner).
+   Now: same 1200px box and side padding as .main, everything left-aligned, no theme
+   borders, four even columns (brand + 3 link columns). */
+.footer {
+  max-width: 1200px;
+  padding-left: max(32px, env(safe-area-inset-left));
+  padding-right: max(32px, env(safe-area-inset-right));
+  text-align: left;
+}
+.footer a,
+.footer a:hover {
+  border-bottom: 0;
+}
+.footer-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  gap: 1.5rem 2rem;
+}
+.footer-nav {
+  gap: 1.5rem 2rem;
+}
+.footer-tagline {
+  max-width: 30ch;
+}
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .footer {
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+  }
+}
