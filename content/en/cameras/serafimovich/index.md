@@ -18,7 +18,7 @@ faq:
   - q: "Where is the camera?"
     a: "On the House on the Embankment, on the Ulitsa Serafimovicha side. It looks down at Bolotnaya Square, Repin Garden and the Vodootvodny Canal. The camera that used to stand on the square itself stays off."
   - q: "What can I see in the frame?"
-    a: "Repin Garden with its fountain and paths, the Vodootvodny Canal, the new footbridge being built under Maly Kamenny Bridge, the street by the garden and the Kotelnicheskaya Embankment tower on the skyline."
+    a: "Repin Garden with its fountain and paths, the Vodootvodny Canal, Maly Kamenny Bridge with the new footbridge beneath it, Luzhkov (Tretyakovsky) Bridge further along the canal, the street by the garden and the Kotelnicheskaya Embankment tower on the skyline."
   - q: "Can I see the Kremlin?"
     a: "The camera points at the garden and the canal. The Kremlin is close by, across the Moskva River, but we do not promise it in the frame. Old and new views of the Kremlin from Bolotnaya are in the History section."
   - q: "Why does the video not start?"
@@ -37,7 +37,8 @@ The camera hangs on the facade of the [House on the Embankment](/en/galleries/do
 
 - **Repin Garden.** In the middle: the paths and the round fountain. In summer there are flower beds and lawns; in winter the fountain is closed and the trees are lit.
 - **Vodootvodny Canal.** On the right runs the canal with its granite embankment. In summer the fountains on the water are on, and river boats and paddleboards pass by.
-- **The 2026 footbridge.** A new footbridge is going up in the canal bed under Maly Kamenny Bridge, from GES-2 to the garden. You can watch the deck grow on the camera. Details and photos are in the [footbridge album](/en/galleries/most-bolotnaya-2026/) and in the note [“Grey facade and a footbridge in the canal”](/en/posts/most-bolotnaya-2026/).
+- **Maly Kamenny Bridge and the 2026 footbridge.** In the bottom right corner of the frame is Maly Kamenny Bridge over the Vodootvodny Canal. Beneath it, in the canal bed, is the new 2026 footbridge from GES-2 to Repin Garden. You can watch the deck change on the camera. Details and photos are in the [footbridge album](/en/galleries/most-bolotnaya-2026/) and in the note [“Grey facade and a footbridge in the canal”](/en/posts/most-bolotnaya-2026/).
+- **Luzhkov Bridge.** About 300 m further along the canal you can see Luzhkov (Tretyakovsky) Bridge — the pedestrian “lovers’ bridge” with its padlock trees.
 - **The street by the garden.** At the bottom of the frame is the road: buses and cars, headlights and street lights at night.
 - **The skyline.** Above the roofs of Zamoskvorechye stands the Kotelnicheskaya Embankment tower. At sunset the sky above it is usually at its best.
 
@@ -45,7 +46,7 @@ From 2 June to 8 October 2026 scaffolding mesh blocked the view. How that looked
 
 ### Close by, but not necessarily in the frame
 
-Bolotnaya is the low bank opposite the Kremlin. A few minutes' walk away are the Repin monument in the garden, [GES-2](/en/galleries/ges-2/), the Udarnik cinema, the Bolshoy and Maly Kamenny bridges and [St Nicholas on Bersenevka](/en/galleries/nikola-bersenevka/). The camera does not show them, or only at the edge, but they are on the [district map](#dmap-cam-serafimovich) above and in the [photo galleries](/en/galleries/).
+Bolotnaya is the low bank opposite the Kremlin. A few minutes' walk away are the Repin monument in the garden, [GES-2](/en/galleries/ges-2/), the Udarnik cinema, the Bolshoy Kamenny Bridge and [St Nicholas on Bersenevka](/en/galleries/nikola-bersenevka/). The camera does not show them, or only at the edge, but they are on the [district map](#dmap-cam-serafimovich) above and in the [photo galleries](/en/galleries/).
 
 ## When to watch
 
