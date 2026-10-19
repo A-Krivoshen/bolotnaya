@@ -359,3 +359,28 @@ body:has(.camera-page) .main {
   margin-left: 0;
   margin-right: 0;
 }
+
+/* Player: the pane is exactly 16:9 like the 1440p stream; the video fills it, so no
+   letterbox bars from the old max-height:min(70vh,720px) in bolotnaya.css. */
+.camera-page .tab-pane { background: transparent; border: 0; margin-bottom: 0.5rem; }
+.camera-page .tab-pane > video { max-height: none; height: 100%; background: transparent; }
+.camera-page .status:empty { display: none; }
+
+.camera-page .camera-container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--entry);
+}
+.camera-page .camera-container::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  background: url(/images/cameras/serafimovicha-neopunk.jpg) center / cover no-repeat;
+  filter: blur(36px) saturate(1.2) brightness(.55);
+}
+.camera-page .tab-pane { border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,.45); }
+.camera-page .camera-container .status { color: rgba(255,255,255,.8); }
