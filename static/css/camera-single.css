@@ -384,3 +384,14 @@ body:has(.camera-page) .main {
 }
 .camera-page .tab-pane { border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,.45); }
 .camera-page .camera-container .status { color: rgba(255,255,255,.8); }
+
+/* Mobile/tablet audit (2026-10-19) */
+/* Landscape tablets / short touch screens: keep video + controls in the first screen. */
+@media (pointer: coarse) and (orientation: landscape) and (min-width: 900px) {
+  .camera-page .camera-shell {
+    max-width: clamp(560px, calc((100vh - 440px) * 1.7778 + 38px), 100%);
+    margin-inline: auto;
+  }
+}
+.camera-page .cam-status .cam-status__text { font-size: 12px !important; }
+.camera-page .buffer-meter__label { font-size: 12px; }

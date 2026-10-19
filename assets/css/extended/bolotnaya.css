@@ -3421,3 +3421,14 @@ h2,
     padding-right: max(14px, env(safe-area-inset-right));
   }
 }
+
+/* Mobile/tablet audit (2026-10-19): no text below 12px, footer tap targets >= 40px. */
+.footer-col__title { font-size: 12px; }
+.header .project-badge, .header .logo .project-badge { font-size: 12px !important; }
+.post-tags .post-tag { font-size: 12px; }
+.gallery-desc { font-size: 12px; }
+.bw .bw__place, .bw__meta { font-size: 12px; }
+@media (pointer: coarse), (max-width: 1180px) {
+  .footer-col a { min-height: 40px; }
+  .footer-col { gap: 0.1rem; }
+}
