@@ -411,7 +411,19 @@
     });
   }
 
+  // Antiblock wall switch comes from config.toml (params.antiblockWall) via
+  // data-antiblock-wall="on|off" on .camera-container. "off": no pubmatic probe,
+  // no 1.5 s wait, player never hidden — stream starts for everyone.
+  function antiblockWallOn(){
+    const box = document.querySelector('[data-antiblock-wall]');
+    return !!box && box.getAttribute('data-antiblock-wall') === 'on';
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
+    if (!antiblockWallOn()) {
+      videos.forEach(video => setup(video));
+      return;
+    }
     detectAdBlockerAsync('https://ads.pubmatic.com/AdServer/js/gshowad.js').then(isBlock => {
       videos.forEach(video => {
         const container = video.closest('.camera-container') || document;

@@ -33,7 +33,9 @@
     {{ end }}
     </div>
 
-    <div class="camera-container camera-card" {{ if not $offline }}data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}"{{ end }}>
+    {{/* site.Params.antiblockWall (config.toml): true = antiblock wall on, false = stream for everyone */}}
+    {{ $antiblock := site.Params.antiblockWall | default false }}
+    <div class="camera-container camera-card" {{ if not $offline }}data-stream-url="{{ $streamURL }}" data-title="{{ .Title }}" data-antiblock-wall="{{ if $antiblock }}on{{ else }}off{{ end }}"{{ end }}>
       {{ if $offline }}
       <div class="site-alert" role="status">
         <div class="site-alert__title">
@@ -50,9 +52,11 @@
         <figcaption>{{ if $isRu }}Июнь 2026. Вид с точки камер через сетку лесов.{{ else }}June 2026. View from the camera point through the scaffolding mesh.{{ end }}</figcaption>
       </figure>
       {{ else }}
+      {{ if $antiblock }}
       <div id="adblock-message" class="adblock-message" hidden>
         {{ if $isRu }}Отключите блокировщик рекламы для просмотра трансляции.{{ else }}Disable your ad blocker to view the stream.{{ end }}
       </div>
+      {{ end }}
       <div class="tab-pane">
         <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
       </div>
@@ -83,7 +87,7 @@
 
 {{ if not $offline }}
 <script src="/js/hls.min.js"></script>
-<script src="/js/hls-init.js?v=20261014c"></script>
+<script src="/js/hls-init.js?v=20261019a"></script>
 <script src="/js/cam-ad.js?v=6"></script>
 <script src="/js/cam-status.js?v=2" defer></script>
 {{ end }}

@@ -108,6 +108,11 @@ timeout = "60s"
   defaultTheme = "auto" # auto = light 07:00–21:00, dark nights; local clock, not OS
   disableThemeToggle = false
   camerasOffline = false
+  # Antiblock wall on the camera page («Отключите блокировщик рекламы»).
+  # false = stream plays for everyone (experiment from 2026-10-19, 1 week).
+  # true  = old behaviour: pubmatic probe, player hidden for ad-block users.
+  # Ads (cam-ad.js, R-A-19616132-12) and the «Поддержать» button do not depend on this flag.
+  antiblockWall = false
   camerasOfflineStill = "/images/galleries/lesa-2026/camera-still-mesh.jpg"
   ShowReadingTime = false
   ShowBreadCrumbs = true
