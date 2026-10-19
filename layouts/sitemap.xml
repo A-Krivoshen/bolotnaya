@@ -1,0 +1,26 @@
+{{/* gotmplfmt-ignore-all */ -}}
+{{- /*
+  Per-language sitemap. Based on Hugo's embedded template (v0.168).
+  Leaves out pages that carry noindex in seo.html: tag/category lists (taxonomy, term),
+  admin, and pages with robotsNoIndex: true. Keep this in sync with layouts/partials/seo.html.
+*/ -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{ range where .Pages "Sitemap.Disable" "ne" true }}
+    {{- $skip := or (eq .Kind "taxonomy") (eq .Kind "term") (eq .Section "admin") (eq .Type "admin") .Params.robotsNoIndex .Draft -}}
+    {{- if and .Permalink (not $skip) -}}
+  <url>
+    <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
+    <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
+    <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .AllTranslations }}
+    <xhtml:link
+                rel="alternate"
+                hreflang="{{ .Language.Locale }}"
+                href="{{ .Permalink }}"
+                />{{ end }}{{ end }}
+  </url>
+    {{- end -}}
+  {{ end }}
+</urlset>

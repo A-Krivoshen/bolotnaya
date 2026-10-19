@@ -1,8 +1,8 @@
 {{ define "main" }}
 <div class="container">
   <header class="page-header">
-    <h1>{{ if eq .Site.Language.Lang "ru" }}Блог{{ else }}Blog{{ end }}</h1>
-    <p class="page-lead">{{ if eq .Site.Language.Lang "ru" }}Заметки о районе, камерах, истории и open-source разработке проекта.{{ else }}Notes on the district, cameras, history and the project's open-source development.{{ end }}</p>
+    <h1>{{ with .Title }}{{ . }}{{ else }}{{ if eq .Site.Language.Lang "ru" }}Блог{{ else }}Blog{{ end }}{{ end }}</h1>
+    <p class="page-lead">{{ with .Description }}{{ . }}{{ else }}{{ if eq .Site.Language.Lang "ru" }}Заметки о районе, камерах, истории и open-source разработке проекта.{{ else }}Notes on the district, cameras, history and the project's open-source development.{{ end }}{{ end }}</p>
   </header>
 
   <div class="blog-list-grid">

@@ -53,9 +53,13 @@
 
 {{/* One robots tag. Admin, 404, and explicit noindex stay out of search. */}}
 {{- $is404 := or (eq .Kind "404") (eq .Layout "404") -}}
-{{- $noIndex := or (eq .Section "admin") (eq .Type "admin") $is404 .Params.robotsNoIndex (eq .Kind "taxonomy") (eq .Kind "term") -}}
+{{/* Tag and category lists: out of the index, but crawlers still follow links to posts. */}}
+{{- $isTaxList := or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+{{- $noIndex := or (eq .Section "admin") (eq .Type "admin") $is404 .Params.robotsNoIndex -}}
 {{- if $noIndex -}}
 <meta name="robots" content="noindex, nofollow">
+{{- else if $isTaxList -}}
+<meta name="robots" content="noindex, follow">
 {{- else -}}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 {{- end -}}
@@ -267,6 +271,20 @@
   {{- end -}}
   {{- $bc := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $items -}}
 <script type="application/ld+json">{{ $bc | jsonify | safeJS }}</script>
+{{- end -}}
+
+{{/* Page FAQ from front matter `faq: [{q, a}]` (rendered visibly by partials/faq.html) */}}
+{{- if and (not .IsHome) .Params.faq -}}
+  {{- $qs := slice -}}
+  {{- range .Params.faq -}}
+    {{- $qs = $qs | append (dict
+      "@type" "Question"
+      "name" .q
+      "acceptedAnswer" (dict "@type" "Answer" "text" (.a | markdownify | plainify))
+    ) -}}
+  {{- end -}}
+  {{- $pageFaq := dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $qs -}}
+<script type="application/ld+json">{{ $pageFaq | jsonify | safeJS }}</script>
 {{- end -}}
 
 {{/* Home FAQ — helps search + AI Q&A surfaces */}}

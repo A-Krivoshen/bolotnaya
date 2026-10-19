@@ -1,0 +1,14 @@
+{{- /*
+  Visible FAQ from front matter `faq: [{q, a}]`.
+  The same list feeds the FAQPage JSON-LD in seo.html, so text and markup never drift apart.
+*/ -}}
+{{- with .Params.faq -}}
+{{- $isRu := eq site.Language.Lang "ru" -}}
+<section class="page-faq" aria-labelledby="faq-title">
+  <h2 id="faq-title">{{ if $isRu }}Частые вопросы{{ else }}FAQ{{ end }}</h2>
+  {{- range . }}
+  <h3>{{ .q }}</h3>
+  <p>{{ .a | markdownify }}</p>
+  {{- end }}
+</section>
+{{- end -}}

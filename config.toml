@@ -4,12 +4,16 @@ defaultContentLanguageInSubdir = true
 title = "Bolotnaya Online — Болотная: Якиманка"
 theme = "PaperMod"
 enableRobotsTXT = false # static/robots.txt is the source of truth
-enableGitInfo = false
+enableGitInfo = true # sitemap <lastmod> from the last commit of each content file
 canonifyURLs = false
 relativeURLs = false
 disableHugoGeneratorInject = false
 summaryLength = 40
 timeout = "60s"
+
+# lastmod: explicit front matter wins, then the file's last git commit, then date.
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date", ":default"]
 
 [pagination]
   pagerSize = 12

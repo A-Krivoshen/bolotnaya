@@ -11,7 +11,7 @@
   </header>
 
   <section class="post-content">
-    <link rel="stylesheet" href="/css/camera-single.css?v=11">
+    <link rel="stylesheet" href="/css/camera-single.css?v=12">
 
     <div class="camera-shell">
 
@@ -70,9 +70,12 @@
     {{ partial "district-map.html" (dict "id" (printf "cam-%s" (.File.ContentBaseName | default "page"))) }}
   </section>
 
-  {{ if .Content }}
+  {{ if or .Content .Params.faq }}
   <section class="post-content camera-bottom-text">
+    <div class="camera-text-col">
     {{ .Content }}
+    {{ partial "faq.html" . }}
+    </div>
   </section>
   {{ end }}
 </article>
