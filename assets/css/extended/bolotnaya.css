@@ -3484,3 +3484,47 @@ body:has(.home--2026) .main {
   .weather-map .weather-map__weather .bw__day { flex: 0 0 auto; flex-direction: row; gap: 6px; font-size: 13px; white-space: nowrap; }
   .weather-map .weather-map__weather .bw__dname { color: var(--secondary); }
 }
+
+/* One container on every page (owner, 2026-10-20): desktop content 1136px from the same
+   left edge as the camera page and the footer (152px at 1440). Header uses the same box.
+   Single posts keep a narrower text column inside it. Mobile (<=768px) unchanged. */
+@media (min-width: 769px) {
+  body .main,
+  body.list .main,
+  .list .main,
+  body:has(.camera-page) .main,
+  body:has(.page-cameras) .main,
+  body:has(.home--2026) .main {
+    max-width: 1200px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .main > .container,
+  .main > article.container,
+  .main > .home {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .header .nav {
+    max-width: 1200px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .header .nav .logo { margin-left: 0; }
+  .main article.post,
+  .main .post,
+  .main .page {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .post-single .post-header {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
