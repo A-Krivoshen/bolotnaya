@@ -240,6 +240,9 @@
     if (camToken.sig && camToken.exp * 1000 - Date.now() > 120000) return true;
     if (signFlight) return signFlight;
     signFlight = (async function(){
+      // Network/adblock failures resolve to false (caller retries) instead of an
+      // uncaught "TypeError: Failed to fetch" in the console.
+      try {
       const ticket = await ensureSiteTicket();
       if (!ticket) return false;
       const endpoint = new URL(streamUrl, window.location.href);
@@ -256,6 +259,9 @@
       camToken.exp = data.exp;
       camToken.sig = data.sig;
       return true;
+      } catch (e) {
+        return false;
+      }
     })();
     try {
       return await signFlight;
