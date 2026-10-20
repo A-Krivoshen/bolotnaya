@@ -6,153 +6,63 @@
   <meta name="robots" content="noindex, nofollow">
   <title>404 | Bolotnaya Online</title>
   <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #071012;
-      --panel: #f7f3e8;
-      --text: #14211f;
-      --muted: #5b6b67;
-      --accent: #2f7d70;
-      --warm: #c8832f;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(111, 210, 194, 0.25), transparent 30%),
-        linear-gradient(135deg, var(--bg), #20352f);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-    }
-
-    main {
-      width: min(100%, 900px);
-      position: relative;
-      overflow: hidden;
-      border-radius: 30px;
-      background: var(--panel);
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
-    }
-
-    main::after {
-      content: "";
-      position: absolute;
-      right: -110px;
-      bottom: -150px;
-      width: 420px;
-      height: 420px;
-      border: 1px solid rgba(47, 125, 112, 0.28);
-      border-radius: 50%;
-      box-shadow: inset 0 0 0 64px rgba(47, 125, 112, 0.08), inset 0 0 0 128px rgba(47, 125, 112, 0.06);
-    }
-
-    section {
-      position: relative;
-      z-index: 1;
-      max-width: 680px;
-      padding: clamp(32px, 7vw, 72px);
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font: 800 13px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 11ch;
-      margin: 0 0 16px;
-      font-size: clamp(42px, 9vw, 84px);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.55;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .button {
-      min-height: 46px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border: 1px solid rgba(20, 33, 31, 0.14);
-      border-radius: 999px;
-      font-weight: 800;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.52);
-    }
-
-    .button.primary {
-      border-color: transparent;
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .en {
-      margin-top: 20px;
-      font-size: 15px;
-    }
-
-    .en a {
-      color: var(--warm);
-      font-weight: 800;
-      text-underline-offset: 3px;
-    }
-
-    @media (max-width: 560px) {
-      body {
-        padding: 14px;
-      }
-
-      main {
-        border-radius: 22px;
-      }
-
-      .button {
-        width: 100%;
-      }
+    /* Standalone 404 for unknown paths (served by nginx). Same look as the site:
+       1136px container, serif headings, 18px cards, 12px buttons, light/dark. */
+    :root { color-scheme: light dark; --bg: #f5f5f5; --entry: #fff; --primary: #1e1e1e; --secondary: #6b6b6b; --border: #e6e6e6; --acc: #2a6a6b; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #1d1e20; --entry: #2e2e33; --primary: #dadadb; --secondary: #9b9c9d; --border: #333; --acc: #6fbfb0; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--primary); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    header { border-bottom: 1px solid var(--border); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { font-weight: 700; font-size: 1.15rem; color: var(--primary); text-decoration: none; }
+    nav a { color: var(--secondary); text-decoration: none; margin-left: 28px; }
+    nav a:hover { color: var(--primary); }
+    main .wrap { padding-top: 64px; padding-bottom: 96px; }
+    .card { background: var(--entry); border: 1px solid var(--border); border-radius: 18px; padding: 40px; max-width: 760px; }
+    .kicker { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--secondary); }
+    h1 { margin: 0 0 12px; font: 700 44px/1.15 "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
+    p { margin: 0 0 24px; color: var(--secondary); max-width: 56ch; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 12px; border: 1px solid var(--border); color: var(--primary); text-decoration: none; font-weight: 600; }
+    .btn--primary { background: var(--primary); color: var(--bg); border-color: transparent; }
+    @media (max-width: 768px) {
+      .wrap { padding: 0 14px; }
+      nav a { margin-left: 16px; }
+      main .wrap { padding-top: 32px; }
+      .card { padding: 24px; }
+      h1 { font-size: 34px; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <section aria-labelledby="title">
-      <p class="eyebrow">404 / GitHub Pages fallback</p>
-      <h1 id="title">Страница потерялась у Болотной</h1>
-      <p>Возможно, ссылка устарела или раздел был перенесён. Вернитесь на главную, откройте камеру или посмотрите историю района.</p>
-      <nav class="actions" aria-label="Навигация по сайту">
-        <a class="button primary" href="/ru/">На главную</a>
-        <a class="button" href="/ru/cameras/ul-serafimovicha/">Камера</a>
-        <a class="button" href="/ru/history/">История</a>
-      </nav>
-      <p class="en">English: <a href="/en/">open the English home page</a>.</p>
-    </section>
-  </main>
+  <header><div class="wrap">
+    <a class="logo" href="/ru/" data-ru="/ru/" data-en="/en/">Bolotnaya Online</a>
+    <nav>
+      <a href="/ru/cameras/ul-serafimovicha/" data-en="/en/cameras/serafimovich/" data-t-en="Camera">Камера</a>
+      <a href="/ru/history/" data-en="/en/history/" data-t-en="History">История</a>
+      <a href="/ru/galleries/" data-en="/en/galleries/" data-t-en="Photos">Фото</a>
+    </nav>
+  </div></header>
+  <main><div class="wrap">
+    <div class="card">
+      <p class="kicker" data-t-en="Error 404">Ошибка 404</p>
+      <h1 data-t-en="Page not found">Страница не найдена</h1>
+      <p data-t-en="The link may be outdated. The live camera, the history of Bolotnaya Square and the photo galleries are one click away.">Возможно, ссылка устарела. Камера в эфире, история Болотной площади и фотогалереи — в один клик.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="/ru/cameras/ul-serafimovicha/" data-en="/en/cameras/serafimovich/" data-t-en="Watch the camera">Смотреть камеру</a>
+        <a class="btn" href="/ru/" data-en="/en/" data-t-en="Home">На главную</a>
+      </div>
+    </div>
+  </div></main>
+  <script>
+    (function () {
+      if (location.pathname.indexOf('/en/') !== 0) return;
+      document.documentElement.lang = 'en';
+      document.title = '404 | Bolotnaya Online';
+      document.querySelectorAll('[data-en]').forEach(function (a) { a.setAttribute('href', a.getAttribute('data-en')); });
+      document.querySelectorAll('[data-t-en]').forEach(function (e) { e.textContent = e.getAttribute('data-t-en'); });
+    })();
+  </script>
 </body>
 </html>

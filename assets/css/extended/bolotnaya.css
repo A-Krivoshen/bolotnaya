@@ -3528,3 +3528,31 @@ body:has(.home--2026) .main {
     padding-right: 0;
   }
 }
+
+/* Site-wide style rhythm (audit 2026-10-20), reference = camera page:
+   cards 18px, media and small items inside 12px, buttons 12px. */
+.main .camera-stage,
+.main .camera-preview,
+.main .explore-card,
+.main .post-teaser,
+.main .gallery-card,
+.main .blog-card,
+.main .post-entry,
+.main .sp-card,
+.main .history-now__card,
+.main .history-recon__card,
+.main .history-albums__card,
+.main .hero-status,
+.main .not-found-page__panel {
+  border-radius: 18px;
+}
+.main .gallery-item,
+.main .faq-item {
+  border-radius: 12px;
+}
+.main .gallery-item { overflow: hidden; }
+.main .not-found-page__button { border-radius: 12px; }
+/* Gallery title matches every other section title (44px), not 52px. */
+@media (min-width: 769px) {
+  .main .galleries-page h1 { font-size: 44px; }
+}
