@@ -3432,3 +3432,31 @@ h2,
   .footer-col a { min-height: 40px; }
   .footer-col { gap: 0.1rem; }
 }
+
+/* Home at full site width (owner, 2026-10-20): same 1200px container as camera/history,
+   content 1136px at 1440, aligned with the footer. Was: .main capped at 960px plus
+   extra .home side padding, so sections were 848px. */
+body:has(.home--2026) .main {
+  max-width: 1200px;
+}
+.home.home--2026 {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 769px) {
+  body:has(.home--2026) .main {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+.home--2026 .camera-preview,
+.home--2026 .faq-list {
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.home--2026 .camera-preview-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
