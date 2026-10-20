@@ -4,7 +4,14 @@
   const hlsInstances = new Map();
   const errorStart = new Map();
   const timers = new Map();
+  // Reconnect backoff (2s, 4s, 8s ... capped at 60s), reset once the stream plays.
   const reconnectDelayMs = 2000;
+  const reconnectMaxMs = 60000;
+  const failCounts = new Map();
+  function reconnectDelay(key){
+    const n = failCounts.get(key) || 0;
+    return Math.min(reconnectDelayMs * Math.pow(2, n), reconnectMaxMs);
+  }
   const lang = (document.documentElement.getAttribute('lang') || 'ru').toLowerCase().startsWith('en') ? 'en' : 'ru';
   const messages = {
     ru: {
@@ -49,7 +56,7 @@
   function updateCountdown(key){
     const start = errorStart.get(key) || Date.now();
     const elapsed = (Date.now() - start)/1000;
-    return Math.max((reconnectDelayMs / 1000) - elapsed, 0);
+    return Math.max((reconnectDelay(key) / 1000) - elapsed, 0);
   }
 
   function clearTimer(key){
@@ -86,6 +93,7 @@
       if (seconds <= 0){
         clearTimer(key);
         errorStart.delete(key);
+        failCounts.set(key, (failCounts.get(key) || 0) + 1);
         setup(video);
       }
     }, 1000));
@@ -96,6 +104,8 @@
     const video = pane && pane.querySelector('video');
     if (video) disarmBuffer(video);
     setStatus(status, msg('connected'), 'connected');
+    failCounts.delete(key);
+    signFails = 0;
     clearTimer(key);
     errorStart.delete(key);
   }
@@ -225,6 +235,9 @@
   }
 
   let signFlight = null;
+  // Same backoff for the ticket/sign requests themselves (hls.js loader calls too).
+  let signFails = 0;
+  let signRetryAt = 0;
 
   async function ensureSiteTicket(){
     const res = await fetch('/cam-ticket', {
@@ -239,6 +252,7 @@
     if (!path) return false;
     if (camToken.sig && camToken.exp * 1000 - Date.now() > 120000) return true;
     if (signFlight) return signFlight;
+    if (Date.now() < signRetryAt) return false;
     signFlight = (async function(){
       // Network/adblock failures resolve to false (caller retries) instead of an
       // uncaught "TypeError: Failed to fetch" in the console.
@@ -264,7 +278,13 @@
       }
     })();
     try {
-      return await signFlight;
+      const ok = await signFlight;
+      if (ok) { signFails = 0; signRetryAt = 0; }
+      else {
+        signRetryAt = Date.now() + Math.min(reconnectDelayMs * Math.pow(2, signFails), reconnectMaxMs) - 250;
+        signFails++;
+      }
+      return ok;
     } finally {
       signFlight = null;
     }
