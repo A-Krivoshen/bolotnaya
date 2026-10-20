@@ -395,3 +395,31 @@ body:has(.camera-page) .main {
 }
 .camera-page .cam-status .cam-status__text { font-size: 12px !important; }
 .camera-page .buffer-meter__label { font-size: 12px; }
+
+/* Header variant A (desktop only): one info bar, same width/radius as the player card. */
+@media (min-width: 769px) {
+  .camera-page .camera-toolbar {
+    flex-wrap: nowrap; gap: 24px; margin: 0 0 12px;
+    padding: 12px 20px; border: 1px solid var(--border); border-radius: 18px;
+    background: var(--entry);
+  }
+
+  .camera-page .camera-toolbar .bw {
+    display: flex; flex-direction: row; align-items: center; gap: 18px;
+    min-width: 0; padding: 0; background: none; border: 0; box-shadow: none; border-radius: 0;
+    color: var(--primary);
+  }
+  .camera-page .camera-toolbar .bw__place { color: #D9A441; }
+  .camera-page .camera-toolbar .bw__days {
+    border-top: 0; padding-top: 0; padding-left: 18px; gap: 14px;
+    border-left: 1px solid var(--border);
+  }
+  .camera-page .camera-toolbar .bw__day { flex: 0 0 auto; flex-direction: row; gap: 6px; font-size: 13px; }
+  .camera-page .camera-toolbar .bw__dname { color: var(--secondary); }
+  .camera-page .camera-facts { align-items: center; gap: 6px 16px; font-size: 14px; }
+  .camera-page .camera-facts__live .cam-status {
+    padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+    background: rgba(255,255,255,.04);
+  }
+
+}
