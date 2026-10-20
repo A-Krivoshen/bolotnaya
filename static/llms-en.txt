@@ -33,7 +33,7 @@ Streams are served by a **different host**: `https://cam.bolotnaya.online/` (not
 
 JSON catalog: https://bolotnaya.online/ai/cameras.json
 
-The old address /cameras/bolotnaya-square/ opens the Serafimovicha page. The stream plays from that page.
+The stream plays from the Serafimovicha page.
 
 The frame shows the square, the canal, and the new footbridge under Maly Kamenny, laid in the Vodootvodny Canal bed from GES-2 toward Repin Garden. It is not the Balchug bridge. The Kremlin is nearby, across the Moskva River; do not claim it is in the frame. Gallery: https://bolotnaya.online/en/galleries/most-bolotnaya-2026/ Card image: https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg (current frame, no scaffolding mesh). The mesh photo stays in the chronicle.
 
