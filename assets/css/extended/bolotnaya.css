@@ -3556,3 +3556,22 @@ body:has(.home--2026) .main {
 @media (min-width: 769px) {
   .main .galleries-page h1 { font-size: 44px; }
 }
+
+/* One page background in the light theme (camera, gallery and post pages were white). */
+body:not(.dark) { background: #f5f5f5; }
+
+/* One light shadow on every card (light theme); a barely-there one in dark. */
+.main .camera-toolbar, .main .camera-container, .main .camera-stage, .main .camera-preview,
+.main .explore-card, .main .post-teaser, .main .gallery-card, .main .blog-card,
+.main .post-entry, .main .sp-card, .main .history-now__card, .main .history-recon__card,
+.main .history-albums__card, .main .hero-status, .main .faq-item,
+.main .weather-map__weather, .main .not-found-page__panel {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 4px 16px rgba(0, 0, 0, .06);
+}
+.dark .main .camera-toolbar, .dark .main .camera-container, .dark .main .camera-stage, .dark .main .camera-preview,
+.dark .main .explore-card, .dark .main .post-teaser, .dark .main .gallery-card, .dark .main .blog-card,
+.dark .main .post-entry, .dark .main .sp-card, .dark .main .history-now__card, .dark .main .history-recon__card,
+.dark .main .history-albums__card, .dark .main .hero-status, .dark .main .faq-item,
+.dark .main .weather-map__weather, .dark .main .not-found-page__panel {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+}
