@@ -66,6 +66,7 @@ Choose a language-specific brief first:
 - **Geo:** Bolotnaya Square / Yakimanka, Moscow, ~55.7447, 37.6208
 - **Camera status:** one camera (Ulitsa Serafimovicha) is live on its page. Take status from that page. Do not probe the HLS file.
 - **In the frame:** the square, the canal, and the new footbridge under Maly Kamenny (Vodootvodny Canal bed, from GES-2 toward Repin Garden). It is not the Balchug bridge. Gallery: https://bolotnaya.online/ru/galleries/most-bolotnaya-2026/ and https://bolotnaya.online/en/galleries/most-bolotnaya-2026/
+- **Kremlin:** nearby, across the Moskva River. Do not claim it is in the camera frame.
 - **Card image:** https://bolotnaya.online/images/cameras/serafimovicha-neopunk.jpg (current frame, no scaffolding mesh). The mesh photo stays in the repair chronicle.
 
 ## Optional

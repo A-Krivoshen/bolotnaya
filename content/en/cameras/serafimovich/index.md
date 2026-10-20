@@ -16,7 +16,7 @@ sitemap:
   changefreq: daily
 faq:
   - q: "Where is the camera?"
-    a: "On the House on the Embankment, on the Ulitsa Serafimovicha side. It looks down at Bolotnaya Square, Repin Garden and the Vodootvodny Canal. The camera that used to stand on the square itself stays off."
+    a: "On the House on the Embankment, on the Ulitsa Serafimovicha side. It looks down at Bolotnaya Square, Repin Garden and the Vodootvodny Canal."
   - q: "What can I see in the frame?"
     a: "Repin Garden with its fountain and paths, the Vodootvodny Canal, Maly Kamenny Bridge with the new footbridge beneath it, Luzhkov (Tretyakovsky) Bridge further along the canal, the street by the garden and the Kotelnicheskaya Embankment tower on the skyline."
   - q: "Can I see the Kremlin?"

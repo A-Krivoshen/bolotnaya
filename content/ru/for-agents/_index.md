@@ -37,7 +37,7 @@ outputs: ["HTML"]
 
 Одна камера: ул. Серафимовича — страница [/ru/cameras/ul-serafimovicha/](/ru/cameras/ul-serafimovicha/), поток `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-Второй камеры сейчас нет. Старый адрес площади открывает эту страницу. Эфир идёт со страницы камеры. В кадре площадь, канал и новый мостик под Малым Каменным (русло Водоотводного канала, от ГЭС-2 к Репинскому скверу; это не мост на Балчуг). Галерея мостика: [/ru/galleries/most-bolotnaya-2026/](/ru/galleries/most-bolotnaya-2026/). Карточка: [/images/cameras/serafimovicha-neopunk.jpg](/images/cameras/serafimovicha-neopunk.jpg).
+Старый адрес площади (/cameras/bolotnaya-square/) открывает эту страницу. Эфир идёт со страницы камеры. В кадре площадь, канал и новый мостик под Малым Каменным (русло Водоотводного канала, от ГЭС-2 к Репинскому скверу; это не мост на Балчуг). Галерея мостика: [/ru/galleries/most-bolotnaya-2026/](/ru/galleries/most-bolotnaya-2026/). Карточка: [/images/cameras/serafimovicha-neopunk.jpg](/images/cameras/serafimovicha-neopunk.jpg).
 
 Пост про июньское отключение: [/ru/posts/cameras-maintenance-2026-06-02/](/ru/posts/cameras-maintenance-2026-06-02/). Хроника ремонта: [/ru/remont-lesa-2026/](/ru/remont-lesa-2026/). Статус эфира берите со страницы камеры, не по прямому запросу к файлу HLS.
 

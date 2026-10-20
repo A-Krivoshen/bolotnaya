@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated": "2026-10-09",
+  "updated": "2026-10-20",
   "site": "https://bolotnaya.online/",
   "stream_host": "https://cam.bolotnaya.online/",
   "protocol": "HLS",
   "status": "live",
   "status_note": {
-    "ru": "С 8 октября 2026 одна камера, ул. Серафимовича, в эфире. В кадре площадь, канал и мостик. Камера на самой площади не работает.",
-    "en": "Since 8 October 2026 one camera, Ulitsa Serafimovicha, is live. The square, the canal and the footbridge are in the frame. The camera on the square itself stays off."
+    "ru": "С 8 октября 2026 одна камера, ул. Серафимовича, в эфире. В кадре площадь, канал и мостик. Кремль рядом, на другом берегу Москвы-реки; в кадре его не обещаем.",
+    "en": "Since 8 October 2026 one camera, Ulitsa Serafimovicha, is live. The square, the canal and the footbridge are in the frame. The Kremlin is nearby, across the Moskva River; it is not promised in the frame."
   },
   "status_posts": {
     "ru": "https://bolotnaya.online/ru/posts/camera-live-2026-10-08/",
@@ -40,7 +40,7 @@
   "retired": [
     {
       "id": "bolotnaya-square",
-      "note": "Second camera is not in use.",
+      "note": "Old address. It opens the Ulitsa Serafimovicha camera page.",
       "redirect": {
         "ru": "https://bolotnaya.online/ru/cameras/ul-serafimovicha/",
         "en": "https://bolotnaya.online/en/cameras/serafimovich/"

@@ -37,7 +37,7 @@ Video is served by a **different host**: `https://cam.bolotnaya.online/`. This h
 
 One camera: Ulitsa Serafimovicha — page [/en/cameras/serafimovich/](/en/cameras/serafimovich/), stream `https://cam.bolotnaya.online/boloto_new/index.m3u8`.
 
-There is no second camera. The old square address opens this page. The stream plays from the camera page. The frame shows the square, the canal, and the new footbridge under Maly Kamenny (Vodootvodny Canal bed, from GES-2 toward Repin Garden; not the Balchug bridge). Footbridge gallery: [/en/galleries/most-bolotnaya-2026/](/en/galleries/most-bolotnaya-2026/). Card: [/images/cameras/serafimovicha-neopunk.jpg](/images/cameras/serafimovicha-neopunk.jpg).
+The old square address (/cameras/bolotnaya-square/) opens this page. The stream plays from the camera page. The frame shows the square, the canal, and the new footbridge under Maly Kamenny (Vodootvodny Canal bed, from GES-2 toward Repin Garden; not the Balchug bridge). Footbridge gallery: [/en/galleries/most-bolotnaya-2026/](/en/galleries/most-bolotnaya-2026/). Card: [/images/cameras/serafimovicha-neopunk.jpg](/images/cameras/serafimovicha-neopunk.jpg).
 
 June outage post: [/en/posts/cameras-maintenance-2026-06-02/](/en/posts/cameras-maintenance-2026-06-02/). Repair chronicle: [/en/remont-lesa-2026/](/en/remont-lesa-2026/). Take live status from the camera page, not from a direct request to the HLS file.
 
