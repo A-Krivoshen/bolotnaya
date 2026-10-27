@@ -185,6 +185,19 @@
   color: #c5d4c4;
 }
 
+.camera-facts__viewers {
+  color: color-mix(in srgb, var(--primary) 78%, var(--secondary));
+  white-space: nowrap;
+}
+
+.camera-facts__viewers[hidden] {
+  display: none !important;
+}
+
+.cam-viewers__text {
+  font-variant-numeric: tabular-nums;
+}
+
 .cam-status {
   display: inline-flex;
   align-items: center;

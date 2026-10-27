@@ -11,7 +11,7 @@
   </header>
 
   <section class="post-content">
-    <link rel="stylesheet" href="/css/camera-single.css?v=19">
+    <link rel="stylesheet" href="/css/camera-single.css?v=20">
 
     <div class="camera-shell">
 
@@ -28,6 +28,9 @@
           <span class="cam-status__dot" aria-hidden="true"></span>
           <span class="cam-status__text">{{ if $isRu }}Проверка…{{ else }}Checking…{{ end }}</span>
         </span>
+      </li>
+      <li class="camera-facts__viewers" hidden data-cam-viewers data-stream-url="{{ $streamURL }}" aria-live="polite">
+        <span class="cam-viewers__text"></span>
       </li>
     </ul>
     {{ end }}
@@ -90,5 +93,6 @@
 <script src="/js/hls-init.js?v=20261020b"></script>
 <script src="/js/cam-ad.js?v=6"></script>
 <script src="/js/cam-status.js?v=2" defer></script>
+<script src="/js/cam-viewers.js?v=1" defer></script>
 {{ end }}
 {{ end }}
