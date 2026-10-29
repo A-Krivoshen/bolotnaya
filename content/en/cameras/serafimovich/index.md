@@ -1,7 +1,8 @@
 ---
-title: "Bolotnaya Square webcam from Ulitsa Serafimovicha"
+title: "Bolotnaya Square Live Webcam, Moscow — Serafimovicha St"
+seo_title: "Bolotnaya Square Live Webcam, Moscow — Serafimovicha St"
 translationKey: "camera-serafimovicha"
-description: "Live webcam of Bolotnaya Square from Ulitsa Serafimovicha: the square, the canal and the footbridge."
+description: "Watch Bolotnaya Square in Moscow live: webcam from Ulitsa Serafimovicha over Repin Garden, the Vodootvodny Canal and Luzhkov Bridge."
 image: "/images/cameras/serafimovicha-neopunk.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 aliases:

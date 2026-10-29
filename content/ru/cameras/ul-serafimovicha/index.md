@@ -1,12 +1,14 @@
 ---
-title: "Вебкамера Болотной площади с ул. Серафимовича"
+title: "Болотная площадь онлайн — веб-камера Москвы в эфире"
+seo_title: "Болотная площадь онлайн — веб-камера Москвы в эфире"
 translationKey: "camera-serafimovicha"
-description: "Вебкамера Болотной площади онлайн с ул. Серафимовича: площадь, канал и мостик."
+description: "Болотная площадь сейчас: веб-камера Москвы в прямом эфире с ул. Серафимовича. Репинский сквер, Водоотводный канал и Лужков мост онлайн."
 image: "/images/cameras/serafimovicha-neopunk.jpg"
 stream_url: "https://cam.bolotnaya.online/boloto_new/index.m3u8"
 aliases:
   - /cameras/bolotnaya-square/
   - /online-camera/
+  - /onlajn-kamera/
 keywords:
   - вебкамера Болотной площади
   - онлайн камера Болотная

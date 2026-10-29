@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
 {{- /* Home title matches the query people type. Inner pages keep their own title. */}}
-<title>{{ if .IsHome }}{{ if eq site.Language.Lang "ru" }}Вебкамера Болотной площади | Bolotnaya Online{{ else }}Bolotnaya Square live webcam | Bolotnaya Online{{ end }}{{ else }}{{ if .Title }}{{ .Title }} | Bolotnaya Online{{ else }}{{ site.Title }}{{ end }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ if eq site.Language.Lang "ru" }}Вебкамера Болотной площади | Bolotnaya Online{{ else }}Bolotnaya Square live webcam | Bolotnaya Online{{ end }}{{ else }}{{ with .Params.seo_title }}{{ . }}{{ else }}{{ if .Title }}{{ .Title }} | Bolotnaya Online{{ else }}{{ site.Title }}{{ end }}{{ end }}{{ end }}</title>
 
 {{- /* robots, description, canonical, hreflang: layouts/partials/seo.html (via extend_head) */}}
 {{- if site.Params.analytics.google.SiteVerificationTag }}
