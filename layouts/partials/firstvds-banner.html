@@ -9,16 +9,35 @@
 </div>
 {{ printf `<script>
 (function (d, w) {
+    function fit() {
+        var slots = d.querySelectorAll(".fvds-slot");
+        for (var i = 0; i < slots.length; i++) {
+            var slot = slots[i];
+            var box = slot.firstElementChild;
+            var avail = slot.clientWidth;
+            if (!box || !avail) continue;
+            var fullW = box.offsetWidth || 600;
+            var fullH = box.offsetHeight || 90;
+            var scale = Math.min(1, avail / fullW);
+            box.style.transformOrigin = "top left";
+            box.style.transform = "scale(" + scale + ")";
+            box.style.marginLeft = avail > fullW ? ((avail - fullW) / 2) + "px" : "0";
+            slot.style.height = (fullH * scale) + "px";
+        }
+    }
+    fit();
+    w.addEventListener("resize", fit);
+    w.addEventListener("load", fit);
     var n = d.getElementsByTagName("script")[0],
         s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
+        place = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
     s.src = %q;
     if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
+        d.addEventListener("DOMContentLoaded", place, false);
     } else {
-        f();
+        place();
     }
 })(document, window);
 </script>` $src | safeHTML }}
