@@ -16,7 +16,8 @@
             var box = slot.firstElementChild;
             var avail = slot.clientWidth;
             if (!box || !avail) continue;
-            var fullW = box.offsetWidth || 600;
+            var declared = parseFloat(w.getComputedStyle(box).width);
+            var fullW = (declared > 0 ? declared : box.offsetWidth) || 600;
             var fullH = box.offsetHeight || 90;
             var scale = Math.min(1, avail / fullW);
             box.style.transformOrigin = "top left";

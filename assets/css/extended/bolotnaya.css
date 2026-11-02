@@ -13,11 +13,11 @@ button#theme-toggle[data-mode="auto"] #theme-auto {
 
 
 /* --- Support + Partner block --- */
-.sp-wrap{margin:16px 0}
-.sp-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width: 860px){.sp-grid{grid-template-columns:1fr}}
+.sp-wrap{margin:16px 0;min-width:0;max-width:100%}
+.sp-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));min-width:0;max-width:100%}
+@media (max-width: 860px){.sp-grid{grid-template-columns:minmax(0,1fr)}}
 
-.sp-card{border:1px solid var(--border);border-radius:14px;padding:14px;background:var(--entry)}
+.sp-card{border:1px solid var(--border);border-radius:14px;padding:14px;background:var(--entry);min-width:0;max-width:100%}
 .sp-title{font-size:16px;font-weight:700;margin:0 0 6px}
 .sp-text{font-size:14px;line-height:1.35;opacity:.88;margin:0 0 10px}
 .sp-note{font-size:13px;opacity:.78}
@@ -27,10 +27,15 @@ button#theme-toggle[data-mode="auto"] #theme-auto {
   align-items:center;
   justify-content:center;
   width:100%;
+  max-width:100%;
+  box-sizing:border-box;
   padding:12px 14px;
   border-radius:12px;
   font-weight:600;
   text-decoration:none;
+  text-align:center;
+  line-height:1.25;
+  white-space:normal;
   border:1px solid var(--border);
   transition:transform .08s ease, box-shadow .12s ease, opacity .12s ease;
 }
@@ -70,9 +75,12 @@ button#theme-toggle[data-mode="auto"] #theme-auto {
 .fvds-slot{
   width: 100%;
   min-width: 0;
+  max-width: 100%;
   margin: 10px 0 12px;
   overflow: hidden;
   height: 90px;
+  /* The 600px frame must not set the card's min-content on a phone. */
+  contain: inline-size;
 }
 .fvds-slot > div{
   width: 600px !important;
