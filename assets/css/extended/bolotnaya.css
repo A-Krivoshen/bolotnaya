@@ -65,6 +65,8 @@ button#theme-toggle[data-mode="auto"] #theme-auto {
 .sp-banner{display:flex;justify-content:center;margin:10px 0 12px}
 .sp-banner__link{display:block;width:100%;max-width:970px}
 .sp-banner__img{display:block;width:100%;height:auto;border:0;border-radius:10px}
+.fvds-slot{display:flex;justify-content:center;width:100%;min-width:0;margin:10px 0 12px}
+.fvds-slot > div{max-width:100%}
 
 /* Minimal footer links keep tidy */
 .footer .footer-links {
@@ -161,7 +163,8 @@ button#theme-toggle[data-mode="auto"] #theme-auto {
 
 /* Keep partner banner from stretching beyond the camera block */
 .camera-shell .sp-banner__link,
-.camera-shell .partner-banner__link{max-width:970px}
+.camera-shell .partner-banner__link,
+.camera-shell .fvds-slot > div{max-width:100%}
 
 /* ============================================
    BOLOTNAYA ONLINE - Modern Urban Redesign

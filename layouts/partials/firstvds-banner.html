@@ -1,0 +1,24 @@
+{{- $lang := site.Language.Lang -}}
+{{- $id := site.Params.partner.div_id | default "fvds-partner-banner" -}}
+{{- $client := site.Params.partner.client_id | default "1168822" -}}
+{{- $w := site.Params.partner.width | default 600 -}}
+{{- $h := site.Params.partner.height | default 90 -}}
+{{- $src := printf "https://morp.firstvds.ru/v2019/get-wrapper?divID=%s&clientID=%s&width=%v&height=%v" $id $client $w $h -}}
+<div class="fvds-slot" aria-label="{{ if eq $lang "ru" }}FirstVDS — партнёр трансляции{{ else }}FirstVDS, stream partner{{ end }}">
+  <div id="{{ $id }}" style="width:{{ $w }}px;height:{{ $h }}px;"></div>
+</div>
+{{ printf `<script>
+(function (d, w) {
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = %q;
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+        f();
+    }
+})(document, window);
+</script>` $src | safeHTML }}

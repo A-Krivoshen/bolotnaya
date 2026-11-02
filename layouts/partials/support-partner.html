@@ -1,8 +1,5 @@
 {{- $lang := .Site.Language.Lang -}}
 {{- $yoo := site.Params.support.yoomoney_url | default "" -}}
-{{- $purl := site.Params.partner.url | default "" -}}
-{{- $pimg := site.Params.partner.banner_img | default "" -}}
-{{- $palt := site.Params.partner.banner_alt | default "" -}}
 {{- $email := site.Params.contact.email | default "info@bolotnaya.online" -}}
 
 <div class="sp-wrap" aria-label="Support and partner">
@@ -39,21 +36,7 @@
         {{- if eq $lang "ru" -}}Партнёр трансляции{{- else -}}Stream partner{{- end -}}
       </div>
 
-      {{- if and $purl $pimg -}}
-        <div class="sp-banner">
-          <a href="{{ $purl }}" target="_blank" rel="nofollow sponsored noopener" class="sp-banner__link">
-            <img src="{{ $pimg }}" alt="{{ if $palt }}{{ $palt }}{{ else }}Partner{{ end }}" loading="lazy" decoding="async" class="sp-banner__img" />
-          </a>
-        </div>
-      {{- else -}}
-        <div class="sp-text">
-          {{- if eq $lang "ru" -}}
-            Здесь может быть ваш логотип и ссылка.
-          {{- else -}}
-            Your logo and link can be here.
-          {{- end -}}
-        </div>
-      {{- end -}}
+      {{ partial "firstvds-banner.html" . }}
 
       <a class="sp-btn sp-btn--secondary" href="{{ "/partner/" | relLangURL }}">
         {{- if eq $lang "ru" -}}Стать партнёром{{- else -}}Become a partner{{- end -}}
