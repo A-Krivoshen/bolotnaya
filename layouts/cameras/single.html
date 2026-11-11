@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $streamURL := .Params.stream_url | default .Params.hls_url }}
+{{ $masterURL := .Params.stream_master_url | default site.Params.cameraMasterUrl | default "" }}
 {{ $isRu := eq .Site.Language.Lang "ru" }}
 {{ $offline := site.Params.camerasOffline }}
 {{ $still := site.Params.camerasOfflineStill | default .Params.image | default "/images/placeholders/camera.svg" }}
@@ -20,7 +21,7 @@
 
     {{ if not $offline }}
     <ul class="camera-facts">
-      <li>{{ if $isRu }}Видео, 1440p{{ else }}Video, 1440p{{ end }}</li>
+      <li data-cam-quality>{{ if $isRu }}Видео, 1440p{{ else }}Video, 1440p{{ end }}</li>
       <li>20 fps</li>
       <li>MSK</li>
       <li class="camera-facts__live">
@@ -61,7 +62,7 @@
       </div>
       {{ end }}
       <div class="tab-pane">
-        <video class="hls-player" data-hls="{{ $streamURL }}" controls muted playsinline></video>
+        <video class="hls-player" data-hls="{{ $streamURL }}"{{ with $masterURL }} data-hls-master="{{ . }}"{{ end }} controls muted playsinline></video>
       </div>
       <div class="status">{{ if $isRu }}Подключение…{{ else }}Connecting…{{ end }}</div>
       <div class="cam-ad">
@@ -90,7 +91,7 @@
 
 {{ if not $offline }}
 <script src="/js/hls.min.js"></script>
-<script src="/js/hls-init.js?v=20261020b"></script>
+<script src="/js/hls-init.js?v=20261111b"></script>
 <script src="/js/cam-ad.js?v=6"></script>
 <script src="/js/cam-status.js?v=2" defer></script>
 <script src="/js/cam-viewers.js?v=1" defer></script>
