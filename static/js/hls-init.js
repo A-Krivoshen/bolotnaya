@@ -23,6 +23,7 @@
       connected: 'Подключено',
       buffering: 'Буферизация…',
       bufferingShort: 'Буферизация',
+      matchingQuality: 'Подбираем качество под скорость вашего интернета…',
       streamUnavailable: 'Поток недоступен',
       unsupported: 'HLS не поддерживается в этом браузере',
       adblock: 'Отключите блокировщик рекламы для просмотра трансляции.',
@@ -33,6 +34,7 @@
       connected: 'Connected',
       buffering: 'Buffering…',
       bufferingShort: 'Buffering',
+      matchingQuality: 'Matching quality to your connection speed…',
       streamUnavailable: 'Stream unavailable',
       unsupported: 'HLS is not supported in this browser',
       adblock: 'Disable your ad blocker to view the stream.',
@@ -107,7 +109,10 @@
   function markConnected(key, pane, status){
     pane && pane.classList.add('loaded');
     const video = pane && pane.querySelector('video');
-    if (video) disarmBuffer(video);
+    // Keep the first-start overlay until a real playing event; MANIFEST_PARSED
+    // is earlier and is when hls.js is still probing bandwidth.
+    if (video && video.dataset.streamStarted === '1') disarmBuffer(video);
+    else if (video && video.dataset.buffering === '1') showMeter(video, Number(video.dataset.bufferPct || 0));
     setStatus(status, msg('connected'), 'connected');
     failCounts.delete(key);
     signFails = 0;
@@ -123,21 +128,35 @@
     box = document.createElement('div');
     box.className = 'buffer-meter';
     box.hidden = true;
-    box.innerHTML = '<span class="buffer-meter__pct">0%</span><span class="buffer-meter__bar"><span></span></span><span class="buffer-meter__label"></span>';
+    box.innerHTML = '<span class="buffer-meter__hint" hidden></span><span class="buffer-meter__pct">0%</span><span class="buffer-meter__bar"><span></span></span><span class="buffer-meter__label"></span>';
     pane.appendChild(box);
     return box;
+  }
+
+  function isPriming(video){
+    return !video || video.dataset.streamStarted !== '1';
   }
 
   function showMeter(video, pct){
     const box = bufferMeter(video);
     if (!box) return;
     const next = Math.max(0, Math.min(99, Math.round(pct)));
+    const priming = isPriming(video);
+    const hint = box.querySelector('.buffer-meter__hint');
     const num = box.querySelector('.buffer-meter__pct');
     const bar = box.querySelector('.buffer-meter__bar span');
     const label = box.querySelector('.buffer-meter__label');
+    box.classList.toggle('is-probing', priming);
+    if (hint) {
+      hint.hidden = !priming;
+      hint.textContent = priming ? msg('matchingQuality') : '';
+    }
     if (num) num.textContent = next + '%';
     if (bar) bar.style.width = next + '%';
-    if (label) label.textContent = msg('bufferingShort');
+    if (label) {
+      label.textContent = priming ? '' : msg('bufferingShort');
+      label.hidden = priming;
+    }
     box.hidden = false;
     const pane = video.closest('.tab-pane');
     if (pane) pane.classList.add('is-buffering');
@@ -214,6 +233,7 @@
     });
 
     video.addEventListener('playing', () => {
+      video.dataset.streamStarted = '1';
       const key = videoKey(video);
       const container = video.closest('.camera-container') || document;
       const status = container.querySelector('.status');
@@ -411,6 +431,7 @@
     bindQualityFromVideo(video);
     delete video.dataset.hlsMediaRetried;
     delete video.dataset.hlsNetRetried;
+    delete video.dataset.streamStarted;
     setStatus(status, msg('connecting'), '');
     armBuffer(video);
 
