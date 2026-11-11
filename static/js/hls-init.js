@@ -269,18 +269,16 @@
     return '';
   }
 
-  function highestLevelIndex(levels){
-    if (!levels || !levels.length) return -1;
-    let best = 0;
-    let bestH = -1;
-    for (let i = 0; i < levels.length; i++){
-      const h = Number(levels[i] && levels[i].height) || 0;
-      if (h >= bestH) {
-        bestH = h;
-        best = i;
+  // bits/s for hls.js abrEwmaDefaultEstimate. Network Information
+  // downlink is Mbps when the browser exposes it (Chrome/Android).
+  function defaultBandwidthEstimate(){
+    try {
+      const downlink = navigator.connection && navigator.connection.downlink;
+      if (typeof downlink === 'number' && isFinite(downlink) && downlink > 0) {
+        return downlink * 1e6;
       }
-    }
-    return best;
+    } catch (e) {}
+    return isMobileClient() ? 1.5e6 : 8e6;
   }
 
   function setQualityLabel(name){
@@ -431,17 +429,23 @@
     }
 
     if (window.Hls && window.Hls.isSupported()){
-      const mobile = isMobileClient();
       const hls = new window.Hls({
         // Stay a few finished segments behind the edge so a 4s target
         // has room to arrive on a shaky mobile link.
         liveSyncDurationCount: 5,
         lowLatencyMode: false,
-        // On a ~1136 px desktop player this would cap below 1440p.
-        capLevelToPlayerSize: mobile,
-        // Mobile starts on the lowest rung (720p). Desktop is set to
-        // the highest height in MANIFEST_PARSED; ABR may step down later.
-        startLevel: mobile ? 0 : -1,
+        // The on-page player is ~1136 px; capping by size would lock 720p.
+        capLevelToPlayerSize: false,
+        // Let hls.js pick the start rung from the bandwidth estimate.
+        // Do not set nextLevel/currentLevel/loadLevel: those disable ABR.
+        startLevel: -1,
+        autoLevelEnabled: true,
+        testBandwidth: true,
+        abrEwmaDefaultEstimate: defaultBandwidthEstimate(),
+        abrBandWidthFactor: 0.8,
+        abrBandWidthUpFactor: 0.6,
+        abrEwmaFastLive: 3,
+        abrEwmaSlowLive: 9,
         maxBufferLength: 60,
         maxMaxBufferLength: 120,
         liveBackBufferLength: 30,
@@ -468,13 +472,6 @@
       hls.attachMedia(video);
 
       hls.on(window.Hls.Events.MANIFEST_PARSED, function(){
-        if (!mobile) {
-          const best = highestLevelIndex(hls.levels);
-          if (best >= 0) {
-            hls.startLevel = best;
-            hls.nextLevel = best;
-          }
-        }
         video.play().catch(()=>{});
         markConnected(key, pane, status);
       });
