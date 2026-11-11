@@ -1,6 +1,11 @@
 
 (function(){
   const videos = document.querySelectorAll('video[data-hls]');
+  // ABR master playlist. Leave empty until DevOps publishes the URL, e.g.
+  // 'https://cam.bolotnaya.online/boloto_new/master.m3u8'.
+  // Prefer video[data-hls-master] / params.cameraMasterUrl when set.
+  // If the master is missing, the player falls back to data-hls (current 1440p).
+  const HLS_MASTER_URL = '';
   const hlsInstances = new Map();
   const errorStart = new Map();
   const timers = new Map();
@@ -94,6 +99,7 @@
         clearTimer(key);
         errorStart.delete(key);
         failCounts.set(key, (failCounts.get(key) || 0) + 1);
+        delete video.dataset.hlsUsingFallback;
         setup(video);
       }
     }, 1000));
@@ -181,6 +187,12 @@
     video.addEventListener('error', () => {
       const key = videoKey(video);
       if (hlsInstances.has(key)) return;
+      const fallback = video.getAttribute('data-hls') || '';
+      if (configuredMaster(video) && fallback && video.dataset.hlsUsingFallback !== '1') {
+        video.dataset.hlsUsingFallback = '1';
+        setup(video);
+        return;
+      }
       const container = video.closest('.camera-container') || document;
       const status = container.querySelector('.status');
       scheduleReconnect(key, video, status);
@@ -224,6 +236,56 @@
     } catch (e) {
       return '';
     }
+  }
+
+  function isMobileClient(){
+    try {
+      if (window.matchMedia && window.matchMedia('(max-width: 800px), (pointer: coarse)').matches) {
+        return true;
+      }
+    } catch (e) {}
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
+  }
+
+  function configuredMaster(video){
+    const fromAttr = ((video && video.getAttribute('data-hls-master')) || '').trim();
+    const fromConst = String(HLS_MASTER_URL || '').trim();
+    return fromAttr || fromConst;
+  }
+
+  function playerSrc(video){
+    if (video && video.dataset.hlsUsingFallback === '1') {
+      return video.getAttribute('data-hls') || '';
+    }
+    return configuredMaster(video) || (video && video.getAttribute('data-hls')) || '';
+  }
+
+  function qualityName(height){
+    const h = Number(height) || 0;
+    if (h >= 1260) return '1440p';
+    if (h >= 900) return '1080p';
+    if (h >= 600) return '720p';
+    if (h >= 400) return '480p';
+    if (h > 0) return Math.round(h) + 'p';
+    return '';
+  }
+
+  function setQualityLabel(name){
+    if (!name) return;
+    const prefix = lang === 'en' ? 'Video, ' : 'Видео, ';
+    document.querySelectorAll('[data-cam-quality]').forEach(function(el){
+      el.textContent = prefix + name;
+    });
+  }
+
+  function bindQualityFromVideo(video){
+    if (!video || video.dataset.qualityBound) return;
+    video.dataset.qualityBound = '1';
+    const sync = function(){
+      if (video.videoHeight) setQualityLabel(qualityName(video.videoHeight));
+    };
+    video.addEventListener('resize', sync);
+    video.addEventListener('loadedmetadata', sync);
   }
 
   function withSig(url){
@@ -311,7 +373,8 @@
   }
 
   async function setup(video){
-    const url = video.getAttribute('data-hls');
+    const url = playerSrc(video);
+    const fallbackUrl = video.getAttribute('data-hls') || '';
     const container = video.closest('.camera-container') || document;
     const status = container.querySelector('.status');
     const pane = video.closest('.tab-pane') || container;
@@ -324,6 +387,7 @@
 
     cleanup(key);
     bindVideoEvents(video);
+    bindQualityFromVideo(video);
     delete video.dataset.hlsMediaRetried;
     delete video.dataset.hlsNetRetried;
     setStatus(status, msg('connecting'), '');
@@ -331,6 +395,12 @@
 
     const signed = await ensureToken(url);
     if (!signed){
+      const canFallback = !!configuredMaster(video) && !!fallbackUrl && url !== fallbackUrl && video.dataset.hlsUsingFallback !== '1';
+      if (canFallback) {
+        video.dataset.hlsUsingFallback = '1';
+        setup(video);
+        return;
+      }
       disarmBuffer(video);
       setStatus(status, msg('streamUnavailable'), 'error');
       scheduleReconnect(key, video, status);
@@ -339,9 +409,14 @@
 
     if (window.Hls && window.Hls.isSupported()){
       const hls = new window.Hls({
-        // Three finished segments behind the edge. A 2s target sat inside
-        // the 5s GOP and the picture waited on a segment that was not ready.
-        liveSyncDurationCount: 3,
+        // Stay a few finished segments behind the edge so a 4s target
+        // has room to arrive on a shaky mobile link.
+        liveSyncDurationCount: 5,
+        lowLatencyMode: false,
+        capLevelToPlayerSize: true,
+        // Mobile starts on the lowest rung (720p once the master exists).
+        // Desktop lets hls.js pick from the bandwidth estimate.
+        startLevel: isMobileClient() ? 0 : -1,
         maxBufferLength: 60,
         maxMaxBufferLength: 120,
         liveBackBufferLength: 30,
@@ -372,9 +447,23 @@
         markConnected(key, pane, status);
       });
 
+      hls.on(window.Hls.Events.LEVEL_SWITCHED, function(event, data){
+        const level = hls.levels && data && hls.levels[data.level];
+        const name = qualityName(level && level.height);
+        if (name) setQualityLabel(name);
+      });
+
       hls.on(window.Hls.Events.ERROR, function(event, data){
         if (!data || !data.fatal) return;
         if (data.response && (data.response.code === 401 || data.response.code === 403)) dropToken();
+        // Only fall back if the master itself never loaded — not on a later media glitch.
+        const canFallback = !!configuredMaster(video) && !!fallbackUrl && url !== fallbackUrl && video.dataset.hlsUsingFallback !== '1' && !(hls.levels && hls.levels.length);
+        if (canFallback) {
+          video.dataset.hlsUsingFallback = '1';
+          destroyHls(key);
+          setup(video);
+          return;
+        }
         if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR && !video.dataset.hlsMediaRetried) {
           video.dataset.hlsMediaRetried = '1';
           try { hls.recoverMediaError(); return; } catch (e) {}
