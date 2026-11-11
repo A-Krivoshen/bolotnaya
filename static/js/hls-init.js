@@ -1,10 +1,9 @@
 
 (function(){
   const videos = document.querySelectorAll('video[data-hls]');
-  // ABR master playlist. Leave empty until DevOps publishes the URL, e.g.
-  // 'https://cam.bolotnaya.online/boloto_new/master.m3u8'.
-  // Prefer video[data-hls-master] / params.cameraMasterUrl when set.
-  // If the master is missing, the player falls back to data-hls (current 1440p).
+  // Optional hard-coded master. Prefer video[data-hls-master] from
+  // params.cameraMasterUrl. Empty here so config.toml stays the source.
+  // If the master is missing, the player falls back to data-hls (index.m3u8).
   const HLS_MASTER_URL = '';
   const hlsInstances = new Map();
   const errorStart = new Map();
@@ -288,12 +287,22 @@
     video.addEventListener('loadedmetadata', sync);
   }
 
+  // Add or refresh exp/sig without a second '?', and without dropping
+  // other query params (session= on MediaMTX variants, already-signed
+  // relative URIs in the rewritten master). Do not rebase relative URLs
+  // against the site origin — hls.js already resolves them vs the master.
   function withSig(url){
-    if (!camToken.sig) return url;
-    const u = new URL(url, window.location.href);
-    u.searchParams.set('exp', String(camToken.exp));
-    u.searchParams.set('sig', camToken.sig);
-    return u.toString();
+    if (!camToken.sig || !url) return url;
+    const hashAt = url.indexOf('#');
+    const hash = hashAt === -1 ? '' : url.slice(hashAt);
+    const main = hashAt === -1 ? url : url.slice(0, hashAt);
+    const qAt = main.indexOf('?');
+    const base = qAt === -1 ? main : main.slice(0, qAt);
+    const params = new URLSearchParams(qAt === -1 ? '' : main.slice(qAt + 1));
+    params.set('exp', String(camToken.exp));
+    params.set('sig', camToken.sig);
+    const qs = params.toString();
+    return base + (qs ? '?' + qs : '') + hash;
   }
 
   let signFlight = null;

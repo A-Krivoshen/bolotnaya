@@ -113,10 +113,9 @@ timeout = "60s"
   # true  = old behaviour: pubmatic probe, player hidden for ad-block users.
   # Ads (cam-ad.js, R-A-19616132-12) and the «Поддержать» button do not depend on this flag.
   antiblockWall = false
-  # ABR master playlist (720p + 1440p). Empty = current single 1440p stream.
-  # Fill in after DevOps publishes the URL, for example:
-  # cameraMasterUrl = "https://cam.bolotnaya.online/boloto_new/master.m3u8"
-  cameraMasterUrl = ""
+  # ABR master playlist (720p first, then 1440p). If it fails, the player
+  # falls back to stream_url (boloto_new/index.m3u8).
+  cameraMasterUrl = "https://cam.bolotnaya.online/boloto_new/master.m3u8"
   camerasOfflineStill = "/images/galleries/lesa-2026/camera-still-mesh.jpg"
   ShowReadingTime = false
   ShowBreadCrumbs = true
